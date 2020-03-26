@@ -24,6 +24,6 @@ public final class Palya {
 		
 	}
 	public static void MezokOsszekot() {
-		//asd
+		//
 	}
 }
