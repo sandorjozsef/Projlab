@@ -3,7 +3,7 @@ public class Application {
 
 	public static void main(String[] args) {
 		int useCaseID = Integer.parseInt(System.console().readLine());
-		
+		//ss
 	}
 	
 	private static void UseCase1() {
