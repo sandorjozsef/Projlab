@@ -1,19 +1,56 @@
+import java.util.ArrayList;
 
-public class Szereplo {
-	private Mezo aktMezo;
+public abstract class Szereplo {
 	
-	public void TesthoHozzaad(int novekmeny)
-	{
+	private Ruha ruha;
+	private ArrayList<Targy> targy;
+	private Mezo aktmezo;
+	
+	
+	public void Atlep(Mezo cel) {
 		
 	}
-	
-	public void Meghaltam()
-	{
+	public void Takarit() {
 		
 	}
+	public void TesthoHozzaad(int novekmeny) {
+		
+	}
+	public void Felvesz() {
+		
+	}
+	public void Hasznal(Targy targy) {
+		
+	}
+	public Mezo getMezo() {
+		
+		return aktmezo;
+	}
+	public void setMezo(Mezo mezo) {
+		aktmezo=mezo;
+	}
+	public void Eldob(Targy targy) {
+		
+	}
+	public void SpecKepesseg() {
+		
+	}
+	public void setLepesszam(int a) {
+		
+	}
+	public void Vegeztem() {
+		
+	}
+	public void setRuha(Ruha ruha) {
+		
+	}
+	public void Elazik() {
+		
+	}
+	public void Megszarit() {
+		
+	}
+	public void Meghaltam() {
 	
-	public Mezo getMezo()
-	{
-		return aktMezo;
 	}
 }
