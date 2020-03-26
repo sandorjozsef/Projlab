@@ -1,4 +1,4 @@
 
-public class Jegtabla {
+public abstract class Jegtabla {
 
 }

@@ -1,4 +1,4 @@
 
-public class Epulet {
+public abstract class Epulet {
 
 }
