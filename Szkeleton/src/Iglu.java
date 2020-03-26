@@ -1,4 +1,4 @@
 
-public class Iglu {
-
+public class Iglu extends Epulet{
+	
 }
