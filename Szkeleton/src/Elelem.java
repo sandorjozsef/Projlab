@@ -1,4 +1,7 @@
 
-public class Elelem {
-//tesztkomment
+public class Elelem implements Targy {
+	public void Kepesseg(Szereplo felhasznalo)
+	{
+		
+	}
 }
