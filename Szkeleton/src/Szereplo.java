@@ -21,7 +21,7 @@ public abstract class Szereplo {
 	}
 	//public Mezo getMezo() {
 		
-		
+		//a
 	//}
 	public void setMezo(Mezo mezo) {
 		
