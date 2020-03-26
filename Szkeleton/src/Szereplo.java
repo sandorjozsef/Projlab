@@ -27,7 +27,7 @@ public abstract class Szereplo {
 		return aktmezo;
 	}
 	public void setMezo(Mezo mezo) {
-		aktmezo=mezo;
+		aktmezo=mezo;  
 	}
 	public void Eldob(Targy targy) {
 		
