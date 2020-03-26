@@ -1,8 +1,9 @@
+import java.util.*;
 
 public class Palya {
-	private int maxJatekos;
 	private Szereplo aktJatekos;
-	private int alkatreszek;
+	private ArrayList<Szereplo> szereplok;
+	private ArrayList<Mezo> mezok;
 	
 	public void Leptet() {
 		
