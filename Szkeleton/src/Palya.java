@@ -20,6 +20,6 @@ public class Palya {
 		
 	}
 	public void MezokOsszekot() {
-		
+		//asd
 	}
 }
