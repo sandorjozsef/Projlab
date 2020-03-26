@@ -1,26 +1,29 @@
 import java.util.*;
 
-public class Palya {
-	private Szereplo aktJatekos;
-	private ArrayList<Szereplo> szereplok;
-	private ArrayList<Mezo> mezok;
+public final class Palya {
+	private static Szereplo aktJatekos;
+	private static ArrayList<Szereplo> szereplok;
+	private static ArrayList<Mezo> mezok;
 	
-	public void Leptet() {
+	private Palya() {
 		
 	}
-	public void Hovihar() {
+	public static void Leptet() {
 		
 	}
-	public void JatekVege(boolean nyert) {
+	public static void Hovihar() {
 		
 	}
-	public void JatekotKezd() {
+	public static void JatekVege(boolean nyert) {
 		
 	}
-	public void AlkatresztKezel(boolean bejelentheto) {
+	public static void JatekotKezd() {
 		
 	}
-	public void MezokOsszekot() {
-		//asd
+	public static void AlkatresztKezel(boolean bejelentheto) {
+		
+	}
+	public static void MezokOsszekot() {
+		//
 	}
 }
