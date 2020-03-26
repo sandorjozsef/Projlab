@@ -1,4 +1,12 @@
 
 public class AlapRuha {
-//tesztkomment AlapRuha
+	public void Elazik(Szereplo sz)
+	{
+		
+	}
+	
+	public void Megszarit()
+	{
+		
+	}
 }
