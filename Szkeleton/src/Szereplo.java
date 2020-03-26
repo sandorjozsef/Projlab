@@ -1,8 +1,11 @@
+import java.util.ArrayList;
 
 public abstract class Szereplo {
 	
-	protected int lepesszam;
-	protected int testho;
+	private Ruha ruha;
+	private ArrayList<Targy> targy;
+	private Mezo aktmezo;
+	
 	
 	public void Atlep(Mezo cel) {
 		
@@ -19,12 +22,12 @@ public abstract class Szereplo {
 	public void Hasznal(Targy targy) {
 		
 	}
-	//public Mezo getMezo() {
+	public Mezo getMezo() {
 		
-		//a
-	//}
+		return aktmezo;
+	}
 	public void setMezo(Mezo mezo) {
-		
+		aktmezo=mezo;
 	}
 	public void Eldob(Targy targy) {
 		
