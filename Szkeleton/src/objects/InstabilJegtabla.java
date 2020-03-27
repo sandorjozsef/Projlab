@@ -3,8 +3,11 @@ import java.util.ArrayList;
 
 public class InstabilJegtabla extends Jegtabla{
 	private ArrayList<Szereplo> alatta;
-	public InstabilJegtabla(Targy targy, int tb)
-	{this.targy=targy;}
+	public InstabilJegtabla(Targy targy, int tb){
+		super();
+		alatta = new ArrayList<Szereplo>();
+		this.targy=targy;
+	}
 	public boolean Befogad(Szereplo belepo, Mezo regi)
 	{
 		if(isSzomszed(regi)) {

@@ -1,6 +1,8 @@
 package objects;
 import java.util.ArrayList;
 
+import indent.Indentor;
+
 public abstract class Szereplo {
 	
 	protected Ruha ruha;
@@ -8,10 +10,15 @@ public abstract class Szereplo {
 	protected Mezo aktmezo;
 	
 	public void Atlep(Mezo cel) {
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent() + "Szereplo.Atlep()");
+		
+		
 		boolean siker=cel.Befogad(this, aktmezo);
 		if(siker) {
 			aktmezo.Kiad(this);
 		}
+		Indentor.degLevel();
 	}
 	public void Takarit() {
 		aktmezo.HoHozzaad(-1);

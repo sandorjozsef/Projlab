@@ -8,7 +8,7 @@ public class EszkimoIglutEpit implements UseCase{
 		StabilJegtabla akt_mezo = new StabilJegtabla(new Lapat());
 		Eszkimo sz = new Eszkimo();
 		sz.setMezo(akt_mezo);
-		
+		akt_mezo.setSzereplo(sz);
 		sz.SpecKepesseg(akt_mezo);
 	}
 

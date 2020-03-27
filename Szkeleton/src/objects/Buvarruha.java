@@ -5,4 +5,16 @@ public class Buvarruha extends Ruha implements Targy {
 	{
 		felhasznalo.setRuha(this);
 	}
+
+	@Override
+	public void Elazik(Szereplo szereplo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void Megszarit() {
+		// TODO Auto-generated method stub
+		
+	}
 }

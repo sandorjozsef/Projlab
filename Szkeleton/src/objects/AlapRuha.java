@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 
 public class AlapRuha extends Ruha {
-	public void Elazik(Szereplo sz) throws IOException
+	public void Elazik(Szereplo sz)
 	{ 
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N"))

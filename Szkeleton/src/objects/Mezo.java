@@ -1,6 +1,8 @@
 package objects;
 import java.util.ArrayList;
 
+import indent.Indentor;
+
 public abstract class Mezo {
 	protected Epulet iglu;
 	
@@ -8,16 +10,30 @@ public abstract class Mezo {
 	
 	private ArrayList<Mezo> szomszedok;
 	
+	public Mezo(){
+		szereplok = new ArrayList<Szereplo>();
+		szomszedok = new ArrayList<Mezo>();
+		
+	}
+	
 	public abstract boolean Befogad (Szereplo belepo, Mezo regi);
 	
-	public void Kiad (Szereplo kilepo) 
-		{szereplok.remove(kilepo);}
+	public void Kiad (Szereplo kilepo){
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent() + "Mezo.Kiad()");
+		szereplok.remove(kilepo);
+		
+		
+		Indentor.degLevel();
+	}
 	
 	public abstract Targy Atad();
 	
 	public Mezo ValasztSzomszed()
 	{ 
-		int answer = -1;
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent()+"Mezo.ValasztSzomszed()");
+		/*int answer = -1;
 		while(answer!=0&&answer!=1)
 		{
 			System.out.print("Melyik szomszéd mezõre lép?(0/1)");
@@ -31,12 +47,18 @@ public abstract class Mezo {
 				return szomszedok.get(1);
 			}
 		}
-		return null;
+		return null;*/
+		Indentor.degLevel();
+		return szomszedok.get(0);
 	}
 	
 	public void HoHozzaad(int novekmeny)
 	{
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent()+"Mezo.HoHozzaad()");
 		//belsõ állapotváltozás, megjelenítése késõbb
+		
+		Indentor.degLevel();
 	}
 	
 	public void Felderit()
@@ -67,8 +89,15 @@ public abstract class Mezo {
 	
 	public void Kimenekit(Mezo cel)
 	{
-		szereplok.get(0).Atlep(cel);
+		Indentor.incLevel();		
+		System.out.println(Indentor.getIndent() + "Mezo.Kimenekit()");
 		
+		
+		
+		szereplok.forEach(sz->sz.Atlep(cel));
+		
+		
+		Indentor.degLevel();
 	}
 	
 	public void setIglu()
@@ -88,7 +117,8 @@ public abstract class Mezo {
 		szereplok.add(sz);
 	}
 	
-	public void setSzomszed(Mezo mezo)
-	{szomszedok.add(mezo);}
+	public void setSzomszed(Mezo mezo){
+		szomszedok.add(mezo);
+	}
 	
 }

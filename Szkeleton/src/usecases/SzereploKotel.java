@@ -10,10 +10,12 @@ public class SzereploKotel implements UseCase{
 		StabilJegtabla stabilJ = new StabilJegtabla(new Kotel());
 		Luk luk = new Luk();
 		Eszkimo e = new Eszkimo();
-		luk.setSzereplo(e);
+		
+		
 		e.setMezo(luk);
-		stabilJ.setSzereplo(k);
 		k.setMezo(stabilJ);
+		luk.setSzereplo(e);
+		stabilJ.setSzereplo(k);
 		stabilJ.setSzomszed(luk);
 		luk.setSzomszed(stabilJ);
 		

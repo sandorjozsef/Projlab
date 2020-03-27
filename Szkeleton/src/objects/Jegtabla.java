@@ -1,6 +1,9 @@
 package objects;
 
 public abstract class Jegtabla extends Mezo{
+	public Jegtabla() {
+		super();
+	}
 	protected Targy targy;
 	public Targy Atad()
 	{

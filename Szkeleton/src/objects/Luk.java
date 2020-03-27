@@ -1,6 +1,9 @@
 package objects;
 
 public class Luk extends Mezo{
+	public Luk() {
+		super();
+	}
 	public boolean Befogad(Szereplo belepo, Mezo regi)
 	{
 		if(isSzomszed(regi)) {

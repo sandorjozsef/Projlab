@@ -1,8 +1,10 @@
 package objects;
 
 public class StabilJegtabla extends Jegtabla{
-	public StabilJegtabla(Targy targy)
-	{this.targy=targy;}
+	public StabilJegtabla(Targy targy){
+		super();
+		this.targy=targy;
+	}
 	public boolean Befogad(Szereplo belepo, Mezo regi)
 	{
 		if(isSzomszed(regi)) {
