@@ -1,9 +1,6 @@
 package objects;
 import indent.*;
 	
-
-
-	
 public class Eszkimo extends Szereplo{
 	
 
@@ -11,7 +8,7 @@ public class Eszkimo extends Szereplo{
 
 		String answer1 = "";
 		while (!answer1.equals("Y") && !answer1.equals("N")) {
-			System.out.print("Arra a mezőre akarod építeni, amin állsz ? (Y/N) ");
+			System.out.print("Arra a mezore akarod epíteni, amin allsz ? (Y/N) ");
 			answer1 = System.console().readLine();
 			if (answer1.equals("Y")) {
 				cel.setIglu();
