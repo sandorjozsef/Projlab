@@ -1,3 +1,4 @@
+package objects;
 
 public class Kotel {
 	public void Kepesseg(Szereplo sz) {

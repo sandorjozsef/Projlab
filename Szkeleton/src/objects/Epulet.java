@@ -1,3 +1,4 @@
+package objects;
 import java.util.*;
 
 public abstract class Epulet {

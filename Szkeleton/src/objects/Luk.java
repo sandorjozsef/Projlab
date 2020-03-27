@@ -1,3 +1,4 @@
+package objects;
 
 public class Luk extends Mezo{
 	public boolean Befogad(Szereplo belepo, Mezo regi)

@@ -1,3 +1,4 @@
+package objects;
 
 public abstract class Jegtabla extends Mezo{
 	protected Targy targy;

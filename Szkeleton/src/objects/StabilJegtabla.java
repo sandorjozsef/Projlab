@@ -1,3 +1,4 @@
+package objects;
 
 public class StabilJegtabla extends Jegtabla{
 	public StabilJegtabla(Targy targy)

@@ -1,5 +1,5 @@
 package usecases;
-
+ 
 public class EszkimoIglutEpit implements UseCase{
 
 	@Override
