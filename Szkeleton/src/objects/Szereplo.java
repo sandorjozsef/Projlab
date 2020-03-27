@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public abstract class Szereplo {
 	
 	protected Ruha ruha;
-	protected ArrayList<Targy> targy;
+	protected ArrayList<Targy> targyak;
 	protected Mezo aktmezo;
 	
 	public void Atlep(Mezo cel) {
@@ -21,7 +21,7 @@ public abstract class Szereplo {
 	}
 	public void Felvesz() {
 		//TODO : null-t addol?
-		targy.add(aktmezo.Atad());
+		targyak.add(aktmezo.Atad());
 	}
 	public void Hasznal(Targy targy) {
 		targy.Kepesseg(this);

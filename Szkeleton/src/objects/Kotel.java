@@ -1,6 +1,6 @@
 package objects;
 
-public class Kotel {
+public class Kotel implements Targy{
 	public void Kepesseg(Szereplo sz) {
 		Mezo mezo = sz.getMezo();
 		//Mezo sz_mezo = mezo.Valasztszomszed();
