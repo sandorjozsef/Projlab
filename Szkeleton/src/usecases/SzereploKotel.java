@@ -17,6 +17,7 @@ public class SzereploKotel implements UseCase{
 		stabilJ.setSzomszed(luk);
 		luk.setSzomszed(stabilJ);
 		
+		
 		k.Hasznal(kotel);
 		
 	}
