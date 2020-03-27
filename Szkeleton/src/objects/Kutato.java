@@ -7,4 +7,7 @@ public void SpecKepesseg(Mezo cel) {
 			cel.Felderit();
 		}
 	}
+public void Hasznal(Targy t) {
+	t.Kepesseg(this);
+}
 }
