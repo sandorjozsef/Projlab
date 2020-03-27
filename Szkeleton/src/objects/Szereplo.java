@@ -35,12 +35,8 @@ public abstract class Szereplo {
 	public void Eldob(Targy targy) {
 		
 	}
-<<<<<<< HEAD
 	public abstract void SpecKepesseg(Mezo cel) ;
 		
-		
-=======
->>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 	public void setLepesszam(int a) {
 		
 	}
@@ -59,8 +55,5 @@ public abstract class Szereplo {
 	public void Meghaltam() {
 	
 	}
-	public void SpecKepesseg(Mezo cel) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }
