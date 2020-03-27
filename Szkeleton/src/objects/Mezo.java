@@ -11,6 +11,7 @@ public abstract class Mezo {
 	private ArrayList<Mezo> szomszedok;
 	
 	public Mezo(){
+		iglu = new Noglu();
 		szereplok = new ArrayList<Szereplo>();
 		szomszedok = new ArrayList<Mezo>();
 		
@@ -100,11 +101,8 @@ public abstract class Mezo {
 		Indentor.degLevel();
 	}
 	
-	public void setIglu()
-	{
-		//hibaüzenetet dob majd alapból 
-		
-	}
+	public abstract void setIglu();
+	
 	
 	public abstract void Hatas(Szereplo sz);
 	

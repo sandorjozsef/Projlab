@@ -19,6 +19,7 @@ public class StabilJegtabla extends Jegtabla{
 	{
 		sz.Megszarit();
 	}
+	@Override
 	public void setIglu()
 	{
 		Iglu iglu1 = new Iglu();
@@ -28,4 +29,5 @@ public class StabilJegtabla extends Jegtabla{
 	{
 		//nem csinál semmit
 	}
+
 }

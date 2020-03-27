@@ -23,4 +23,9 @@ public class Luk extends Mezo{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public void setIglu() {
+		// TODO Auto-generated method stub
+		
+	}
 }

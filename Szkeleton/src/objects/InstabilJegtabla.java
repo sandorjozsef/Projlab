@@ -51,4 +51,9 @@ public class InstabilJegtabla extends Jegtabla{
 		alatta.get(0).Atlep(cel);
 		
 	}
+	@Override
+	public void setIglu() {
+		// TODO Auto-generated method stub
+		
+	}
 }

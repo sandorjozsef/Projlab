@@ -4,12 +4,10 @@ import java.util.*;
 
 public final class Palya {
 	private static Szereplo aktJatekos;
-	private static ArrayList<Szereplo> szereplok;
-	private static ArrayList<Mezo> mezok;
+	private static ArrayList<Szereplo> szereplok= new ArrayList<Szereplo>();
+	private static ArrayList<Mezo> mezok = new ArrayList<Mezo>();
 
-	public Palya() {
-
-	}
+	private Palya() {}
 
 	public static void Leptet() {
 		//TODO : keres kov szereplo
@@ -35,7 +33,7 @@ public final class Palya {
 		}
 		
 	}
-
+	
 	public static void JatekVege(boolean nyert) {
 
 	}
@@ -68,5 +66,15 @@ public final class Palya {
 
 	public static void MezokOsszekot() {
 		//
+	}
+	public static void addMezo(Mezo mezo) {
+		mezok.add(mezo);
+	}
+	public static void addSzereplo(Szereplo sz) {
+		szereplok.add(sz);
+	}
+	public static void clear() {
+		mezok.clear();
+		szereplok.clear();
 	}
 }
