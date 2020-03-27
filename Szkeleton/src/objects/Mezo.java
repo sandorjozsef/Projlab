@@ -46,7 +46,7 @@ public abstract class Mezo {
 	
 	public boolean isSzomszed(Mezo szomszed)
 	{
-		{ 
+		
 			String answer = "";
 			while(!answer.equals("Y") && !answer.equals("N"))
 			{
@@ -59,7 +59,7 @@ public abstract class Mezo {
 				else if (answer.equals("N"))
 				{return false;}
 			}
-		}
+		return false;
 	}
 	
 	public int getSzereplokSzama()
@@ -84,8 +84,9 @@ public abstract class Mezo {
 		iglu.Levon(szereplok);
 	}
 	
-	public void setSzereplo(Szereplo sz)
-	{szereplok.add(sz);}
+	public void setSzereplo(Szereplo sz){
+		szereplok.add(sz);
+	}
 	
 	public void setSzomszed(Mezo mezo)
 	{szomszedok.add(mezo);}

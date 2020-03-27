@@ -1,11 +1,15 @@
 package usecases;
- 
+import objects.*;
 public class EszkimoIglutEpit implements UseCase{
 
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		System.out.println("Futok!");
+		StabilJegtabla akt_mezo = new StabilJegtabla(new Lapat());
+		Eszkimo sz = new Eszkimo();
+		sz.setMezo(akt_mezo);
+		
+		sz.SpecKepesseg(akt_mezo);
 	}
 
 	@Override
