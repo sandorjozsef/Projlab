@@ -1,4 +1,4 @@
-package objects;
+package main;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -40,7 +40,8 @@ public class Application {
 				useCases.get(useCaseID).run();
 			}
 			catch(Exception e) {
-				validID = false;
+				validID = false;	
+				System.out.println(e.getClass());
 				System.out.println("\nNem megfelelo azonosito, probalkozz ujra!: ");
 			}
 		}

@@ -15,4 +15,9 @@ public class Luk extends Mezo{
 	{
 		sz.Elazik();
 	}
+	@Override
+	public Targy Atad() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

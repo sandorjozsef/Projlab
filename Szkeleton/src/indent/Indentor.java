@@ -11,8 +11,11 @@ public final class Indentor {
 	public static void incLevel() {
 		level++;
 	}
-	public static int getLevel() {
-		return level;
+	public static String getIndent() {
+		String ind = "";
+		for(int i = 0; i<level;i++)
+			ind +="\t";
+		return ind;
 	}
 	
 }

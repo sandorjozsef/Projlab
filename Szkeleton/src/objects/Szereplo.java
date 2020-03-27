@@ -33,9 +33,6 @@ public abstract class Szereplo {
 	public void Eldob(Targy targy) {
 		
 	}
-	public void SpecKepesseg() {
-		
-	}
 	public void setLepesszam(int a) {
 		
 	}
@@ -53,5 +50,9 @@ public abstract class Szereplo {
 	}
 	public void Meghaltam() {
 	
+	}
+	public void SpecKepesseg(Mezo cel) {
+		// TODO Auto-generated method stub
+		
 	}
 }
