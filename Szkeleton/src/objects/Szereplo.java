@@ -5,10 +5,9 @@ import indent.Indentor;
 
 public abstract class Szereplo {
 	
-	protected Ruha ruha;
+	protected Ruha ruha=new AlapRuha();
 	protected ArrayList<Targy> targyak;
 	protected Mezo aktmezo;
-	
 	public void Atlep(Mezo cel) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + "Szereplo.Atlep()");
@@ -82,14 +81,14 @@ public abstract class Szereplo {
 	}
 	public void Elazik() {
 		Indentor.incLevel();
-		ruha.Elazik(this);
 		System.out.println(Indentor.getIndent() + "Szereplo.Elazik()");
+		ruha.Elazik(this);
 		Indentor.degLevel();
 	}
 	public void Megszarit() {
 		Indentor.incLevel();
-		ruha.Megszarit();
 		System.out.println(Indentor.getIndent() + "Szereplo.Megszarit()");
+		ruha.Megszarit();
 		Indentor.degLevel();
 	}
 	public void Meghaltam() {
