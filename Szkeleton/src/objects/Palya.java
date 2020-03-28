@@ -107,19 +107,37 @@ public final class Palya {
 	}
 
 	public static void MezokOsszekot() {
-		//
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent()+"Palya.MezokOsszekot()");
+		Indentor.degLevel();
 	}
 	public static void addMezo(Mezo mezo) {
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent()+"Palya.addMezo()");
 		mezok.add(mezo);
+		Indentor.degLevel();
+		
 	}
 	public static void addSzereplo(Szereplo sz) {
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent()+"Palya.addSzereplo()");
 		szereplok.add(sz);
+		Indentor.degLevel();
+		
 	}
 	public static void setAktJatekos(Szereplo sz) {
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent()+"Palya.setAktJatekos()");
 		aktJatekos = sz;
+		Indentor.degLevel();
+		
 	}
 	public static void clear() {
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent()+"Palya.clear()");
 		mezok.clear();
 		szereplok.clear();
+		Indentor.degLevel();
+		
 	}
 }
