@@ -1,4 +1,7 @@
 package objects;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class InstabilJegtabla extends Jegtabla{
@@ -14,7 +17,13 @@ public class InstabilJegtabla extends Jegtabla{
 			String answer = "";
 			while(!answer.equals("Y") && !answer.equals("N")){
 				System.out.print("Felfordul-e az instabil jégtábla? (Y/N) ");
-				answer = System.console().readLine();
+				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+				try {
+					answer = reader.readLine();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				if (answer.equals("Y")) 
 				{
 					Felfordul();

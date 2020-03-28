@@ -1,4 +1,7 @@
 package objects;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import indent.Indentor;
@@ -74,7 +77,13 @@ public abstract class Mezo {
 			while(!answer.equals("Y") && !answer.equals("N"))
 			{
 				System.out.print("Szomszédos-e a két mezõ? (Y/N) ");
-				answer = System.console().readLine();
+				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+				try {
+					answer = reader.readLine();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				if (answer.equals("Y")) 
 				{
 					return true;

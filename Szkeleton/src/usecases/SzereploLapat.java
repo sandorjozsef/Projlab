@@ -8,9 +8,11 @@ public class SzereploLapat implements UseCase {
 	public void run() {
 		// TODO Auto-generated method stub
 		Kutato sz = new Kutato();
-		StabilJegtabla mezo = new StabilJegtabla(new Kotel());
+		StabilJegtabla mezo = new StabilJegtabla(null);
 		Lapat lapat = new Lapat();
 		
+		
+		Palya.setAktJatekos(sz);
 		sz.setMezo(mezo);
 		mezo.setSzereplo(sz);
 		

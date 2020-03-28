@@ -33,7 +33,7 @@ public class Application {
 				System.out.println("["+i+"] - "+useCases.get(i).getName());
 			}
 			boolean validID = false;
-			System.out.println("\nAdd meg a tetsztelni kivant use-case azonositojat: ");
+			System.out.print("\nAdd meg a tetsztelni kivant use-case azonositojat: ");
 			
 			while(!validID) {
 				try {
@@ -51,8 +51,8 @@ public class Application {
 				}
 				catch(Exception e) {
 					validID = false;	
-					e.printStackTrace();
-					System.out.println("\nNem megfelelo azonosito, probalkozz ujra!: ");
+					//e.printStackTrace();
+					System.out.print("Nem megfelelo azonosito, probalkozz ujra!: ");
 				}
 			}
 			

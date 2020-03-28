@@ -1,4 +1,8 @@
 package objects;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import indent.*;
 	
 public class Eszkimo extends Szereplo{
@@ -9,7 +13,13 @@ public class Eszkimo extends Szereplo{
 		String answer1 = "";
 		while (!answer1.equals("Y") && !answer1.equals("N")) {
 			System.out.print("Arra a mezore akarod epíteni, amin allsz ? (Y/N) ");
-			answer1 = System.console().readLine();
+			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+			try {
+				answer1 = reader.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			if (answer1.equals("Y")) {
 				cel.setIglu();
 			}

@@ -9,7 +9,7 @@ public class ControlerHovihar implements UseCase {
 	@Override
 	public void run() {
 		Kutato sz = new Kutato();
-		StabilJegtabla mezo = new StabilJegtabla(new Kotel());
+		StabilJegtabla mezo = new StabilJegtabla(null);
 		
 		
 		Palya.addMezo(mezo);
@@ -18,7 +18,7 @@ public class ControlerHovihar implements UseCase {
 		sz.setMezo(mezo);
 		
 		String answer = "";
-		System.out.println("Van iglu a tesztelni kivant mezon?(Y/N) ");
+		System.out.print("Van iglu a tesztelni kivant mezon?(Y/N) ");
 		while(!answer.equals("Y") && !answer.equals("N")) {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
@@ -28,7 +28,7 @@ public class ControlerHovihar implements UseCase {
 				e.printStackTrace();
 			}
 			if(!answer.equals("Y") && !answer.equals("N")) {
-				System.out.println("Hibas bemenet, probald ujra!(Y/N) ");
+				System.out.print("Hibas bemenet, probald ujra!(Y/N) ");
 			}
 		}
 		

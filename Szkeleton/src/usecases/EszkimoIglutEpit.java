@@ -5,8 +5,9 @@ public class EszkimoIglutEpit implements UseCase{
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		StabilJegtabla akt_mezo = new StabilJegtabla(new Lapat());
+		StabilJegtabla akt_mezo = new StabilJegtabla(null);
 		Eszkimo sz = new Eszkimo();
+		Palya.setAktJatekos(sz);
 		sz.setMezo(akt_mezo);
 		akt_mezo.setSzereplo(sz);
 		sz.SpecKepesseg(akt_mezo);

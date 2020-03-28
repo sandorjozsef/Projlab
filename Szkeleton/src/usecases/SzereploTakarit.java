@@ -10,7 +10,7 @@ public class SzereploTakarit implements UseCase {
 		Kutato k = new Kutato();
 		StabilJegtabla mezo = new StabilJegtabla(new Kotel());
 		
-		
+		Palya.setAktJatekos(k);
 		k.setMezo(mezo);
 		mezo.setSzereplo(k);
 		

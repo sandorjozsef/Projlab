@@ -7,11 +7,11 @@ public class SzereploKotel implements UseCase{
 		// TODO Auto-generated method stub
 		Kutato k = new Kutato();
 		Kotel kotel = new Kotel();		
-		StabilJegtabla stabilJ = new StabilJegtabla(new Kotel());
+		StabilJegtabla stabilJ = new StabilJegtabla(null);
 		Luk luk = new Luk();
 		Eszkimo e = new Eszkimo();
 		
-		
+		Palya.setAktJatekos(k);
 		e.setMezo(luk);
 		k.setMezo(stabilJ);
 		luk.setSzereplo(e);

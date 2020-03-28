@@ -10,6 +10,8 @@ public class SzereploBuvarruha implements UseCase {
 		Kutato k = new Kutato();
 		Buvarruha br = new Buvarruha();
 		
+		Palya.setAktJatekos(k);
+		
 		k.Hasznal(br);
 		
 	}

@@ -7,7 +7,7 @@ public class SzereploEszik implements UseCase {
 		// TODO Auto-generated method stub
 		Kutato k = new Kutato();
 		Elelem etel = new Elelem();
-		
+		Palya.setAktJatekos(k);
 		
 		k.Hasznal(etel);
 	}

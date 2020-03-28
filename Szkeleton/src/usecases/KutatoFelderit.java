@@ -5,10 +5,10 @@ public class KutatoFelderit implements UseCase {
 	@Override
 	public void run() {
 		Kutato k = new Kutato();
-		InstabilJegtabla akt_mezo = new InstabilJegtabla(new Kotel(),3);
-		InstabilJegtabla mezo = new InstabilJegtabla(new Kotel(),2);
+		InstabilJegtabla akt_mezo = new InstabilJegtabla(null,3);
+		InstabilJegtabla mezo = new InstabilJegtabla(null,2);
 		
-		
+		Palya.setAktJatekos(k);
 		k.setMezo(akt_mezo);
 		akt_mezo.setSzereplo(k);
 		mezo.setSzomszed(akt_mezo);
