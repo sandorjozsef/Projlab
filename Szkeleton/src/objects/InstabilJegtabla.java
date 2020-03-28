@@ -16,11 +16,11 @@ public class InstabilJegtabla extends Jegtabla{
 	public boolean Befogad(Szereplo belepo, Mezo regi)
 	{
 		Indentor.incLevel();
-		System.out.print(Indentor.getIndent()+"InstabilJegtabla.Befogad() - ");
+		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Befogad() - ");
 		if(isSzomszed(regi)) {
 			String answer = "";
 			while(!answer.equals("Y") && !answer.equals("N")){
-				System.out.print("Felfordul-e az instabil jégtábla? (Y/N) ");
+				System.out.print(Indentor.getIndent()+"\t\t\t\tFelfordul-e az instabil jégtábla? (Y/N) ");
 				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 				try {
 					answer = reader.readLine();
@@ -48,17 +48,25 @@ public class InstabilJegtabla extends Jegtabla{
 		System.out.print(Indentor.getIndent()+"InstabilJegtabla.Hatas() - ");
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N")){
-			System.out.print("A szereplõ az instabil jégtábla fett van? (Y/N) ");
-			answer = System.console().readLine();
+			System.out.print("A szereplõ az instabil jégtábla felett van? (Y/N) ");
+			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+			try {
+				answer = reader.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			if (answer.equals("Y")) 
 			{
 				sz.Megszarit();
 			}
-			else {
-				sz.Elazik();
+			else
+			{
+				sz.Elazik();	
 			}
+	
 		}
-		Indentor.degLevel();
+		Indentor.incLevel();
 	}
 	public void Felfordul()
 	{
