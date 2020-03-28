@@ -124,7 +124,7 @@ public final class Palya {
 	public static void setAktJatekos(Szereplo sz) {
 		
 		aktJatekos = sz;
-		
+		//
 		
 	}
 	public static void clear() {
