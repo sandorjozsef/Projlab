@@ -76,11 +76,11 @@ public abstract class Mezo {
 	public boolean isSzomszed(Mezo szomszed)
 	{
 		Indentor.incLevel();
-		System.out.print(Indentor.getIndent()+"Mezo.isSzomszed() - ");
+		System.out.println(Indentor.getIndent()+"Mezo.isSzomszed()");
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N"))
 		{
-			System.out.print("Szomszédos-e a két mezõ? (Y/N) ");
+			System.out.print(Indentor.getIndent()+"Szomszédos-e a két mezõ? (Y/N) ");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
 				answer = reader.readLine();

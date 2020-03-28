@@ -31,6 +31,11 @@ public abstract class Szereplo {
 	}
 	public void TesthoHozzaad(int novekmeny) {
 		Indentor.incLevel();
+		/*
+		 * 
+		 * kerdes es ha testho = 0 akkor meghivja meghaltamot
+		 * 
+		 */
 		System.out.println(Indentor.getIndent() + "Szereplo.TesthoHozzaad()");
 		Indentor.degLevel();
 	}
@@ -97,6 +102,7 @@ public abstract class Szereplo {
 	public void Meghaltam() {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + "Szereplo.Meghaltam()");
+		Palya.JatekVege(false);
 		Indentor.degLevel();
 	}
 	public abstract String Name();
