@@ -1,16 +1,26 @@
 package objects;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.IOException;
+import indent.Indentor;
 
 public class AlapRuha extends Ruha {
 	public void Elazik(Szereplo sz)
 	{ 
+		Indentor.incLevel();
+		System.out.print(Indentor.getIndent()+"Buvarruha.Kepesseg() - ");
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N"))
 		{
 			System.out.print("Megfagyott az adott Szereplo? (Y/N) ");
-			answer = System.console().readLine();
+			try 
+			{
+				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+				answer = reader.readLine();
+			}
+			catch (Exception e)
+			{
+				System.err.println(e.getMessage());
+			}
 			if (answer.equals("Y")) 
 			{
 				sz.Meghaltam();
@@ -18,8 +28,13 @@ public class AlapRuha extends Ruha {
 			else if (answer.equals("N"))
 			{}
 		}
+		Indentor.degLevel();
 	}
 	
 	public void Megszarit()
-	{}
+	{
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent()+"AlapRuha.Megszarit()");
+		Indentor.degLevel();
+	}
 }

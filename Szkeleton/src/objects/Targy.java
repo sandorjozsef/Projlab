@@ -1,5 +1,5 @@
 package objects;
 
 public interface Targy {
-	public void Kepesseg(Szereplo felhasznalo);
+	public abstract void Kepesseg(Szereplo felhasznalo);
 }

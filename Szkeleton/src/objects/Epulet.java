@@ -2,8 +2,5 @@ package objects;
 import java.util.*;
 
 public abstract class Epulet {
-	public void Levon(ArrayList<Szereplo> szereplok)
-	{
-		//nem csinál semmit
-	}
+	public abstract void Levon(ArrayList<Szereplo> szereplok);
 }

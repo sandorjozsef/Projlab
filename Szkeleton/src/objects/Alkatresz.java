@@ -1,13 +1,27 @@
 package objects;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+import indent.Indentor;
 
 public class Alkatresz implements Targy {
 	public void Kepesseg(Szereplo felhasznalo)
 	{
+		Indentor.incLevel();
+		System.out.print(Indentor.getIndent()+"Alkatresz.Kepesseg() - ");
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N"))
 		{
 			System.out.print("Bejelentheto az adott Alkatresz? (Y/N) ");
-			answer = System.console().readLine();
+			try 
+			{
+				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+				answer = reader.readLine();
+			}
+			catch (Exception e)
+			{
+				System.err.println(e.getMessage());
+			}
 			if (answer.equals("Y")) 
 			{
 				Palya.AlkatresztKezel(true);
@@ -17,5 +31,6 @@ public class Alkatresz implements Targy {
 				Palya.AlkatresztKezel(false);
 			}
 		}
+		Indentor.degLevel();
 	}
 }
