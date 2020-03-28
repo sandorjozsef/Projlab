@@ -11,7 +11,7 @@ public void SpecKepesseg(Mezo cel) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Kutato.SpecKepesseg()");
 		
-		
+		//
 		
 		boolean szomszed=aktmezo.isSzomszed(cel);
 		if(szomszed) {
