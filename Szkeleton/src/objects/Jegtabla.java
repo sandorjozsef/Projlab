@@ -14,10 +14,10 @@ public abstract class Jegtabla extends Mezo{
 	public Targy Atad()
 	{
 		Indentor.incLevel();
-		System.out.print(Indentor.getIndent()+"Jegtabla.Atad() - ");
+		System.out.println(Indentor.getIndent()+Name+".Atad()");
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N")){
-			System.out.print("Van-e még hó a mezõn (Y/N) ");
+			System.out.print(Indentor.getIndent()+" - Van-e még hó a mezõn (Y/N) ");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
 				answer = reader.readLine();

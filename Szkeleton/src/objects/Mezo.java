@@ -24,7 +24,7 @@ public abstract class Mezo {
 	
 	public void Kiad (Szereplo kilepo){
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Mezo.Kiad()");
+		System.out.println(Indentor.getIndent() + Name+".Kiad()");
 		szereplok.remove(kilepo);
 		
 		
@@ -36,7 +36,7 @@ public abstract class Mezo {
 	public Mezo ValasztSzomszed()
 	{ 
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Mezo.ValasztSzomszed()");
+		System.out.println(Indentor.getIndent()+Name+".ValasztSzomszed()");
 		/*int answer = -1;
 		while(answer!=0&&answer!=1)
 		{
@@ -59,7 +59,7 @@ public abstract class Mezo {
 	public void HoHozzaad(int novekmeny)
 	{
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Mezo.HoHozzaad()");
+		System.out.println(Indentor.getIndent()+Name+".HoHozzaad()");
 		//belsõ állapotváltozás, megjelenítése késõbb
 		
 		Indentor.degLevel();
@@ -68,7 +68,7 @@ public abstract class Mezo {
 	public void Felderit()
 	{
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Mezo.Felderit()");
+		System.out.println(Indentor.getIndent()+Name+".Felderit()");
 		Indentor.degLevel();
 		//felderítés beállítása
 	}
@@ -76,11 +76,11 @@ public abstract class Mezo {
 	public boolean isSzomszed(Mezo szomszed)
 	{
 		Indentor.incLevel();
-		System.out.print(Indentor.getIndent()+"Mezo.isSzomszed() - ");
+		System.out.println(Indentor.getIndent()+Name+".isSzomszed()");
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N"))
 		{
-			System.out.print("Szomszédos-e a két mezõ? (Y/N) ");
+			System.out.print(Indentor.getIndent()+ " - Szomszédos-e a két mezõ? (Y/N) ");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
 				answer = reader.readLine();
@@ -105,7 +105,7 @@ public abstract class Mezo {
 	public int getSzereplokSzama()
 	{
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Mezo.getSzereplokSzama()");
+		System.out.println(Indentor.getIndent()+Name+".getSzereplokSzama()");
 		Indentor.degLevel();
 		return szereplok.size();
 	}
@@ -113,7 +113,7 @@ public abstract class Mezo {
 	public void Kimenekit(Mezo cel)
 	{
 		Indentor.incLevel();		
-		System.out.println(Indentor.getIndent() + "Mezo.Kimenekit()");
+		System.out.println(Indentor.getIndent() + Name + ".Kimenekit()");
 		szereplok.forEach(sz->sz.Atlep(cel));
 		Indentor.degLevel();
 	}
@@ -126,7 +126,7 @@ public abstract class Mezo {
 	public void Hoeses()
 	{
 		Indentor.incLevel();		
-		System.out.println(Indentor.getIndent() + "Mezo.Hoeses()");
+		System.out.println(Indentor.getIndent() + Name +".Hoeses()");
 		iglu.Levon(szereplok);
 		Indentor.degLevel();
 	}

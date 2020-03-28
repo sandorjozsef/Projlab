@@ -45,10 +45,10 @@ public class InstabilJegtabla extends Jegtabla{
 	public void Hatas(Szereplo sz)
 	{
 		Indentor.incLevel();
-		System.out.print(Indentor.getIndent()+"InstabilJegtabla.Hatas() - ");
+		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Hatas()");
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N")){
-			System.out.print("A szereplõ az instabil jégtábla felett van? (Y/N) ");
+			System.out.print(Indentor.getIndent()+" - A szereplõ az instabil jégtábla felett van? (Y/N) ");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
 				answer = reader.readLine();
