@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import indent.Indentor;
+
 public abstract class Jegtabla extends Mezo{
 	public Jegtabla() {
 		super();
@@ -11,6 +13,8 @@ public abstract class Jegtabla extends Mezo{
 	protected Targy targy;
 	public Targy Atad()
 	{
+		Indentor.incLevel();
+		System.out.print(Indentor.getIndent()+"Jegtabla.Atad() - ");
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N")){
 			System.out.print("Van-e még hó a mezõn (Y/N) ");
@@ -23,11 +27,14 @@ public abstract class Jegtabla extends Mezo{
 			}
 			if (answer.equals("Y")) 
 			{
+				Indentor.degLevel();
 				return null;
 			}else {
+				Indentor.degLevel();
 				return targy;
 			}
 		}
+		Indentor.degLevel();
 		return null;
 	}
 }

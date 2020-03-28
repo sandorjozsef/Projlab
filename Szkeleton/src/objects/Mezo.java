@@ -67,46 +67,54 @@ public abstract class Mezo {
 	
 	public void Felderit()
 	{
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent()+"Mezo.Felderit()");
+		Indentor.degLevel();
 		//felderítés beállítása
 	}
 	
 	public boolean isSzomszed(Mezo szomszed)
 	{
-		
-			String answer = "";
-			while(!answer.equals("Y") && !answer.equals("N"))
-			{
-				System.out.print("Szomszédos-e a két mezõ? (Y/N) ");
-				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-				try {
-					answer = reader.readLine();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				if (answer.equals("Y")) 
-				{
-					return true;
-				}
-				else if (answer.equals("N"))
-				{return false;}
+		Indentor.incLevel();
+		System.out.print(Indentor.getIndent()+"Mezo.isSzomszed() - ");
+		String answer = "";
+		while(!answer.equals("Y") && !answer.equals("N"))
+		{
+			System.out.print("Szomszédos-e a két mezõ? (Y/N) ");
+			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+			try {
+				answer = reader.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
+			if (answer.equals("Y")) 
+			{
+				Indentor.degLevel();
+				return true;
+			}
+			else if (answer.equals("N"))
+			{
+				Indentor.degLevel();
+				return false;}
+			}
+		Indentor.degLevel();
 		return false;
 	}
 	
 	public int getSzereplokSzama()
-	{return szereplok.size();}
+	{
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent()+"Mezo.getSzereplokSzama()");
+		Indentor.degLevel();
+		return szereplok.size();
+	}
 	
 	public void Kimenekit(Mezo cel)
 	{
 		Indentor.incLevel();		
 		System.out.println(Indentor.getIndent() + "Mezo.Kimenekit()");
-		
-		
-		
 		szereplok.forEach(sz->sz.Atlep(cel));
-		
-		
 		Indentor.degLevel();
 	}
 	
@@ -117,7 +125,10 @@ public abstract class Mezo {
 	
 	public void Hoeses()
 	{
+		Indentor.incLevel();		
+		System.out.println(Indentor.getIndent() + "Mezo.Hoeses()");
 		iglu.Levon(szereplok);
+		Indentor.degLevel();
 	}
 	
 	public void setSzereplo(Szereplo sz){
