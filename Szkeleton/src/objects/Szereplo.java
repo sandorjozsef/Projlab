@@ -82,11 +82,13 @@ public abstract class Szereplo {
 	}
 	public void Elazik() {
 		Indentor.incLevel();
+		ruha.Elazik(this);
 		System.out.println(Indentor.getIndent() + "Szereplo.Elazik()");
 		Indentor.degLevel();
 	}
 	public void Megszarit() {
 		Indentor.incLevel();
+		ruha.Megszarit();
 		System.out.println(Indentor.getIndent() + "Szereplo.Megszarit()");
 		Indentor.degLevel();
 	}
