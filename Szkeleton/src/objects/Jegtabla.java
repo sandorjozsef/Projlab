@@ -14,7 +14,7 @@ public abstract class Jegtabla extends Mezo{
 	public Targy Atad()
 	{
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+Name+".Atad()");
+		System.out.println(Indentor.getIndent()+Name()+".Atad()");
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N")){
 			System.out.print(Indentor.getIndent()+" - Van-e még hó a mezõn (Y/N) ");
