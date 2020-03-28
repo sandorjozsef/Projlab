@@ -66,7 +66,7 @@ public class InstabilJegtabla extends Jegtabla{
 			}
 	
 		}
-		Indentor.incLevel();
+		Indentor.degLevel();
 	}
 	public void Felfordul()
 	{

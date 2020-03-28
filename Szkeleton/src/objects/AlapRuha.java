@@ -7,7 +7,7 @@ public class AlapRuha extends Ruha {
 	public void Elazik(Szereplo sz)
 	{ 
 		Indentor.incLevel();
-		System.out.print(Indentor.getIndent()+"Buvarruha.Kepesseg() - ");
+		System.out.print(Indentor.getIndent()+"AlapRuha.Kepesseg() - ");
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N"))
 		{

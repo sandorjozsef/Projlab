@@ -50,9 +50,6 @@ public abstract class Szereplo {
 		return aktmezo;
 	}
 	public void setMezo(Mezo mezo) {
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Szereplo.setMezo()");
-		Indentor.degLevel();
 		aktmezo=mezo;  
 	}
 	public void Eldob(Targy targy) {
