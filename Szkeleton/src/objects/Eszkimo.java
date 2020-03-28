@@ -36,5 +36,11 @@ public class Eszkimo extends Szereplo{
 
 	}
 
+	@Override
+	public String Name() {
+		// TODO Auto-generated method stub
+		return "Eszkimo";
+	}
+
 
 }

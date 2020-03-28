@@ -47,4 +47,9 @@ public void SpecKepesseg(Mezo cel) {
 		
 		Indentor.degLevel();
 	}
+	@Override
+	public String Name() {
+		// TODO Auto-generated method stub
+		return "Kutato";
+	}
 }

@@ -99,5 +99,6 @@ public abstract class Szereplo {
 		System.out.println(Indentor.getIndent() + "Szereplo.Meghaltam()");
 		Indentor.degLevel();
 	}
+	public abstract String Name();
 	
 }
