@@ -107,19 +107,31 @@ public final class Palya {
 	}
 
 	public static void MezokOsszekot() {
-		//
+		
 	}
 	public static void addMezo(Mezo mezo) {
+		
 		mezok.add(mezo);
+		
+		
 	}
 	public static void addSzereplo(Szereplo sz) {
+		
 		szereplok.add(sz);
+		
+		
 	}
 	public static void setAktJatekos(Szereplo sz) {
+		
 		aktJatekos = sz;
+		//
+		
 	}
 	public static void clear() {
+		
 		mezok.clear();
 		szereplok.clear();
+		
+		
 	}
 }

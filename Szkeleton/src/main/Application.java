@@ -71,7 +71,7 @@ public class Application {
 					 * újra bekérjük az azonositót, ameddig végre nem hajtható az indexelés és futtatás
 					 */
 					validID = false;	
-					//e.printStackTrace();
+					e.printStackTrace();
 					System.out.print("Nem megfelelo azonosito, probalkozz ujra!: ");
 				}
 			}

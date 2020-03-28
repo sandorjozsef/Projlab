@@ -12,7 +12,7 @@ public class Alkatresz implements Targy {
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N"))
 		{
-			System.out.print(Indentor.getIndent()+"Bejelentheto az adott Alkatresz? (Y/N) ");
+			System.out.print(Indentor.getIndent() + " - Bejelentheto az adott Alkatresz? (Y/N) ");
 			try 
 			{
 				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

@@ -76,11 +76,19 @@ public abstract class Mezo {
 	public boolean isSzomszed(Mezo szomszed)
 	{
 		Indentor.incLevel();
+<<<<<<< HEAD
 		System.out.println(Indentor.getIndent()+Name+".isSzomszed()");
+=======
+		System.out.println(Indentor.getIndent()+"Mezo.isSzomszed()");
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N"))
 		{
+<<<<<<< HEAD
 			System.out.print(Indentor.getIndent()+ " - Szomszédos-e a két mezõ? (Y/N) ");
+=======
+			System.out.print(Indentor.getIndent()+"Szomszédos-e a két mezõ? (Y/N) ");
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
 				answer = reader.readLine();

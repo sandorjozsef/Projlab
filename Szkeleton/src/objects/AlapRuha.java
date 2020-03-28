@@ -7,11 +7,11 @@ public class AlapRuha extends Ruha {
 	public void Elazik(Szereplo sz)
 	{ 
 		Indentor.incLevel();
-		System.out.print(Indentor.getIndent()+"AlapRuha.Kepesseg() - ");
+		System.out.println(Indentor.getIndent()+"AlapRuha.Kepesseg()");
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N"))
 		{
-			System.out.print("Megfagyott az adott Szereplo? (Y/N) ");
+			System.out.print(Indentor.getIndent() + " - Megfagyott az adott Szereplo? (Y/N) ");
 			try 
 			{
 				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
