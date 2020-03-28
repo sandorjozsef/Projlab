@@ -12,7 +12,8 @@ public void SpecKepesseg(Mezo cel) {
 		if(rajta || aktmezo==cel) {
 			cel.Felderit();
 		}*/
-		
+	Indentor.incLevel();
+	System.out.print(Indentor.getIndent()+"Kutato.SpecKepesseg()-");
 		String answer1 = "";
 		while (!answer1.equals("Y") && !answer1.equals("N")) {
 			System.out.print("Aktualis vagy szomszedos mezot akarsz felderiteni ? (Y/N) ");
@@ -26,10 +27,11 @@ public void SpecKepesseg(Mezo cel) {
 			if (answer1.equals("Y")) {
 				cel.Felderit();
 			}
+			if (answer1.equals("N")) {
+				System.out.println(Indentor.getIndent()+"Felderites sikertelen");
+			}
 		}
 
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Kutato.SpecKepesseg()\n");
 		Indentor.degLevel();
 	}
 	public void Hasznal(Targy t) {
