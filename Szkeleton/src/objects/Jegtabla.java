@@ -30,8 +30,10 @@ public abstract class Jegtabla extends Mezo{
 				Indentor.degLevel();
 				return null;
 			}else {
+				Targy t = targy;
+				targy = null;
 				Indentor.degLevel();
-				return targy;
+				return t;
 			}
 		}
 		Indentor.degLevel();

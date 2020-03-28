@@ -5,9 +5,13 @@ import indent.Indentor;
 
 public abstract class Szereplo {
 	
-	protected Ruha ruha=new AlapRuha();
+	protected Ruha ruha; 
 	protected ArrayList<Targy> targyak;
 	protected Mezo aktmezo;
+	Szereplo(){
+		targyak = new ArrayList<Targy>();
+		ruha=new AlapRuha();
+	}
 	public void Atlep(Mezo cel) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + "Szereplo.Atlep()");
@@ -34,7 +38,9 @@ public abstract class Szereplo {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + "Szereplo.Felvesz()");
 		//TODO : null-t addol?
-		targyak.add(aktmezo.Atad());
+		Targy t = aktmezo.Atad();
+		if(t!=null)
+			targyak.add(t);
 		Indentor.degLevel();
 	}
 	public void Hasznal(Targy targy) {
@@ -50,9 +56,6 @@ public abstract class Szereplo {
 		return aktmezo;
 	}
 	public void setMezo(Mezo mezo) {
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Szereplo.setMezo()");
-		Indentor.degLevel();
 		aktmezo=mezo;  
 	}
 	public void Eldob(Targy targy) {
