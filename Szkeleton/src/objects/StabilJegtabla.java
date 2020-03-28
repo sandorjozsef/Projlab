@@ -17,7 +17,7 @@ public class StabilJegtabla extends Jegtabla{
 			return true;
 		}else {
 			Indentor.degLevel();
-			return false;
+			return false; 
 		}
 		
 	}
