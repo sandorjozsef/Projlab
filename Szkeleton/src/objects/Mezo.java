@@ -147,5 +147,6 @@ public abstract class Mezo {
 		 */
 		szomszedok.add(mezo);
 	}
+	public abstract String Name();
 	
 }

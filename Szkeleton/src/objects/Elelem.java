@@ -10,4 +10,7 @@ public class Elelem implements Targy {
 		felhasznalo.Eldob(this);
 		Indentor.degLevel();
 	}
+	public String Name() {
+		return "Elelem";
+	}
 }

@@ -25,4 +25,7 @@ public class Buvarruha extends Ruha implements Targy {
 		System.out.println(Indentor.getIndent()+"Buvarruha.Megszarit()");
 		Indentor.degLevel();
 	}
+	public String Name() {
+		return "Buvarruha";
+	}
 }

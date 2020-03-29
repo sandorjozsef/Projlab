@@ -14,5 +14,8 @@ public class Lapat implements Targy{
 		Indentor.degLevel();
 		
 	}
+	public String Name() {
+		return "Lapat";
+	}
 
 }

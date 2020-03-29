@@ -9,4 +9,5 @@ public abstract class Epulet {
 		System.out.println(Indentor.getIndent()+"Epulet.Levon()");
 		Indentor.degLevel();
 	};
+	public abstract String Name();
 }

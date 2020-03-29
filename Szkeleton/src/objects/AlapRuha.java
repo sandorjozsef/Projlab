@@ -37,4 +37,7 @@ public class AlapRuha extends Ruha {
 		System.out.println(Indentor.getIndent()+"AlapRuha.Megszarit()");
 		Indentor.degLevel();
 	}
+	public String Name() {
+		return "AlapRuha";
+	}
 }

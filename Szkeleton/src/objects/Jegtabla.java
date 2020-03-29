@@ -39,4 +39,5 @@ public abstract class Jegtabla extends Mezo{
 		Indentor.degLevel();
 		return null;
 	}
+	public abstract String Name();
 }

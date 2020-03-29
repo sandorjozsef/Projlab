@@ -99,4 +99,7 @@ public class InstabilJegtabla extends Jegtabla{
 		 */
 		
 	}
+	public String Name() {
+		return "InstabilJegtabla";
+	}
 }

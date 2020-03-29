@@ -33,4 +33,7 @@ public class Alkatresz implements Targy {
 		}
 		Indentor.degLevel();
 	}
+	public String Name() {
+		return "Alkatresz";
+	}
 }

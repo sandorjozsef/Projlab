@@ -44,5 +44,8 @@ public class StabilJegtabla extends Jegtabla{
 		System.out.println(Indentor.getIndent()+"StabilJegtabla.Kimenekit()");
 		Indentor.degLevel();
 	}
+	public String Name() {
+		return "StabilJegtabla";
+	}
 
 }

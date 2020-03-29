@@ -52,4 +52,7 @@ public class Luk extends Mezo{
 		Indentor.degLevel();
 		
 	}
+	public String Name() {
+		return "Luk";
+	}
 }

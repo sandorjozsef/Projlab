@@ -18,4 +18,7 @@ public class Noglu extends Epulet{
 		
 		Indentor.degLevel();
 	}
+	public String Name() {
+		return "Noglu";
+	}
 }

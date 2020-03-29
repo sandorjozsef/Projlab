@@ -14,5 +14,7 @@ public class Iglu extends Epulet{
 		Indentor.degLevel();
 		
 	}
-	
+	public String Name() {
+		return "Iglu";
+	}
 }

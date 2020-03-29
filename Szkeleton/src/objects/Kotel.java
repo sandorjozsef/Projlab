@@ -15,4 +15,7 @@ public class Kotel implements Targy{
 		Indentor.degLevel();
 		return;
 	}
+	public String Name() {
+		return "Kotel";
+	}
 }
