@@ -17,6 +17,10 @@ public abstract class Mezo {
 		iglu = new Noglu();
 		szereplok = new ArrayList<Szereplo>();
 		szomszedok = new ArrayList<Mezo>();
+		/*
+		 	Mezo konstruktor ami alapból az iglu attribútumot noglura állítja,
+		 	hiszen alapból egyik mezõn sincs iglu. 
+		 */
 		
 	}
 	
@@ -26,9 +30,8 @@ public abstract class Mezo {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name()+".Kiad()");
 		szereplok.remove(kilepo);
-		
-		
 		Indentor.degLevel();
+		//beállítja azt hogy az átadott kilepo már nem áll az adott mezon
 	}
 	
 	public abstract Targy Atad();
@@ -37,21 +40,24 @@ public abstract class Mezo {
 	{ 
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+Name()+".ValasztSzomszed()");
-		/*int answer = -1;
-		while(answer!=0&&answer!=1)
-		{
-			System.out.print("Melyik szomszÃ©d mezÃµre lÃ©p?(0/1)");
-			answer = Integer.parseInt(System.console().readLine());
-			if (answer==0) 
+		/* alapból a következõ programkód futna, ha az egész pálya fel lenne töltve hozzá,
+		 	és példaképp két szomszédja lenne egy mezõnek.
+			int answer = -1;
+			while(answer!=0&&answer!=1)
 			{
-				return szomszedok.get(0);
+				System.out.print("Melyik szomszéd mezõe lép?(0/1)");
+				answer = Integer.parseInt(System.console().readLine());
+				if (answer==0) 
+				{
+					return szomszedok.get(0);
+				}
+				else if (answer==1)
+				{
+					return szomszedok.get(1);
+				}
 			}
-			else if (answer==1)
-			{
-				return szomszedok.get(1);
-			}
-		}
-		return null;*/
+			return null;
+		*/
 		Indentor.degLevel();
 		return szomszedok.get(0);
 	}
@@ -60,7 +66,7 @@ public abstract class Mezo {
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+Name()+".HoHozzaad()");
-		//belsÃµ Ã¡llapotvÃ¡ltozÃ¡s, megjelenÃ­tÃ©se kÃ©sÃµbb
+		//belsõ állapotváltozás, megvalósítása késõbb
 		
 		Indentor.degLevel();
 	}
@@ -70,7 +76,7 @@ public abstract class Mezo {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+Name()+".Felderit()");
 		Indentor.degLevel();
-		//felderÃ­tÃ©s beÃ¡llÃ­tÃ¡sa
+		//belsõ állapotváltozás, megvalósítása késõbb
 	}
 	
 	public boolean isSzomszed(Mezo szomszed)
@@ -82,7 +88,7 @@ public abstract class Mezo {
 		while(!answer.equals("Y") && !answer.equals("N"))
 		{
 
-			System.out.print(Indentor.getIndent()+ " - SzomszÃ©dos-e a kÃ©t mezÃµ? (Y/N) ");
+			System.out.print(Indentor.getIndent()+ " - Szomszédos-e a két mezõ? (Y/N) ");
 	
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
@@ -103,6 +109,10 @@ public abstract class Mezo {
 			}
 		Indentor.degLevel();
 		return false;
+		/*
+		 	visszaadja, hogy az adott mezõk szomszédosak-e, késõbb a saját attribútumaiból
+		 	fogja összehasonlítani, hogy a kapott paraméter benne van-e a saját szomszedok tömbjében
+		 */
 	}
 	
 	public int getSzereplokSzama()
@@ -111,6 +121,7 @@ public abstract class Mezo {
 		System.out.println(Indentor.getIndent()+Name()+".getSzereplokSzama()");
 		Indentor.degLevel();
 		return szereplok.size();
+		//visszatért az eltárolt szereplok darabszámával
 	}
 	
 	public void Kimenekit(Mezo cel)
@@ -119,12 +130,14 @@ public abstract class Mezo {
 		System.out.println(Indentor.getIndent() + Name() + ".Kimenekit()");
 		szereplok.forEach(sz->sz.Atlep(cel));
 		Indentor.degLevel();
+		//minden a mezõre beiratott szereplõt átléptet a cel mezõre
 	}
 	
 	public abstract void setIglu();
-	
+	//absztrakt függvény megvalósítása a leszármazottakban
 	
 	public abstract void Hatas(Szereplo sz);
+	//absztrakt függvény megvalósítása a leszármazottakban
 	
 	public void Hoeses()
 	{
@@ -132,21 +145,26 @@ public abstract class Mezo {
 		System.out.println(Indentor.getIndent() + Name() +".Hoeses()");
 		iglu.Levon(szereplok);
 		Indentor.degLevel();
+		//ha egy adott mezõt hóesés sújtja akkor ez a függvény szól a saját épületének,
+		//hogy hajtsa végre a játékszabályok szerinti változásokat
 	}
 	
 	public void setSzereplo(Szereplo sz){
-		/* HozzÃ¡ad a szereplÅ‘k listÃ¡jÃ¡hoz egy Ãºjat
-		 * InicializÃ¡lÃ³ fÃ¼ggvÃ©ny nem jelezzÃ¼k a konzolon, hogy lefutott
+		/*
+			setter ami beállítja az adott mezõre a paraméterként kapott szereplõt,
+			kiiratása nincs, hiszen csak az inicializálásnál használjuk
 		 */
 		szereplok.add(sz);
 	}
 	
 	public void setSzomszed(Mezo mezo){
-		/* HozzÃ¡ad egy mezÅ‘t a szomszÃ©dok kÃ¶zÃ©
-		 * InicializÃ¡lÃ³ fÃ¼ggvÃ©ny nem jelezzÃ¼k a konzolon, hogy lefutott
+		/* 
+		 	setter ami beállítja az adott mezõre a paraméterként kapott mezot szomszédnak,
+			kiiratása nincs, hiszen csak az inicializálásnál használjuk
 		 */
 		szomszedok.add(mezo);
 	}
 	public abstract String Name();
+	//absztrakt függvény megvalósítása a leszármazottakban, felhasználása a kiiratásnál kell
 	
 }
