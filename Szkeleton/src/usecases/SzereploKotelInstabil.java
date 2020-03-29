@@ -23,7 +23,7 @@ public class SzereploKotelInstabil implements UseCase{
 		Palya.setAktJatekos(k);
 		e.setMezo(instabilJ);
 		k.setMezo(stabilJ);
-		instabilJ.addAlatta(e);
+		instabilJ.setAlatta(e);
 		stabilJ.setSzereplo(k);
 		stabilJ.setSzomszed(instabilJ);
 		instabilJ.setSzomszed(stabilJ);
