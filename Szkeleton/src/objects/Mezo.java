@@ -186,7 +186,7 @@ public abstract class Mezo {
 	/*
 	 * absztrakt függvény megvalósítása a leszármazottakban, felhasználása a kiiratásnál kell
 	 */
-	public abstract String Name();
+	public abstract String Name(); 
 	
 	
 }
