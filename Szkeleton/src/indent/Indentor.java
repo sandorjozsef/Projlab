@@ -5,34 +5,34 @@ package indent;
  */
 public final class Indentor {
 	private static int  level;
+	/**
+	 * Kezdetben a 0-ás szinten vagyunk ez 0 d btabulátort jelent
+	 */
 	private Indentor() {
 		level = 0; 
-		/**
-		 * Kezdetben a 0-ás szinten vagyunk ez 0 d btabulátort jelent
-		 */
 	}
+	/**
+	 * A metódusok return előtt visszacsökkentik az indentálási szintet, hogy ne csak egy
+	 * lépcsőt lássunk
+	 */
 	public static void degLevel() {
 		level--;
-		/**
-		 * A metódusok return előtt visszacsökkentik az indentálási szintet, hogy ne csak egy
-		 * lépcsőt lássunk
-		 */
 	}
+	/**
+	 * A metódusok közvetlenül a belépésük után növelik az indentálási szintet, igy 
+	 * beljebb kezdődik majd a kiirásuk
+	 */
 	public static void incLevel() {
 		level++;
-		/**
-		 * A metódusok közvetlenül a belépésük után növelik az indentálási szintet, igy 
-		 * beljebb kezdődik majd a kiirásuk
-		 */
 	}
+	/**
+	 * Előállit egy tabulátor sorozatot az aktuális szint alapján és visszaadja
+	 */
 	public static String getIndent() {
 		String ind = "";
 		for(int i = 0; i<level;i++)
 			ind +="\t";
 		return ind;
-		/**
-		 * Előállit egy tabulátor sorozatot az aktuális szint alapján és visszaadja
-		 */
 	}
 	
 }

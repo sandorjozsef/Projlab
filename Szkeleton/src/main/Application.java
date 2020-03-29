@@ -4,20 +4,32 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import usecases.*;
-
+/**
+ * 
+ * main app
+ *
+ */
 public class Application {
 	
+	/**
+	 * Létrehozunk egy listát a UseCase interfészt implementáló osztályokból, amelynek elemieihez
+	 * később a listában lévő poziciójuk alapján azonositókat rendelünk
+	 * 
+	 * Ezen azonositókkal tudjuk majd futtatni a kivánt use-caseket, miután bekértük a felhasználótól
+	 * 
+	 * Ezzel a módszerrel könnyen bővithető a usecase lista
+	 *
+	 *
+	 * Kiirjuk az egyes use-caseket és azonositójukat az osztályban tárolt nevüket felhasználva
+	 *
+	 *	
+	 * Elkapju kaz esetleges exception-oket pl.:
+	 * Ha nem egész szám jön az inputon vagy olyan szám jön, amvel túlindexelnénk a listát
+	 * újra bekérjük az azonositót, ameddig végre nem hajtható az indexelés és futtatás
+	  */
 	public static void main(String[] args) {
 		boolean exit = false;
 		while(!exit) {
-			/**
-			 * Létrehozunk egy listát a UseCase interfészt implementáló osztályokból, amelynek elemieihez
-			 * később a listában lévő poziciójuk alapján azonositókat rendelünk
-			 * 
-			 * Ezen azonositókkal tudjuk majd futtatni a kivánt use-caseket, miután bekértük a felhasználótól
-			 * 
-			 * Ezzel a módszerrel könnyen bővithető a usecase lista
-			 */
 			
 			ArrayList<UseCase> useCases = new ArrayList<UseCase>();	
 			useCases.add(new EszkimoIglutEpit());
@@ -37,9 +49,6 @@ public class Application {
 			useCases.add(new SzereploKotelLukrol());	
 			useCases.add(new SzereploKotelInstabil());
 			
-			/**
-			 * Kiirjuk az egyes use-caseket és azonositójukat az osztályban tárolt nevüket felhasználva
-			 */
 			System.out.println("LEHETSEGES USE-CASE-ek:\n");
 			System.out.println("[-1] - Kilepes a programbol");
 			for(int i = 0; i< useCases.size();i++) {
@@ -50,14 +59,10 @@ public class Application {
 			
 			while(!validID) {
 				try {
-					/**
-					 * Bekérjuk a futtatni kivánt use-case azonositóját a felhasználótól
-					 */
+					
 					BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 					int useCaseID = Integer.parseInt(reader.readLine());
-					/**
-					 * Ha -1 et kapunk az inputon kilépünk a programból
-					 */
+					
 					if(useCaseID == -1) {
 						exit = true;
 						break;
@@ -68,11 +73,7 @@ public class Application {
 					useCases.get(useCaseID).run();
 				}
 				catch(Exception e) {
-					/**
-					 * Elkapju kaz esetleges exception-oket pl.:
-					 * Ha nem egész szám jön az inputon vagy olyan szám jön, amvel túlindexelnénk a listát
-					 * újra bekérjük az azonositót, ameddig végre nem hajtható az indexelés és futtatás
-					 */
+				
 					validID = false;	
 					e.printStackTrace();
 					System.out.print("Nem megfelelo azonosito, probalkozz ujra!: ");
