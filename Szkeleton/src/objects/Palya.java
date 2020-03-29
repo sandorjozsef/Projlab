@@ -81,7 +81,7 @@ public final class Palya {
 		//TODO : if alkatreszek==3
 		String answer1 = "";
 		while (!answer1.equals("Y") && !answer1.equals("N")) {
-			System.out.print(Indentor.getIndent()+"Megvan a harom alkatresz? (Y/N) ");
+			System.out.print(Indentor.getIndent()+" - Megvan a harom alkatresz? (Y/N) ");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
 				answer1 = reader.readLine();
@@ -95,7 +95,7 @@ public final class Palya {
 				//TODO: if maxJatekos==szerepszam
 				String answer2 = "";
 				while (!answer2.equals("Y") && !answer2.equals("N")) {
-					System.out.print(Indentor.getIndent()+"Az osszes szereplo egy mezon all? (Y/N) ");
+					System.out.print(Indentor.getIndent()+" - Az osszes szereplo egy mezon all? (Y/N) ");
 					
 					try {
 						answer2 = reader.readLine();

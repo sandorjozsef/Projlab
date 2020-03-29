@@ -4,7 +4,7 @@ import indent.Indentor;
 
 public class Noglu extends Epulet{
 	
-	
+	@Override
 	public void Levon(ArrayList<Szereplo> szereplok)
 	{
 		Indentor.incLevel();
