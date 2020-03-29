@@ -3,7 +3,12 @@ package objects;
 import java.util.ArrayList;
 
 import indent.Indentor;
-
+/**
+ *	olyan osztály amely felelõs azért hogy egy adott mezot
+ *	ne érjen hóvihar, ha az adott mezo stabiljegtabla és
+ *	jogosult erre a privilégiumra
+ *  
+ */
 public class Iglu extends Epulet{
 	/**
 	 *  nem csinál semmit, hiszen ha iglu van a mezõn akkor nem kell levonni

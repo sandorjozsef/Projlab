@@ -1,7 +1,12 @@
 package objects;
 
 import indent.Indentor;
-
+/**
+ * 	olyan osztály amely a játékban szereplõ Lukat testesíti meg
+ * 	és a játékszabályoknak megfelelõen ha egy szereplõ ide lép 
+ * 	akkor mindig vízbe esik, és egy idõ után meghal ha nem sikerül
+ * 	átlépnie egy másik mezobõl leszármazott osztályra
+ */
 public class Luk extends Mezo{
 	public Luk() {
 		super();

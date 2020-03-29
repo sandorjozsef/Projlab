@@ -1,7 +1,11 @@
 package objects;
 
 import indent.Indentor;
-
+/**
+ *	olyan osztály amely a játékban szereplõ stabiljégtáblát testesíti meg,
+ *	így ilyen típusú mezõrõl nem lehet vízbe esni soha, valamint az eszkimóknak
+ *	van lehetõségik iglut építeni rá
+ */
 public class StabilJegtabla extends Jegtabla{
 	public StabilJegtabla(Targy targy){
 		super();

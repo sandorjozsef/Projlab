@@ -5,7 +5,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import indent.Indentor;
-
+/**
+ * 	absztrakt osztály amely a játékosok lépéseinek, és egymástól való
+ *	távolságuk meghatározásának az alapegysége, továbbá a játék alatt
+ *	létrejövő hóviharok hatásának kifejtését segítő objektumokat 
+ *	példányosítanak meg a leszármazottjai
+ */
 public abstract class Mezo {
 	protected Epulet iglu;
 	

@@ -5,7 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import indent.Indentor;
-
+/**
+ *	olyan absztrakt osztály amely minden olyan mezõ õse ami nem luk,
+ * 	így a legfõbb különbsége, hogy van lehetõség tárgyat tárolni rajta,
+ *	amit a szereplõk felvehetnek róla, ha nincs rajta hó
+ */
 public abstract class Jegtabla extends Mezo{
 	public Jegtabla() {
 		super();

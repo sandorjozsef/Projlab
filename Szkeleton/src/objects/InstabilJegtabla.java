@@ -5,7 +5,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import indent.Indentor;
-
+/**
+ *	olyan osztály amely a játékban szereplő Instabiljégtáblát
+ *	testesíti meg, és a játékszabályok alapján, ha túl sok szereplő
+ *	áll rajta akkor képes felfordulni, de ugyanúgy InstabilJegtabla
+ *	marad, így a szereplők nem csak felette, hanem alatta is lehetnek
+ */
 public class InstabilJegtabla extends Jegtabla{
 	private ArrayList<Szereplo> alatta;
 	/**
