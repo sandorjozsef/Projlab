@@ -32,6 +32,13 @@ public abstract class Szereplo {
 		aktmezo.HoHozzaad(-1);
 		Indentor.degLevel();
 	}
+	/**
+	 * 
+	 * Noveli vagy csokkenti a szereplo testhojet a parameterrel.
+	 *
+	 */
+	
+	
 	public void TesthoHozzaad(int novekmeny) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".TesthoHozzaad()");
