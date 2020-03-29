@@ -9,8 +9,8 @@ import indent.Indentor;
 public class InstabilJegtabla extends Jegtabla{
 	private ArrayList<Szereplo> alatta;
 	/**
-	 *	konstruktor ami egyel�re a teherbirassal nem foglalkozik,
-	 *	mert az irrelev�ns a szkeleton tesztel�s szempontj�b�l
+	 *	konstruktor ami egyelőre a teherbirassal nem foglalkozik,
+	 *	mert az irreleváns a szkeleton tesztelés szempontjából
 	 */
 			
 	public InstabilJegtabla(Targy targy, int tb){
@@ -20,9 +20,9 @@ public class InstabilJegtabla extends Jegtabla{
 		
 	}
 	/**
-	 *	f�ggv�ny ami befogadja a belepo szereplot a regi mezorol
-	 *	ha szomsz�dos mezorol jon, valamint megvizsgalja hogy az adott
-	 *	instabil jegtabla elbirja-e m�g �t
+	 *	függvény ami befogadja a belepo szereplot a regi mezorol
+	 *	ha szomszédos mezorol jon, valamint megvizsgalja hogy az adott
+	 *	instabil jegtabla elbirja-e még őt
 	 */
 	public boolean Befogad(Szereplo belepo, Mezo regi)
 	{
@@ -54,8 +54,8 @@ public class InstabilJegtabla extends Jegtabla{
 		
 	}
 	/**
-	 *	annak f�ggv�ny�ben hogy az sz szereplo a tabla alatt vagy felett van
-	 *	megszaritja vagy elaztatja �t a f�ggv�ny
+	 *	annak függvényében hogy az sz szereplo a tabla alatt vagy felett van
+	 *	megszaritja vagy elaztatja őt a függvény
 	 */
 	public void Hatas(Szereplo sz)
 	{
@@ -84,8 +84,8 @@ public class InstabilJegtabla extends Jegtabla{
 		Indentor.degLevel();
 	}
 	/**	
-	 *	egyel�re nem csin�l semmit, k�s�bb majd a tabla szereplo t�mbj�nek
-	 *	tartalm�t fogja belepakolni az alatta t�mbbe
+	 *	egyelőre nem csinál semmit, később majd a tabla szereplo tömbjének
+	 *	tartalmát fogja belepakolni az alatta tömbbe
 	 */
 	
 	public void Felfordul()
@@ -95,16 +95,16 @@ public class InstabilJegtabla extends Jegtabla{
 		Indentor.degLevel();
 	}
 	/**
-	 *	setter, ami a t�bla al� rakja az sz Szereplot, a 
-	 *	v�gleges programban nem lesz r� sz�ks�g hiszen csak a
-	 * 	Felfordul fuggv�nyen kereszt�l juthat a t�bla al� valaki,
-	 * 	viszont a tesztel�s inicializ�l�s�hoz hasznos
+	 *	setter, ami a tábla alá rakja az sz Szereplot, a 
+	 *	végleges programban nem lesz rá szükség hiszen csak a
+	 * 	Felfordul fuggvünyen keresztül juthat a tábla alá valaki,
+	 * 	viszont a tesztelés inicializálásához hasznos
 	 */
 	public void setAlatta(Szereplo sz)
 	{alatta.add(sz);}
 	/**
-	 *	fel�ldefinialt f�ggv�ny ami csak a t�bla alatta t�mbj�b�l
-	 *	menek�ti ki az embereket.
+	 *	felüldefiniált függvény ami csak a tábla alatta tömbjéből
+	 *	menekíti ki az embereket.
 	 */
 	public void Kimenekit(Mezo cel)
 	{
@@ -115,8 +115,8 @@ public class InstabilJegtabla extends Jegtabla{
 		
 	}
 	/**
-	 *	fel�ldefini�lt f�ggv�ny, hiszen az InstabilJegtablara nem lehet iglut
-	 *	�piteni
+	 *	felüldefiniált függvény, hiszen az InstabilJegtablara nem lehet iglut
+	 *	épiteni
 	 */
 	@Override
 	public void setIglu() {
@@ -127,8 +127,8 @@ public class InstabilJegtabla extends Jegtabla{
 		
 	}
 	/**
-	 * 	tudatja a kiirat�sn�l hogy egy InstabilJegtablan v�gzik az esetlegesen
-	 *	mezobol nem fel�ldefini�lt f�ggv�nyt 
+	 * 	tudatja a kiiratásnál hogy egy InstabilJegtablan végzik az esetlegesen
+	 *	mezobol nem felüldefiniált függvényt 
 	 */
 	public String Name() {
 		return "InstabilJegtabla";
