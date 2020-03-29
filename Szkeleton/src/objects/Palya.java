@@ -58,10 +58,9 @@ public final class Palya {
 	public static void Hovihar() {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.Hovihar()");
-		
-		for(Mezo m : mezok){
-			//TODO : random mezok
-			m.Hoeses();
+			
+		for(int i = 0; i<mezok.size();i++) {
+			mezok.get(i).Hoeses();
 		}
 		
 		Indentor.degLevel();
@@ -77,7 +76,7 @@ public final class Palya {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.JatekVege()");
 	
-		
+		clear();
 		if(nyert) {
 			System.out.println(Indentor.getIndent()+" - Jatek megnyerve");
 		}
