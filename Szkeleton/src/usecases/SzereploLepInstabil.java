@@ -17,7 +17,7 @@ public class SzereploLepInstabil implements UseCase {
 	 */
 	@Override
 	public void run() {
-	
+		System.out.println(getName().toUpperCase());
 		// TODO Auto-generated method stub
 		Eszkimo sz = new Eszkimo();
 		StabilJegtabla mezo1 = new StabilJegtabla(null);

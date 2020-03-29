@@ -14,7 +14,7 @@ public class SzereploEszik implements UseCase {
 	 */
 	@Override
 	public void run() {
-	
+		System.out.println(getName().toUpperCase());
 		// TODO Auto-generated method stub
 		Kutato k = new Kutato();
 		Elelem etel = new Elelem();

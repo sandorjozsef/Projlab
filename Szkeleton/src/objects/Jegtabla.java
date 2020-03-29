@@ -31,11 +31,13 @@ public abstract class Jegtabla extends Mezo{
 			}
 			if (answer.equals("Y")) 
 			{
+				System.out.print(Indentor.getIndent()+" - Nem történt átadás");
 				Indentor.degLevel();
 				return null;
 			}else {
 				Targy t = targy;
 				targy = null;
+				System.out.print(Indentor.getIndent()+" - Tárgy átadva");
 				Indentor.degLevel();
 				return t;
 			}

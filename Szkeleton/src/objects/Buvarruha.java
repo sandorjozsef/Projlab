@@ -1,7 +1,16 @@
 package objects;
 import indent.Indentor;
-
+/**
+ * Ez az osztály megvalósítja a Targy interfészt és leszármazottja a Ruha-nak.
+ * Tehát egy Jegtabla-ról az Atad függvény segítségével fel lehet venni a Szereplo-nek és használata után ez lesz a Ruha-ja.
+ * @author Aviato
+ */
 public class Buvarruha extends Ruha implements Targy {
+	/**
+	 * A paraméterként kapott Szereplo-nek a Ruha-ját átállítja önmagára.
+	 * @param felhasznalo Ennek a Szereplo-nek állítja a hozzá tartozó Ruha-t.
+	 */
+	@Override
 	public void Kepesseg(Szereplo felhasznalo)
 	{
 		Indentor.incLevel();
@@ -10,6 +19,10 @@ public class Buvarruha extends Ruha implements Targy {
 		Indentor.degLevel();
 	}
 
+	/**
+	 * Nem csinál semmit, mert a Buvarruha nem tud elázni és viselete közben megfagyni sem lehet.
+	 * @param szereplo Hozzá tartozik az adott Buvarruha
+	 */
 	@Override
 	public void Elazik(Szereplo szereplo) 
 	{
@@ -17,7 +30,10 @@ public class Buvarruha extends Ruha implements Targy {
 		System.out.println(Indentor.getIndent()+"Buvarruha.Elazik()");
 		Indentor.degLevel();
 	}
-
+	
+	/**
+	 * Nem csinál semmit, mert a Buvarruha nem tud elázni és ebbõl adódóan nincs miért megszáradjon.
+	 */
 	@Override
 	public void Megszarit() 
 	{
@@ -25,6 +41,12 @@ public class Buvarruha extends Ruha implements Targy {
 		System.out.println(Indentor.getIndent()+"Buvarruha.Megszarit()");
 		Indentor.degLevel();
 	}
+	
+	/**
+	 * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
+	 * @return Buvarruha Stringgel tér vissza
+	 */
+	@Override
 	public String Name() {
 		return "Buvarruha";
 	}

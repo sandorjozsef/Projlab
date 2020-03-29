@@ -16,7 +16,7 @@ public class SzereploAlkatresz implements UseCase {
 	 */
 	@Override
 	public void run() {
-	
+		System.out.println(getName().toUpperCase());
 		// TODO Auto-generated method stub
 		StabilJegtabla mezo = new StabilJegtabla(null);
 		Kutato akt_jatekos = new Kutato();

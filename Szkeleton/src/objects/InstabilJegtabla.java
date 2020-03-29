@@ -31,7 +31,7 @@ public class InstabilJegtabla extends Jegtabla{
 		if(isSzomszed(regi)) {
 			String answer = "";
 			while(!answer.equals("Y") && !answer.equals("N")){
-				System.out.print(Indentor.getIndent()+" - Felfordul-e az instabil j�gt�bla? (Y/N) ");
+				System.out.print(Indentor.getIndent()+" - Felfordul-e az instabil jégtábla? (Y/N) ");
 				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 				try {
 					answer = reader.readLine();
@@ -63,7 +63,7 @@ public class InstabilJegtabla extends Jegtabla{
 		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Hatas()");
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N")){
-			System.out.print(Indentor.getIndent()+" - A szerepl� az instabil j�gt�bla felett van? (Y/N) ");
+			System.out.print(Indentor.getIndent()+" - A szereplő az instabil jégtábla felett van? (Y/N) ");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
 				answer = reader.readLine();
