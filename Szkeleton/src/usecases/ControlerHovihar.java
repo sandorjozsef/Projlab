@@ -13,7 +13,7 @@ public class ControlerHovihar implements UseCase {
 	@Override
 	public void run() {
 		
-		/*
+		/**
 		 * létrehozzuk a szükséges objektumokat és felállitjuk a köztük lévő kapcsolatot 
 		 * a kommunikációs diagramm alapján a Palya-t egyik esetben sem kell létrehozni, mert
 		 * statikus osztály, de minden esetleges használat után töröljük a tartalmát a clear() függvényével,
@@ -28,7 +28,7 @@ public class ControlerHovihar implements UseCase {
 		mezo.setSzereplo(sz);
 		sz.setMezo(mezo);
 		
-		/*
+		/**
 		 * Használat előtt feltesszük a kérdést a felhasználónak, hogy tartalmaz-e iglut 
 		 * a tesztelendő mező, ha igen a StabilJegtablahoz még egy iglut is settelünk
 		 */
@@ -49,7 +49,7 @@ public class ControlerHovihar implements UseCase {
 		
 		if(answer.equals("Y"))
 			mezo.setIglu();
-		/*
+		/**
 		 * Futtatjuk a szekvenciát
 		 * reseteljük a Palya tartalmát
 		 */
@@ -60,7 +60,7 @@ public class ControlerHovihar implements UseCase {
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		/*
+		/**
 		 * A use-case-hez tartózó leirás
 		 */
 		return "Hovihar generalas";

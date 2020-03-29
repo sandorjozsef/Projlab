@@ -1,13 +1,13 @@
 package usecases;
 import objects.*;
-/*
- * Eszkimó igu épitését szimuláló use-case osztály
+/**
+ * Eszkimó iglu épitését szimuláló use-case osztály
  */
 public class EszkimoIglutEpit implements UseCase{
 
 	@Override
 	public void run() {
-		/*
+		/**
 		 * létrehozzuk a szükséges objektumokat és felállitjuk a köztük lévő kapcsolatot 
 		 * a kommunikációs diagramm alapján a Palya-t egyik esetben sem kell létrehozni, mert
 		 * statikus osztály, de minden esetleges használat után töröljük a tartalmát a clear() függvényével,
@@ -20,7 +20,7 @@ public class EszkimoIglutEpit implements UseCase{
 		sz.setMezo(akt_mezo);
 		akt_mezo.setSzereplo(sz);
 		
-		/*
+		/**
 		 * Futtatjuk a szekvenciát
 		 *
 		 */
@@ -30,7 +30,7 @@ public class EszkimoIglutEpit implements UseCase{
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		/*
+		/**
 		 * A use-case-hez tartózó leirás
 		 */
 		return "Eszkimo megprobal iglut tenni egy mezore";
