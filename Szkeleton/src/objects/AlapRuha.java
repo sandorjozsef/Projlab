@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import indent.Indentor;
 /**
  * A Szereplo-höz tartozó olyan fajta ruha, amely kezdetben van rajta.
- * Ha ilyen viselete közben esik valaki vízbe, akkor el tud ázni és idõvel megfagyni
+ * Ha ilyen viselete közben esik valaki vízbe, akkor el tud ázni és idõvel megfagyni.
  */
 public class AlapRuha extends Ruha {
 	@Override
