@@ -26,7 +26,7 @@ public abstract class Mezo {
 	
 	public abstract boolean Befogad (Szereplo belepo, Mezo regi);
 	/**
-	 *	be�ll�tja azt hogy az �tadott kilepo m�r nem �ll az adott mezon
+	 *	beállítja azt hogy az átadott kilepo már nem áll az adott mezon
 	 */
 	public void Kiad (Szereplo kilepo){
 		Indentor.incLevel();
@@ -38,8 +38,8 @@ public abstract class Mezo {
 	
 	public abstract Targy Atad();
 	/**
-	 * 	alapb�l a k�vetkez� programk�d futna, ha az eg�sz p�lya fel lenne t�ltve hozz�,
-	 *	�s p�ldak�pp k�t szomsz�dja lenne egy mez�nek.
+	 * 	alapból a következő programkód futna, ha az egész pálya fel lenne töltve hozzá,
+	 *	és példaképp két szomszédja lenne egy mezőnek.
 	 */
 	public Mezo ValasztSzomszed()
 	{ 
@@ -67,7 +67,7 @@ public abstract class Mezo {
 		return szomszedok.get(0);
 	}
 	/**
-	 * 	bels� �llapotv�ltoz�s, megval�s�t�sa k�s�bb
+	 * 	belső állapotváltozás, megvalósítása később
 	 */
 	public void HoHozzaad(int novekmeny)
 	{
@@ -78,7 +78,7 @@ public abstract class Mezo {
 		Indentor.degLevel();
 	}
 	/**
-	 * 	bels� �llapotv�ltoz�s, megval�s�t�sa k�s�bb
+	 * 	belső állapotváltozás, megvalósítása később
 	 */
 	public void Felderit()
 	{
@@ -88,8 +88,8 @@ public abstract class Mezo {
 		
 	}
 	/**
- 	 *	visszaadja, hogy az adott mez�k szomsz�dosak-e, k�s�bb a saj�t attrib�tumaib�l
- 	 *	fogja �sszehasonl�tani, hogy a kapott param�ter benne van-e a saj�t szomszedok t�mbj�ben
+ 	 *	visszaadja, hogy az adott mezők szomszédosak-e, később a saját attribútumaiból
+ 	 *	fogja összehasonlítani, hogy a kapott paraméter benne van-e a saját szomszedok tömbjében
  	 */
 	public boolean isSzomszed(Mezo szomszed)
 	{
@@ -124,7 +124,7 @@ public abstract class Mezo {
 		
 	}
 	/**
-	 * 	visszat�rt az elt�rolt szereplok darabsz�m�val
+	 * 	visszatér az eltárolt szereplok darabszámával
 	 */
 	public int getSzereplokSzama()
 	{
@@ -135,7 +135,7 @@ public abstract class Mezo {
 		
 	}
 	/**
-	 * minden a mez�re beiratott szerepl�t �tl�ptet a cel mez�re
+	 * minden, a mezőre beiratott szereplőt átléptet a cel mezőre
 	 */
 	public void Kimenekit(Mezo cel)
 	{
@@ -146,18 +146,18 @@ public abstract class Mezo {
 		
 	}
 	/**
-	 * absztrakt f�ggv�ny megval�s�t�sa a lesz�rmazottakban
+	 * absztrakt függvény megvalósítása a leszármazottakban
 	 */
 	public abstract void setIglu();
 	
 	/**
-	 * absztrakt f�ggv�ny megval�s�t�sa a lesz�rmazottakban
+	 * absztrakt függvény megvalósítása a leszármazottakban
 	 */
 	public abstract void Hatas(Szereplo sz);
 	
 	/**
-	 *	ha egy adott mez�t h�es�s s�jtja akkor ez a f�ggv�ny sz�l a saj�t �p�let�nek,
-	 *	hogy hajtsa v�gre a j�t�kszab�lyok szerinti v�ltoz�sokat
+	 *	ha egy adott mezőt hóesés sújtja akkor ez a függvény szól a saját épületének,
+	 *	hogy hajtsa végre a játékszabályok szerinti változásokat
 	 */
 	public void Hoeses()
 	{
@@ -168,23 +168,23 @@ public abstract class Mezo {
 		
 	}
 	/**
-	 *	setter ami be�ll�tja az adott mez�re a param�terk�nt kapott szerepl�t,
-	 *	kiirat�sa nincs, hiszen csak az inicializ�l�sn�l haszn�ljuk
+	 *	setter ami beállítja az adott mezőre a paraméterként kapott szereplőt,
+	 *	kiiratása nincs, hiszen csak az inicializálásnál használjuk
 	 */
 	public void setSzereplo(Szereplo sz){
 		
 		szereplok.add(sz);
 	}
 	/**
- 	 *	setter ami be�ll�tja az adott mez�re a param�terk�nt kapott mezot szomsz�dnak,
-	 *	kiirat�sa nincs, hiszen csak az inicializ�l�sn�l haszn�ljuk
+ 	 *	setter ami beállítja az adott mezőre a paraméterként kapott mezot szomszédnak,
+	 *	kiiratása nincs, hiszen csak az inicializálásnál használjuk
 	 */
 	public void setSzomszed(Mezo mezo){
 		
 		szomszedok.add(mezo);
 	}
 	/**
-	 * absztrakt f�ggv�ny megval�s�t�sa a lesz�rmazottakban, felhaszn�l�sa a kiirat�sn�l kell
+	 * absztrakt függvény megvalósítása a leszármazottakban, felhasználása a kiiratásnál kell
 	 */
 	public abstract String Name(); 
 	
