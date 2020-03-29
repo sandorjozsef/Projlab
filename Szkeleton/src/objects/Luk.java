@@ -19,6 +19,8 @@ public class Luk extends Mezo{
 			Indentor.degLevel();
 			return false;
 		}
+		//megpróbálja befogadni a paraméterként megkapott szereplõt, a régi mezõjérõl,
+		//feltéve hogy a szereplõ szomszédos mezõrõl érkezik
 		
 	}
 	public void Hatas(Szereplo sz)
@@ -27,6 +29,8 @@ public class Luk extends Mezo{
 		System.out.println(Indentor.getIndent()+"Luk.Hatas()");
 		sz.Elazik();
 		Indentor.degLevel();
+		//Ha a Lukra szereplõ érkezik akkor az biztos elázik, így meghívja
+		//az elázik függvényt
 	}
 	@Override
 	public Targy Atad() {
@@ -35,6 +39,7 @@ public class Luk extends Mezo{
 		System.out.println(Indentor.getIndent()+"Luk.Atad()");
 		Indentor.degLevel();
 		return null;
+		//ha valaki lukrol probál meg tárgyat felvenni, akkor nem történik semmi
 	}
 	@Override
 	public void setIglu() {
@@ -42,17 +47,12 @@ public class Luk extends Mezo{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Luk.setIglu()");
 		Indentor.degLevel();
-		
-	}
-	public void Kimenekit(Mezo cel)
-	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Luk.Kimenekit()");
-		szereplok.forEach(sz->sz.Atlep(cel));		
-		Indentor.degLevel();
+		//ha valaki lukra probál meg iglut epiteni, akkor nem történik semmi
 		
 	}
 	public String Name() {
 		return "Luk";
+		//tudatja a kiiratásnál hogy egy Lukon végzik az esetlegesen
+		//szereplõbõl nem felüldefiniált függvényt
 	}
 }
