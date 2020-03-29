@@ -142,7 +142,7 @@ public abstract class Mezo {
 		Indentor.incLevel();		
 		System.out.println(Indentor.getIndent() + Name() + ".Kimenekit()");
 		for(int i=0; i<szereplok.size();i++) {
-				szereplok.get(i).Atlep(cel);
+				szereplok.get(i).Atlep(cel); 
 		}
 		Indentor.degLevel();
 		
