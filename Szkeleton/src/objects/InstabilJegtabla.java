@@ -9,7 +9,7 @@ import indent.Indentor;
 public class InstabilJegtabla extends Jegtabla{
 	private ArrayList<Szereplo> alatta;
 	/*
-	 *	konstruktor ami egyelõre a teehrbirassal nem foglalkozik,
+	 *	konstruktor ami egyelõre a teherbirassal nem foglalkozik,
 	 *	mert az irreleváns a szkeleton tesztelés szempontjából
 	 */
 			
@@ -22,7 +22,7 @@ public class InstabilJegtabla extends Jegtabla{
 	/*
 	 *	függvény ami befogadja a belepo szereplot a regi mezorol
 	 *	ha szomszédos mezorol jon, valamint megvizsgalja hogy az adott
-	 *	instabil jegtabla elbirja-e még õt.
+	 *	instabil jegtabla elbirja-e még õt
 	 */
 	public boolean Befogad(Szereplo belepo, Mezo regi)
 	{
