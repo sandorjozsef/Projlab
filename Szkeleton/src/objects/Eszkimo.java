@@ -1,13 +1,28 @@
-package objects;
+ package objects;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 import indent.*;
 	
+/**
+ * Az Eszkimo osztály példányai 5 testhővel kezdik a játékot, és tudnak iglut építeni speciális
+ * képességként.
+ * @author Sándor József
+ *
+ */
 public class Eszkimo extends Szereplo{
 	
-
+	public Eszkimo() {
+		super();
+	}
+	
+	/**
+	 * Amennyiben a cel megegyezik az Eszkimo
+	 * aktmezo attribútumával, akkor meghívja ennek a Mezőnek a setIglu() függvényét.
+	 * Az egyezést a Skeleton fázisban a felhasználóhoz intézett
+	 * kérdés alapján dönti el.
+	 */
 	public void SpecKepesseg(Mezo cel) {
 		
 		Indentor.incLevel();
@@ -36,6 +51,10 @@ public class Eszkimo extends Szereplo{
 
 	}
 
+	/**
+	 * tudatja a kiiratásnál hogy egy Eszkimo végzi az esetlegesen Szereplo-ből nem
+	 * felüldefiniált függvényt
+	 */
 	@Override
 	public String Name() {
 		// TODO Auto-generated method stub

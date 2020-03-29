@@ -1,4 +1,5 @@
 package objects;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -6,55 +7,58 @@ import java.util.ArrayList;
 
 import indent.Indentor;
 
-
 /**
- * A Szereplo egy absztrakt osztály. Egy szereplő vagy kutató vagy eszkimó. A szereplő tud
- * lépni, eszközöket használni, van testhője. Egy szereplő egy körben maximum négyet léphet.
+ * A Szereplo egy absztrakt osztály. Egy szereplő vagy kutató vagy eszkimó. A
+ * szereplő tud lépni, eszközöket használni, van testhője. Egy szereplő egy
+ * körben maximum négyet léphet.
+ * 
  * @author Sándor József
  *
  */
 public abstract class Szereplo {
-	
-	protected Ruha ruha; 
+
+	protected Ruha ruha;
 	protected ArrayList<Targy> targyak;
 	protected Mezo aktmezo;
-	Szereplo(){
+
+	public Szereplo() {
 		targyak = new ArrayList<Targy>();
-		ruha=new AlapRuha();
+		ruha = new AlapRuha();
 	}
-	
+
 	/**
-	 * Ezzel a metódussal tudja kezdeményezni a játékos egy
-	 *	másik mezőre való átjutását.
+	 * Ezzel a metódussal tudja kezdeményezni a játékos egy másik mezőre való
+	 * átjutását.
+	 * 
 	 * @param cel
 	 */
 	public void Atlep(Mezo cel) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".Atlep()");
-		
-		
-		boolean siker=cel.Befogad(this, aktmezo);
-		if(siker) {
+
+		boolean siker = cel.Befogad(this, aktmezo);
+		if (siker) {
 			aktmezo.Kiad(this);
 		}
 		Indentor.degLevel();
 	}
-	
+
 	/**
-	 * Ez a metódus a jégtáblát fedő hóréteg(ek) eltávolítására szolgál,
-	 *  amely 1 egységgel csökkenti a mennyiségét.
+	 * Ez a metódus a jégtáblát fedő hóréteg(ek) eltávolítására szolgál, amely 1
+	 * egységgel csökkenti a mennyiségét.
 	 */
 	public void Takarit() {
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+ Name() + ".Takarit()");
+		System.out.println(Indentor.getIndent() + Name() + ".Takarit()");
 		aktmezo.HoHozzaad(-1);
 		Indentor.degLevel();
 	}
-	
+
 	/**
 	 * Növeli vagy csökkenti a szereplő testhőjét az átadott paraméterrel.
-	 * Megkérdezi a felhasználótól, hogy nulla lett-e a testhője és
-	 * ennek függvényében megy tovább.
+	 * Megkérdezi a felhasználótól, hogy nulla lett-e a testhője és ennek
+	 * függvényében megy tovább.
+	 * 
 	 * @param novekmeny
 	 */
 	public void TesthoHozzaad(int novekmeny) {
@@ -62,38 +66,39 @@ public abstract class Szereplo {
 		System.out.println(Indentor.getIndent() + Name() + ".TesthoHozzaad()");
 		String answer1 = "";
 		while (!answer1.equals("Y") && !answer1.equals("N")) {
-			System.out.print(Indentor.getIndent()+" - 0 lett a testho? (Y/N) ");
+			System.out.print(Indentor.getIndent() + " - 0 lett a testho? (Y/N) ");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
 				answer1 = reader.readLine();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
+
 		}
 		if (answer1.equals("Y")) {
 			this.Meghaltam();
 		}
 		Indentor.degLevel();
 	}
-	
+
 	/**
-	 * Ezzel lehet arról a hómentes jégtábláról kivenni a tárgyat, amelyen
-	 * a szereplő tartózkodik, valamint a tárgy referenciáját eltárolja.
+	 * Ezzel lehet arról a hómentes jégtábláról kivenni a tárgyat, amelyen a
+	 * szereplő tartózkodik, valamint a tárgy referenciáját eltárolja.
 	 */
 	public void Felvesz() {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".Felvesz()");
-		//TODO : null-t addol?
+		// TODO : null-t addol?
 		Targy t = aktmezo.Atad();
-		if(t!=null)
+		if (t != null)
 			targyak.add(t);
 		Indentor.degLevel();
 	}
-	
+
 	/**
-	 * A paraméterként kapott Targy Kepesseg()
-	 * függvényét hívja meg, aminek a paramétereként saját magát adja át.
+	 * A paraméterként kapott Targy Kepesseg() függvényét hívja meg, aminek a
+	 * paramétereként saját magát adja át.
+	 * 
 	 * @param targy
 	 */
 	public void Hasznal(Targy targy) {
@@ -102,9 +107,10 @@ public abstract class Szereplo {
 		targy.Kepesseg(this);
 		Indentor.degLevel();
 	}
-	
+
 	/**
 	 * Visszaadja az aktuális mezőt (aktmezo).
+	 * 
 	 * @return
 	 */
 	public Mezo getMezo() {
@@ -113,19 +119,20 @@ public abstract class Szereplo {
 		Indentor.degLevel();
 		return aktmezo;
 	}
-	
-	/** Beállitja a mezőt, amin a szereplő áll
-	 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
+
+	/**
+	 * Beállitja a mezőt, amin a szereplő áll Inicializáló függvény nem jelezzük a
+	 * konzolon, hogy lefutott
 	 */
 	public void setMezo(Mezo mezo) {
-		aktmezo=mezo;  
-		
+		aktmezo = mezo;
+
 	}
-	
+
 	/**
-	 * Eldobja a paraméterként megadott tárgyat a zsebéből,
-	 * amennyiben nála van.
-	 * Ez egyelőre még a Skeleton fázisban nincs megvalósítva.
+	 * Eldobja a paraméterként megadott tárgyat a zsebéből, amennyiben nála van. Ez
+	 * egyelőre még a Skeleton fázisban nincs megvalósítva.
+	 * 
 	 * @param targy
 	 */
 	public void Eldob(Targy targy) {
@@ -133,18 +140,19 @@ public abstract class Szereplo {
 		System.out.println(Indentor.getIndent() + Name() + ".Eldob()");
 		Indentor.degLevel();
 	}
-	
+
 	/**
-	 * Absztrakt metódus, melyet a leszármazottaknak
-	 * kötelező módon meg kell valósítaniuk 
-	 * (különböző módon )
+	 * Absztrakt metódus, melyet a leszármazottaknak kötelező módon meg kell
+	 * valósítaniuk (különböző módon )
+	 * 
 	 * @param cel
 	 */
-	public abstract void SpecKepesseg(Mezo cel) ;
-		
+	public abstract void SpecKepesseg(Mezo cel);
+
 	/**
-	 * Beállítja a lépésszámot a-val megegyező értékűre.
-	 * Ez egyelőre még a Skeleton fázisban nincs megvalósítva.
+	 * Beállítja a lépésszámot a-val megegyező értékűre. Ez egyelőre még a Skeleton
+	 * fázisban nincs megvalósítva.
+	 * 
 	 * @param a
 	 */
 	public void setLepesszam(int a) {
@@ -152,10 +160,10 @@ public abstract class Szereplo {
 		System.out.println(Indentor.getIndent() + Name() + ".setLepesszam()");
 		Indentor.degLevel();
 	}
-	
+
 	/**
-	 * Jelzi a pályának, hogy nem lép többet, és ekkor a pálya átadja a
-	 * kört a következő játékosnak.
+	 * Jelzi a pályának, hogy nem lép többet, és ekkor a pálya átadja a kört a
+	 * következő játékosnak.
 	 */
 	public void Vegeztem() {
 		Indentor.incLevel();
@@ -163,22 +171,22 @@ public abstract class Szereplo {
 		Palya.Leptet();
 		Indentor.degLevel();
 	}
-	
+
 	/**
-	 * Beállítja a szereplő ruha attribútumának a
-	 * paraméterként kapott ruhát.
+	 * Beállítja a szereplő ruha attribútumának a paraméterként kapott ruhát.
+	 * 
 	 * @param ruha
 	 */
 	public void setRuha(Ruha ruha) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".setRuha()");
-		this.ruha=ruha;
+		this.ruha = ruha;
 		Indentor.degLevel();
 	}
-	
+
 	/**
-	 * Meghívja a ruhája Elazik() függvényét, aminek a paraméterében
-	 * saját magát adja át.
+	 * Meghívja a ruhája Elazik() függvényét, aminek a paraméterében saját magát
+	 * adja át.
 	 */
 	public void Elazik() {
 		Indentor.incLevel();
@@ -186,7 +194,7 @@ public abstract class Szereplo {
 		ruha.Elazik(this);
 		Indentor.degLevel();
 	}
-	
+
 	/**
 	 * Meghívja a ruhája Megszarit() függvényét.
 	 */
@@ -196,7 +204,7 @@ public abstract class Szereplo {
 		ruha.Megszarit();
 		Indentor.degLevel();
 	}
-	
+
 	/**
 	 * Meghívja a Palya JatekVege(false) függvényét.
 	 */
@@ -206,6 +214,7 @@ public abstract class Szereplo {
 		Palya.JatekVege(false);
 		Indentor.degLevel();
 	}
+
 	public abstract String Name();
-	
+
 }

@@ -7,19 +7,32 @@ import java.util.*;
 
 import indent.Indentor;
 
+/**
+ * Felügyeli a játék menetét. Ő felelős a hóviharok generálásáért, továbbá ő hozza létre a
+ * játékteret a különböző karakterisztikákkal együtt (hol legyenek elrejtve a tárgyak, hány mező
+ * és milyen módon legyen elhelyezve, stb.).
+ * Singleton statikus osztály
+ * @author Sándor József
+ *
+ */
 public final class Palya {
 	private static Szereplo aktJatekos;
 	private static ArrayList<Szereplo> szereplok= new ArrayList<Szereplo>();
 	private static ArrayList<Mezo> mezok = new ArrayList<Mezo>();
 
+	/**
+	 * Statikus osztály, nem lehet kívülről hívható konstruktor
+	 */
 	private Palya() {}
 
+	/**
+	 * Ez a metódus adja át a lépésjogot a következő játékosnak.
+	 * Hóvihart genrál
+	 */
 	public static void Leptet() {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.Leptet()");
 		
-		
-		//TODO : keres kov szereplo
 		Szereplo kov;
 		int akt=szereplok.lastIndexOf(aktJatekos);
 		if(akt==szereplok.size()-1) {
@@ -38,20 +51,28 @@ public final class Palya {
 		Indentor.degLevel();
 	}
 
+	/**
+	 * Minden szereplő köre lejárta után meghívódik ez a metódus, ami
+	 * csak bizonyos valószínűséggel generál ténylegesen hóvihart.
+	 */
 	public static void Hovihar() {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.Hovihar()");
-		
 		
 		for(Mezo m : mezok){
 			//TODO : random mezok
 			m.Hoeses();
 		}
 		
-		
 		Indentor.degLevel();
 	}
 	
+	/**
+	 * Jelzi a játék kimenetének végét az átadott paraméter
+	 * függvényében. Akkor hívódik meg ha elsül a pisztoly (true), vagy ha valakinek
+	 * elfogyott a testhője (false) vagy megfulladt (false).
+	 * @param nyert
+	 */
 	public static void JatekVege(boolean nyert) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.JatekVege()");
@@ -67,6 +88,11 @@ public final class Palya {
 		Indentor.degLevel();
 	}
 
+	/**
+	 * Ezzel a metódussal kezdődik el a játék, vagyis létrejönnek az
+	 * objektumok és az első szereplő megkapja a cselekvési jogot.
+	 * A Skeleton fázisban még nincs megvalósítva.
+	 */
 	public static void JatekotKezd() {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.JatekotKezd()");
@@ -75,6 +101,16 @@ public final class Palya {
 		Indentor.degLevel();
 	}
 
+	/**
+	 * Növeli a megtalált alkatrészek számát
+	 * és vizsgálja, hogy mind a 3 alkatrészt megtalálták-e, valamint mindenki azonos mezőn
+	 * áll-e. Ha az alkatrészt már bejelentették (a kapott paraméter false értékű) akkor csak
+	 * vizsgálja, hogy készek a feltételek a játék megnyeréséhez, nem növekszik a megtalált
+	 * alkatrészek száma.
+	 * Jelen fázisban megkérdi a felhasználótól, hogy meg van-e mindhárom alkatrész és hogy ugyanazon a mezőn
+	 * áll-e az összes szereplő
+	 * @param bejelentheto
+	 */
 	public static void AlkatresztKezel(boolean bejelentheto) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.AlkatreszKezel()");
@@ -113,39 +149,47 @@ public final class Palya {
 		Indentor.degLevel();
 	}
 
+	/**
+	 *  Beállitja a szomszédságot a mezők közöt egy erre speciális algoritmussal
+	 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
+	 */
 	public static void MezokOsszekot() {
-		/** Beállitja a szomszédságot a mezők közöt egy erre speciális algoritmussal
-		 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
-		 */
+		
 	}
+	
+	/**
+	 *  Hozzáad a mezők listájához egy újat
+	 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
+	 * @param mezo
+	 */
 	public static void addMezo(Mezo mezo) {
-		/** Hozzáad a mezők listájához egy újat
-		 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
-		 */
 		mezok.add(mezo);
-		
-		
 	}
+	
+	/**
+	 *  Hozzáad a szereplők listájához egy újat
+	 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
+	 * @param sz
+	 */
 	public static void addSzereplo(Szereplo sz) {
-		/* Hozzáad a szereplők listájához egy újat
-		 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
-		 */
 		szereplok.add(sz);
-		
-		
 	}
+	
+	/**
+	 * Beállitja az aktuálisan soron lévő játékost
+	 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
+	 * @param sz
+	 */
 	public static void setAktJatekos(Szereplo sz) {
-		/* Beállitja az aktuálisan soron lévő játékost
-		 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
-		 */
 		aktJatekos = sz;
-		//
-		
 	}
+	
+	/**
+	 *  Letörli a pálya listáinak tartalmát
+	 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
+	 */
 	public static void clear() {
-		/* Letörli a pálya listáinak tartalmát
-		 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
-		 */
+		
 		mezok.clear();
 		szereplok.clear();
 		
