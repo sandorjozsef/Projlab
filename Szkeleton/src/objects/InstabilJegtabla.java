@@ -8,13 +8,22 @@ import indent.Indentor;
 
 public class InstabilJegtabla extends Jegtabla{
 	private ArrayList<Szereplo> alatta;
+	/*
+	 *	konstruktor ami egyelõre a teehrbirassal nem foglalkozik,
+	 *	mert az irreleváns a szkeleton tesztelés szempontjából
+	 */
+			
 	public InstabilJegtabla(Targy targy, int tb){
 		super();
 		alatta = new ArrayList<Szereplo>();
 		this.targy=targy;
-		//konstruktor ami egyelõre a teehrbirassal nem foglalkozik,
-		//mert az irreleváns a szkeleton tesztelés szempontjából
+		
 	}
+	/*
+	 *	függvény ami befogadja a belepo szereplot a regi mezorol
+	 *	ha szomszédos mezorol jon, valamint megvizsgalja hogy az adott
+	 *	instabil jegtabla elbirja-e még õt.
+	 */
 	public boolean Befogad(Szereplo belepo, Mezo regi)
 	{
 		Indentor.incLevel();
@@ -44,6 +53,10 @@ public class InstabilJegtabla extends Jegtabla{
 		}
 		
 	}
+	/*
+	 *	annak függvényében hogy az sz szereplo a tabla alatt vagy felett van
+	 *	megszaritja vagy elaztatja õt a függvény
+	 */
 	public void Hatas(Szereplo sz)
 	{
 		Indentor.incLevel();
@@ -70,14 +83,29 @@ public class InstabilJegtabla extends Jegtabla{
 		}
 		Indentor.degLevel();
 	}
+	/*	
+	 *	egyelõre nem csinál semmit, késõbb majd a tabla szereplo tömbjének
+	 *	tartalmát fogja belepakolni az alatta tömbbe
+	 */
+	
 	public void Felfordul()
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Felfordul()");
 		Indentor.degLevel();
 	}
+	/*
+	 *	setter, ami a tábla alá rakja az sz Szereplot, a 
+	 *	végleges programban nem lesz rá szükség hiszen csak a
+	 * 	Felfordul fuggvényen keresztül juthat a tábla alá valaki,
+	 * 	viszont a tesztelés inicializálásához hasznos
+	 */
 	public void setAlatta(Szereplo sz)
 	{alatta.add(sz);}
+	/*
+	 *	felüldefinialt függvény ami csak a tábla alatta tömbjébõl
+	 *	menekíti ki az embereket.
+	 */
 	public void Kimenekit(Mezo cel)
 	{
 		Indentor.incLevel();
@@ -86,6 +114,10 @@ public class InstabilJegtabla extends Jegtabla{
 		Indentor.degLevel();
 		
 	}
+	/*
+	 *	felüldefiniált függvény, hiszen az InstabilJegtablara nem lehet iglut
+	 *	épiteni
+	 */
 	@Override
 	public void setIglu() {
 		// TODO Auto-generated method stub
@@ -94,13 +126,10 @@ public class InstabilJegtabla extends Jegtabla{
 		Indentor.degLevel();
 		
 	}
-	public void addAlatta(Szereplo sz ) {
-		alatta.add(sz);
-		/* Ãšj szereplÅ‘t ad az instabil jÃ©gtÃ¡bla alÃ¡
-		 * InicializÃ¡lÃ³ fÃ¼ggvÃ©ny nem jelezzÃ¼k a konzolon, hogy lefutott
-		 */
-		
-	}
+	/*
+	 * 	tudatja a kiiratásnál hogy egy InstabilJegtablan végzik az esetlegesen
+	 *	mezobol nem felüldefiniált függvényt 
+	 */
 	public String Name() {
 		return "InstabilJegtabla";
 	}
