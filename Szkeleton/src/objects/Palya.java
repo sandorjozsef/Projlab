@@ -55,7 +55,13 @@ public final class Palya {
 	public static void JatekVege(boolean nyert) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.JatekVege()");
-		
+		Palya.clear();
+		if(nyert) {
+			System.out.println(Indentor.getIndent()+" - Jatek megnyerve");
+		}
+		else {			
+			System.out.println(Indentor.getIndent()+" - Jatek elveszitve");
+		}
 		
 		Indentor.degLevel();
 	}
