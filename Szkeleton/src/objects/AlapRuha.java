@@ -4,10 +4,11 @@ import java.io.InputStreamReader;
 import indent.Indentor;
 
 public class AlapRuha extends Ruha {
+	@Override
 	public void Elazik(Szereplo sz)
 	{ 
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"AlapRuha.Kepesseg()");
+		System.out.println(Indentor.getIndent()+"AlapRuha.Elazik()");
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N"))
 		{
@@ -30,13 +31,14 @@ public class AlapRuha extends Ruha {
 		}
 		Indentor.degLevel();
 	}
-	
+	@Override
 	public void Megszarit()
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"AlapRuha.Megszarit()");
 		Indentor.degLevel();
 	}
+	@Override
 	public String Name() {
 		return "AlapRuha";
 	}

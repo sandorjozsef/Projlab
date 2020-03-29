@@ -14,7 +14,7 @@ public abstract class Szereplo {
 	}
 	public void Atlep(Mezo cel) {
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Szereplo.Atlep()");
+		System.out.println(Indentor.getIndent() + Name() + ".Atlep()");
 		
 		
 		boolean siker=cel.Befogad(this, aktmezo);
@@ -25,7 +25,7 @@ public abstract class Szereplo {
 	}
 	public void Takarit() {
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Szereplo.Takarit()");
+		System.out.println(Indentor.getIndent()+ Name() + ".Takarit()");
 		aktmezo.HoHozzaad(-1);
 		Indentor.degLevel();
 	}
@@ -36,12 +36,12 @@ public abstract class Szereplo {
 		 * kerdes, es ha testho = 0 akkor meghivja meghaltamot
 		 * 
 		 */
-		System.out.println(Indentor.getIndent() + "Szereplo.TesthoHozzaad()");
+		System.out.println(Indentor.getIndent() + Name() + ".TesthoHozzaad()");
 		Indentor.degLevel();
 	}
 	public void Felvesz() {
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Szereplo.Felvesz()");
+		System.out.println(Indentor.getIndent() + Name() + ".Felvesz()");
 		//TODO : null-t addol?
 		Targy t = aktmezo.Atad();
 		if(t!=null)
@@ -50,13 +50,13 @@ public abstract class Szereplo {
 	}
 	public void Hasznal(Targy targy) {
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Szereplo.Hasznal()");
+		System.out.println(Indentor.getIndent() + Name() + ".Hasznal()");
 		targy.Kepesseg(this);
 		Indentor.degLevel();
 	}
 	public Mezo getMezo() {
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Szereplo.getMezo()");
+		System.out.println(Indentor.getIndent() + Name() + ".getMezo()");
 		Indentor.degLevel();
 		return aktmezo;
 	}
@@ -68,43 +68,43 @@ public abstract class Szereplo {
 	}
 	public void Eldob(Targy targy) {
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Szereplo.Eldob()");
+		System.out.println(Indentor.getIndent() + Name() + ".Eldob()");
 		Indentor.degLevel();
 	}
 	public abstract void SpecKepesseg(Mezo cel) ;
 		
 	public void setLepesszam(int a) {
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Szereplo.setLepesszam()");
+		System.out.println(Indentor.getIndent() + Name() + ".setLepesszam()");
 		Indentor.degLevel();
 	}
 	public void Vegeztem() {
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Szereplo.Vegeztem()");
+		System.out.println(Indentor.getIndent() + Name() + ".Vegeztem()");
 		Palya.Leptet();
 		Indentor.degLevel();
 	}
 	public void setRuha(Ruha ruha) {
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Szereplo.setRuha()");
+		System.out.println(Indentor.getIndent() + Name() + ".setRuha()");
 		this.ruha=ruha;
 		Indentor.degLevel();
 	}
 	public void Elazik() {
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Szereplo.Elazik()");
+		System.out.println(Indentor.getIndent() + Name() + ".Elazik()");
 		ruha.Elazik(this);
 		Indentor.degLevel();
 	}
 	public void Megszarit() {
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Szereplo.Megszarit()");
+		System.out.println(Indentor.getIndent() + Name() + ".Megszarit()");
 		ruha.Megszarit();
 		Indentor.degLevel();
 	}
 	public void Meghaltam() {
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Szereplo.Meghaltam()");
+		System.out.println(Indentor.getIndent() + Name() + ".Meghaltam()");
 		Palya.JatekVege(false);
 		Indentor.degLevel();
 	}

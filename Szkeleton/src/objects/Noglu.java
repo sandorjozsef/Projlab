@@ -9,6 +9,7 @@ import indent.Indentor;
  */
 public class Noglu extends Epulet{
 	
+<<<<<<< HEAD
 	/*
 	 * paraméter: Azok a szereplok akik azon a mezőn állnak, ahol nincs iglu
 	 * 
@@ -17,6 +18,9 @@ public class Noglu extends Epulet{
 	 * 
 	 * nincs visszatérési értéke
 	 */
+=======
+	@Override
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 	public void Levon(ArrayList<Szereplo> szereplok)
 	{
 		Indentor.incLevel();

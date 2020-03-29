@@ -1,5 +1,6 @@
 package main;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import usecases.*;
@@ -77,7 +78,14 @@ public class Application {
 					System.out.print("Nem megfelelo azonosito, probalkozz ujra!: ");
 				}
 			}
-			
+			System.out.print("\n---Nyomj ENTER-t---\n");
+			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+			try {
+				reader.read();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		

@@ -16,7 +16,7 @@ public class Eszkimo extends Szereplo{
 
 		String answer1 = "";
 		while (!answer1.equals("Y") && !answer1.equals("N")) {
-			System.out.print(Indentor.getIndent()+"Arra a mezore akarod epíteni, amin allsz ? (Y/N) ");
+			System.out.print(Indentor.getIndent()+" - Arra a mezore akarod epíteni, amin allsz ? (Y/N) ");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
 				answer1 = reader.readLine();
@@ -28,7 +28,7 @@ public class Eszkimo extends Szereplo{
 				cel.setIglu();
 			}
 			if (answer1.equals("N")){
-				System.out.print(Indentor.getIndent()+"Iglu epitese sikertelen");
+				System.out.print(Indentor.getIndent()+" - Iglu epitese sikertelen");
 			}
 		}
 
