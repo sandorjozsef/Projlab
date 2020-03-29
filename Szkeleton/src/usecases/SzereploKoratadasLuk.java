@@ -14,7 +14,7 @@ public class SzereploKoratadasLuk implements UseCase {
 		 * létrehozzuk a szükséges objektumokat és felállitjuk a köztük lévő kapcsolatot 
 		 * a kommunikációs diagramm alapján a Palya-t egyik esetben sem kell létrehozni, mert
 		 * statikus osztály, de minden esetleges használat után töröljük a tartalmát a clear() függvényével,
-		 * hogy ez ne befolyásolja a többi use-case teszt futását
+		 * hogy ez ne befolyssolja a tobbi use-case teszt futasat
 		 */
 		Luk mezo = new Luk();
 		Kutato k = new Kutato();
@@ -24,13 +24,14 @@ public class SzereploKoratadasLuk implements UseCase {
 		
 		e.setMezo(mezo);
 		mezo.setSzereplo(e);
+		
 		Palya.addMezo(mezo);
 		Palya.addSzereplo(k);
 		Palya.addSzereplo(e);
 		
 		/**
-		 * Futtatjuk a szekvenciát
-		 * reseteljük a Palya tartalmát
+		 * Futtatjuk a szekvenciat
+		 * reseteljuk a Palya tartalmat
 		 */
 		k.Vegeztem();
 		Palya.clear();
@@ -40,7 +41,7 @@ public class SzereploKoratadasLuk implements UseCase {
 	public String getName() {
 		// TODO Auto-generated method stub
 		/**
-		 * A use-case-hez tartózó leirás
+		 * A use-case-hez tartozo leiras
 		 */
 		return "Szereplo atadja a koret lukon allo szereplonek";
 	}

@@ -56,6 +56,7 @@ public final class Palya {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.JatekVege()");
 	
+		
 		if(nyert) {
 			System.out.println(Indentor.getIndent()+" - Jatek megnyerve");
 		}
@@ -113,12 +114,12 @@ public final class Palya {
 	}
 
 	public static void MezokOsszekot() {
-		/* Beállitja a szomszédságot a mezők közöt egy erre speciális algoritmussal
+		/** Beállitja a szomszédságot a mezők közöt egy erre speciális algoritmussal
 		 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
 		 */
 	}
 	public static void addMezo(Mezo mezo) {
-		/* Hozzáad a mezők listájához egy újat
+		/** Hozzáad a mezők listájához egy újat
 		 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
 		 */
 		mezok.add(mezo);
