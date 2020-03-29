@@ -1,7 +1,21 @@
 package objects;
 import indent.Indentor;
 
+/*
+ * Implementálja a Targy interfészt, csak egy Szereplo hívhatja meg a Kepesseg()
+ * függvényét. - Nyílván csak akkor tudja meghívni, ha nála van, tehát már kiásta
+ */
+
 public class Kotel implements Targy{
+	/*
+	 * paraméter: Szereplo sz - az a szereplo akinél van a kötél, ez hívhatja csak meg a függvényt
+	 * 
+	 * A 'sz' Szereplo által kiválasztott 'honnan' Mezo-nek szól, hogy pakolja át az
+	 * embereket, akik vízben vannak azon a mezőn, arra a mezőre amin a 
+	 * paraméterben kapott 'sz' Szereplo áll
+	 * 
+	 * nincs visszatérési érték
+	 */
 	public void Kepesseg(Szereplo sz) {
 		Indentor.incLevel();		
 		System.out.println(Indentor.getIndent() + "Kotel.Kepesseg()");
@@ -15,6 +29,8 @@ public class Kotel implements Targy{
 		Indentor.degLevel();
 		return;
 	}
+	
+	// visszaadja az osztály nevét, implementálja a Targy függvényét
 	public String Name() {
 		return "Kotel";
 	}
