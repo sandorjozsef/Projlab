@@ -6,6 +6,13 @@ import java.util.ArrayList;
 
 import indent.Indentor;
 
+
+/**
+ * A Szereplo egy absztrakt osztály. Egy szereplő vagy kutató vagy eszkimó. A szereplő tud
+ * lépni, eszközöket használni, van testhője. Egy szereplő egy körben maximum négyet léphet.
+ * @author Sándor József
+ *
+ */
 public abstract class Szereplo {
 	
 	protected Ruha ruha; 
