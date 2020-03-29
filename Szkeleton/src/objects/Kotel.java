@@ -7,9 +7,9 @@ public class Kotel implements Targy{
 		System.out.println(Indentor.getIndent() + "Kotel.Kepesseg()");
 		
 		
-		StabilJegtabla akt_mezo = (StabilJegtabla)sz.getMezo();
-		Luk luk = (Luk)akt_mezo.ValasztSzomszed();
-		luk.Kimenekit(akt_mezo);
+		Mezo akt_mezo = sz.getMezo();
+		Mezo honnan = akt_mezo.ValasztSzomszed();
+		honnan.Kimenekit(akt_mezo);
 		
 		
 		Indentor.degLevel();

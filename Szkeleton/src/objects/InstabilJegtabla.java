@@ -20,7 +20,7 @@ public class InstabilJegtabla extends Jegtabla{
 		if(isSzomszed(regi)) {
 			String answer = "";
 			while(!answer.equals("Y") && !answer.equals("N")){
-				System.out.print(Indentor.getIndent()+"\t\t\t\tFelfordul-e az instabil j�gt�bla? (Y/N) ");
+				System.out.print(Indentor.getIndent()+"\t\t\t\tFelfordul-e az instabil jégtábla? (Y/N) ");
 				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 				try {
 					answer = reader.readLine();
@@ -48,7 +48,7 @@ public class InstabilJegtabla extends Jegtabla{
 		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Hatas()");
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N")){
-			System.out.print(Indentor.getIndent()+" - A szerepl� az instabil j�gt�bla felett van? (Y/N) ");
+			System.out.print(Indentor.getIndent()+" - A szereplõ az instabil jégtábla felett van? (Y/N) ");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
 				answer = reader.readLine();
@@ -80,7 +80,7 @@ public class InstabilJegtabla extends Jegtabla{
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Kimenekit()");
-		alatta.get(0).Atlep(cel);
+		alatta.forEach(sz->sz.Atlep(cel));	
 		Indentor.degLevel();
 		
 	}
@@ -90,6 +90,13 @@ public class InstabilJegtabla extends Jegtabla{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"InstabilJegtabla.setIglu()");
 		Indentor.degLevel();
+		
+	}
+	public void addAlatta(Szereplo sz ) {
+		alatta.add(sz);
+		/* Új szereplőt ad az instabil jégtábla alá
+		 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
+		 */
 		
 	}
 }

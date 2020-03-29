@@ -9,7 +9,7 @@ import indent.Indentor;
 public abstract class Mezo {
 	protected Epulet iglu;
 	
-	private ArrayList<Szereplo> szereplok;
+	protected ArrayList<Szereplo> szereplok;
 	
 	private ArrayList<Mezo> szomszedok;
 	
@@ -40,7 +40,7 @@ public abstract class Mezo {
 		/*int answer = -1;
 		while(answer!=0&&answer!=1)
 		{
-			System.out.print("Melyik szomsz�d mez�re l�p?(0/1)");
+			System.out.print("Melyik szomszéd mezõre lép?(0/1)");
 			answer = Integer.parseInt(System.console().readLine());
 			if (answer==0) 
 			{
@@ -60,7 +60,7 @@ public abstract class Mezo {
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+Name()+".HoHozzaad()");
-		//bels� �llapotv�ltoz�s, megjelen�t�se k�s�bb
+		//belsõ állapotváltozás, megjelenítése késõbb
 		
 		Indentor.degLevel();
 	}
@@ -70,7 +70,7 @@ public abstract class Mezo {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+Name()+".Felderit()");
 		Indentor.degLevel();
-		//felder�t�s be�ll�t�sa
+		//felderítés beállítása
 	}
 	
 	public boolean isSzomszed(Mezo szomszed)
@@ -82,7 +82,7 @@ public abstract class Mezo {
 		while(!answer.equals("Y") && !answer.equals("N"))
 		{
 
-			System.out.print(Indentor.getIndent()+ " - Szomsz�dos-e a k�t mez�? (Y/N) ");
+			System.out.print(Indentor.getIndent()+ " - Szomszédos-e a két mezõ? (Y/N) ");
 	
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
@@ -135,10 +135,16 @@ public abstract class Mezo {
 	}
 	
 	public void setSzereplo(Szereplo sz){
+		/* Hozzáad a szereplők listájához egy újat
+		 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
+		 */
 		szereplok.add(sz);
 	}
 	
 	public void setSzomszed(Mezo mezo){
+		/* Hozzáad egy mezőt a szomszédok közé
+		 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
+		 */
 		szomszedok.add(mezo);
 	}
 	

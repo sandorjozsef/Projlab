@@ -16,6 +16,8 @@ public class SzereploTargyfelvetel implements UseCase {
 		// TODO Auto-generated method stub
 	Kutato k = new Kutato();
 	StabilJegtabla mezo = new StabilJegtabla(new Lapat());	
+	
+	
 	Palya.setAktJatekos(k);
 	k.setMezo(mezo);
 	mezo.setSzereplo(k);

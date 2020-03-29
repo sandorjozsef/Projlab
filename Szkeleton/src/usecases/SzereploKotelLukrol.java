@@ -1,9 +1,9 @@
 package usecases;
 import objects.*;
-public class SzereploKoratadas implements UseCase {
-
+public class SzereploKotelLukrol implements UseCase{
 	/*
-	 * A körök átadását a szereplők között szimuláló use-case osztály
+	 * Szereplő kötél használatát szimuláló use-case osztály, amikor a kötelet egy
+	 * lukon használja, onnan menekiti a játékosokat
 	 */
 	@Override
 	public void run() {
@@ -13,24 +13,27 @@ public class SzereploKoratadas implements UseCase {
 		 * statikus osztály, de minden esetleges használat után töröljük a tartalmát a clear() függvényével,
 		 * hogy ez ne befolyásolja a többi use-case teszt futását
 		 */
-		StabilJegtabla mezo = new StabilJegtabla(null);
+		// TODO Auto-generated method stub
 		Kutato k = new Kutato();
-		Kutato k2 = new Kutato();
+		Kotel kotel = new Kotel();		
+		StabilJegtabla stabilJ = new StabilJegtabla(null);
+		Luk luk = new Luk();
+		Eszkimo e = new Eszkimo();
 		
 		Palya.setAktJatekos(k);
-		
-		k2.setMezo(mezo);
-		mezo.setSzereplo(k2);
-		Palya.addMezo(mezo);
-		Palya.addSzereplo(k);
-		Palya.addSzereplo(k2);
+		e.setMezo(luk);
+		k.setMezo(stabilJ);
+		luk.setSzereplo(e);
+		stabilJ.setSzereplo(k);
+		stabilJ.setSzomszed(luk);
+		luk.setSzomszed(stabilJ);
 		
 		/*
 		 * Futtatjuk a szekvenciát
-		 * reseteljük a Palya tartalmát
+		 * 
 		 */
-		k.Vegeztem();
-		Palya.clear();
+		k.Hasznal(kotel);
+		
 	}
 
 	@Override
@@ -39,7 +42,7 @@ public class SzereploKoratadas implements UseCase {
 		/*
 		 * A use-case-hez tartózó leirás
 		 */
-		return "Szereplo atadja a koret";
+		return "Szereplo kotelet hasznal egy szomszédos lukon";
 	}
 
 }

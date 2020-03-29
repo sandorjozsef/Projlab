@@ -44,4 +44,12 @@ public class Luk extends Mezo{
 		Indentor.degLevel();
 		
 	}
+	public void Kimenekit(Mezo cel)
+	{
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent()+"Luk.Kimenekit()");
+		szereplok.forEach(sz->sz.Atlep(cel));		
+		Indentor.degLevel();
+		
+	}
 }

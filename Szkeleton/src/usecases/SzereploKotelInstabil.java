@@ -1,11 +1,10 @@
 package usecases;
 import objects.*;
-
-/*
- * Kutató mező felderitését szimuláló use-case osztály
- */
-public class KutatoFelderit implements UseCase {
-
+public class SzereploKotelInstabil implements UseCase{
+	/*
+	 * Szereplő kötél használatát szimuláló use-case osztály, amikor a kötelet egy
+	 * instabil mezon használja, onnan menekiti a játékosokat
+	 */
 	@Override
 	public void run() {
 		/*
@@ -14,21 +13,27 @@ public class KutatoFelderit implements UseCase {
 		 * statikus osztály, de minden esetleges használat után töröljük a tartalmát a clear() függvényével,
 		 * hogy ez ne befolyásolja a többi use-case teszt futását
 		 */
+		// TODO Auto-generated method stub
 		Kutato k = new Kutato();
-		StabilJegtabla akt_mezo = new StabilJegtabla(null);
-		InstabilJegtabla mezo = new InstabilJegtabla(null,2);
+		Kotel kotel = new Kotel();		
+		StabilJegtabla stabilJ = new StabilJegtabla(null);
+		InstabilJegtabla instabilJ = new InstabilJegtabla(null,3);
+		Eszkimo e = new Eszkimo();
 		
 		Palya.setAktJatekos(k);
-		k.setMezo(akt_mezo);
-		akt_mezo.setSzereplo(k);
-		mezo.setSzomszed(akt_mezo);
-		akt_mezo.setSzomszed(mezo);
+		e.setMezo(instabilJ);
+		k.setMezo(stabilJ);
+		instabilJ.addAlatta(e);
+		stabilJ.setSzereplo(k);
+		stabilJ.setSzomszed(instabilJ);
+		instabilJ.setSzomszed(stabilJ);
 		
 		/*
 		 * Futtatjuk a szekvenciát
 		 * 
 		 */
-		k.SpecKepesseg(mezo);
+		k.Hasznal(kotel);
+		
 	}
 
 	@Override
@@ -37,7 +42,7 @@ public class KutatoFelderit implements UseCase {
 		/*
 		 * A use-case-hez tartózó leirás
 		 */
-		return "Kutato megprobal mezot felderiteni";
+		return "Szereplo kotelet hasznal egy szomszédos instabil mezon";
 	}
 
 }

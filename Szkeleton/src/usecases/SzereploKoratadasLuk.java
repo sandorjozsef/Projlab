@@ -1,11 +1,13 @@
 package usecases;
 import objects.*;
+	/*
+	 * A körök átadását a szereplők között szimuláló use-case osztály
+	 * Ebben az esetben a következő játékos lukon áll igy annak a hatása fog érvényesülni
+	 * rá, ha megkapja a kört.
+	 */
+public class SzereploKoratadasLuk implements UseCase {
 
-/*
- * Kutató mező felderitését szimuláló use-case osztály
- */
-public class KutatoFelderit implements UseCase {
-
+	
 	@Override
 	public void run() {
 		/*
@@ -14,21 +16,24 @@ public class KutatoFelderit implements UseCase {
 		 * statikus osztály, de minden esetleges használat után töröljük a tartalmát a clear() függvényével,
 		 * hogy ez ne befolyásolja a többi use-case teszt futását
 		 */
+		Luk mezo = new Luk();
 		Kutato k = new Kutato();
-		StabilJegtabla akt_mezo = new StabilJegtabla(null);
-		InstabilJegtabla mezo = new InstabilJegtabla(null,2);
+		Eszkimo e = new Eszkimo();
 		
 		Palya.setAktJatekos(k);
-		k.setMezo(akt_mezo);
-		akt_mezo.setSzereplo(k);
-		mezo.setSzomszed(akt_mezo);
-		akt_mezo.setSzomszed(mezo);
+		
+		e.setMezo(mezo);
+		mezo.setSzereplo(e);
+		Palya.addMezo(mezo);
+		Palya.addSzereplo(k);
+		Palya.addSzereplo(e);
 		
 		/*
 		 * Futtatjuk a szekvenciát
-		 * 
+		 * reseteljük a Palya tartalmát
 		 */
-		k.SpecKepesseg(mezo);
+		k.Vegeztem();
+		Palya.clear();
 	}
 
 	@Override
@@ -37,7 +42,7 @@ public class KutatoFelderit implements UseCase {
 		/*
 		 * A use-case-hez tartózó leirás
 		 */
-		return "Kutato megprobal mezot felderiteni";
+		return "Szereplo atadja a koret lukon allo szereplonek";
 	}
 
 }

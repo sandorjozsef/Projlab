@@ -16,7 +16,7 @@ public class SzereploLepStabil implements UseCase {
 		 */
 		// TODO Auto-generated method stub
 		Eszkimo sz = new Eszkimo();
-		StabilJegtabla mezo1 = new StabilJegtabla(null);
+		InstabilJegtabla mezo1 = new InstabilJegtabla(null,4);
 		StabilJegtabla mezo2 = new StabilJegtabla(null);
 		
 		Palya.setAktJatekos(sz);

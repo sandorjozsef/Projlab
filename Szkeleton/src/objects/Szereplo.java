@@ -33,7 +33,7 @@ public abstract class Szereplo {
 		Indentor.incLevel();
 		/*
 		 * 
-		 * kerdes es ha testho = 0 akkor meghivja meghaltamot
+		 * kerdes, es ha testho = 0 akkor meghivja meghaltamot
 		 * 
 		 */
 		System.out.println(Indentor.getIndent() + "Szereplo.TesthoHozzaad()");
@@ -62,6 +62,9 @@ public abstract class Szereplo {
 	}
 	public void setMezo(Mezo mezo) {
 		aktmezo=mezo;  
+		/* Beállitja a mezőt, amin a szereplő áll
+		 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
+		 */
 	}
 	public void Eldob(Targy targy) {
 		Indentor.incLevel();

@@ -21,7 +21,8 @@ public class Application {
 			ArrayList<UseCase> useCases = new ArrayList<UseCase>();	
 			useCases.add(new EszkimoIglutEpit());
 			useCases.add(new KutatoFelderit());
-			useCases.add(new SzereploKoratadas());
+			useCases.add(new SzereploKoratadasStabil());
+			useCases.add(new SzereploKoratadasLuk());
 			useCases.add(new SzereploEszik());
 			useCases.add(new SzereploBuvarruha());
 			useCases.add(new SzereploAlkatresz());
@@ -32,7 +33,8 @@ public class Application {
 			useCases.add(new SzereploLepLuk());
 			useCases.add(new SzereploTakarit());
 			useCases.add(new SzereploLapat());
-			useCases.add(new SzereploKotel());	
+			useCases.add(new SzereploKotelLukrol());	
+			useCases.add(new SzereploKotelInstabil());
 			
 			/*
 			 * Kiirjuk az egyes use-caseket és azonositójukat az osztályban tárolt nevüket felhasználva

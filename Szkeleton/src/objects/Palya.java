@@ -107,28 +107,38 @@ public final class Palya {
 	}
 
 	public static void MezokOsszekot() {
-		
+		/* Beállitja a szomszédságot a mezők közöt egy erre speciális algoritmussal
+		 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
+		 */
 	}
 	public static void addMezo(Mezo mezo) {
-		
+		/* Hozzáad a mezők listájához egy újat
+		 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
+		 */
 		mezok.add(mezo);
 		
 		
 	}
 	public static void addSzereplo(Szereplo sz) {
-		
+		/* Hozzáad a szereplők listájához egy újat
+		 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
+		 */
 		szereplok.add(sz);
 		
 		
 	}
 	public static void setAktJatekos(Szereplo sz) {
-		
+		/* Beállitja az aktuálisan soron lévő játékost
+		 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
+		 */
 		aktJatekos = sz;
 		//
 		
 	}
 	public static void clear() {
-		
+		/* Letörli a pálya listáinak tartalmát
+		 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
+		 */
 		mezok.clear();
 		szereplok.clear();
 		
