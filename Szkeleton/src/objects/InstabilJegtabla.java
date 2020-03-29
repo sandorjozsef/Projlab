@@ -12,6 +12,8 @@ public class InstabilJegtabla extends Jegtabla{
 		super();
 		alatta = new ArrayList<Szereplo>();
 		this.targy=targy;
+		//konstruktor ami egyelõre a teehrbirassal nem foglalkozik,
+		//mert az irreleváns a szkeleton tesztelés szempontjából
 	}
 	public boolean Befogad(Szereplo belepo, Mezo regi)
 	{

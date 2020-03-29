@@ -12,37 +12,42 @@ public abstract class Mezo {
 	protected ArrayList<Szereplo> szereplok;
 	
 	private ArrayList<Mezo> szomszedok;
-	
+	/*
+ 	 *	Mezo konstruktor ami alapból az iglu attribútumot noglura állítja,
+ 	 *	hiszen alapból egyik mezõn sincs iglu. 
+	 */
 	public Mezo(){
 		iglu = new Noglu();
 		szereplok = new ArrayList<Szereplo>();
 		szomszedok = new ArrayList<Mezo>();
-		/*
-		 	Mezo konstruktor ami alapból az iglu attribútumot noglura állítja,
-		 	hiszen alapból egyik mezõn sincs iglu. 
-		 */
+		
 		
 	}
 	
 	public abstract boolean Befogad (Szereplo belepo, Mezo regi);
-	
+	/*
+	 *	beállítja azt hogy az átadott kilepo már nem áll az adott mezon
+	 */
 	public void Kiad (Szereplo kilepo){
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name()+".Kiad()");
 		szereplok.remove(kilepo);
 		Indentor.degLevel();
-		//beállítja azt hogy az átadott kilepo már nem áll az adott mezon
+		
 	}
 	
 	public abstract Targy Atad();
-	
+	/*
+	 * 	alapból a következõ programkód futna, ha az egész pálya fel lenne töltve hozzá,
+	 *	és példaképp két szomszédja lenne egy mezõnek.
+	 */
 	public Mezo ValasztSzomszed()
 	{ 
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+Name()+".ValasztSzomszed()");
-		/* alapból a következõ programkód futna, ha az egész pálya fel lenne töltve hozzá,
-		 	és példaképp két szomszédja lenne egy mezõnek.
-			int answer = -1;
+		
+		int answer = -1;
+		 /*
 			while(answer!=0&&answer!=1)
 			{
 				System.out.print("Melyik szomszéd mezõe lép?(0/1)");
@@ -61,24 +66,31 @@ public abstract class Mezo {
 		Indentor.degLevel();
 		return szomszedok.get(0);
 	}
-	
+	/*
+	 * 	belsõ állapotváltozás, megvalósítása késõbb
+	 */
 	public void HoHozzaad(int novekmeny)
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+Name()+".HoHozzaad()");
-		//belsõ állapotváltozás, megvalósítása késõbb
+		
 		
 		Indentor.degLevel();
 	}
-	
+	/*
+	 * 	belsõ állapotváltozás, megvalósítása késõbb
+	 */
 	public void Felderit()
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+Name()+".Felderit()");
 		Indentor.degLevel();
-		//belsõ állapotváltozás, megvalósítása késõbb
+		
 	}
-	
+	/*
+ 	 *	visszaadja, hogy az adott mezõk szomszédosak-e, késõbb a saját attribútumaiból
+ 	 *	fogja összehasonlítani, hogy a kapott paraméter benne van-e a saját szomszedok tömbjében
+ 	 */
 	public boolean isSzomszed(Mezo szomszed)
 	{
 		Indentor.incLevel();
@@ -109,62 +121,72 @@ public abstract class Mezo {
 			}
 		Indentor.degLevel();
 		return false;
-		/*
-		 	visszaadja, hogy az adott mezõk szomszédosak-e, késõbb a saját attribútumaiból
-		 	fogja összehasonlítani, hogy a kapott paraméter benne van-e a saját szomszedok tömbjében
-		 */
+		
 	}
-	
+	/*
+	 * 	visszatért az eltárolt szereplok darabszámával
+	 */
 	public int getSzereplokSzama()
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+Name()+".getSzereplokSzama()");
 		Indentor.degLevel();
 		return szereplok.size();
-		//visszatért az eltárolt szereplok darabszámával
+		
 	}
-	
+	/*
+	 * minden a mezõre beiratott szereplõt átléptet a cel mezõre
+	 */
 	public void Kimenekit(Mezo cel)
 	{
 		Indentor.incLevel();		
 		System.out.println(Indentor.getIndent() + Name() + ".Kimenekit()");
 		szereplok.forEach(sz->sz.Atlep(cel));
 		Indentor.degLevel();
-		//minden a mezõre beiratott szereplõt átléptet a cel mezõre
+		
 	}
-	
+	/*
+	 * absztrakt függvény megvalósítása a leszármazottakban
+	 */
 	public abstract void setIglu();
-	//absztrakt függvény megvalósítása a leszármazottakban
 	
+	/*
+	 * absztrakt függvény megvalósítása a leszármazottakban
+	 */
 	public abstract void Hatas(Szereplo sz);
-	//absztrakt függvény megvalósítása a leszármazottakban
 	
+	/*
+	 *	ha egy adott mezõt hóesés sújtja akkor ez a függvény szól a saját épületének,
+	 *	hogy hajtsa végre a játékszabályok szerinti változásokat
+	 */
 	public void Hoeses()
 	{
 		Indentor.incLevel();		
 		System.out.println(Indentor.getIndent() + Name() +".Hoeses()");
 		iglu.Levon(szereplok);
 		Indentor.degLevel();
-		//ha egy adott mezõt hóesés sújtja akkor ez a függvény szól a saját épületének,
-		//hogy hajtsa végre a játékszabályok szerinti változásokat
+		
 	}
-	
+	/*
+	 *	setter ami beállítja az adott mezõre a paraméterként kapott szereplõt,
+	 *	kiiratása nincs, hiszen csak az inicializálásnál használjuk
+	 */
 	public void setSzereplo(Szereplo sz){
-		/*
-			setter ami beállítja az adott mezõre a paraméterként kapott szereplõt,
-			kiiratása nincs, hiszen csak az inicializálásnál használjuk
-		 */
+		
 		szereplok.add(sz);
 	}
-	
+	/* 
+ 	 *	setter ami beállítja az adott mezõre a paraméterként kapott mezot szomszédnak,
+	 *	kiiratása nincs, hiszen csak az inicializálásnál használjuk
+	 */
 	public void setSzomszed(Mezo mezo){
-		/* 
-		 	setter ami beállítja az adott mezõre a paraméterként kapott mezot szomszédnak,
-			kiiratása nincs, hiszen csak az inicializálásnál használjuk
-		 */
+		
 		szomszedok.add(mezo);
 	}
+	/*
+	 * absztrakt függvény megvalósítása a leszármazottakban, felhasználása a kiiratásnál kell
+	 */
 	public abstract String Name();
-	//absztrakt függvény megvalósítása a leszármazottakban, felhasználása a kiiratásnál kell
+	
 	
 }
