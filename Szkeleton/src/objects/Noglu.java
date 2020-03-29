@@ -3,13 +3,13 @@ import java.util.ArrayList;
 import indent.Indentor;
 
 
-/*
+/**
  * Az Epulet absztrakt osztály leszármazottja, a Levon() függvényét csak a Palya osztály hívja meg
  * új játékos körének kezdésénél, amikor egy esetleges hóvihar éri a mezőt
  */
 public class Noglu extends Epulet{
 
-	/*
+	/**
 	 * paraméter: Azok a szereplok akik azon a mezőn állnak, ahol nincs iglu
 	 * 
 	 * Ha a Palya meghívja az adott mezőnek a Hoeses() függvényét akkor ez a mező átadja a rajta álló emberek 
@@ -32,8 +32,9 @@ public class Noglu extends Epulet{
 		
 		Indentor.degLevel();
 	}
-	// visszaadja az osztály nevét
-
+	/**
+	 *  visszaadja az osztály nevét
+	 */
 	public String Name() {
 		return "Noglu";
 	}
