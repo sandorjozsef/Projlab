@@ -141,8 +141,8 @@ public abstract class Mezo {
 	{
 		Indentor.incLevel();		
 		System.out.println(Indentor.getIndent() + Name() + ".Kimenekit()");
-		for(int i=0; i<szereplok.size();i++) {
-				szereplok.get(i).Atlep(cel); 
+		for(int i = 0; i<szereplok.size();i++) {
+			szereplok.get(i).Atlep(cel);
 		}
 		Indentor.degLevel();
 		
@@ -158,7 +158,7 @@ public abstract class Mezo {
 	public abstract void Hatas(Szereplo sz);
 	
 	/**
-	 *	ha egy adott mezőt hóesés sújtja akkor ez a függvény szól a saját épületének,
+	 *	ha egy adott mezőt hóesés sújtja akkor ez a függvény szól a saját épületének, 
 	 *	hogy hajtsa végre a játékszabályok szerinti változásokat
 	 */
 	public void Hoeses()
