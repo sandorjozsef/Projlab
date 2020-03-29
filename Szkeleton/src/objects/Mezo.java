@@ -184,7 +184,7 @@ public abstract class Mezo {
 	 */
 	public void setSzomszed(Mezo mezo){
 		
-		szomszedok.add(mezo);
+		szomszedok.add(mezo); 
 	}
 	/**
 	 * absztrakt függvény megvalósítása a leszármazottakban, felhasználása a kiiratásnál kell
