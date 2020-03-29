@@ -100,7 +100,7 @@ public abstract class Mezo {
 		while(!answer.equals("Y") && !answer.equals("N"))
 		{
 
-			System.out.print(Indentor.getIndent()+ " - Szomsz�dos-e a k�t mez�? (Y/N) ");
+			System.out.print(Indentor.getIndent()+ " - Szomszédos-e a két mező? (Y/N) ");
 	
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
