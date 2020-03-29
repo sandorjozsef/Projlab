@@ -11,7 +11,7 @@ public abstract class Jegtabla extends Mezo{
 		super();
 	}
 	protected Targy targy;
-	/*
+	/**
 	 *	átadja a jegtablarol a tárgyat, ha nincs rajta már hó,
 	 *	majd kitörli a saját attribútumai közül
 	 */

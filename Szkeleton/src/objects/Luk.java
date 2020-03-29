@@ -6,7 +6,7 @@ public class Luk extends Mezo{
 	public Luk() {
 		super();
 	}
-	/*
+	/**
 	 *	megpróbálja befogadni a paraméterként megkapott szereplõt, a régi mezõjérõl,
 	 *	feltéve hogy a szereplõ szomszédos mezõrõl érkezik
 	 */
@@ -26,7 +26,7 @@ public class Luk extends Mezo{
 		
 		
 	}
-	/*
+	/**
 	 *	Ha a Lukra szereplõ érkezik akkor az biztos elázik, így meghívja
 	 *	az elázik függvényt
 	 */
@@ -38,7 +38,7 @@ public class Luk extends Mezo{
 		Indentor.degLevel();
 		
 	}
-	/*
+	/**
 	 * ha valaki lukrol probál meg tárgyat felvenni, akkor nem jár sikerrel
 	 */
 	@Override
@@ -50,7 +50,7 @@ public class Luk extends Mezo{
 		return null;
 		
 	}
-	/*
+	/**
 	 * ha valaki lukra probál meg iglut epiteni, akkor nem történik semmi
 	 */
 	@Override
@@ -62,7 +62,7 @@ public class Luk extends Mezo{
 		
 		
 	}
-	/*
+	/**
 	 * 	tudatja a kiiratásnál hogy egy Lukon végzik az esetlegesen
 	 *	mezobol nem felüldefiniált függvényt 
 	 */

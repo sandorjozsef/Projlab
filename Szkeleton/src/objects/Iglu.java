@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import indent.Indentor;
 
 public class Iglu extends Epulet{
-	/*
+	/**
 	 *  nem csinál semmit, hiszen ha iglu van a mezõn akkor nem kell levonni
 	 */
 	@Override
@@ -17,7 +17,7 @@ public class Iglu extends Epulet{
 		
 		
 	}
-	/*
+	/**
 	 *	tudatja a kiiratásnál hogy egy Iglun végzik az esetlegesen
 	 *	mezobol nem felüldefiniált függvényt	 
 	 */

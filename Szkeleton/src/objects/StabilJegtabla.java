@@ -7,7 +7,7 @@ public class StabilJegtabla extends Jegtabla{
 		super();
 		this.targy=targy;
 	}
-	/*
+	/**
 	 *	függvény ami befogadja a belepo szereplot a regi mezorol
 	 *	ha szomszédos mezorol jon
 	 */
@@ -25,7 +25,7 @@ public class StabilJegtabla extends Jegtabla{
 		}
 		
 	}
-	/*
+	/**
 	 *	Ha a StabilJegtablara szereplõ érkezik akkor az biztos megszárad, így meghívja
 	 *	a megszarit függvényt
 	 */
@@ -36,7 +36,7 @@ public class StabilJegtabla extends Jegtabla{
 		sz.Megszarit();
 		Indentor.degLevel();
 	}
-	/*
+	/**
 	 *	felüldefiniált függvény ami iglut épít a mezõre
 	 */
 	@Override
@@ -48,7 +48,7 @@ public class StabilJegtabla extends Jegtabla{
 		iglu=iglu1;
 		Indentor.degLevel();
 	}
-	/*
+	/**
 	 *	felüldefiniált függvény ami nem engedi hogy StabilJegtablarol
 	 *	kimenekítsenek bárkit is, ezért nem csinál semmit
 	 */
@@ -58,7 +58,7 @@ public class StabilJegtabla extends Jegtabla{
 		System.out.println(Indentor.getIndent()+"StabilJegtabla.Kimenekit()");
 		Indentor.degLevel();
 	}
-	/*
+	/**
 	 * 	tudatja a kiiratásnál hogy egy StabilJegtablan végzik az esetlegesen
 	 *	mezobol nem felüldefiniált függvényt 
 	 */

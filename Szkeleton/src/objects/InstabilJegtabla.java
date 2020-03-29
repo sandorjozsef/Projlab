@@ -8,9 +8,9 @@ import indent.Indentor;
 
 public class InstabilJegtabla extends Jegtabla{
 	private ArrayList<Szereplo> alatta;
-	/*
-	 *	konstruktor ami egyelõre a teherbirassal nem foglalkozik,
-	 *	mert az irreleváns a szkeleton tesztelés szempontjából
+	/**
+	 *	konstruktor ami egyelï¿½re a teherbirassal nem foglalkozik,
+	 *	mert az irrelevï¿½ns a szkeleton tesztelï¿½s szempontjï¿½bï¿½l
 	 */
 			
 	public InstabilJegtabla(Targy targy, int tb){
@@ -19,10 +19,10 @@ public class InstabilJegtabla extends Jegtabla{
 		this.targy=targy;
 		
 	}
-	/*
-	 *	függvény ami befogadja a belepo szereplot a regi mezorol
-	 *	ha szomszédos mezorol jon, valamint megvizsgalja hogy az adott
-	 *	instabil jegtabla elbirja-e még õt
+	/**
+	 *	fï¿½ggvï¿½ny ami befogadja a belepo szereplot a regi mezorol
+	 *	ha szomszï¿½dos mezorol jon, valamint megvizsgalja hogy az adott
+	 *	instabil jegtabla elbirja-e mï¿½g ï¿½t
 	 */
 	public boolean Befogad(Szereplo belepo, Mezo regi)
 	{
@@ -31,7 +31,7 @@ public class InstabilJegtabla extends Jegtabla{
 		if(isSzomszed(regi)) {
 			String answer = "";
 			while(!answer.equals("Y") && !answer.equals("N")){
-				System.out.print(Indentor.getIndent()+" - Felfordul-e az instabil jégtábla? (Y/N) ");
+				System.out.print(Indentor.getIndent()+" - Felfordul-e az instabil jï¿½gtï¿½bla? (Y/N) ");
 				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 				try {
 					answer = reader.readLine();
@@ -53,9 +53,9 @@ public class InstabilJegtabla extends Jegtabla{
 		}
 		
 	}
-	/*
-	 *	annak függvényében hogy az sz szereplo a tabla alatt vagy felett van
-	 *	megszaritja vagy elaztatja õt a függvény
+	/**
+	 *	annak fï¿½ggvï¿½nyï¿½ben hogy az sz szereplo a tabla alatt vagy felett van
+	 *	megszaritja vagy elaztatja ï¿½t a fï¿½ggvï¿½ny
 	 */
 	public void Hatas(Szereplo sz)
 	{
@@ -63,7 +63,7 @@ public class InstabilJegtabla extends Jegtabla{
 		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Hatas()");
 		String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N")){
-			System.out.print(Indentor.getIndent()+" - A szereplõ az instabil jégtábla felett van? (Y/N) ");
+			System.out.print(Indentor.getIndent()+" - A szereplï¿½ az instabil jï¿½gtï¿½bla felett van? (Y/N) ");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
 				answer = reader.readLine();
@@ -83,9 +83,9 @@ public class InstabilJegtabla extends Jegtabla{
 		}
 		Indentor.degLevel();
 	}
-	/*	
-	 *	egyelõre nem csinál semmit, késõbb majd a tabla szereplo tömbjének
-	 *	tartalmát fogja belepakolni az alatta tömbbe
+	/**	
+	 *	egyelï¿½re nem csinï¿½l semmit, kï¿½sï¿½bb majd a tabla szereplo tï¿½mbjï¿½nek
+	 *	tartalmï¿½t fogja belepakolni az alatta tï¿½mbbe
 	 */
 	
 	public void Felfordul()
@@ -94,17 +94,17 @@ public class InstabilJegtabla extends Jegtabla{
 		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Felfordul()");
 		Indentor.degLevel();
 	}
-	/*
-	 *	setter, ami a tábla alá rakja az sz Szereplot, a 
-	 *	végleges programban nem lesz rá szükség hiszen csak a
-	 * 	Felfordul fuggvényen keresztül juthat a tábla alá valaki,
-	 * 	viszont a tesztelés inicializálásához hasznos
+	/**
+	 *	setter, ami a tï¿½bla alï¿½ rakja az sz Szereplot, a 
+	 *	vï¿½gleges programban nem lesz rï¿½ szï¿½ksï¿½g hiszen csak a
+	 * 	Felfordul fuggvï¿½nyen keresztï¿½l juthat a tï¿½bla alï¿½ valaki,
+	 * 	viszont a tesztelï¿½s inicializï¿½lï¿½sï¿½hoz hasznos
 	 */
 	public void setAlatta(Szereplo sz)
 	{alatta.add(sz);}
-	/*
-	 *	felüldefinialt függvény ami csak a tábla alatta tömbjébõl
-	 *	menekíti ki az embereket.
+	/**
+	 *	felï¿½ldefinialt fï¿½ggvï¿½ny ami csak a tï¿½bla alatta tï¿½mbjï¿½bï¿½l
+	 *	menekï¿½ti ki az embereket.
 	 */
 	public void Kimenekit(Mezo cel)
 	{
@@ -114,9 +114,9 @@ public class InstabilJegtabla extends Jegtabla{
 		Indentor.degLevel();
 		
 	}
-	/*
-	 *	felüldefiniált függvény, hiszen az InstabilJegtablara nem lehet iglut
-	 *	épiteni
+	/**
+	 *	felï¿½ldefiniï¿½lt fï¿½ggvï¿½ny, hiszen az InstabilJegtablara nem lehet iglut
+	 *	ï¿½piteni
 	 */
 	@Override
 	public void setIglu() {
@@ -126,9 +126,9 @@ public class InstabilJegtabla extends Jegtabla{
 		Indentor.degLevel();
 		
 	}
-	/*
-	 * 	tudatja a kiiratásnál hogy egy InstabilJegtablan végzik az esetlegesen
-	 *	mezobol nem felüldefiniált függvényt 
+	/**
+	 * 	tudatja a kiiratï¿½snï¿½l hogy egy InstabilJegtablan vï¿½gzik az esetlegesen
+	 *	mezobol nem felï¿½ldefiniï¿½lt fï¿½ggvï¿½nyt 
 	 */
 	public String Name() {
 		return "InstabilJegtabla";
