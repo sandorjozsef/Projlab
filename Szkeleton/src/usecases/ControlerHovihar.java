@@ -22,7 +22,7 @@ public class ControlerHovihar implements UseCase {
 	 */
 	@Override
 	public void run() {
-		
+		System.out.println(getName().toUpperCase());
 		Kutato sz = new Kutato();
 		StabilJegtabla mezo = new StabilJegtabla(null);
 		
@@ -34,7 +34,7 @@ public class ControlerHovihar implements UseCase {
 		
 		
 		String answer = "";
-		System.out.print("Van iglu a tesztelni kivant mezon?(Y/N) ");
+		System.out.print(" - Van iglu a tesztelni kivant mezon?(Y/N) ");
 		while(!answer.equals("Y") && !answer.equals("N")) {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
