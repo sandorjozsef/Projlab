@@ -1,4 +1,7 @@
 package objects;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import indent.Indentor;
@@ -31,12 +34,20 @@ public abstract class Szereplo {
 	}
 	public void TesthoHozzaad(int novekmeny) {
 		Indentor.incLevel();
-		/*
-		 * 
-		 * kerdes, es ha testho = 0 akkor meghivja meghaltamot
-		 * 
-		 */
 		System.out.println(Indentor.getIndent() + Name() + ".TesthoHozzaad()");
+		String answer1 = "";
+		while (!answer1.equals("Y") && !answer1.equals("N")) {
+			System.out.print(Indentor.getIndent()+" - 0 lett a testho? (Y/N) ");
+			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+			try {
+				answer1 = reader.readLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			if (answer1.equals("Y")) {
+				this.Meghaltam();
+			}
+		}
 		Indentor.degLevel();
 	}
 	public void Felvesz() {
