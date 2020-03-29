@@ -75,7 +75,7 @@ public class Application {
 				catch(Exception e) {
 				
 					validID = false;	
-					e.printStackTrace();
+					//e.printStackTrace();
 					System.out.print("Nem megfelelo azonosito, probalkozz ujra!: ");
 				}
 			}
