@@ -53,6 +53,6 @@ public class Luk extends Mezo{
 	public String Name() {
 		return "Luk";
 		//tudatja a kiiratásnál hogy egy Lukon végzik az esetlegesen
-		//szereplõbõl nem felüldefiniált függvényt
+		//mezobol nem felüldefiniált függvényt
 	}
 }
