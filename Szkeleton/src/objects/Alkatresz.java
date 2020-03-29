@@ -3,8 +3,18 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 import indent.Indentor;
-
+/**
+ * Targy interfészt megvalósító osztály, aminek 3 példányával történõ felvevés
+ * és Kepesseg használatot követõen meg lehet nyerni a játékot.
+ * @author Aviato
+ */
 public class Alkatresz implements Targy {
+	/**
+	 * A paraméterként kapott Szereplo hívta meg a függvényt, amely megpróbálja bejelenteni magát a Palya számára.
+	 * Ezt úgy teszi, hogy ezt a változót továbbítja a Palya számára az AlkatresztKezel függvényen keresztül.
+	 * @param felhasznalo Jelen esetben lényegtelen, de általában az a Szereplo, aki tárolja az adott Alkatresz-t
+	 */
+	@Override
 	public void Kepesseg(Szereplo felhasznalo)
 	{
 		Indentor.incLevel();
@@ -33,6 +43,12 @@ public class Alkatresz implements Targy {
 		}
 		Indentor.degLevel();
 	}
+	
+	/**
+	 * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
+	 * @return Alkatresz Stringgel fog visszatérni
+	 */
+	@Override
 	public String Name() {
 		return "Alkatresz";
 	}
