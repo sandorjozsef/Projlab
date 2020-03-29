@@ -12,9 +12,9 @@ public abstract class Mezo {
 	protected ArrayList<Szereplo> szereplok;
 	
 	private ArrayList<Mezo> szomszedok;
-	/*
- 	 *	Mezo konstruktor ami alapból az iglu attribútumot noglura állítja,
- 	 *	hiszen alapból egyik mezõn sincs iglu. 
+	/**
+ 	 *	Mezo konstruktor ami alapbÃ³l az iglu attribÃºtumot noglura Ã¡llÃ­tja,
+ 	 *	hiszen alapbÃ³l egyik mezÅ‘n sincs iglu. 
 	 */
 	public Mezo(){
 		iglu = new Noglu();
@@ -25,8 +25,8 @@ public abstract class Mezo {
 	}
 	
 	public abstract boolean Befogad (Szereplo belepo, Mezo regi);
-	/*
-	 *	beállítja azt hogy az átadott kilepo már nem áll az adott mezon
+	/**
+	 *	beï¿½llï¿½tja azt hogy az ï¿½tadott kilepo mï¿½r nem ï¿½ll az adott mezon
 	 */
 	public void Kiad (Szereplo kilepo){
 		Indentor.incLevel();
@@ -37,9 +37,9 @@ public abstract class Mezo {
 	}
 	
 	public abstract Targy Atad();
-	/*
-	 * 	alapból a következõ programkód futna, ha az egész pálya fel lenne töltve hozzá,
-	 *	és példaképp két szomszédja lenne egy mezõnek.
+	/**
+	 * 	alapbï¿½l a kï¿½vetkezï¿½ programkï¿½d futna, ha az egï¿½sz pï¿½lya fel lenne tï¿½ltve hozzï¿½,
+	 *	ï¿½s pï¿½ldakï¿½pp kï¿½t szomszï¿½dja lenne egy mezï¿½nek.
 	 */
 	public Mezo ValasztSzomszed()
 	{ 
@@ -50,7 +50,7 @@ public abstract class Mezo {
 		 /*
 			while(answer!=0&&answer!=1)
 			{
-				System.out.print("Melyik szomszéd mezõe lép?(0/1)");
+				System.out.print("Melyik szomszï¿½d mezï¿½e lï¿½p?(0/1)");
 				answer = Integer.parseInt(System.console().readLine());
 				if (answer==0) 
 				{
@@ -66,8 +66,8 @@ public abstract class Mezo {
 		Indentor.degLevel();
 		return szomszedok.get(0);
 	}
-	/*
-	 * 	belsõ állapotváltozás, megvalósítása késõbb
+	/**
+	 * 	belsï¿½ ï¿½llapotvï¿½ltozï¿½s, megvalï¿½sï¿½tï¿½sa kï¿½sï¿½bb
 	 */
 	public void HoHozzaad(int novekmeny)
 	{
@@ -77,8 +77,8 @@ public abstract class Mezo {
 		
 		Indentor.degLevel();
 	}
-	/*
-	 * 	belsõ állapotváltozás, megvalósítása késõbb
+	/**
+	 * 	belsï¿½ ï¿½llapotvï¿½ltozï¿½s, megvalï¿½sï¿½tï¿½sa kï¿½sï¿½bb
 	 */
 	public void Felderit()
 	{
@@ -87,9 +87,9 @@ public abstract class Mezo {
 		Indentor.degLevel();
 		
 	}
-	/*
- 	 *	visszaadja, hogy az adott mezõk szomszédosak-e, késõbb a saját attribútumaiból
- 	 *	fogja összehasonlítani, hogy a kapott paraméter benne van-e a saját szomszedok tömbjében
+	/**
+ 	 *	visszaadja, hogy az adott mezï¿½k szomszï¿½dosak-e, kï¿½sï¿½bb a sajï¿½t attribï¿½tumaibï¿½l
+ 	 *	fogja ï¿½sszehasonlï¿½tani, hogy a kapott paramï¿½ter benne van-e a sajï¿½t szomszedok tï¿½mbjï¿½ben
  	 */
 	public boolean isSzomszed(Mezo szomszed)
 	{
@@ -100,7 +100,7 @@ public abstract class Mezo {
 		while(!answer.equals("Y") && !answer.equals("N"))
 		{
 
-			System.out.print(Indentor.getIndent()+ " - Szomszédos-e a két mezõ? (Y/N) ");
+			System.out.print(Indentor.getIndent()+ " - Szomszï¿½dos-e a kï¿½t mezï¿½? (Y/N) ");
 	
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			try {
@@ -123,8 +123,8 @@ public abstract class Mezo {
 		return false;
 		
 	}
-	/*
-	 * 	visszatért az eltárolt szereplok darabszámával
+	/**
+	 * 	visszatï¿½rt az eltï¿½rolt szereplok darabszï¿½mï¿½val
 	 */
 	public int getSzereplokSzama()
 	{
@@ -134,8 +134,8 @@ public abstract class Mezo {
 		return szereplok.size();
 		
 	}
-	/*
-	 * minden a mezõre beiratott szereplõt átléptet a cel mezõre
+	/**
+	 * minden a mezï¿½re beiratott szereplï¿½t ï¿½tlï¿½ptet a cel mezï¿½re
 	 */
 	public void Kimenekit(Mezo cel)
 	{
@@ -145,19 +145,19 @@ public abstract class Mezo {
 		Indentor.degLevel();
 		
 	}
-	/*
-	 * absztrakt függvény megvalósítása a leszármazottakban
+	/**
+	 * absztrakt fï¿½ggvï¿½ny megvalï¿½sï¿½tï¿½sa a leszï¿½rmazottakban
 	 */
 	public abstract void setIglu();
 	
-	/*
-	 * absztrakt függvény megvalósítása a leszármazottakban
+	/**
+	 * absztrakt fï¿½ggvï¿½ny megvalï¿½sï¿½tï¿½sa a leszï¿½rmazottakban
 	 */
 	public abstract void Hatas(Szereplo sz);
 	
-	/*
-	 *	ha egy adott mezõt hóesés sújtja akkor ez a függvény szól a saját épületének,
-	 *	hogy hajtsa végre a játékszabályok szerinti változásokat
+	/**
+	 *	ha egy adott mezï¿½t hï¿½esï¿½s sï¿½jtja akkor ez a fï¿½ggvï¿½ny szï¿½l a sajï¿½t ï¿½pï¿½letï¿½nek,
+	 *	hogy hajtsa vï¿½gre a jï¿½tï¿½kszabï¿½lyok szerinti vï¿½ltozï¿½sokat
 	 */
 	public void Hoeses()
 	{
@@ -167,24 +167,24 @@ public abstract class Mezo {
 		Indentor.degLevel();
 		
 	}
-	/*
-	 *	setter ami beállítja az adott mezõre a paraméterként kapott szereplõt,
-	 *	kiiratása nincs, hiszen csak az inicializálásnál használjuk
+	/**
+	 *	setter ami beï¿½llï¿½tja az adott mezï¿½re a paramï¿½terkï¿½nt kapott szereplï¿½t,
+	 *	kiiratï¿½sa nincs, hiszen csak az inicializï¿½lï¿½snï¿½l hasznï¿½ljuk
 	 */
 	public void setSzereplo(Szereplo sz){
 		
 		szereplok.add(sz);
 	}
-	/* 
- 	 *	setter ami beállítja az adott mezõre a paraméterként kapott mezot szomszédnak,
-	 *	kiiratása nincs, hiszen csak az inicializálásnál használjuk
+	/**
+ 	 *	setter ami beï¿½llï¿½tja az adott mezï¿½re a paramï¿½terkï¿½nt kapott mezot szomszï¿½dnak,
+	 *	kiiratï¿½sa nincs, hiszen csak az inicializï¿½lï¿½snï¿½l hasznï¿½ljuk
 	 */
 	public void setSzomszed(Mezo mezo){
 		
 		szomszedok.add(mezo);
 	}
-	/*
-	 * absztrakt függvény megvalósítása a leszármazottakban, felhasználása a kiiratásnál kell
+	/**
+	 * absztrakt fï¿½ggvï¿½ny megvalï¿½sï¿½tï¿½sa a leszï¿½rmazottakban, felhasznï¿½lï¿½sa a kiiratï¿½snï¿½l kell
 	 */
 	public abstract String Name(); 
 	
