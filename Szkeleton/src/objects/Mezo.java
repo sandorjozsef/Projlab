@@ -13,10 +13,12 @@ import indent.Indentor;
  */
 public abstract class Mezo {
 	protected Epulet iglu;
-	
 	protected ArrayList<Szereplo> szereplok;
-	
+	protected Medve medve;
 	private ArrayList<Mezo> szomszedok;
+	private int hoVastagsag;
+	private boolean felderitett = false;
+	
 	/**
  	 *	Mezo konstruktor ami alapból az iglu attribútumot noglura állítja,
  	 *	hiszen alapból egyik mezőn sincs iglu. 
@@ -25,8 +27,6 @@ public abstract class Mezo {
 		iglu = new Noglu();
 		szereplok = new ArrayList<Szereplo>();
 		szomszedok = new ArrayList<Mezo>();
-		
-		
 	}
 	
 	public abstract boolean Befogad (Szereplo belepo, Mezo regi);
@@ -156,7 +156,7 @@ public abstract class Mezo {
 	/**
 	 * absztrakt függvény megvalósítása a leszármazottakban
 	 */
-	public abstract void setIglu();
+	public abstract void setEpulet(Epulet e);
 	
 	/**
 	 * absztrakt függvény megvalósítása a leszármazottakban
@@ -191,10 +191,31 @@ public abstract class Mezo {
 		
 		szomszedok.add(mezo); 
 	}
+	
 	/**
 	 * absztrakt függvény megvalósítása a leszármazottakban, felhasználása a kiiratásnál kell
 	 */
 	public abstract String Name(); 
 	
+	public void Amortizal()
+	{
+		if (iglu.Amortizacio())
+			iglu = new Noglu();
+	}
 	
+	public void Tamadas()
+	{
+		if (szereplok.size() > 0)
+			iglu.Tamadas();
+	}
+	
+	public void setMedve(Medve medve)
+	{
+		this.medve = medve;
+	}
+	
+	public void MedveKiad() 
+	{
+		this.medve = null;
+	}
 }

@@ -22,6 +22,8 @@ public class Luk extends Mezo{
 		
 		if(isSzomszed(regi)) {
 			Hatas(belepo);
+			if (medve != null)
+				medve.Tamadas();
 			Indentor.degLevel();
 			return true;
 		}else {
@@ -56,10 +58,10 @@ public class Luk extends Mezo{
 		
 	}
 	/**
-	 * ha valaki lukra probál meg iglut epiteni, akkor nem történik semmi
+	 * ha valaki lukra probál meg epuletet epiteni, akkor nem történik semmi
 	 */
 	@Override
-	public void setIglu() {
+	public void setEpulet(Epulet e) {
 		// TODO Auto-generated method stub
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Luk.setIglu()");

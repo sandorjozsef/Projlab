@@ -9,6 +9,8 @@ import indent.Indentor;
  * @author Aviato
  */
 public class Alkatresz implements Targy {
+	private boolean bejelentheto = true;
+	
 	/**
 	 * A paraméterként kapott Szereplo hívta meg a függvényt, amely megpróbálja bejelenteni magát a Palya számára.
 	 * Ezt úgy teszi, hogy ezt a változót továbbítja a Palya számára az AlkatresztKezel függvényen keresztül.

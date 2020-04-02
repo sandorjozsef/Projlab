@@ -12,17 +12,17 @@ import indent.Indentor;
  *	marad, így a szereplők nem csak felette, hanem alatta is lehetnek
  */
 public class InstabilJegtabla extends Jegtabla{
+	private int teherbiras;
 	private ArrayList<Szereplo> alatta;
+	
 	/**
 	 *	konstruktor ami egyelőre a teherbirassal nem foglalkozik,
 	 *	mert az irreleváns a szkeleton tesztelés szempontjából
-	 */
-			
+	 */		
 	public InstabilJegtabla(Targy targy, int tb){
-		super();
+		super(targy);
 		alatta = new ArrayList<Szereplo>();
-		this.targy=targy;
-		
+		teherbiras = tb;
 	}
 	/**
 	 *	függvény ami befogadja a belepo szereplot a regi mezorol
@@ -50,6 +50,8 @@ public class InstabilJegtabla extends Jegtabla{
 				}
 			}
 			Hatas(belepo);
+			if (medve != null)
+				medve.Tamadas();
 			Indentor.degLevel();
 			return true;
 		}else {
@@ -120,11 +122,11 @@ public class InstabilJegtabla extends Jegtabla{
 		
 	}
 	/**
-	 *	felüldefiniált függvény, hiszen az InstabilJegtablara nem lehet iglut
+	 *	felüldefiniált függvény, hiszen az InstabilJegtablara nem lehet epuletet
 	 *	épiteni
 	 */
 	@Override
-	public void setIglu() {
+	public void setEpulet(Epulet e) {
 		// TODO Auto-generated method stub
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"InstabilJegtabla.setIglu()");

@@ -40,7 +40,8 @@ public class Eszkimo extends Szereplo{
 				e.printStackTrace();
 			}
 			if (answer1.equals("Y")) {
-				cel.setIglu();
+				Iglu iglu = new Iglu();
+				cel.setEpulet(iglu);
 			}
 			if (answer1.equals("N")){
 				System.out.print(Indentor.getIndent()+" - Iglu epitese sikertelen");

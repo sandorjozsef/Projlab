@@ -19,12 +19,20 @@ public final class Palya {
 	private static Szereplo aktJatekos;
 	private static ArrayList<Szereplo> szereplok= new ArrayList<Szereplo>();
 	private static ArrayList<Mezo> mezok = new ArrayList<Mezo>();
-
+	private static Medve medve = new Medve();
+	private static int maxJatekos;
+	private static int alkatreszek = 0;
+	
 	/**
 	 * Statikus osztály, nem lehet kívülről hívható konstruktor
 	 */
 	private Palya() {}
 
+	public static int getSzereplokSzama()
+	{
+		return szereplok.size();
+	}
+	
 	/**
 	 * Ez a metódus adja át a lépésjogot a következő játékosnak.
 	 * Hóvihart genrál

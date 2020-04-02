@@ -29,4 +29,20 @@ public class Iglu extends Epulet{
 	public String Name() {
 		return "Iglu";
 	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	public boolean Amortizacio() 
+	{
+		return false;
+	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	public void Tamadas() 
+	{}
 }

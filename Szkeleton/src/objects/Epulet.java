@@ -13,6 +13,16 @@ public abstract class Epulet {
 	public abstract void Levon(ArrayList<Szereplo> szereplok);
 	
 	/**
+	 * Absztrakt függvény, az adott Epulet megsemmisülését vizsgálja, hogy érvényes-e.
+	 */
+	public abstract boolean Amortizacio();
+	
+	/**
+	 * Absztrakt függvény, a Mezo-t ért támadás hatását fogja leképezni.
+	 */
+	public abstract void Tamadas();
+	
+	/**
 	 * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
 	 * @return A konkrét leszármazott fogja meghatározni
 	 */

@@ -8,7 +8,7 @@ import indent.Indentor;
  */
 public class StabilJegtabla extends Jegtabla{
 	public StabilJegtabla(Targy targy){
-		super();
+		super(targy);
 		this.targy=targy;
 	}
 	/**
@@ -19,11 +19,16 @@ public class StabilJegtabla extends Jegtabla{
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"StabilJegtabla.Befogad()");
-		if(isSzomszed(regi)) {
+		if(isSzomszed(regi)) 
+		{
 			Hatas(belepo);
+			if (medve != null)
+				medve.Tamadas();
 			Indentor.degLevel();
 			return true;
-		}else {
+		}
+		else 
+		{
 			Indentor.degLevel();
 			return false; 
 		}
@@ -44,12 +49,11 @@ public class StabilJegtabla extends Jegtabla{
 	 *	felüldefiniált függvény ami iglut épít a mezõre
 	 */
 	@Override
-	public void setIglu()
+	public void setEpulet(Epulet e)
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"StabilJegtabla.setIglu()");
-		Iglu iglu1 = new Iglu();
-		iglu=iglu1;
+		iglu = e;
 		Indentor.degLevel();
 	}
 	/**

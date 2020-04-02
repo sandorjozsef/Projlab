@@ -38,4 +38,21 @@ public class Noglu extends Epulet{
 	public String Name() {
 		return "Noglu";
 	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	public boolean Amortizacio() {
+		return false;
+	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	public void Tamadas() 
+	{
+		Palya.JatekVege(false);
+	}
 }

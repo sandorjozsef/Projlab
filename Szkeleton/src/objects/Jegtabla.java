@@ -11,10 +11,13 @@ import indent.Indentor;
  *	amit a szereplõk felvehetnek róla, ha nincs rajta hó
  */
 public abstract class Jegtabla extends Mezo{
-	public Jegtabla() {
-		super();
-	}
 	protected Targy targy;
+	
+	public Jegtabla(Targy t) {
+		super();
+		targy = t;
+	}
+	
 	/**
 	 *	átadja a jegtablarol a tárgyat, ha nincs rajta már hó,
 	 *	majd kitörli a saját attribútumai közül

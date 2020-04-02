@@ -15,11 +15,12 @@ import indent.Indentor;
  * @author Sándor József
  *
  */
-public abstract class Szereplo {
+public abstract class Szereplo extends Lepheto{
 
 	protected Ruha ruha;
 	protected ArrayList<Targy> targyak;
-	protected Mezo aktmezo;
+	protected int testho;
+	protected int lepesszam;
 
 	public Szereplo() {
 		targyak = new ArrayList<Targy>();
@@ -30,8 +31,9 @@ public abstract class Szereplo {
 	 * Ezzel a metódussal tudja kezdeményezni a játékos egy másik mezőre való
 	 * átjutását.
 	 * 
-	 * @param cel
+	 * @param cel A célmező
 	 */
+	@Override
 	public void Atlep(Mezo cel) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".Atlep()");
@@ -106,27 +108,6 @@ public abstract class Szereplo {
 		System.out.println(Indentor.getIndent() + Name() + ".Hasznal()");
 		targy.Kepesseg(this);
 		Indentor.degLevel();
-	}
-
-	/**
-	 * Visszaadja az aktuális mezőt (aktmezo).
-	 * 
-	 * @return
-	 */
-	public Mezo getMezo() {
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + Name() + ".getMezo()");
-		Indentor.degLevel();
-		return aktmezo;
-	}
-
-	/**
-	 * Beállitja a mezőt, amin a szereplő áll Inicializáló függvény nem jelezzük a
-	 * konzolon, hogy lefutott
-	 */
-	public void setMezo(Mezo mezo) {
-		aktmezo = mezo;
-
 	}
 
 	/**

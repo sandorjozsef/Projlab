@@ -48,8 +48,11 @@ public class ControlerHovihar implements UseCase {
 			}
 		}
 		
-		if(answer.equals("Y"))
-			mezo.setIglu();
+		if(answer.equals("Y")) 
+		{
+			Iglu iglu = new Iglu();
+			mezo.setEpulet(iglu);
+		}
 		
 		Palya.Hovihar();
 		Palya.clear();

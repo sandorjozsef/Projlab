@@ -8,6 +8,8 @@ import indent.Indentor;
  * @author Aviato
  */
 public class AlapRuha extends Ruha {
+	private int elazasi_szint = 0;
+	
 	/**
 	 * Ez a függvény gondoskodik arról, hogy a vízben lévõ Szereplo "vizesebb" legyen,
 	 * azaz elázzon, illetve megfagyjon.
