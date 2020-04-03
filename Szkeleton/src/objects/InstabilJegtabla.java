@@ -16,8 +16,7 @@ public class InstabilJegtabla extends Jegtabla{
 	private ArrayList<Szereplo> alatta;
 	
 	/**
-	 *	konstruktor ami egyelőre a teherbirassal nem foglalkozik,
-	 *	mert az irreleváns a szkeleton tesztelés szempontjából
+	 *	konstruktor 
 	 */		
 	public InstabilJegtabla(Targy targy, int tb){
 		super(targy);
@@ -33,21 +32,11 @@ public class InstabilJegtabla extends Jegtabla{
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Befogad()");
-		if(isSzomszed(regi)) {
-			String answer = "";
-			while(!answer.equals("Y") && !answer.equals("N")){
-				System.out.print(Indentor.getIndent()+" - Felfordul-e az instabil jégtábla? (Y/N) ");
-				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-				try {
-					answer = reader.readLine();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				if (answer.equals("Y")) 
-				{
-					Felfordul();
-				}
+		if(isSzomszed(regi)) 
+		{
+			this.szereplok.add(belepo);
+			if(this.teherbiras<szereplok.size()) {
+				Felfordul();
 			}
 			Hatas(belepo);
 			if (medve != null)
@@ -68,37 +57,28 @@ public class InstabilJegtabla extends Jegtabla{
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Hatas()");
-		String answer = "";
-		while(!answer.equals("Y") && !answer.equals("N")){
-			System.out.print(Indentor.getIndent()+" - A szereplő az instabil jégtábla felett van? (Y/N) ");
-			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-			try {
-				answer = reader.readLine();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			if (answer.equals("Y")) 
-			{
-				sz.Megszarit();
-			}
-			else
-			{
-				sz.Elazik();	
-			}
-	
+		if (szereplok.contains(sz)) 
+		{
+			sz.Megszarit();
 		}
+		else
+		{
+			sz.Elazik();	
+		}
+	
+		
 		Indentor.degLevel();
 	}
 	/**	
-	 *	egyelőre nem csinál semmit, később majd a tabla szereplo tömbjének
-	 *	tartalmát fogja belepakolni az alatta tömbbe
+	 *	a tabla szereplo tömbjének tartalmát pakolja bele az alatta tömbbe
 	 */
 	
 	public void Felfordul()
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Felfordul()");
+		alatta=szereplok;
+		szereplok.clear();
 		Indentor.degLevel();
 	}
 	/**

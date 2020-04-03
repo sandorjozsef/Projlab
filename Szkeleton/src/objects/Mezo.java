@@ -43,8 +43,7 @@ public abstract class Mezo {
 	
 	public abstract Targy Atad();
 	/**
-	 * 	alapból a következő programkód futna, ha az egész pálya fel lenne töltve hozzá,
-	 *	és példaképp két szomszédja lenne egy mezőnek.
+	 * 	Felkínálja a játékosnak hogy válasszon egyet a szomszédos mezők közül
 	 */
 	public Mezo ValasztSzomszed()
 	{ 
@@ -52,43 +51,40 @@ public abstract class Mezo {
 		System.out.println(Indentor.getIndent()+Name()+".ValasztSzomszed()");
 		
 		int answer = -1;
-		 /*
-			while(answer!=0&&answer!=1)
+		while(answer<0)
 			{
-				System.out.print("Melyik szomsz�d mez�e l�p?(0/1)");
+				System.out.print("hányas mezőre szeretne lépni? ");
+				for(int i=1;i<=this.szomszedok.size();i++)
+					System.out.print(i+" ");
+				System.out.println("");
 				answer = Integer.parseInt(System.console().readLine());
-				if (answer==0) 
-				{
-					return szomszedok.get(0);
-				}
-				else if (answer==1)
-				{
-					return szomszedok.get(1);
-				}
-			}
-			return null;
-		*/
+		}
 		Indentor.degLevel();
-		return szomszedok.get(0);
+		return szomszedok.get(answer-1);
+
 	}
 	/**
-	 * 	belső állapotváltozás, megvalósítása később
+	 * 	növeli a hóvastagságot az adott mezőn hóesés miatt, vagy csökkenti azt
+	 * 	ha ásnak a mező. az értéke nem mehet 0 alá.
 	 */
 	public void HoHozzaad(int novekmeny)
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+Name()+".HoHozzaad()");
-		
+		this.hoVastagsag+=novekmeny;
+		if(this.hoVastagsag<0)
+			this.hoVastagsag=0;
 		
 		Indentor.degLevel();
 	}
 	/**
-	 * 	belső állapotváltozás, megvalósítása később
+	 * 	a mező felderítésekor hívják, a felderitett értéket állítja igazra
 	 */
 	public void Felderit()
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+Name()+".Felderit()");
+		this.felderitett=true;
 		Indentor.degLevel();
 		
 	}
@@ -100,33 +96,8 @@ public abstract class Mezo {
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+Name()+".isSzomszed()");	
-
-		String answer = "";
-		while(!answer.equals("Y") && !answer.equals("N"))
-		{
-
-			System.out.print(Indentor.getIndent()+ " - Szomszédos-e a két mező? (Y/N) ");
-	
-			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-			try {
-				answer = reader.readLine();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			if (answer.equals("Y")) 
-			{
-				Indentor.degLevel();
-				return true;
-			}
-			else if (answer.equals("N"))
-			{
-				
-				Indentor.degLevel();
-				return false;}
-			}
 		Indentor.degLevel();
-		return false;
+		return this.szomszedok.contains(szomszed);
 		
 	}
 	/**
@@ -139,6 +110,16 @@ public abstract class Mezo {
 		Indentor.degLevel();
 		return szereplok.size();
 		
+	}
+	/**
+	 *	visszatért a mezőn lévő hóvastagság értékével 
+	 */
+	public int gethoVastagsag()
+	{
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent()+Name()+".gethoVastagsag()");
+		Indentor.degLevel();
+		return this.hoVastagsag;
 	}
 	/**
 	 * minden, a mezőre beiratott szereplőt átléptet a cel mezőre

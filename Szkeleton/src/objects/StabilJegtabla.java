@@ -21,6 +21,7 @@ public class StabilJegtabla extends Jegtabla{
 		System.out.println(Indentor.getIndent()+"StabilJegtabla.Befogad()");
 		if(isSzomszed(regi)) 
 		{
+			this.szereplok.add(belepo);
 			Hatas(belepo);
 			if (medve != null)
 				medve.Tamadas();
@@ -46,7 +47,7 @@ public class StabilJegtabla extends Jegtabla{
 		Indentor.degLevel();
 	}
 	/**
-	 *	felüldefiniált függvény ami iglut épít a mezõre
+	 *	felüldefiniált függvény ami épületet épít a mezõre
 	 */
 	@Override
 	public void setEpulet(Epulet e)
