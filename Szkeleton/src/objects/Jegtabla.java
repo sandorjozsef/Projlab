@@ -26,30 +26,18 @@ public abstract class Jegtabla extends Mezo{
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+Name()+".Atad()");
-		String answer = "";
-		while(!answer.equals("Y") && !answer.equals("N")){
-			System.out.print(Indentor.getIndent()+" - Van-e még hó a mezõn (Y/N) ");
-			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-			try {
-				answer = reader.readLine();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			if (answer.equals("Y")) 
-			{
-				System.out.print(Indentor.getIndent()+" - Nem történt átadás");
-				Indentor.degLevel();
-				return null;
-			}else {
-				Targy t = targy;
-				targy = null;
-				System.out.print(Indentor.getIndent()+" - Tárgy átadva");
-				Indentor.degLevel();
-				return t;
-			}
+		if (this.gethoVastagsag()!=0) 
+		{
+			Indentor.degLevel();
+			return null;
 		}
-		Indentor.degLevel();
-		return null;
+		else
+		{
+			Targy t = targy;
+			targy = null;
+			Indentor.degLevel();
+			return t;
+		}
+		
 	}
 }

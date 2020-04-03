@@ -21,6 +21,7 @@ public class Luk extends Mezo{
 		System.out.println(Indentor.getIndent()+"Luk.Befogad()");
 		
 		if(isSzomszed(regi)) {
+			szereplok.add(belepo);
 			Hatas(belepo);
 			if (medve != null)
 				medve.Tamadas();
