@@ -2,6 +2,7 @@ package objects;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.*;
 
@@ -202,4 +203,136 @@ public final class Palya {
 		
 		
 	}
+	/**
+	 * felépiti a pályát egy megadott mátrix alapján, amit a paraméterként kapott input streamből olvas ki
+	 * S - stabil jegtabla
+	 * L - luk
+	 * I - instabil jegtabla
+	 * 
+	 * A - alkatresz
+	 * K - kotel
+	 * L - lapat
+	 * T - torekeny aso
+	 * E - elelem
+	 * B - buvarruha
+	 * S - sator
+	 * 
+	 * A palya jobb also sarka mindig stabil jegtabla kell, hogy legyen mert onnan indulnak a szereplok
+	 * @param is 
+	 */
+	public static void BuildMap(InputStream is) {
+		clear();
+		BufferedReader reader = new BufferedReader(new InputStreamReader(is));	
+		 
+		try {
+				if(is == System.in)
+					System.out.print("Hány szereplő legyen? ");
+				int sz = Integer.parseInt(reader.readLine());
+				if(is == System.in)
+					System.out.print("Milyen magas legyen a palya? ");
+				int n = Integer.parseInt(reader.readLine());
+				if(is == System.in)
+					System.out.print("Milyen szeles legyen a palya? ");
+				int m = Integer.parseInt(reader.readLine());
+				if(is == System.in)
+					System.out.println("Add meg a palya felepiteset! ");
+				char palya[][] = new char[n][m];
+				for(int i = 0; i<n;i++) {
+					String sor = reader.readLine();
+					for(int j = 0; j<m; j++) {
+						palya[i][j] =sor.toUpperCase().charAt(j);
+					}				
+				}
+				if(palya[n-1][m-1]!= 'S')
+					throw new Exception("A kezdő mező nem Stabil Jegtabla(jobb alsó)!");
+				if(n*m<sz*7) // minden szereplore 7 mezo jut
+					throw new Exception("Túl kicsi pálya!");
+				if(is == System.in)
+					System.out.println("Add meg a palya targyait! ");
+				char targy[][] = new char[n][m];
+				for(int i = 0; i<n;i++) {
+					String sor = reader.readLine();
+					for(int j = 0; j<m; j++) {
+						targy[i][j] =sor.toUpperCase().charAt(j);
+					}				
+				}
+				
+				Targy[][] initTargyak = new Targy[n][m];
+				Mezo initMezok[][] = new Mezo[n][m];
+				Random r= new Random();
+				for(int i = 0; i<n;i++) {					
+					for(int j = 0; j< m; j++) {
+						switch(targy[i][j]) {
+						case 'T': initTargyak[i][j] = new Aso();
+							break;
+						case 'L': initTargyak[i][j] = new Lapat();
+							break;
+						case 'B': initTargyak[i][j] = new Buvarruha();
+							break;
+						case 'A': initTargyak[i][j] = new Alkatresz();
+							break;
+						case 'E': initTargyak[i][j] = new Lapat();
+							break;
+						case 'S': initTargyak[i][j] = new Buvarruha();
+							break;
+						case 'K': initTargyak[i][j] = new Aso();
+							break;						
+						default:
+							break;
+						}
+						switch(palya[i][j]) {
+						case 'S': initMezok[i][j] = new StabilJegtabla(initTargyak[i][j]);
+							break;
+						case 'I': initMezok[i][j] = new InstabilJegtabla(initTargyak[i][j], r.nextInt(3)+1);
+							break;
+						case 'L': initMezok[i][j] = new Luk();
+							break;
+						default: throw new Exception("Hibas szintaktika!");
+							
+						}
+						if(j>0) {//beéllitjuk a szomszédokat: mindenkinek negy szomszed egyelore
+							initMezok[i][j].setSzomszed(initMezok[i][j-1]);
+							initMezok[i][j-1].setSzomszed(initMezok[i][j]);
+						}
+						if(i>0) {
+							initMezok[i][j].setSzomszed(initMezok[i-1][j]);
+							initMezok[i-1][j].setSzomszed(initMezok[i][j]);
+						}
+					}
+				}
+				for(int i = 0; i<n;i++)					
+					for(int j = 0; j<m; j++) {
+						mezok.add(initMezok[i][j]);	//feltoltju ka mezok listajat 					
+					}				
+				for(int i = 0; i<sz;i++) { // letrehozzuk a szereploket és a medvét, betesszuk oket a kezdo mezore
+					Szereplo s;
+					if(i%2==0)
+						s = new Kutato();
+					else
+						s = new Eszkimo();
+					szereplok.add(s);
+					s.setMezo(initMezok[n-1][m-1]);
+					initMezok[n-1][m-1].setSzereplo(s);
+				}
+				aktJatekos = szereplok.get(0);
+				Medve medve = new Medve();
+				medve.setMezo(initMezok[0][0]);
+				initMezok[0][0].setMedve(medve);
+				
+				
+				
+		}
+		catch(Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+		}			
+		
+		
+		
+			
+				
+			
+		
+	}
+	
 }

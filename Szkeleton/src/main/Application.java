@@ -1,8 +1,14 @@
 package main;
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+
+import objects.Palya;
 import usecases.*;
 /**
  * 
@@ -26,11 +32,36 @@ public class Application {
 	 * Elkapju kaz esetleges exception-oket pl.:
 	 * Ha nem egész szám jön az inputon vagy olyan szám jön, amvel túlindexelnénk a listát
 	 * újra bekérjük az azonositót, ameddig végre nem hajtható az indexelés és futtatás
+	 * @throws IOException 
 	  */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {	
+		
+		
 		boolean exit = false;
 		while(!exit) {
+			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+			String sor = reader.readLine();
+			String params[] = sor.split(" ");
+			if(params[0].equals("exit")) {
+				exit = true;
+				break;
+			}
+			else if(params[0].equals("test")) {
+				
+			}
+			else if(params[0].equals("mapbuild")) {
+				if(params[1].equals("konzol"))
+					Palya.BuildMap(System.in);
+				else {
+					File f= new File(params[1]);
+					if(f.exists())
+						Palya.BuildMap(new FileInputStream(f));
+				}
+				
+			}
 			
+			
+			/*
 			ArrayList<UseCase> useCases = new ArrayList<UseCase>();	
 			useCases.add(new EszkimoIglutEpit());
 			useCases.add(new KutatoFelderit());
@@ -58,9 +89,7 @@ public class Application {
 			System.out.print("\nAdd meg a tetsztelni kivant use-case azonositojat: ");
 			
 			while(!validID) {
-				try {
-					
-					BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+				try {					
 					int useCaseID = Integer.parseInt(reader.readLine());
 					
 					if(useCaseID == -1) {
@@ -79,19 +108,18 @@ public class Application {
 					System.out.print("Nem megfelelo azonosito, probalkozz ujra!: ");
 				}
 			}
-			System.out.print("\n---Nyomj ENTER-t---\n");
-			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+			System.out.print("\n---Nyomj ENTER-t---\n");			
 			try {
 				reader.read();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 		}
 		
 		
 		
 		
-	}	
+	}
 	
 }
