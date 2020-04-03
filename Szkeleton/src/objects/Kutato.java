@@ -17,6 +17,7 @@ public class Kutato extends Szereplo {
 
 	public Kutato() {
 		super();
+		testho = 4;
 	}
 
 	/**

@@ -52,6 +52,14 @@ public final class Palya {
 		int akt=szereplok.lastIndexOf(aktJatekos);
 		if(akt==szereplok.size()-1) {
 			kov=szereplok.get(0);
+			//kor vege
+			
+			Mezo medveMezo = medve.getMezo();
+			Random r = new Random();
+			ArrayList<Mezo> szomszed = medveMezo.getSzomszed();
+			
+			Mezo cel = szomszed.get(r.nextInt(medveMezo.getSzomszed().size()));
+			//medve.Atlep(cel);
 		}
 		else {
 			kov=szereplok.get(akt+1);
@@ -315,6 +323,12 @@ public final class Palya {
 				e.printStackTrace();
 		}				
 		Indentor.degLevel();
+	}
+	public static void Megtekintes() {
+		for(int i = 0; i<mezok.size();i++) {
+			System.out.println(i+":  "+mezok.get(i).gethoVastagsag()+"  "+mezok.get(i).getSzereplokSzama()+"  "+mezok.get(i).getMedve());
+		}
+		
 	}
 	
 }

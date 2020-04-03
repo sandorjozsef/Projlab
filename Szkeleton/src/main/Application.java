@@ -104,6 +104,9 @@ public class Application {
 						Palya.getAktJatekos().Felvesz();
 					}
 			   }
+				else if(params[0].equals("megtekintes")) {
+					Palya.Megtekintes();
+				}
 			}
 			catch(Exception e) {
 				e.printStackTrace();

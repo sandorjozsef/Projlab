@@ -77,6 +77,20 @@ public abstract class Mezo {
 		
 		Indentor.degLevel();
 	}
+	public boolean getMedve() {
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent()+Name()+".getMedve()");
+		Indentor.degLevel();
+		if(medve == null)
+			return false;
+		else return true;
+	}
+	public ArrayList<Mezo> getSzomszed() {
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent()+Name()+".getSzomszed()");
+		Indentor.degLevel();
+		return szomszedok;
+	}
 	/**
 	 * 	a mező felderítésekor hívják, a felderitett értéket állítja igazra
 	 */

@@ -65,7 +65,7 @@ public abstract class Szereplo extends Lepheto {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".TesthoHozzaad()");
 		
-		testho -= novekmeny;
+		testho += novekmeny;
 		if (testho <= 0) {
 			this.Meghaltam();
 		}

@@ -17,6 +17,7 @@ public class Eszkimo extends Szereplo {
 
 	public Eszkimo() {
 		super();
+		testho = 5;
 	}
 
 	/**
