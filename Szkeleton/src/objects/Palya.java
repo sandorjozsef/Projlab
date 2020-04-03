@@ -24,6 +24,7 @@ public final class Palya {
 	private static int maxJatekos;
 	private static int alkatreszek = 0;
 	
+	
 	/**
 	 * Statikus osztály, nem lehet kívülről hívható konstruktor
 	 */
@@ -33,7 +34,12 @@ public final class Palya {
 	{
 		return szereplok.size();
 	}
-	
+	public static Szereplo getAktJatekos(){
+		return aktJatekos;
+	}
+	public static ArrayList<Mezo> getMezok(){
+		return mezok;
+	}
 	/**
 	 * Ez a metódus adja át a lépésjogot a következő játékosnak.
 	 * Hóvihart genrál
@@ -84,7 +90,7 @@ public final class Palya {
 	public static void JatekVege(boolean nyert) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.JatekVege()");
-	
+		aktJatekos = null;
 		clear();
 		if(nyert) {
 			System.out.println(Indentor.getIndent()+" - Jatek megnyerve");
@@ -319,7 +325,7 @@ public final class Palya {
 				Medve medve = new Medve();
 				medve.setMezo(initMezok[0][0]);
 				initMezok[0][0].setMedve(medve);
-				
+				System.out.println("Pálya sikeresen felépült, a szereplők a helyükön vannak!");
 				
 				
 		}

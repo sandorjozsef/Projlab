@@ -96,7 +96,14 @@ public abstract class Szereplo extends Lepheto{
 			targyak.add(t);
 		Indentor.degLevel();
 	}
-
+	/**
+	 * Visszaadja a szereplő egy tárgyát az adott indexen
+	 * @param i
+	 * @return
+	 */
+	public Targy getTargy(int i) {
+		return targyak.get(i);
+	}
 	/**
 	 * A paraméterként kapott Targy Kepesseg() függvényét hívja meg, aminek a
 	 * paramétereként saját magát adja át.

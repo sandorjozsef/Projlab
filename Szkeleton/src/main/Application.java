@@ -8,7 +8,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import objects.Palya;
+import objects.*;
+
 import usecases.*;
 /**
  * 
@@ -34,38 +35,77 @@ public class Application {
 	 * újra bekérjük az azonositót, ameddig végre nem hajtható az indexelés és futtatás
 	 * @throws IOException 
 	  */
-	public static void main(String[] args) throws IOException {	
+	public static void main(String[] args){	
 		
 		
 		boolean exit = false;
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		while(!exit) {
-			String sor = reader.readLine();
-			String params[] = sor.split(" ");
-			if(params[0].equals("exit")) {
-				exit = true;
-				break;
-			}
-			else if(params[0].equals("test")) {
+			try {
 				
-			}
-			else if(params[0].equals("buildmap")) {
-				if(params[1].equals("konzol"))
-					Palya.BuildMap(System.in);
-				else {
+				String sor = reader.readLine();
+				String params[] = sor.split(" ");
+				if(params[0].equals("exit")) {
+					exit = true;
+					break;
+				}
+				else if(params[0].equals("test")) {
+					
+				}
+				else if(params[0].equals("palyatepit")) {
+					if(params[1].equals("konzol"))
+						Palya.BuildMap(System.in);
+					else {
+						File f= new File(params[1]);
+						if(f.exists())
+							Palya.BuildMap(new FileInputStream(f));
+					}				
+				}
+				else if(params[0].equals("startjatek")) {
+					if(params[1].equals("konzol"))
+						Palya.JatekotKezd(System.in);
+					else {
+						File f= new File(params[1]);
+						if(f.exists())
+							Palya.JatekotKezd(new FileInputStream(f));
+					}				
+				}
+				else if(params[0].equals("betolt")) {
 					File f= new File(params[1]);
 					if(f.exists())
-						Palya.BuildMap(new FileInputStream(f));
-				}				
+						reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+				}
+				else if(params[0].equals("fajlvege")) {
+					reader = new BufferedReader(new InputStreamReader(System.in));
+				}
+				else if(params[0].equals("jatekos")) {									
+					if(params[1].equals("lep")) {										
+						Palya.getAktJatekos().Atlep(Palya.getMezok().get(Integer.parseInt(params[2])));					
+					}
+					else if(params[1].equals("kepesseg")) {
+						Palya.getAktJatekos().SpecKepesseg(Palya.getMezok().get(Integer.parseInt(params[2])));
+					}
+					else if(params[1].equals("takarit")) {
+						Palya.getAktJatekos().Takarit();
+					}
+					else if(params[1].equals("lepesvege")) {
+						Palya.getAktJatekos().Vegeztem();
+					}
+					else if(params[1].equals("hasznal")) {
+						int t = Integer.parseInt(params[2]);
+						Palya.getAktJatekos().Hasznal(Palya.getAktJatekos().getTargy(t));
+					}
+					else if(params[1].equals("felvesz")) {						
+						Palya.getAktJatekos().Felvesz();
+					}
+			   }
 			}
-			else if(params[0].equals("loadcase")) {
-				File f= new File(params[1]);
-				if(f.exists())
-					reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+			catch(Exception e) {
+				e.printStackTrace();
 			}
-			else if(params[0].equals("closefile")) {
-				reader = new BufferedReader(new InputStreamReader(System.in));
-			}
+				
+			
+			
 			
 			
 			/*
