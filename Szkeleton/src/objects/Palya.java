@@ -308,7 +308,7 @@ public final class Palya {
 					}
 				}
 				if(alkcount<3)
-					throw new Exception("Nincs elég alkatrész");
+					throw new Exception("Nincs elég alkatrész!");
 				for(int i = 0; i<n;i++)					
 					for(int j = 0; j<m; j++) {
 						mezok.add(initMezok[i][j]);	//feltoltju ka mezok listajat 					
