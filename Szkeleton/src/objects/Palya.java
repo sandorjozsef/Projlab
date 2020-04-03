@@ -122,8 +122,7 @@ public final class Palya {
 	 * áll-e. Ha az alkatrészt már bejelentették (a kapott paraméter false értékű) akkor csak
 	 * vizsgálja, hogy készek a feltételek a játék megnyeréséhez, nem növekszik a megtalált
 	 * alkatrészek száma.
-	 * Jelen fázisban megkérdi a felhasználótól, hogy meg van-e mindhárom alkatrész és hogy ugyanazon a mezőn
-	 * áll-e az összes szereplő
+	 * 
 	 * @param bejelentheto
 	 */
 	public static void AlkatresztKezel(boolean bejelentheto) {
