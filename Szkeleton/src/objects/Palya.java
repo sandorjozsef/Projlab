@@ -228,6 +228,8 @@ public final class Palya {
 	 * @param is 
 	 */
 	public static void BuildMap(InputStream is) {
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent()+"Palya.BuildMap()");
 		clear();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(is));	
 		 
@@ -334,14 +336,8 @@ public final class Palya {
 		catch(Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-		}			
-		
-		
-		
-			
-				
-			
-		
+		}				
+		Indentor.degLevel();
 	}
 	
 }
