@@ -75,7 +75,7 @@ public class Application {
 					if(f.exists())
 						reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
 				}
-				else if(params[0].equals("fajlvege")) {
+				else if(params[0].equals("***")) {
 					reader = new BufferedReader(new InputStreamReader(System.in));
 				}
 				else if(params[0].equals("jatekos")) {									
