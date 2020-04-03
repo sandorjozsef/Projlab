@@ -17,7 +17,8 @@ import usecases.*;
  *
  */
 public class Application {
-	
+	private String history = "";
+	private boolean record = false; 
 	/**
 	 * Létrehozunk egy listát a UseCase interfészt implementáló osztályokból, amelynek elemieihez
 	 * később a listában lévő poziciójuk alapján azonositókat rendelünk
@@ -39,6 +40,7 @@ public class Application {
 		
 		
 		boolean exit = false;
+	
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		while(!exit) {
 			try {
@@ -64,6 +66,9 @@ public class Application {
 				else if(params[0].equals("startjatek")) {
 					if(params[1].equals("konzol"))
 						Palya.JatekotKezd(System.in);
+					else if(params[1].equals("mentett")) {
+						
+					}
 					else {
 						File f= new File(params[1]);
 						if(f.exists())
