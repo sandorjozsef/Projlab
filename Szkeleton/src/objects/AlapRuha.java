@@ -19,8 +19,8 @@ public class AlapRuha extends Ruha {
 	public void Elazik(Szereplo sz)
 	{ 
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"AlapRuha.Elazik()");
-		String answer = "";
+		System.out.println(Indentor.getIndent()+ Name() + ".Elazik()");
+		/*String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N"))
 		{
 			System.out.print(Indentor.getIndent() + " - Megfagyott az adott Szereplo? (Y/N) ");
@@ -39,6 +39,11 @@ public class AlapRuha extends Ruha {
 			}
 			else if (answer.equals("N"))
 			{}
+		}*/
+		elazasi_szint++;
+		if (elazasi_szint == 2)
+		{
+			sz.Meghaltam();
 		}
 		Indentor.degLevel();
 	}
@@ -51,7 +56,8 @@ public class AlapRuha extends Ruha {
 	public void Megszarit()
 	{
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"AlapRuha.Megszarit()");
+		System.out.println(Indentor.getIndent()+ Name() + ".Megszarit()");
+		elazasi_szint = 0;
 		Indentor.degLevel();
 	}
 	

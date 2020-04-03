@@ -13,7 +13,7 @@ public class Elelem implements Targy {
 	public void Kepesseg(Szereplo felhasznalo)
 	{
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Elelem.Kepesseg()");
+		System.out.println(Indentor.getIndent()+ Name() + ".Kepesseg()");
 		felhasznalo.TesthoHozzaad(1);
 		felhasznalo.Eldob(this);
 		Indentor.degLevel();

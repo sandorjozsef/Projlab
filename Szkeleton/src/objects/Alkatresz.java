@@ -20,8 +20,8 @@ public class Alkatresz implements Targy {
 	public void Kepesseg(Szereplo felhasznalo)
 	{
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Alkatresz.Kepesseg()");
-		String answer = "";
+		System.out.println(Indentor.getIndent()+ Name() + ".Kepesseg()");
+		/*String answer = "";
 		while(!answer.equals("Y") && !answer.equals("N"))
 		{
 			System.out.print(Indentor.getIndent() + " - Bejelentheto az adott Alkatresz? (Y/N) ");
@@ -42,7 +42,8 @@ public class Alkatresz implements Targy {
 			{
 				Palya.AlkatresztKezel(false);
 			}
-		}
+		}*/
+		Palya.AlkatresztKezel(bejelentheto);
 		Indentor.degLevel();
 	}
 	

@@ -2,11 +2,19 @@ package objects;
 
 import java.util.ArrayList;
 import indent.Indentor;
-
+/**
+ * Targy-at implementáló, Epulet-bõl leszármazó osztály. Tehát egy Mezo-rõl fel lehet venni,
+ * majd használatával felállítani, ami egy kör után megszûnik.
+ * @author Aviato
+ */
 public class Sator extends Epulet implements Targy {
 
 	private int elettartam = Palya.getSzereplokSzama();
 	
+	/**
+	 * A Sator felállítását végzi el.
+	 * @param felhasznalo Neki az aktmezo-jére állítja fel
+	 */
 	@Override
 	public void Kepesseg(Szereplo felhasznalo) 
 	{
@@ -16,6 +24,10 @@ public class Sator extends Epulet implements Targy {
 		Indentor.degLevel();
 	}
 
+	/**
+	 * Nem csinál semmit, mert az idõjárástõl megvédi a benne tartózkodókat.
+	 * @param szereplok A rajta tartózkodó Szereplo-k összessége 
+	 */
 	@Override
 	public void Levon(ArrayList<Szereplo> szereplok) 
 	{
@@ -24,18 +36,30 @@ public class Sator extends Epulet implements Targy {
 		Indentor.degLevel();
 	}
 
+	/**
+	 * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
+	 * @return Sator Stringgel tér vissza
+	 */
 	@Override
 	public String Name() 
 	{
 		return "Sator";
 	}
 
+	/**
+	 * Az elöregedését hivatott megvalósítani
+	 * @return Egy boolean, ami azt mutatja meg, hogy összeomlik (true) vagy még használható (false)
+	 */
 	@Override
 	public boolean Amortizacio() 
 	{
 		return (--elettartam <= 0);
 	}
-
+	
+	/**
+	 * Egy Medve támadástól nem védi meg a benne lévõ Szereplo-ket,
+	 * tehát a JatekVege(false) függvényhívást végzi.
+	 */
 	@Override
 	public void Tamadas() 
 	{

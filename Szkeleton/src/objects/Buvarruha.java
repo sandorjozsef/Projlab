@@ -14,7 +14,7 @@ public class Buvarruha extends Ruha implements Targy {
 	public void Kepesseg(Szereplo felhasznalo)
 	{
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Buvarruha.Kepesseg()");
+		System.out.println(Indentor.getIndent()+ Name() + ".Kepesseg()");
 		felhasznalo.setRuha(this);
 		Indentor.degLevel();
 	}
@@ -27,7 +27,7 @@ public class Buvarruha extends Ruha implements Targy {
 	public void Elazik(Szereplo szereplo) 
 	{
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Buvarruha.Elazik()");
+		System.out.println(Indentor.getIndent()+ Name() + ".Elazik()");
 		Indentor.degLevel();
 	}
 	
@@ -38,7 +38,7 @@ public class Buvarruha extends Ruha implements Targy {
 	public void Megszarit() 
 	{
 		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Buvarruha.Megszarit()");
+		System.out.println(Indentor.getIndent()+ Name() + ".Megszarit()");
 		Indentor.degLevel();
 	}
 	
