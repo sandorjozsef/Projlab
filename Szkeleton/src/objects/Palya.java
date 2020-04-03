@@ -101,10 +101,11 @@ public final class Palya {
 	 * objektumok és az első szereplő megkapja a cselekvési jogot.
 	 * A Skeleton fázisban még nincs megvalósítva.
 	 */
-	public static void JatekotKezd() {
+	public static void JatekotKezd(InputStream is) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.JatekotKezd()");
-		
+		BuildMap(is);
+		aktJatekos = szereplok.get(0);
 		
 		Indentor.degLevel();
 	}
@@ -313,8 +314,8 @@ public final class Palya {
 					szereplok.add(s);
 					s.setMezo(initMezok[n-1][m-1]);
 					initMezok[n-1][m-1].setSzereplo(s);
-				}
-				aktJatekos = szereplok.get(0);
+					
+				}				
 				Medve medve = new Medve();
 				medve.setMezo(initMezok[0][0]);
 				initMezok[0][0].setMedve(medve);

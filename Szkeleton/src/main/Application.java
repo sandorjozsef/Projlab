@@ -38,8 +38,8 @@ public class Application {
 		
 		
 		boolean exit = false;
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		while(!exit) {
-			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			String sor = reader.readLine();
 			String params[] = sor.split(" ");
 			if(params[0].equals("exit")) {
@@ -49,15 +49,22 @@ public class Application {
 			else if(params[0].equals("test")) {
 				
 			}
-			else if(params[0].equals("mapbuild")) {
+			else if(params[0].equals("buildmap")) {
 				if(params[1].equals("konzol"))
 					Palya.BuildMap(System.in);
 				else {
 					File f= new File(params[1]);
 					if(f.exists())
 						Palya.BuildMap(new FileInputStream(f));
-				}
-				
+				}				
+			}
+			else if(params[0].equals("loadcase")) {
+				File f= new File(params[1]);
+				if(f.exists())
+					reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+			}
+			else if(params[0].equals("closefile")) {
+				reader = new BufferedReader(new InputStreamReader(System.in));
 			}
 			
 			
@@ -121,5 +128,6 @@ public class Application {
 		
 		
 	}
+	
 	
 }
