@@ -29,16 +29,6 @@ public class Eszkimo extends Szereplo {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + "Eszkimo.SpecKepesseg()");
 
-		/*
-		 * String answer1 = ""; while (!answer1.equals("Y") && !answer1.equals("N")) {
-		 * System.out.print(Indentor.getIndent()
-		 * +" - Arra a mezore akarod epíteni, amin allsz ? (Y/N) "); BufferedReader
-		 * reader = new BufferedReader(new InputStreamReader(System.in)); try { answer1
-		 * = reader.readLine(); } catch (IOException e) { // TODO Auto-generated catch
-		 * block e.printStackTrace(); } if (answer1.equals("Y")) { Iglu iglu = new
-		 * Iglu(); cel.setEpulet(iglu); } if (answer1.equals("N")){
-		 * System.out.print(Indentor.getIndent()+" - Iglu epitese sikertelen"); } }
-		 */
 		if (cel.equals(aktmezo)) {
 			Iglu iglu = new Iglu();
 			cel.setEpulet(iglu);

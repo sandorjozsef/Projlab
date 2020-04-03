@@ -30,23 +30,7 @@ public class Kutato extends Szereplo {
 
 		boolean szomszed = aktmezo.isSzomszed(cel);
 		
-		/*if (szomszed) {
-			cel.Felderit();
-		} else {
-			String answer1 = "";
-			while (!answer1.equals("Y") && !answer1.equals("N")) {
-				System.out.print(Indentor.getIndent() + " - A felderitendo mezo az aktuális mezo? ? (Y/N) ");
-				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-				try {
-					answer1 = reader.readLine();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				if (answer1.equals("Y")) {
-					cel.Felderit();
-				}
-			}
-		}*/
+		
 		if(szomszed || cel.equals(aktmezo)) {
 			cel.Felderit();
 		}

@@ -64,15 +64,7 @@ public abstract class Szereplo extends Lepheto {
 	public void TesthoHozzaad(int novekmeny) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".TesthoHozzaad()");
-		/*
-		 * String answer1 = ""; while (!answer1.equals("Y") && !answer1.equals("N")) {
-		 * System.out.print(Indentor.getIndent() + " - 0 lett a testho? (Y/N) ");
-		 * BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		 * try { answer1 = reader.readLine(); } catch (IOException e) {
-		 * e.printStackTrace(); }
-		 * 
-		 * } if (answer1.equals("Y")) { this.Meghaltam(); }
-		 */
+		
 		testho -= novekmeny;
 		if (testho <= 0) {
 			this.Meghaltam();
