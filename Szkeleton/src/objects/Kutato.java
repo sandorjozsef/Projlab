@@ -29,6 +29,7 @@ public class Kutato extends Szereplo {
 		System.out.println(Indentor.getIndent() + "Kutato.SpecKepesseg()");
 
 		boolean szomszed = aktmezo.isSzomszed(cel);
+		
 		/*if (szomszed) {
 			cel.Felderit();
 		} else {

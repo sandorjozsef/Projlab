@@ -12,7 +12,7 @@ import indent.Indentor;
  * @author Sándor József
  *
  */
-public abstract class Szereplo extends Lepheto{
+public abstract class Szereplo extends Lepheto {
 
 	protected Ruha ruha;
 	protected ArrayList<Targy> targyak;
@@ -64,22 +64,17 @@ public abstract class Szereplo extends Lepheto{
 	public void TesthoHozzaad(int novekmeny) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".TesthoHozzaad()");
-		/*String answer1 = "";
-		while (!answer1.equals("Y") && !answer1.equals("N")) {
-			System.out.print(Indentor.getIndent() + " - 0 lett a testho? (Y/N) ");
-			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-			try {
-				answer1 = reader.readLine();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-		}
-		if (answer1.equals("Y")) {
-			this.Meghaltam();
-		}*/
-		testho-=novekmeny;
-		if(testho<=0) {
+		/*
+		 * String answer1 = ""; while (!answer1.equals("Y") && !answer1.equals("N")) {
+		 * System.out.print(Indentor.getIndent() + " - 0 lett a testho? (Y/N) ");
+		 * BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		 * try { answer1 = reader.readLine(); } catch (IOException e) {
+		 * e.printStackTrace(); }
+		 * 
+		 * } if (answer1.equals("Y")) { this.Meghaltam(); }
+		 */
+		testho -= novekmeny;
+		if (testho <= 0) {
 			this.Meghaltam();
 		}
 		Indentor.degLevel();
@@ -92,20 +87,23 @@ public abstract class Szereplo extends Lepheto{
 	public void Felvesz() {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".Felvesz()");
-		
+
 		Targy t = aktmezo.Atad();
 		if (t != null)
 			targyak.add(t);
 		Indentor.degLevel();
 	}
+
 	/**
 	 * Visszaadja a szereplő egy tárgyát az adott indexen
+	 * 
 	 * @param i
 	 * @return
 	 */
 	public Targy getTargy(int i) {
 		return targyak.get(i);
 	}
+
 	/**
 	 * A paraméterként kapott Targy Kepesseg() függvényét hívja meg, aminek a
 	 * paramétereként saját magát adja át.
@@ -115,19 +113,20 @@ public abstract class Szereplo extends Lepheto{
 	public void Hasznal(Targy targy) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".Hasznal()");
-		if(targyak.contains(targy))
+		if (targyak.contains(targy))
 			targy.Kepesseg(this);
 		Indentor.degLevel();
 	}
 
 	/**
-	 * Eldobja a paraméterként megadott tárgyat a zsebéből, amennyiben nála van. 
+	 * Eldobja a paraméterként megadott tárgyat a zsebéből, amennyiben nála van.
+	 * 
 	 * @param targy
 	 */
 	public void Eldob(Targy targy) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".Eldob()");
-		if(targyak.contains(targy))
+		if (targyak.contains(targy))
 			targyak.remove(targy);
 		Indentor.degLevel();
 	}
@@ -141,13 +140,14 @@ public abstract class Szereplo extends Lepheto{
 	public abstract void SpecKepesseg(Mezo cel);
 
 	/**
-	 * Beállítja a lépésszámot a-val megegyező értékűre. 
+	 * Beállítja a lépésszámot a-val megegyező értékűre.
+	 * 
 	 * @param a
 	 */
 	public void setLepesszam(int a) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".setLepesszam()");
-		lepesszam=a;
+		lepesszam = a;
 		Indentor.degLevel();
 	}
 
