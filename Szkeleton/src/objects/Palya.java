@@ -267,6 +267,7 @@ public final class Palya {
 				Targy[][] initTargyak = new Targy[n][m];
 				Mezo initMezok[][] = new Mezo[n][m];
 				Random r= new Random();
+				int alkcount = 0;
 				for(int i = 0; i<n;i++) {					
 					for(int j = 0; j< m; j++) {
 						switch(targy[i][j]) {
@@ -276,7 +277,7 @@ public final class Palya {
 							break;
 						case 'B': initTargyak[i][j] = new Buvarruha();
 							break;
-						case 'A': initTargyak[i][j] = new Alkatresz();
+						case 'A': initTargyak[i][j] = new Alkatresz(); if(palya[i][j]!='L')alkcount++;
 							break;
 						case 'E': initTargyak[i][j] = new Lapat();
 							break;
@@ -285,7 +286,7 @@ public final class Palya {
 						case 'K': initTargyak[i][j] = new Aso();
 							break;						
 						default:
-							break;
+							throw new Exception("Hibas szintaktika!");
 						}
 						switch(palya[i][j]) {
 						case 'S': initMezok[i][j] = new StabilJegtabla(initTargyak[i][j]);
@@ -294,8 +295,7 @@ public final class Palya {
 							break;
 						case 'L': initMezok[i][j] = new Luk();
 							break;
-						default: throw new Exception("Hibas szintaktika!");
-							
+						default: throw new Exception("Hibas szintaktika!");							
 						}
 						if(j>0) {//beéllitjuk a szomszédokat: mindenkinek negy szomszed egyelore
 							initMezok[i][j].setSzomszed(initMezok[i][j-1]);
@@ -307,6 +307,8 @@ public final class Palya {
 						}
 					}
 				}
+				if(alkcount<3)
+					throw new Exception("Nincs elég alkatrész");
 				for(int i = 0; i<n;i++)					
 					for(int j = 0; j<m; j++) {
 						mezok.add(initMezok[i][j]);	//feltoltju ka mezok listajat 					
