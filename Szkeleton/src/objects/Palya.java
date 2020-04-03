@@ -56,10 +56,9 @@ public final class Palya {
 			
 			Mezo medveMezo = medve.getMezo();
 			Random r = new Random();
-			ArrayList<Mezo> szomszed = medveMezo.getSzomszed();
-			
+			ArrayList<Mezo> szomszed = medveMezo.getSzomszed();			
 			Mezo cel = szomszed.get(r.nextInt(medveMezo.getSzomszed().size()));
-			//medve.Atlep(cel);
+			medve.Atlep(cel);
 		}
 		else {
 			kov=szereplok.get(akt+1);
@@ -271,7 +270,9 @@ public final class Palya {
 						case 'S': initTargyak[i][j] = new Buvarruha();
 							break;
 						case 'K': initTargyak[i][j] = new Aso();
-							break;						
+							break;	
+						case '*': ;
+							break;	
 						default:
 							throw new Exception("Hibas szintaktika!");
 						}
@@ -311,7 +312,7 @@ public final class Palya {
 					initMezok[n-1][m-1].setSzereplo(s);
 					
 				}				
-				Medve medve = new Medve();
+				medve = new Medve();
 				medve.setMezo(initMezok[0][0]);
 				initMezok[0][0].setMedve(medve);
 				System.out.println("Pálya sikeresen felépült, a szereplők a helyükön vannak!");
