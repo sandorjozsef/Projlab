@@ -90,7 +90,7 @@ public abstract class Szereplo extends Lepheto{
 	public void Felvesz() {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".Felvesz()");
-		// TODO : null-t addol?
+		// TODO : null-t addol??
 		Targy t = aktmezo.Atad();
 		if (t != null)
 			targyak.add(t);

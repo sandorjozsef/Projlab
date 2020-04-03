@@ -92,7 +92,7 @@ public final class Palya {
 		System.out.println(Indentor.getIndent()+"Palya.JatekVege()");
 		aktJatekos = null;
 		clear();
-		if(nyert) {//
+		if(nyert) {
 			System.out.println(Indentor.getIndent()+" - Jatek megnyerve");
 		}
 		else {			
