@@ -1,6 +1,6 @@
 package objects;
 
-import java.io.BufferedReader;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -21,9 +21,7 @@ public class Kutato extends Szereplo {
 
 	/**
 	 *  A metódusban meg lehet jelölni egy szomszédos vagy aktuális mezőt, amelyről
-	 * megmondja a teherbírását. A Skeleton fázisban megkérdi a felhasználótól ha
-	 * nem szomszédos a felderítendő mező, hogy a saját mezejét szeretné-e
-	 * felderíteni.
+	 * megmondja a teherbírását. 
 	 */
 	public void SpecKepesseg(Mezo cel) {
 
@@ -31,7 +29,7 @@ public class Kutato extends Szereplo {
 		System.out.println(Indentor.getIndent() + "Kutato.SpecKepesseg()");
 
 		boolean szomszed = aktmezo.isSzomszed(cel);
-		if (szomszed) {
+		/*if (szomszed) {
 			cel.Felderit();
 		} else {
 			String answer1 = "";
@@ -47,6 +45,9 @@ public class Kutato extends Szereplo {
 					cel.Felderit();
 				}
 			}
+		}*/
+		if(szomszed || cel.equals(aktmezo)) {
+			cel.Felderit();
 		}
 
 		Indentor.degLevel();

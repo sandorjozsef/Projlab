@@ -1,8 +1,5 @@
 package objects;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import indent.Indentor;
@@ -23,6 +20,7 @@ public abstract class Szereplo extends Lepheto{
 	protected int lepesszam;
 
 	public Szereplo() {
+		super();
 		targyak = new ArrayList<Targy>();
 		ruha = new AlapRuha();
 	}
@@ -66,7 +64,7 @@ public abstract class Szereplo extends Lepheto{
 	public void TesthoHozzaad(int novekmeny) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".TesthoHozzaad()");
-		String answer1 = "";
+		/*String answer1 = "";
 		while (!answer1.equals("Y") && !answer1.equals("N")) {
 			System.out.print(Indentor.getIndent() + " - 0 lett a testho? (Y/N) ");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -79,6 +77,10 @@ public abstract class Szereplo extends Lepheto{
 		}
 		if (answer1.equals("Y")) {
 			this.Meghaltam();
+		}*/
+		testho-=novekmeny;
+		if(testho<=0) {
+			this.Meghaltam();
 		}
 		Indentor.degLevel();
 	}
@@ -90,7 +92,7 @@ public abstract class Szereplo extends Lepheto{
 	public void Felvesz() {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".Felvesz()");
-		// TODO : null-t addol??
+		
 		Targy t = aktmezo.Atad();
 		if (t != null)
 			targyak.add(t);
@@ -113,19 +115,20 @@ public abstract class Szereplo extends Lepheto{
 	public void Hasznal(Targy targy) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".Hasznal()");
-		targy.Kepesseg(this);
+		if(targyak.contains(targy))
+			targy.Kepesseg(this);
 		Indentor.degLevel();
 	}
 
 	/**
-	 * Eldobja a paraméterként megadott tárgyat a zsebéből, amennyiben nála van. Ez
-	 * egyelőre még a Skeleton fázisban nincs megvalósítva.
-	 * 
+	 * Eldobja a paraméterként megadott tárgyat a zsebéből, amennyiben nála van. 
 	 * @param targy
 	 */
 	public void Eldob(Targy targy) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".Eldob()");
+		if(targyak.contains(targy))
+			targyak.remove(targy);
 		Indentor.degLevel();
 	}
 
@@ -138,14 +141,13 @@ public abstract class Szereplo extends Lepheto{
 	public abstract void SpecKepesseg(Mezo cel);
 
 	/**
-	 * Beállítja a lépésszámot a-val megegyező értékűre. Ez egyelőre még a Skeleton
-	 * fázisban nincs megvalósítva.
-	 * 
+	 * Beállítja a lépésszámot a-val megegyező értékűre. 
 	 * @param a
 	 */
 	public void setLepesszam(int a) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".setLepesszam()");
+		lepesszam=a;
 		Indentor.degLevel();
 	}
 
