@@ -213,4 +213,9 @@ public abstract class Mezo {
 	{
 		this.medve = null;
 	}
+	
+	public void MezoInfo()
+	{
+		// TODO: Abelre var
+	}
 }

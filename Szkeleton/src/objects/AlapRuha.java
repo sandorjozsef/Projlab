@@ -20,31 +20,12 @@ public class AlapRuha extends Ruha {
 	{ 
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+ Name() + ".Elazik()");
-		/*String answer = "";
-		while(!answer.equals("Y") && !answer.equals("N"))
-		{
-			System.out.print(Indentor.getIndent() + " - Megfagyott az adott Szereplo? (Y/N) ");
-			try 
-			{
-				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-				answer = reader.readLine();
-			}
-			catch (Exception e)
-			{
-				System.err.println(e.getMessage());
-			}
-			if (answer.equals("Y")) 
-			{
-				sz.Meghaltam();
-			}
-			else if (answer.equals("N"))
-			{}
-		}*/
-		elazasi_szint++;
+		sz.setLepesszam(0);
 		if (elazasi_szint == 2)
 		{
 			sz.Meghaltam();
 		}
+		elazasi_szint++;
 		Indentor.degLevel();
 	}
 	

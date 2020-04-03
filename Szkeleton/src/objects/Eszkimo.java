@@ -26,7 +26,9 @@ public class Eszkimo extends Szereplo {
 	 * felhasználóhoz intézett kérdés alapján dönti el.
 	 */
 	public void SpecKepesseg(Mezo cel) {
-
+		if (!Lephet())
+			return;
+		
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + "Eszkimo.SpecKepesseg()");
 

@@ -67,6 +67,7 @@ public final class Palya {
 		Mezo mezo=kov.getMezo();
 		mezo.Hatas(kov);
 		Hovihar();
+		Mezofrissit();
 		aktJatekos=kov;
 		
 		
@@ -80,11 +81,11 @@ public final class Palya {
 	public static void Hovihar() {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.Hovihar()");
-			
+		Random rand = new Random();
 		for(int i = 0; i<mezok.size();i++) {
-			mezok.get(i).Hoeses();
+			if (rand.nextInt(2) == 1)
+				mezok.get(i).Hoeses();
 		}
-		
 		Indentor.degLevel();
 	}
 	
@@ -330,6 +331,17 @@ public final class Palya {
 			System.out.println(i+":  "+mezok.get(i).gethoVastagsag()+"  "+mezok.get(i).getSzereplokSzama()+"  "+mezok.get(i).getMedve());
 		}
 		
+	}
+	
+	public static void Mezofrissit()
+	{
+		Indentor.incLevel();
+		System.out.println(Indentor.getIndent()+"Palya.Mezofrissit()");
+		for(int i = 0; i<mezok.size();i++) {
+			mezok.get(i).Amortizal();
+		}
+		
+		Indentor.degLevel();
 	}
 	
 }

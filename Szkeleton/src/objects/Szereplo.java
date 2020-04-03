@@ -19,10 +19,22 @@ public abstract class Szereplo extends Lepheto {
 	protected int testho;
 	protected int lepesszam;
 
+	protected boolean Lephet()
+	{
+		boolean seged = (lepesszam <= 0);
+		if (seged)
+			lepesszam = 0;
+		else
+			lepesszam--;
+		System.out.print(seged ? "Nincs tobb lepesed oreg\n" : "");
+		return !seged;
+	}
+	
 	public Szereplo() {
 		super();
 		targyak = new ArrayList<Targy>();
 		ruha = new AlapRuha();
+		lepesszam = 4;
 	}
 
 	/**
@@ -33,12 +45,16 @@ public abstract class Szereplo extends Lepheto {
 	 */
 	@Override
 	public void Atlep(Mezo cel) {
+		if (!Lephet())
+			return;
+		
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".Atlep()");
 
 		boolean siker = cel.Befogad(this, aktmezo);
 		if (siker) {
 			aktmezo.Kiad(this);
+			aktmezo = cel;
 		}
 		Indentor.degLevel();
 	}
@@ -48,6 +64,8 @@ public abstract class Szereplo extends Lepheto {
 	 * egységgel csökkenti a mennyiségét.
 	 */
 	public void Takarit() {
+		if (!Lephet())
+			return;
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".Takarit()");
 		aktmezo.HoHozzaad(-1);
@@ -77,6 +95,8 @@ public abstract class Szereplo extends Lepheto {
 	 * szereplő tartózkodik, valamint a tárgy referenciáját eltárolja.
 	 */
 	public void Felvesz() {
+		if (!Lephet())
+			return;
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".Felvesz()");
 
@@ -103,6 +123,8 @@ public abstract class Szereplo extends Lepheto {
 	 * @param targy
 	 */
 	public void Hasznal(Targy targy) {
+		if (!Lephet())
+			return;
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".Hasznal()");
 		if (targyak.contains(targy))
@@ -141,6 +163,15 @@ public abstract class Szereplo extends Lepheto {
 		System.out.println(Indentor.getIndent() + Name() + ".setLepesszam()");
 		lepesszam = a;
 		Indentor.degLevel();
+	}
+	
+	/**
+	 * A lepesszamat adja vissza
+	 * @return lepesszam
+	 */
+	public int getLepesszam() 
+	{
+		return lepesszam;
 	}
 
 	/**
