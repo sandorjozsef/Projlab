@@ -130,37 +130,15 @@ public final class Palya {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.AlkatreszKezel()");
 		
-		//TODO : if alkatreszek==3
-		String answer1 = "";
-		while (!answer1.equals("Y") && !answer1.equals("N")) {
-			System.out.print(Indentor.getIndent()+" - Megvan a harom alkatresz? (Y/N) ");
-			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-			try {
-				answer1 = reader.readLine();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			if (answer1.equals("Y")) {
-				Mezo mezo = aktJatekos.getMezo();
-				int szerep_szam = mezo.getSzereplokSzama();
-				//TODO: if maxJatekos==szerepszam
-				String answer2 = "";
-				while (!answer2.equals("Y") && !answer2.equals("N")) {
-					System.out.print(Indentor.getIndent()+" - Az osszes szereplo egy mezon all? (Y/N) ");
-					
-					try {
-						answer2 = reader.readLine();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					if (answer2.equals("Y")) {
-						JatekVege(true);
-					}
-				}
-			}
+		if(bejelentheto)
+			alkatreszek++;
+		if(alkatreszek==3) {
+			Mezo mezo = aktJatekos.getMezo();
+			int szerep_szam = mezo.getSzereplokSzama();
+			if(szerep_szam==maxJatekos)
+				JatekVege(true);
 		}
+		
 		Indentor.degLevel();
 	}
 
