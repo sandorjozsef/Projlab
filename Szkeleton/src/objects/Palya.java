@@ -381,6 +381,7 @@ public final class Palya implements Serializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("Jatek sikeresen mentve a '"+fName+"' fajlba!");
 		
 	}
 	@SuppressWarnings("unchecked")
@@ -405,6 +406,7 @@ public final class Palya implements Serializable{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			System.out.println("Jatek sikeresen betoltve a '"+fName+"' fajlbol!");
 		}	
 	}
 	
