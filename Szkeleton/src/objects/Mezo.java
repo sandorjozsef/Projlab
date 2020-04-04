@@ -135,6 +135,9 @@ public abstract class Mezo {
 		Indentor.degLevel();
 		return this.hoVastagsag;
 	}
+	public void setHovastagsag(int v) {
+		hoVastagsag = v;
+	}
 	/**
 	 * minden, a mezőre beiratott szereplőt átléptet a cel mezőre
 	 */

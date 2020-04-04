@@ -209,6 +209,9 @@ public final class Palya {
 	 * B - buvarruha
 	 * S - sator
 	 * 
+	 * Egy mezo leirasa: pl: IT13  instabil jegtabal, torekeny aso van rajta, 1 a teherbiras ,  3 a hovastagsag
+	 * A mezoket space valasztja el
+	 * 
 	 * A palya jobb also sarka mindig stabil jegtabla kell, hogy legyen mert onnan indulnak a szereplok
 	 * @param is 
 	 */
@@ -229,42 +232,36 @@ public final class Palya {
 					System.out.print("Milyen szeles legyen a palya? ");
 				int m = Integer.parseInt(reader.readLine());
 				if(is == System.in)
-					System.out.println("Add meg a palya felepiteset! ");
-				char palya[][] = new char[n][m];
-				for(int i = 0; i<n;i++) {
-					String sor = reader.readLine();
-					for(int j = 0; j<m; j++) {
-						palya[i][j] =sor.toUpperCase().charAt(j);
-					}				
-				}
-				if(palya[n-1][m-1]!= 'S')
-					throw new Exception("A kezdő mező nem Stabil Jegtabla(jobb alsó)!");
+					
+					
+					
 				if(n*m<sz*7) // minden szereplore 7 mezo jut
 					throw new Exception("Túl kicsi pálya!");
-				if(is == System.in)
-					System.out.println("Add meg a palya targyait! ");
-				char targy[][] = new char[n][m];
-				for(int i = 0; i<n;i++) {
-					String sor = reader.readLine();
-					for(int j = 0; j<m; j++) {
-						targy[i][j] =sor.toUpperCase().charAt(j);
-					}				
-				}
+				if(is == System.in)				
+					System.out.println("Add meg a palya felepiteset! ");
+			
+				
 				
 				Targy[][] initTargyak = new Targy[n][m];
 				Mezo initMezok[][] = new Mezo[n][m];
 				Random r= new Random();
 				int alkcount = 0;
-				for(int i = 0; i<n;i++) {					
+				for(int i = 0; i<n;i++) {	
+					String sor = reader.readLine();
+					String[] mezokIn = sor.split(" ");
 					for(int j = 0; j< m; j++) {
-						switch(targy[i][j]) {
+						if(i==n-1 && j==n-1 && mezokIn[j].charAt(0)!='S') {
+							throw new Exception("A kezdo mezo nem stabil jegtabla! (jobb alsó)");
+						}
+						switch(mezokIn[j].charAt(1)) {
 						case 'T': initTargyak[i][j] = new Aso();
 							break;
 						case 'L': initTargyak[i][j] = new Lapat();
 							break;
 						case 'B': initTargyak[i][j] = new Buvarruha();
 							break;
-						case 'A': initTargyak[i][j] = new Alkatresz(); if(palya[i][j]!='L')alkcount++;
+						case 'A': initTargyak[i][j] = new Alkatresz();
+									if(mezokIn[j].charAt(0)!='L')alkcount++;
 							break;
 						case 'E': initTargyak[i][j] = new Lapat();
 							break;
@@ -272,20 +269,30 @@ public final class Palya {
 							break;
 						case 'K': initTargyak[i][j] = new Aso();
 							break;	
-						case '*': ;
+						case '*': initTargyak[i][j] = null;
 							break;	
 						default:
 							throw new Exception("Hibas szintaktika!");
 						}
-						switch(palya[i][j]) {
+						switch(mezokIn[j].charAt(0)) {
 						case 'S': initMezok[i][j] = new StabilJegtabla(initTargyak[i][j]);
 							break;
-						case 'I': initMezok[i][j] = new InstabilJegtabla(initTargyak[i][j], r.nextInt(3)+1);
+						case 'I': 
+									if(mezokIn[j].substring(2,3).equals("R"))
+										initMezok[i][j] = new InstabilJegtabla(initTargyak[i][j], r.nextInt(3)+1);
+									else 
+										initMezok[i][j] = new InstabilJegtabla(initTargyak[i][j], Integer.parseInt(mezokIn[j].substring(2,3)));
 							break;
 						case 'L': initMezok[i][j] = new Luk();
 							break;
 						default: throw new Exception("Hibas szintaktika!");							
 						}
+						if(mezokIn[j].substring(3,4).equals("R"))
+							initMezok[i][j].setHovastagsag(r.nextInt(8));
+						else
+							initMezok[i][j].setHovastagsag(Integer.parseInt(mezokIn[j].substring(3,4)));
+						
+						
 						if(j>0) {//beéllitjuk a szomszédokat: mindenkinek negy szomszed egyelore
 							initMezok[i][j].setSzomszed(initMezok[i][j-1]);
 							initMezok[i][j-1].setSzomszed(initMezok[i][j]);
