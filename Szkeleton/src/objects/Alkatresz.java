@@ -5,8 +5,8 @@ import java.io.Serializable;
 
 import indent.Indentor;
 /**
- * Targy interf�szt megval�s�t� oszt�ly, aminek 3 p�ld�ny�val t�rt�n� felvev�s
- * �s Kepesseg haszn�latot k�vet�en meg lehet nyerni a j�t�kot.
+ * Targy interfészt megvalósító osztály, aminek 3 példányával történő felvevés
+ * és Kepesseg használatot követően meg lehet nyerni a játékot.
  * @author Aviato
  */
 public class Alkatresz implements Targy ,Serializable{
@@ -17,10 +17,10 @@ public class Alkatresz implements Targy ,Serializable{
 	private boolean bejelentheto = true;
 	
 	/**
-	 * A param�terk�nt kapott Szereplo h�vta meg a f�ggv�nyt, amely megpr�b�lja bejelenteni mag�t a Palya sz�m�ra.
-	 * Ezt �gy teszi, hogy ezt a v�ltoz�t tov�bb�tja a Palya sz�m�ra az AlkatresztKezel f�ggv�nyen kereszt�l.
-	 * @param felhasznalo Jelen esetben l�nyegtelen, de �ltal�ban az a Szereplo, aki t�rolja az adott Alkatresz-t
-	 */
+     * A paraméterként kapott Szereplo hívta meg a függvényt, amely megpróbálja bejelenteni magát a Palya számára.
+     * Ezt úgy teszi, hogy ezt a változót továbbítja a Palya számára az AlkatresztKezel függvényen keresztül.
+     * @param felhasznalo Jelen esetben lényegtelen, de általában az a Szereplo, aki tárolja az adott Alkatresz-t
+     */
 	@Override
 	public void Kepesseg(Szereplo felhasznalo)
 	{
@@ -53,9 +53,9 @@ public class Alkatresz implements Targy ,Serializable{
 	}
 	
 	/**
-	 * Kiirat�shoz haszn�lt f�ggv�ny, amely az oszt�ly nev�t adja vissza egy Stringben.
-	 * @return Alkatresz Stringgel fog visszat�rni
-	 */
+     * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
+     * @return Alkatresz Stringgel fog visszatérni
+     */
 	@Override
 	public String Name() {
 		return "Alkatresz";

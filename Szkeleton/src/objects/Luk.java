@@ -2,10 +2,10 @@ package objects;
 
 import indent.Indentor;
 /**
- * 	olyan oszt�ly amely a j�t�kban szerepl� Lukat testes�ti meg
- * 	�s a j�t�kszab�lyoknak megfelel�en ha egy szerepl� ide l�p 
- * 	akkor mindig v�zbe esik, �s egy id� ut�n meghal ha nem siker�l
- * 	�tl�pnie egy m�sik mezob�l lesz�rmazott oszt�lyra
+ *     olyan osztály amely a játékban szereplő Lukat testesíti meg
+ *     és a játékszabályoknak megfelelően ha egy szereplő ide lép
+ *     akkor mindig vízbe esik, és egy idő után meghal ha nem sikerül
+ *     átlépnie egy másik mezoből leszármazott osztályra
  */
 public class Luk extends Mezo{
 	/**
@@ -16,9 +16,9 @@ public class Luk extends Mezo{
 		super();
 	}
 	/**
-	 *	megpr�b�lja befogadni a param�terk�nt megkapott szerepl�t, a r�gi mez�j�r�l,
-	 *	felt�ve hogy a szerepl� szomsz�dos mez�r�l �rkezik
-	 */
+     *    megpróbálja befogadni a paraméterként megkapott szereplőt, a régi mezőjéről,
+     *    feltéve hogy a szereplő szomszédos mezőről érkezik
+     */
 	public boolean Befogad(Szereplo belepo, Mezo regi)
 	{
 		Indentor.incLevel();
@@ -38,48 +38,49 @@ public class Luk extends Mezo{
 		
 		
 	}
+	
 	/**
-	 *	Ha a Lukra szerepl� �rkezik akkor az biztos el�zik, �gy megh�vja
-	 *	az el�zik f�ggv�nyt
-	 */
-	public void Hatas(Szereplo sz)
-	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Luk.Hatas()");
-		sz.Elazik();
-		Indentor.degLevel();
-		
-	}
-	/**
-	 * ha valaki lukrol prob�l meg t�rgyat felvenni, akkor nem j�r sikerrel
-	 */
-	@Override
-	public Targy Atad() {
-		// TODO Auto-generated method stub
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Luk.Atad()");
-		Indentor.degLevel();
-		return null;
-		
-	}
-	/**
-	 * ha valaki lukra prob�l meg epuletet epiteni, akkor nem t�rt�nik semmi
-	 */
-	@Override
-	public void setEpulet(Epulet e) {
-		// TODO Auto-generated method stub
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Luk.setIglu()");
-		Indentor.degLevel();
-		
-		
-	}
-	/**
-	 * 	tudatja a kiirat�sn�l hogy egy Lukon v�gzik az esetlegesen
-	 *	mezobol nem fel�ldefini�lt f�ggv�nyt 
-	 */
-	public String Name() {
-		return "Luk";
-		
-	}
+     *    Ha a Lukra szereplő érkezik akkor az biztos elázik, így meghívja
+     *    az elázik függvényt
+     */
+    public void Hatas(Szereplo sz)
+    {
+        Indentor.incLevel();
+        System.out.println(Indentor.getIndent()+"Luk.Hatas()");
+        sz.Elazik();
+        Indentor.degLevel();
+       
+    }
+    /**
+     * ha valaki lukrol probál meg tárgyat felvenni, akkor nem jár sikerrel
+     */
+    @Override
+    public Targy Atad() {
+        // TODO Auto-generated method stub
+        Indentor.incLevel();
+        System.out.println(Indentor.getIndent()+"Luk.Atad()");
+        Indentor.degLevel();
+        return null;
+       
+    }
+    /**
+     * ha valaki lukra probál meg epuletet epiteni, akkor nem történik semmi
+     */
+    @Override
+    public void setEpulet(Epulet e) {
+        // TODO Auto-generated method stub
+        Indentor.incLevel();
+        System.out.println(Indentor.getIndent()+"Luk.setIglu()");
+        Indentor.degLevel();
+       
+       
+    }
+    /**
+     *     tudatja a kiiratásnál hogy egy Lukon végzik az esetlegesen
+     *    mezobol nem felüldefiniált függvényt
+     */
+    public String Name() {
+        return "Luk";
+       
+    }
 }

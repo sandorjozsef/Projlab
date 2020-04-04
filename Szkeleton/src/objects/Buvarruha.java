@@ -3,8 +3,8 @@ import java.io.Serializable;
 
 import indent.Indentor;
 /**
- * Ez az oszt�ly megval�s�tja a Targy interf�szt �s lesz�rmazottja a Ruha-nak.
- * Teh�t egy Jegtabla-r�l az Atad f�ggv�ny seg�ts�g�vel fel lehet venni a Szereplo-nek �s haszn�lata ut�n ez lesz a Ruha-ja.
+ * Ez az osztály megvalósítja a Targy interfészt és leszármazottja a Ruha-nak.
+ * Tehát egy Jegtabla-ról az Atad függvény segítségével fel lehet venni a Szereplo-nek és használata után ez lesz a Ruha-ja.
  * @author Aviato
  */
 public class Buvarruha extends Ruha implements Targy, Serializable {
@@ -14,9 +14,9 @@ public class Buvarruha extends Ruha implements Targy, Serializable {
 	private static final long serialVersionUID = -1654342135967208709L;
 
 	/**
-	 * A param�terk�nt kapott Szereplo-nek a Ruha-j�t �t�ll�tja �nmag�ra.
-	 * @param felhasznalo Ennek a Szereplo-nek �ll�tja a hozz� tartoz� Ruha-t.
-	 */
+     * A paraméterként kapott Szereplo-nek a Ruha-ját átállítja önmagára.
+     * @param felhasznalo Ennek a Szereplo-nek állítja a hozzá tartozó Ruha-t.
+     */
 	@Override
 	public void Kepesseg(Szereplo felhasznalo)
 	{
@@ -27,9 +27,9 @@ public class Buvarruha extends Ruha implements Targy, Serializable {
 	}
 
 	/**
-	 * Nem csin�l semmit, mert a Buvarruha nem tud el�zni �s viselete k�zben megfagyni sem lehet.
-	 * @param szereplo Hozz� tartozik az adott Buvarruha
-	 */
+     * Nem csinál semmit, mert a Buvarruha nem tud elázni és viselete közben megfagyni sem lehet.
+     * @param szereplo Hozzá tartozik az adott Buvarruha
+     */
 	@Override
 	public void Elazik(Szereplo szereplo) 
 	{
@@ -39,8 +39,8 @@ public class Buvarruha extends Ruha implements Targy, Serializable {
 	}
 	
 	/**
-	 * Nem csin�l semmit, mert a Buvarruha nem tud el�zni �s ebb�l ad�d�an nincs mi�rt megsz�radjon.
-	 */
+     * Nem csinál semmit, mert a Buvarruha nem tud elázni és ebből adódóan nincs miért megszáradjon.
+     */
 	@Override
 	public void Megszarit() 
 	{
@@ -50,9 +50,9 @@ public class Buvarruha extends Ruha implements Targy, Serializable {
 	}
 	
 	/**
-	 * Kiirat�shoz haszn�lt f�ggv�ny, amely az oszt�ly nev�t adja vissza egy Stringben.
-	 * @return Buvarruha Stringgel t�r vissza
-	 */
+     * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
+     * @return Buvarruha Stringgel tér vissza
+     */
 	@Override
 	public String Name() {
 		return "Buvarruha";

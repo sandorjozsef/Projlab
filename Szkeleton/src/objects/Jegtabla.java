@@ -6,9 +6,9 @@ import java.io.InputStreamReader;
 
 import indent.Indentor;
 /**
- *	olyan absztrakt oszt�ly amely minden olyan mez� �se ami nem luk,
- * 	�gy a legf�bb k�l�nbs�ge, hogy van lehet�s�g t�rgyat t�rolni rajta,
- *	amit a szerepl�k felvehetnek r�la, ha nincs rajta h�
+ *    olyan absztrakt osztály amely minden olyan mező őse ami nem luk,
+ *     így a legfőbb különbsége, hogy van lehetőség tárgyat tárolni rajta,
+ *    amit a szereplők felvehetnek róla, ha nincs rajta hó
  */
 public abstract class Jegtabla extends Mezo{
 	/**
@@ -23,9 +23,9 @@ public abstract class Jegtabla extends Mezo{
 	}
 	
 	/**
-	 *	�tadja a jegtablarol a t�rgyat, ha nincs rajta m�r h�,
-	 *	majd kit�rli a saj�t attrib�tumai k�z�l
-	 */
+     *    átadja a jegtablarol a tárgyat, ha nincs rajta már hó,
+     *    majd kitörli a saját attribútumai közül
+     */
 	public Targy Atad()
 	{
 		Indentor.incLevel();

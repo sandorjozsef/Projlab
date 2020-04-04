@@ -5,8 +5,8 @@ import java.io.Serializable;
 import indent.Indentor;
 
 /**
- * Targy interf�szt implement�l, �gy lehet haszn�lni, mint a Lapat-ot, 
- * csak 3 haszn�lat ut�n elt�rik (haszn�lhatatlann� v�lik).
+ * Targy interfészt implementál, úgy lehet használni, mint a Lapat-ot,
+ * csak 3 használat után eltörik (használhatatlanná válik).
  * @author Aviato
  */
 public class Aso implements Targy, Serializable{
@@ -17,9 +17,9 @@ public class Aso implements Targy, Serializable{
 	private int elettartam = 3;
 	
 	/**
-	 * Az Aso-nak az �s� k�pess�g�t megval�s�t� f�ggv�ny.
-	 * @param felhasznalo A param�terk�nt kapott Szereplo-nek a Mezo-j�n l�v� h� mennyis�g�t cs�kkenti 2-vel
-	 */
+     * Az Aso-nak az ásó képességét megvalósító függvény.
+     * @param felhasznalo A paraméterként kapott Szereplo-nek a Mezo-jén lévő hó mennyiségét csökkenti 2-vel
+     */
 	@Override
 	public void Kepesseg(Szereplo felhasznalo) 
 	{
@@ -33,9 +33,9 @@ public class Aso implements Targy, Serializable{
 	}
 
 	/**
-	 * Kiirat�shoz haszn�lt f�ggv�ny, amely az oszt�ly nev�t adja vissza egy Stringben.
-	 * @return Aso Stringgel t�r vissza
-	 */
+     * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
+     * @return Aso Stringgel tér vissza
+     */
 	@Override
 	public String Name() 
 	{

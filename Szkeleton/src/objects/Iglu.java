@@ -4,45 +4,45 @@ import java.util.ArrayList;
 
 import indent.Indentor;
 /**
- *	olyan oszt·ly amely felelıs azÈrt hogy egy adott mezot
- *	ne Èrjen hÛvihar, ha az adott mezo stabiljegtabla Ès
- *	jogosult erre a privilÈgiumra
- *  
+ *    olyan oszt√°ly amely felel≈ës az√©rt hogy egy adott mezot
+ *    ne √©rjen h√≥vihar, ha az adott mezo stabiljegtabla √©s
+ *    jogosult erre a privil√©giumra
+ *
  */
 public class Iglu extends Epulet{
-	/**
-	 *  nem csin·l semmit, hiszen ha iglu van a mezın akkor nem kell levonni
-	 */
-	@Override
-	public void Levon(ArrayList<Szereplo> szereplok) {
-		// TODO Auto-generated method stub
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Iglu.Levon()");
-		Indentor.degLevel();
-		
-		
-	}
-	/**
-	 *	tudatja a kiirat·sn·l hogy egy Iglun vÈgzik az esetlegesen
-	 *	mezobol nem fel¸ldefini·lt f¸ggvÈnyt	 
-	 */
-	public String Name() {
-		return "Iglu";
-	}
-	
-	/**
-	 * 
-	 */
-	@Override
-	public boolean Amortizacio() 
-	{
-		return false;
-	}
-	
-	/**
-	 * 
-	 */
-	@Override
-	public void Tamadas() 
-	{}
+    /**
+     *  nem csin√°l semmit, hiszen ha iglu van a mez≈ën akkor nem kell levonni
+     */
+    @Override
+    public void Levon(ArrayList<Szereplo> szereplok) {
+        // TODO Auto-generated method stub
+        Indentor.incLevel();
+        System.out.println(Indentor.getIndent()+"Iglu.Levon()");
+        Indentor.degLevel();
+       
+       
+    }
+    /**
+     *    tudatja a kiirat√°sn√°l hogy egy Iglun v√©gzik az esetlegesen
+     *    mezobol nem fel√ºldefini√°lt f√ºggv√©nyt    
+     */
+    public String Name() {
+        return "Iglu";
+    }
+   
+    /**
+     *
+     */
+    @Override
+    public boolean Amortizacio()
+    {
+        return false;
+    }
+   
+    /**
+     *
+     */
+    @Override
+    public void Tamadas()
+    {}
 }

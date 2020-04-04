@@ -5,8 +5,8 @@ import java.io.Serializable;
 
 import indent.Indentor;
 /**
- * A Szereplo-h�z tartoz� olyan fajta ruha, amely kezdetben van rajta.
- * Ha ilyen viselete k�zben esik valaki v�zbe, akkor el tud �zni �s id�vel megfagyni, ami a j�t�k veszt�s�t vonja maga ut�n.
+ * A Szereplo-höz tartozó olyan fajta ruha, amely kezdetben van rajta.
+ * Ha ilyen viselete közben esik valaki vízbe, akkor el tud ázni és idővel megfagyni, ami a játék vesztését vonja maga után.
  * @author Aviato
  */
 public class AlapRuha extends Ruha{
@@ -17,10 +17,10 @@ public class AlapRuha extends Ruha{
 	private int elazasi_szint = 0;
 	
 	/**
-	 * Ez a f�ggv�ny gondoskodik arr�l, hogy a v�zben l�v� Szereplo "vizesebb" legyen,
-	 * azaz el�zzon, illetve megfagyjon.
-	 * @param sz megfagyott akkor ezen a Szereplo-n h�vja meg a Meghaltam f�ggv�nyt.
-	 */
+     * Ez a függvény gondoskodik arról, hogy a vízben lévő Szereplo "vizesebb" legyen,
+     * azaz elázzon, illetve megfagyjon.
+     * @param sz megfagyott akkor ezen a Szereplo-n hívja meg a Meghaltam függvényt.
+     */
 	@Override
 	public void Elazik(Szereplo sz)
 	{ 
@@ -36,9 +36,9 @@ public class AlapRuha extends Ruha{
 	}
 	
 	/**
-	 * Ezzel a met�dussal v�zb�l kij�vet meg tud sz�radni a ruha, ezzel biztos�tva,
-	 * hogy �jabb belees�skor is meglegyen mindk�t f�zis (vizes �s megfagyott).
-	 */
+     * Ezzel a metódussal vízből kijövet meg tud száradni a ruha, ezzel biztosítva,
+     * hogy újabb beleeséskor is meglegyen mindkét fázis (vizes és megfagyott).
+     */
 	@Override
 	public void Megszarit()
 	{
@@ -49,9 +49,9 @@ public class AlapRuha extends Ruha{
 	}
 	
 	/**
-	 * Kiirat�shoz haszn�lt f�ggv�ny, amely az oszt�ly nev�t adja vissza egy Stringben.
-	 * @return Alapruha Stringgel fog visszat�rni
-	 */
+    * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
+    * @return Alapruha Stringgel fog visszatérni
+    */
 	@Override
 	public String Name() {
 		return "AlapRuha";
