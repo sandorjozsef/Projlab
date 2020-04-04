@@ -57,7 +57,7 @@ public class StabilJegtabla extends Jegtabla{
     {
         Indentor.incLevel();
         System.out.println(Indentor.getIndent()+"StabilJegtabla.setIglu()");
-        if (felderitett)
+        if (getfelderitett())
         	iglu = e;
         Indentor.degLevel();
     }

@@ -23,7 +23,7 @@ public abstract class Mezo implements Serializable{
 	protected Medve medve;
 	private ArrayList<Mezo> szomszedok;
 	private int hoVastagsag;
-	protected boolean felderitett = false;
+	private boolean felderitett = false;
 	
 	/**
  	 *	Mezo konstruktor ami alapból az iglu attribútumot noglura állítja,
