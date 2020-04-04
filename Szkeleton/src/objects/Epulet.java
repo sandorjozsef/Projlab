@@ -6,7 +6,7 @@ import java.util.*;
  * Ez egy absztrakt osztály, amely egy építményt szimbolizál.
  * @author Aviato
  */
-public abstract class Epulet {
+public abstract class Epulet implements Serializable{
 	/**
 	 * 
 	 */

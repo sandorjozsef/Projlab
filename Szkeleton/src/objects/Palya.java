@@ -22,11 +22,9 @@ import indent.Indentor;
  * @author Sándor József
  *
  */
-public final class Palya implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 321461011021938046L;
+public final class Palya{
+	
+	
 	private static Szereplo aktJatekos;
 	private static ArrayList<Szereplo> szereplok= new ArrayList<Szereplo>();
 	private static ArrayList<Mezo> mezok = new ArrayList<Mezo>();
