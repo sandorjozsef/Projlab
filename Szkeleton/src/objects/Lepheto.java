@@ -9,6 +9,13 @@ import indent.Indentor;
  *
  */
 public abstract class Lepheto implements Serializable{
+	private String id;
+	public Lepheto(String id) {
+		this.id = id;
+	}
+	public String getId() {
+		return id;
+	}
 	/**
 	 * 
 	 */

@@ -17,11 +17,11 @@ public class SzereploKotelInstabil implements UseCase{
 	public void run() {
 		System.out.println(getName().toUpperCase());
 		// TODO Auto-generated method stub
-		Kutato k = new Kutato();
+		Kutato k = new Kutato("kutato");
 		Kotel kotel = new Kotel();		
 		StabilJegtabla stabilJ = new StabilJegtabla("mezo" ,null);
 		InstabilJegtabla instabilJ = new InstabilJegtabla("mezo2" ,null,3);
-		Eszkimo e = new Eszkimo();
+		Eszkimo e = new Eszkimo("eszkimo");
 		
 		Palya.setAktJatekos(k);
 		e.setMezo(instabilJ);

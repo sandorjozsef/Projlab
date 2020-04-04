@@ -20,8 +20,8 @@ public class Kutato extends Szereplo {
 	 */
 	private static final long serialVersionUID = 3048016287563747115L;
 
-	public Kutato() {
-		super();
+	public Kutato(String id) {
+		super(id);
 		testho = 4;
 	}
 

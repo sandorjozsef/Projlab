@@ -23,7 +23,7 @@ public class ControlerHovihar implements UseCase {
 	@Override
 	public void run() {
 		System.out.println(getName().toUpperCase());
-		Kutato sz = new Kutato();
+		Kutato sz = new Kutato("kutato");
 		StabilJegtabla mezo = new StabilJegtabla("mezo" ,null);
 		
 		

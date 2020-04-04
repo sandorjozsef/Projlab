@@ -18,7 +18,7 @@ public class SzereploLapat implements UseCase {
 	public void run() {
 		System.out.println(getName().toUpperCase());
 		// TODO Auto-generated method stub
-		Kutato sz = new Kutato();
+		Kutato sz = new Kutato("kutato");
 		StabilJegtabla mezo = new StabilJegtabla("mezo" ,null);
 		Lapat lapat = new Lapat();
 		

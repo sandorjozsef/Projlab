@@ -16,7 +16,7 @@ public class KutatoFelderit implements UseCase {
 	@Override
 	public void run() {
 		System.out.println(getName().toUpperCase());
-		Kutato k = new Kutato();
+		Kutato k = new Kutato("kutato");
 		StabilJegtabla akt_mezo = new StabilJegtabla("mezo" ,null);
 		InstabilJegtabla mezo = new InstabilJegtabla("mezo2" ,null,2);
 		

@@ -17,11 +17,11 @@ public class SzereploKotelLukrol implements UseCase{
 	public void run() {
 		System.out.println(getName().toUpperCase());
 		// TODO Auto-generated method stub
-		Kutato k = new Kutato();
+		Kutato k = new Kutato("kutato");
 		Kotel kotel = new Kotel();		
 		StabilJegtabla stabilJ = new StabilJegtabla("mezo" ,null);
 		Luk luk = new Luk("mezo2");
-		Eszkimo e = new Eszkimo();
+		Eszkimo e = new Eszkimo("eszkimo");
 		
 		Palya.setAktJatekos(k);
 		e.setMezo(luk);

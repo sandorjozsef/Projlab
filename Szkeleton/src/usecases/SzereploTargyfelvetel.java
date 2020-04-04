@@ -16,7 +16,7 @@ public class SzereploTargyfelvetel implements UseCase {
 	public void run() {
 		System.out.println(getName().toUpperCase());
 		// TODO Auto-generated method stub
-	Kutato k = new Kutato();
+	Kutato k = new Kutato("kutato");
 	StabilJegtabla mezo = new StabilJegtabla("mezo" ,new Lapat());	
 	
 	

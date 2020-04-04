@@ -28,7 +28,7 @@ public final class Palya{
 	private static Szereplo aktJatekos;
 	private static ArrayList<Szereplo> szereplok= new ArrayList<Szereplo>();
 	private static ArrayList<Mezo> mezok = new ArrayList<Mezo>();
-	private static Medve medve = new Medve();
+	private static Medve medve;
 	private static int maxJatekos;
 	private static int alkatreszek = 0;
 	
@@ -312,15 +312,15 @@ public final class Palya{
 				for(int i = 0; i<sz;i++) { // letrehozzuk a szereploket és a medvét, betesszuk oket a kezdo mezore
 					Szereplo s;
 					if(i%2==0)
-						s = new Kutato();
+						s = new Kutato("kutato"+i);
 					else
-						s = new Eszkimo();
+						s = new Eszkimo("eszkimo"+i);
 					szereplok.add(s);
 					s.setMezo(initMezok[n-1][m-1]);
 					initMezok[n-1][m-1].setSzereplo(s);
 					
 				}				
-				medve = new Medve();
+				medve = new Medve("medve");
 				medve.setMezo(initMezok[0][0]);
 				initMezok[0][0].setMedve(medve);
 				System.out.println("Palya sikeresen felepult, a szereplok a helyukon vannak!");

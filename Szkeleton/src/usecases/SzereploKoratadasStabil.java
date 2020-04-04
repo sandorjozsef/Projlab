@@ -19,8 +19,8 @@ public class SzereploKoratadasStabil implements UseCase {
 	public void run() {
 		System.out.println(getName().toUpperCase());
 		StabilJegtabla mezo = new StabilJegtabla("mezo" ,null);
-		Kutato k = new Kutato();
-		Eszkimo e = new Eszkimo();
+		Kutato k = new Kutato("kutato");
+		Eszkimo e = new Eszkimo("eszkimo");
 		
 		Palya.setAktJatekos(k);
 		
