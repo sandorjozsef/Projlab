@@ -259,5 +259,6 @@ public abstract class Mezo implements Serializable{
 			System.out.println("Medve: van");
 		else
 			System.out.println("Medve: nincs");
+		System.out.println("Epulet: "+iglu.Name());
 	}
 }
