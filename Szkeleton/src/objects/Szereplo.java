@@ -57,7 +57,7 @@ public abstract class Szereplo extends Lepheto{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + Name() + ".Atlep()");
 
-		boolean siker = cel.Befogad(this, aktmezo);
+		boolean siker = cel!=null && cel.Befogad(this, aktmezo);
 		if (siker) {
 			aktmezo.Kiad(this);
 			aktmezo = cel;

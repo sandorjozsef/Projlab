@@ -295,7 +295,7 @@ public final class Palya{
 									else 
 										initMezok[i][j] = new InstabilJegtabla("mezo"+count,initTargyak[i][j], Integer.parseInt(mezokIn[j].substring(2,3)));
 							break;
-						case 'L': initMezok[i][j] = new Luk("mezo"+(i+j));
+						case 'L': initMezok[i][j] = new Luk("mezo"+count);
 							break;
 						default: throw new Exception("Hibas szintaktika!");							
 						}

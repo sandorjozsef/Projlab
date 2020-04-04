@@ -37,7 +37,7 @@ public class Eszkimo extends Szereplo {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + "Eszkimo.SpecKepesseg()");
 
-		if (cel.equals(aktmezo)) {
+		if (cel!=null && cel.equals(aktmezo)) {
 			Iglu iglu = new Iglu();
 			cel.setEpulet(iglu);
 		}

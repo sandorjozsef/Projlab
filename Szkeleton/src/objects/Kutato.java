@@ -30,8 +30,10 @@ public class Kutato extends Szereplo {
 	 * megmondja a teherbírását. 
 	 */
 	public void SpecKepesseg(Mezo cel) {
-		if (!Lephet())
+		if (!Lephet())			
 			return;
+		
+			
 		
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + "Kutato.SpecKepesseg()");
@@ -39,7 +41,7 @@ public class Kutato extends Szereplo {
 		boolean szomszed = aktmezo.isSzomszed(cel);
 		
 		
-		if(szomszed || cel.equals(aktmezo)) {
+		if(cel!=null && (szomszed || cel.equals(aktmezo))) {
 			cel.Felderit();
 		}
 
