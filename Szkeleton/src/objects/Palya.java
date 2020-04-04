@@ -87,6 +87,7 @@ public final class Palya{
 		Hovihar();
 		Mezofrissit();
 		aktJatekos=kov;
+		System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");
 		
 		
 		Indentor.degLevel();
@@ -138,7 +139,7 @@ public final class Palya{
 		System.out.println(Indentor.getIndent()+"Palya.JatekotKezd()");
 		BuildMap(is);
 		aktJatekos = szereplok.get(0);
-		
+		System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");
 		Indentor.degLevel();
 	}
 
@@ -256,6 +257,7 @@ public final class Palya{
 				Mezo initMezok[][] = new Mezo[n][m];
 				Random r= new Random();
 				int alkcount = 0;
+				int count = 0;
 				for(int i = 0; i<n;i++) {	
 					String sor = reader.readLine();
 					String[] mezokIn = sor.split(" ");
@@ -285,18 +287,19 @@ public final class Palya{
 							throw new Exception("Hibas szintaktika!");
 						}
 						switch(mezokIn[j].charAt(0)) {
-						case 'S': initMezok[i][j] = new StabilJegtabla("mezo"+i*j,initTargyak[i][j]);
+						case 'S': initMezok[i][j] = new StabilJegtabla("mezo"+count,initTargyak[i][j]);
 							break;
 						case 'I': 
 									if(mezokIn[j].substring(2,3).equals("R"))
-										initMezok[i][j] = new InstabilJegtabla("mezo"+i*j,initTargyak[i][j], r.nextInt(3)+1);
+										initMezok[i][j] = new InstabilJegtabla("mezo"+count,initTargyak[i][j], r.nextInt(3)+1);
 									else 
-										initMezok[i][j] = new InstabilJegtabla("mezo"+i*j,initTargyak[i][j], Integer.parseInt(mezokIn[j].substring(2,3)));
+										initMezok[i][j] = new InstabilJegtabla("mezo"+count,initTargyak[i][j], Integer.parseInt(mezokIn[j].substring(2,3)));
 							break;
-						case 'L': initMezok[i][j] = new Luk("mezo"+i*j);
+						case 'L': initMezok[i][j] = new Luk("mezo"+(i+j));
 							break;
 						default: throw new Exception("Hibas szintaktika!");							
 						}
+						count++;
 						if(mezokIn[j].substring(3,4).equals("R"))
 							initMezok[i][j].setHovastagsag(r.nextInt(8));
 						else
