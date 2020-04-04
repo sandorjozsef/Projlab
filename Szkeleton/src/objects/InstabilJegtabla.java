@@ -129,10 +129,13 @@ public class InstabilJegtabla extends Jegtabla{
 	
 	public void MezoInfo()
 	{
-		if(this.getfelderitett()) 
-			System.out.println(Name());	
+		System.out.println("Nev: "+ getId());
+		if(this.getfelderitett()) {
+			System.out.println("Tipus: "+Name());	
+			System.out.println("Teherbiras: "+this.teherbiras);	
+		}			
 		else
-			System.out.println("Ismeretlen");
+			System.out.println("Tipus: Ismeretlen");
 		System.out.println("hoVastagsag: "+ this.gethoVastagsag());
 		if(this.getfelderitett()) 
 			System.out.println("szereplokSzama: "+ this.getSzereplokSzama()+ " szereplokAlattaSzama: "+ this.alatta.size());

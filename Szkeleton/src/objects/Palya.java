@@ -349,7 +349,8 @@ public final class Palya{
 	public static void Megtekintes() {
 		for(int i = 0; i<mezok.size();i++) {
 			Mezo m = mezok.get(i);
-			System.out.println(m.getId()+"-"+m.gethoVastagsag()+"-"+m.getSzereplokSzama()+"-"+m.getMedve());
+			m.MezoInfo();
+			System.out.println();
 		}
 		
 	}
