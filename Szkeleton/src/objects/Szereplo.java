@@ -18,7 +18,7 @@ public abstract class Szereplo extends Lepheto{
 	/**
 	 * 
 	 */
-	private String id;
+	
 	private static final long serialVersionUID = 4670530703450888105L;
 	protected Ruha ruha;
 	protected ArrayList<Targy> targyak;
@@ -233,7 +233,19 @@ public abstract class Szereplo extends Lepheto{
 		Palya.JatekVege(false);
 		Indentor.degLevel();
 	}
-
+	public void szereploInfo() {
+		System.out.println("Nev: "+getId());
+		System.out.println("Testho: "+testho);
+		System.out.println("Lepesszam: "+lepesszam);
+		System.out.println("Viselt ruha: "+ruha.Name());
+		System.out.println();
+	}
+	public void targyInfo() {
+		System.out.println("Inventory:");
+		for(int i = 0; i<targyak.size(); i++)			
+			System.out.println("["+i+"] "+targyak.get(i).Name());
+		
+	}
 	public abstract String Name();
 
 }

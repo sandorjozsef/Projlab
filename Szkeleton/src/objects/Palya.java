@@ -346,12 +346,25 @@ public final class Palya{
 		}				
 		Indentor.degLevel();
 	}
-	public static void Megtekintes() {
-		for(int i = 0; i<mezok.size();i++) {
-			Mezo m = mezok.get(i);
-			m.MezoInfo();
-			System.out.println();
+	public static void Megtekintes(int p) {
+		switch(p) {
+		case 0:
+			for(int i = 0; i<mezok.size();i++) {
+				Mezo m = mezok.get(i);
+				m.MezoInfo();
+				System.out.println();
+			}
+			break;
+		case 1:
+			aktJatekos.szereploInfo();
+			break;
+		case 2:
+			aktJatekos.targyInfo();
+			break;
+		case 3:
+			break;
 		}
+		
 		
 	}
 	

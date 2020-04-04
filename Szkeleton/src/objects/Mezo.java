@@ -60,8 +60,8 @@ public abstract class Mezo implements Serializable{
 		System.out.println(Indentor.getIndent()+Name()+".ValasztSzomszed()");
 		System.out.print("Melyik szomszedos mezon tortenjen a cselekves? (");
 		for(int i=0;i<this.szomszedok.size();i++)
-			System.out.print(szomszedok.get(i).getId()+" ");
-		System.out.print(")");
+			System.out.print(" "+szomszedok.get(i).getId());
+		System.out.print(" ) ");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		
 		try {

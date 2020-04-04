@@ -109,8 +109,20 @@ public class Application {
 						Palya.getAktJatekos().Felvesz();
 					}
 			   }
-				else if(params[0].equals("megtekintes")) {
-					Palya.Megtekintes();
+				else if(params[0].equals("megtekint")) {
+					if(params[1].equals("palya")) {										
+						Palya.Megtekintes(0);				
+					}
+					else if(params[1].equals("allapot")) {
+						Palya.Megtekintes(1);	
+					}
+					else if(params[1].equals("inventory")) {
+						Palya.Megtekintes(2);	
+					}
+					else if(params[1].equals("mezo")) {
+						Palya.Megtekintes(3);	
+					}
+					
 				}
 			}
 			catch(Exception e) {
