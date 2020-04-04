@@ -58,18 +58,13 @@ public abstract class Mezo implements Serializable{
 	{ 
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+Name()+".ValasztSzomszed()");
-		
-		int answer = -1;
-		while(answer<0)
-			{
-				System.out.print("hanyas mezore szeretne lepni? ");
-				for(int i=1;i<=this.szomszedok.size();i++)
-					System.out.print(i+" ");
-				System.out.println("");
-				answer = Integer.parseInt(System.console().readLine());
-		}
+		System.out.print("hanyas mezore szeretne lepni? ");
+		for(int i=0;i<this.szomszedok.size();i++)
+			System.out.print(szomszedok.get(i).getId()+" ");
+		System.out.println("");
 		Indentor.degLevel();
-		return szomszedok.get(answer-1);
+		return Palya.getMezo(System.console().readLine());
+		
 
 	}
 	/**
@@ -87,9 +82,9 @@ public abstract class Mezo implements Serializable{
 		Indentor.degLevel();
 	}
 	public boolean getMedve() {
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+Name()+".getMedve()");
-		Indentor.degLevel();
+		//Indentor.incLevel();
+		//System.out.println(Indentor.getIndent()+Name()+".getMedve()");
+		//Indentor.degLevel();
 		if(medve == null)
 			return false;
 		else return true;
@@ -128,9 +123,9 @@ public abstract class Mezo implements Serializable{
 	 */
 	public int getSzereplokSzama()
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+Name()+".getSzereplokSzama()");
-		Indentor.degLevel();
+		//Indentor.incLevel();
+		//System.out.println(Indentor.getIndent()+Name()+".getSzereplokSzama()");
+		//Indentor.degLevel();
 		return szereplok.size();
 		
 	}
@@ -139,9 +134,9 @@ public abstract class Mezo implements Serializable{
 	 */
 	public int gethoVastagsag()
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+Name()+".gethoVastagsag()");
-		Indentor.degLevel();
+		//Indentor.incLevel();
+		//System.out.println(Indentor.getIndent()+Name()+".gethoVastagsag()");
+		//Indentor.degLevel();
 		return this.hoVastagsag;
 	}
 	public void setHovastagsag(int v) {
