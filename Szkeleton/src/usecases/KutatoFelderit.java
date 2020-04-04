@@ -16,9 +16,9 @@ public class KutatoFelderit implements UseCase {
 	@Override
 	public void run() {
 		System.out.println(getName().toUpperCase());
-		Kutato k = new Kutato();
-		StabilJegtabla akt_mezo = new StabilJegtabla(null);
-		InstabilJegtabla mezo = new InstabilJegtabla(null,2);
+		Kutato k = new Kutato("kutato");
+		StabilJegtabla akt_mezo = new StabilJegtabla("mezo" ,null);
+		InstabilJegtabla mezo = new InstabilJegtabla("mezo2" ,null,2);
 		
 		Palya.setAktJatekos(k);
 		k.setMezo(akt_mezo);

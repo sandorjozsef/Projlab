@@ -12,8 +12,8 @@ public class Luk extends Mezo{
 	 * 
 	 */
 	private static final long serialVersionUID = -4378829119523386212L;
-	public Luk() {
-		super();
+	public Luk(String id) {
+		super(id);
 	}
 	/**
      *    megpróbálja befogadni a paraméterként megkapott szereplőt, a régi mezőjéről,

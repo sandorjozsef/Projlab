@@ -9,6 +9,13 @@ import indent.Indentor;
  */
 public class Medve extends Lepheto {
 
+	public Medve(String id) {
+		super(id);
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	/**
 	 * 
 	 */

@@ -17,7 +17,7 @@ public class SzereploBuvarruha implements UseCase {
 	public void run() {
 		System.out.println(getName().toUpperCase());
 		// TODO Auto-generated method stub
-		Kutato k = new Kutato();
+		Kutato k = new Kutato("kutato");
 		Buvarruha br = new Buvarruha();
 		
 		Palya.setAktJatekos(k);

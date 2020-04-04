@@ -18,9 +18,9 @@ public class SzereploLepLuk implements UseCase{
 	public void run() {
 		System.out.println(getName().toUpperCase());
 		// TODO Auto-generated method stub
-		Eszkimo sz = new Eszkimo();
-		StabilJegtabla mezo1 = new StabilJegtabla(null);
-		Luk mezo2 = new Luk();
+		Eszkimo sz = new Eszkimo("eszkimo");
+		StabilJegtabla mezo1 = new StabilJegtabla("mezo" ,null);
+		Luk mezo2 = new Luk("mezo2");
 		
 		Palya.setAktJatekos(sz);
 		sz.setMezo(mezo1);

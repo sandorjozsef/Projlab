@@ -18,9 +18,9 @@ public class SzereploKoratadasLuk implements UseCase {
 	@Override
 	public void run() {
 		System.out.println(getName().toUpperCase());
-		Luk mezo = new Luk();
-		Kutato k = new Kutato();
-		Eszkimo e = new Eszkimo();
+		Luk mezo = new Luk("mezo");
+		Kutato k = new Kutato("kutato");
+		Eszkimo e = new Eszkimo("eszkimo");
 		
 		Palya.setAktJatekos(k);
 		

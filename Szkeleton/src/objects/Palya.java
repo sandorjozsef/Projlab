@@ -28,7 +28,7 @@ public final class Palya{
 	private static Szereplo aktJatekos;
 	private static ArrayList<Szereplo> szereplok= new ArrayList<Szereplo>();
 	private static ArrayList<Mezo> mezok = new ArrayList<Mezo>();
-	private static Medve medve = new Medve();
+	private static Medve medve;
 	private static int maxJatekos;
 	private static int alkatreszek = 0;
 	
@@ -47,6 +47,16 @@ public final class Palya{
 	}
 	public static ArrayList<Mezo> getMezok(){
 		return mezok;
+	}
+	public static Mezo getMezo(String id) {
+		for(int i = 0; i< mezok.size(); i ++){
+			if(mezok.get(i).getId().equals(id)) 
+				return mezok.get(i);  
+		}
+		System.out.println("Nincs ilyen nevu mezo!");
+		return null;
+		
+		
 	}
 	/**
 	 * Ez a metódus adja át a lépésjogot a következő játékosnak.
@@ -77,6 +87,7 @@ public final class Palya{
 		Hovihar();
 		Mezofrissit();
 		aktJatekos=kov;
+		System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");
 		
 		
 		Indentor.degLevel();
@@ -128,7 +139,7 @@ public final class Palya{
 		System.out.println(Indentor.getIndent()+"Palya.JatekotKezd()");
 		BuildMap(is);
 		aktJatekos = szereplok.get(0);
-		
+		System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");
 		Indentor.degLevel();
 	}
 
@@ -246,6 +257,7 @@ public final class Palya{
 				Mezo initMezok[][] = new Mezo[n][m];
 				Random r= new Random();
 				int alkcount = 0;
+				int count = 0;
 				for(int i = 0; i<n;i++) {	
 					String sor = reader.readLine();
 					String[] mezokIn = sor.split(" ");
@@ -275,18 +287,19 @@ public final class Palya{
 							throw new Exception("Hibas szintaktika!");
 						}
 						switch(mezokIn[j].charAt(0)) {
-						case 'S': initMezok[i][j] = new StabilJegtabla(initTargyak[i][j]);
+						case 'S': initMezok[i][j] = new StabilJegtabla("mezo"+count,initTargyak[i][j]);
 							break;
 						case 'I': 
 									if(mezokIn[j].substring(2,3).equals("R"))
-										initMezok[i][j] = new InstabilJegtabla(initTargyak[i][j], r.nextInt(3)+1);
+										initMezok[i][j] = new InstabilJegtabla("mezo"+count,initTargyak[i][j], r.nextInt(3)+1);
 									else 
-										initMezok[i][j] = new InstabilJegtabla(initTargyak[i][j], Integer.parseInt(mezokIn[j].substring(2,3)));
+										initMezok[i][j] = new InstabilJegtabla("mezo"+count,initTargyak[i][j], Integer.parseInt(mezokIn[j].substring(2,3)));
 							break;
-						case 'L': initMezok[i][j] = new Luk();
+						case 'L': initMezok[i][j] = new Luk("mezo"+(i+j));
 							break;
 						default: throw new Exception("Hibas szintaktika!");							
 						}
+						count++;
 						if(mezokIn[j].substring(3,4).equals("R"))
 							initMezok[i][j].setHovastagsag(r.nextInt(8));
 						else
@@ -312,15 +325,15 @@ public final class Palya{
 				for(int i = 0; i<sz;i++) { // letrehozzuk a szereploket és a medvét, betesszuk oket a kezdo mezore
 					Szereplo s;
 					if(i%2==0)
-						s = new Kutato();
+						s = new Kutato("kutato"+i);
 					else
-						s = new Eszkimo();
+						s = new Eszkimo("eszkimo"+i);
 					szereplok.add(s);
 					s.setMezo(initMezok[n-1][m-1]);
 					initMezok[n-1][m-1].setSzereplo(s);
 					
 				}				
-				medve = new Medve();
+				medve = new Medve("medve");
 				medve.setMezo(initMezok[0][0]);
 				initMezok[0][0].setMedve(medve);
 				System.out.println("Palya sikeresen felepult, a szereplok a helyukon vannak!");
@@ -335,7 +348,8 @@ public final class Palya{
 	}
 	public static void Megtekintes() {
 		for(int i = 0; i<mezok.size();i++) {
-			System.out.println(i+":  "+mezok.get(i).gethoVastagsag()+"  "+mezok.get(i).getSzereplokSzama()+"  "+mezok.get(i).getMedve());
+			Mezo m = mezok.get(i);
+			System.out.println(m.getId()+"-"+m.gethoVastagsag()+"-"+m.getSzereplokSzama()+"-"+m.getMedve());
 		}
 		
 	}

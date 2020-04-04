@@ -18,12 +18,13 @@ public abstract class Szereplo extends Lepheto{
 	/**
 	 * 
 	 */
+	private String id;
 	private static final long serialVersionUID = 4670530703450888105L;
 	protected Ruha ruha;
 	protected ArrayList<Targy> targyak;
 	protected int testho;
 	protected int lepesszam;
-
+	
 	protected boolean Lephet()
 	{
 		boolean seged = (lepesszam <= 0);
@@ -35,8 +36,8 @@ public abstract class Szereplo extends Lepheto{
 		return !seged;
 	}
 	
-	public Szereplo() {
-		super();
+	public Szereplo(String id) {
+		super(id);
 		targyak = new ArrayList<Targy>();
 		ruha = new AlapRuha();
 		lepesszam = 4;

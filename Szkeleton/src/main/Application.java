@@ -90,10 +90,10 @@ public class Application {
 				}
 				else if(params[0].equals("jatekos")) {									
 					if(params[1].equals("lep")) {										
-						Palya.getAktJatekos().Atlep(Palya.getMezok().get(Integer.parseInt(params[2])));					
+						Palya.getAktJatekos().Atlep(Palya.getMezo(params[2]));					
 					}
 					else if(params[1].equals("kepesseg")) {
-						Palya.getAktJatekos().SpecKepesseg(Palya.getMezok().get(Integer.parseInt(params[2])));
+						Palya.getAktJatekos().SpecKepesseg(Palya.getMezo(params[2]));
 					}
 					else if(params[1].equals("takarit")) {
 						Palya.getAktJatekos().Takarit();

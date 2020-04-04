@@ -11,8 +11,8 @@ public class StabilJegtabla extends Jegtabla{
 	 * 
 	 */
 	private static final long serialVersionUID = 233506423267307648L;
-    public StabilJegtabla(Targy targy){
-        super(targy);
+    public StabilJegtabla(String id,Targy targy){
+        super(id, targy);
     }
     /**
      *    függvény ami befogadja a belepo szereplot a regi mezorol

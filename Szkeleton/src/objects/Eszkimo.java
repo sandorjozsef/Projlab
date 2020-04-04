@@ -20,8 +20,8 @@ public class Eszkimo extends Szereplo {
 	 */
 	private static final long serialVersionUID = -7931023977094485080L;
 
-	public Eszkimo() {
-		super();
+	public Eszkimo(String id) {
+		super(id);
 		testho = 5;
 	}
 
