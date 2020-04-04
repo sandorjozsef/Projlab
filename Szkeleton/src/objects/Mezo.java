@@ -58,7 +58,7 @@ public abstract class Mezo implements Serializable{
 		int answer = -1;
 		while(answer<0)
 			{
-				System.out.print("hányas mezőre szeretne lépni? ");
+				System.out.print("hanyas mezore szeretne lepni? ");
 				for(int i=1;i<=this.szomszedok.size();i++)
 					System.out.print(i+" ");
 				System.out.println("");

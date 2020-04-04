@@ -233,7 +233,7 @@ public final class Palya implements Serializable{
 		 
 		try {
 				if(is == System.in)
-					System.out.print("Hány szereplő legyen? ");
+					System.out.print("Hany szereplo legyen? ");
 				int sz = Integer.parseInt(reader.readLine());
 				if(is == System.in)
 					System.out.print("Milyen magas legyen a palya? ");
@@ -246,7 +246,7 @@ public final class Palya implements Serializable{
 					
 					
 				if(n*m<sz*7) // minden szereplore 7 mezo jut
-					throw new Exception("Túl kicsi pálya!");
+					throw new Exception("Tul kicsi palya!");
 				if(is == System.in)				
 					System.out.println("Add meg a palya felepiteset! ");
 			
@@ -261,7 +261,7 @@ public final class Palya implements Serializable{
 					String[] mezokIn = sor.split(" ");
 					for(int j = 0; j< m; j++) {
 						if(i==n-1 && j==n-1 && mezokIn[j].charAt(0)!='S') {
-							throw new Exception("A kezdo mezo nem stabil jegtabla! (jobb alsó)");
+							throw new Exception("A kezdo mezo nem stabil jegtabla! (jobb also)");
 						}
 						switch(mezokIn[j].charAt(1)) {
 						case 'T': initTargyak[i][j] = new Aso();
@@ -314,7 +314,7 @@ public final class Palya implements Serializable{
 					}
 				}
 				if(alkcount<3)
-					throw new Exception("Nincs elég alkatrész!");
+					throw new Exception("Nincs eleg alkatresz!");
 				for(int i = 0; i<n;i++)					
 					for(int j = 0; j<m; j++) {
 						mezok.add(initMezok[i][j]);	//feltoltju ka mezok listajat 					
@@ -333,7 +333,7 @@ public final class Palya implements Serializable{
 				medve = new Medve();
 				medve.setMezo(initMezok[0][0]);
 				initMezok[0][0].setMedve(medve);
-				System.out.println("Pálya sikeresen felépült, a szereplők a helyükön vannak!");
+				System.out.println("Palya sikeresen felepult, a szereplok a helyukon vannak!");
 				
 				
 		}
