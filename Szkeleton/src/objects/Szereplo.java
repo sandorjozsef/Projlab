@@ -32,7 +32,7 @@ public abstract class Szereplo extends Lepheto{
 			lepesszam = 0;
 		else
 			lepesszam--;
-		System.out.print(seged ? "Nincs tobb lepesed oreg\n" : "");
+		System.out.print(seged ? "Nincs tobb lepesed!\n" : "");
 		return !seged;
 	}
 	
