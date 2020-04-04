@@ -137,10 +137,16 @@ public class InstabilJegtabla extends Jegtabla{
 		else
 			System.out.println("Tipus: Ismeretlen");
 		System.out.println("hoVastagsag: "+ this.gethoVastagsag());
-		if(this.getfelderitett()) 
-			System.out.println("szereplokSzama: "+ this.getSzereplokSzama()+ " szereplokAlattaSzama: "+ this.alatta.size());
-		else
-			System.out.println("szereplokSzama: "+ this.getSzereplokSzama());
+		if(this.getfelderitett()) {
+			System.out.print("Szereplok alatta: ");
+			alatta.forEach(sz->System.out.print(" |"+ sz.getId()));
+			System.out.println();
+		}			
+		
+		System.out.print("Szereplok: ");
+		szereplok.forEach(sz->System.out.print(" |"+ sz.getId()));
+		System.out.println();
+					
 		if(this.getMedve())
 			System.out.println("Medve: van");
 		else

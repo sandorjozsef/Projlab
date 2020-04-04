@@ -235,7 +235,10 @@ public abstract class Mezo implements Serializable{
 		else
 			System.out.println("Tipus: Ismeretlen");
 		System.out.println("hoVastagsag: "+ this.hoVastagsag);
-		System.out.println("szereplokSzama: "+ this.getSzereplokSzama());
+		System.out.print("Szereplok: ");
+		szereplok.forEach(sz->System.out.print(" |"+ sz.getId()));
+		System.out.println();
+		
 		if(this.getMedve())
 			System.out.println("Medve: van");
 		else
