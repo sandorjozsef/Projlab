@@ -7,7 +7,7 @@ import indent.Indentor;
  *    olyan osztály amely felelős azért hogy egy adott mezot
  *    ne érjen hóvihar, ha az adott mezo stabiljegtabla és
  *    jogosult erre a privilégiumra
- *
+ *		áá
  */
 public class Iglu extends Epulet{
     /**
