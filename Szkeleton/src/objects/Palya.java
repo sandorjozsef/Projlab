@@ -275,11 +275,11 @@ public final class Palya{
 						case 'A': initTargyak[i][j] = new Alkatresz();
 									if(mezokIn[j].charAt(0)!='L')alkcount++;
 							break;
-						case 'E': initTargyak[i][j] = new Lapat();
+						case 'E': initTargyak[i][j] = new Elelem();
 							break;
-						case 'S': initTargyak[i][j] = new Buvarruha();
+						case 'S': initTargyak[i][j] = new Sator();
 							break;
-						case 'K': initTargyak[i][j] = new Aso();
+						case 'K': initTargyak[i][j] = new Kotel();
 							break;	
 						case '*': initTargyak[i][j] = null;
 							break;	
