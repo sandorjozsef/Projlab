@@ -1,18 +1,18 @@
 package objects;
 /**
- * Ez egy olyan interfész, ami a tárgyat szimbolizálja, annak egy képességével.
+ * Ez egy olyan interfï¿½sz, ami a tï¿½rgyat szimbolizï¿½lja, annak egy kï¿½pessï¿½gï¿½vel.
  * @author Aviato
  */
 public interface Targy {
 	/**
-	 * A Targy képességét végrehajtó függvény.
-	 * @param felhasznalo Ez a Szereplo a használó
+	 * A Targy kÃ©pessÃ©gÃ©t vï¿½grehajtï¿½ fï¿½ggvï¿½ny.
+	 * @param felhasznalo Ez a Szereplo a hasznï¿½lï¿½
 	 */
 	public void Kepesseg(Szereplo felhasznalo);
 	
 	/**
-	 * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
-	 * @return A leszármazott fogja meghatározni
+	 * Kiiratï¿½shoz hasznï¿½lt fï¿½ggvï¿½ny, amely az osztï¿½ly nevï¿½t adja vissza egy Stringben.
+	 * @return A leszï¿½rmazott fogja meghatï¿½rozni
 	 */
 	public String Name();
 }
