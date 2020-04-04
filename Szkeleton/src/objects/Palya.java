@@ -241,9 +241,11 @@ public final class Palya{
 				if(is == System.in)
 					System.out.print("Milyen szeles legyen a palya? ");
 				int m = Integer.parseInt(reader.readLine());
-				if(is == System.in)
 					
-					
+				if (sz < 3)
+				{
+					sz = 3;
+				}
 					
 				if(n*m<sz*7) // minden szereplore 7 mezo jut
 					throw new Exception("Tul kicsi palya!");
