@@ -15,6 +15,11 @@ import indent.*;
  */
 public class Eszkimo extends Szereplo {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7931023977094485080L;
+
 	public Eszkimo() {
 		super();
 		testho = 5;

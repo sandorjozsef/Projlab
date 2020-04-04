@@ -1,14 +1,21 @@
 package objects;
+import java.io.Serializable;
+
 import indent.Indentor;
 /**
- * Ez az osztály megvalósítja a Targy interfészt.
- * Élelmet reprezentál, ami növeli a testho adattagját egy Szereplo-nek.
+ * Ez az osztï¿½ly megvalï¿½sï¿½tja a Targy interfï¿½szt.
+ * ï¿½lelmet reprezentï¿½l, ami nï¿½veli a testho adattagjï¿½t egy Szereplo-nek.
  * @author Aviato
  */
-public class Elelem implements Targy {
+public class Elelem implements Targy, Serializable{
 	/**
-	 * Az adott Elelem elfogyasztásra került, ezzel megszûnik.
-	 * @param felhasznalo Ennek a Szereplo-nek növeli a testho attribútumát eggyel és eldobatja a targy listából a referenciáját
+	 * 
+	 */
+	private static final long serialVersionUID = -4429824372466305274L;
+
+	/**
+	 * Az adott Elelem elfogyasztï¿½sra kerï¿½lt, ezzel megszï¿½nik.
+	 * @param felhasznalo Ennek a Szereplo-nek nï¿½veli a testho attribï¿½tumï¿½t eggyel ï¿½s eldobatja a targy listï¿½bï¿½l a referenciï¿½jï¿½t
 	 */
 	public void Kepesseg(Szereplo felhasznalo)
 	{
@@ -20,8 +27,8 @@ public class Elelem implements Targy {
 	}
 	
 	/**
-	 * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
-	 * @return Elelem Stringgel tér vissza
+	 * Kiiratï¿½shoz hasznï¿½lt fï¿½ggvï¿½ny, amely az osztï¿½ly nevï¿½t adja vissza egy Stringben.
+	 * @return Elelem Stringgel tï¿½r vissza
 	 */
 	public String Name() {
 		return "Elelem";

@@ -1,20 +1,25 @@
 package objects;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 
 import indent.Indentor;
 /**
- * Targy interfészt megvalósító osztály, aminek 3 példányával történõ felvevés
- * és Kepesseg használatot követõen meg lehet nyerni a játékot.
+ * Targy interfï¿½szt megvalï¿½sï¿½tï¿½ osztï¿½ly, aminek 3 pï¿½ldï¿½nyï¿½val tï¿½rtï¿½nï¿½ felvevï¿½s
+ * ï¿½s Kepesseg hasznï¿½latot kï¿½vetï¿½en meg lehet nyerni a jï¿½tï¿½kot.
  * @author Aviato
  */
-public class Alkatresz implements Targy {
+public class Alkatresz implements Targy ,Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7878735886482320510L;
 	private boolean bejelentheto = true;
 	
 	/**
-	 * A paraméterként kapott Szereplo hívta meg a függvényt, amely megpróbálja bejelenteni magát a Palya számára.
-	 * Ezt úgy teszi, hogy ezt a változót továbbítja a Palya számára az AlkatresztKezel függvényen keresztül.
-	 * @param felhasznalo Jelen esetben lényegtelen, de általában az a Szereplo, aki tárolja az adott Alkatresz-t
+	 * A paramï¿½terkï¿½nt kapott Szereplo hï¿½vta meg a fï¿½ggvï¿½nyt, amely megprï¿½bï¿½lja bejelenteni magï¿½t a Palya szï¿½mï¿½ra.
+	 * Ezt ï¿½gy teszi, hogy ezt a vï¿½ltozï¿½t tovï¿½bbï¿½tja a Palya szï¿½mï¿½ra az AlkatresztKezel fï¿½ggvï¿½nyen keresztï¿½l.
+	 * @param felhasznalo Jelen esetben lï¿½nyegtelen, de ï¿½ltalï¿½ban az a Szereplo, aki tï¿½rolja az adott Alkatresz-t
 	 */
 	@Override
 	public void Kepesseg(Szereplo felhasznalo)
@@ -48,8 +53,8 @@ public class Alkatresz implements Targy {
 	}
 	
 	/**
-	 * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
-	 * @return Alkatresz Stringgel fog visszatérni
+	 * Kiiratï¿½shoz hasznï¿½lt fï¿½ggvï¿½ny, amely az osztï¿½ly nevï¿½t adja vissza egy Stringben.
+	 * @return Alkatresz Stringgel fog visszatï¿½rni
 	 */
 	@Override
 	public String Name() {

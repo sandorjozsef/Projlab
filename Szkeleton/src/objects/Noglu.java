@@ -10,6 +10,11 @@ import indent.Indentor;
 public class Noglu extends Epulet{
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3602890566803600689L;
+
+	/**
 	 * paraméter: Azok a szereplok akik azon a mezőn állnak, ahol nincs iglu
 	 * 
 	 * Ha a Palya meghívja az adott mezőnek a Hoeses() függvényét akkor ez a mező átadja a rajta álló emberek 

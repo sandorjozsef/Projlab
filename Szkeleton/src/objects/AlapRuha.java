@@ -1,19 +1,25 @@
 package objects;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.Serializable;
+
 import indent.Indentor;
 /**
- * A Szereplo-höz tartozó olyan fajta ruha, amely kezdetben van rajta.
- * Ha ilyen viselete közben esik valaki vízbe, akkor el tud ázni és idõvel megfagyni, ami a játék vesztését vonja maga után.
+ * A Szereplo-hï¿½z tartozï¿½ olyan fajta ruha, amely kezdetben van rajta.
+ * Ha ilyen viselete kï¿½zben esik valaki vï¿½zbe, akkor el tud ï¿½zni ï¿½s idï¿½vel megfagyni, ami a jï¿½tï¿½k vesztï¿½sï¿½t vonja maga utï¿½n.
  * @author Aviato
  */
-public class AlapRuha extends Ruha {
+public class AlapRuha extends Ruha{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8985600671678347139L;
 	private int elazasi_szint = 0;
 	
 	/**
-	 * Ez a függvény gondoskodik arról, hogy a vízben lévõ Szereplo "vizesebb" legyen,
-	 * azaz elázzon, illetve megfagyjon.
-	 * @param sz megfagyott akkor ezen a Szereplo-n hívja meg a Meghaltam függvényt.
+	 * Ez a fï¿½ggvï¿½ny gondoskodik arrï¿½l, hogy a vï¿½zben lï¿½vï¿½ Szereplo "vizesebb" legyen,
+	 * azaz elï¿½zzon, illetve megfagyjon.
+	 * @param sz megfagyott akkor ezen a Szereplo-n hï¿½vja meg a Meghaltam fï¿½ggvï¿½nyt.
 	 */
 	@Override
 	public void Elazik(Szereplo sz)
@@ -30,8 +36,8 @@ public class AlapRuha extends Ruha {
 	}
 	
 	/**
-	 * Ezzel a metódussal vízbõl kijövet meg tud száradni a ruha, ezzel biztosítva,
-	 * hogy újabb beleeséskor is meglegyen mindkét fázis (vizes és megfagyott).
+	 * Ezzel a metï¿½dussal vï¿½zbï¿½l kijï¿½vet meg tud szï¿½radni a ruha, ezzel biztosï¿½tva,
+	 * hogy ï¿½jabb beleesï¿½skor is meglegyen mindkï¿½t fï¿½zis (vizes ï¿½s megfagyott).
 	 */
 	@Override
 	public void Megszarit()
@@ -43,8 +49,8 @@ public class AlapRuha extends Ruha {
 	}
 	
 	/**
-	 * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
-	 * @return Alapruha Stringgel fog visszatérni
+	 * Kiiratï¿½shoz hasznï¿½lt fï¿½ggvï¿½ny, amely az osztï¿½ly nevï¿½t adja vissza egy Stringben.
+	 * @return Alapruha Stringgel fog visszatï¿½rni
 	 */
 	@Override
 	public String Name() {

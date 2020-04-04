@@ -1,4 +1,6 @@
 package objects;
+import java.io.Serializable;
+
 import indent.Indentor;
 
 
@@ -6,8 +8,12 @@ import indent.Indentor;
  * Implementálja a Targy interfészt, csak egy Szereplo hívhatja meg a Kepesseg()
  * függvényét. - Nyílván csak akkor tudja meghívni, ha nála van, tehát már kiásta
  */
-public class Lapat implements Targy{
+public class Lapat implements Targy, Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3351037861369883501L;
 	/**
 	 * paraméter:  Szereplo sz - az a szereplo akinél van a kötél, ez hívhatja csak meg a függvényt
 	 * 

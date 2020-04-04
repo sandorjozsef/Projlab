@@ -1,21 +1,27 @@
 package objects;
 
+import java.io.Serializable;
+
 import indent.Indentor;
 /**
  * 
  * @author Aviato
  *
  */
-public abstract class Lepheto {
+public abstract class Lepheto implements Serializable{
 	/**
-	 * Az aktuális tartózkodási Mezo
+	 * 
+	 */
+	private static final long serialVersionUID = -2198649095488230530L;
+	/**
+	 * Az aktuï¿½lis tartï¿½zkodï¿½si Mezo
 	 */
 	protected Mezo aktmezo;
 
 	/**
-	 * Visszaadja az aktuális mezõt (aktmezo).
+	 * Visszaadja az aktuï¿½lis mezï¿½t (aktmezo).
 	 * 
-	 * @return Az aktuális mezõ
+	 * @return Az aktuï¿½lis mezï¿½
 	 */
 	public Mezo getMezo() {
 		Indentor.incLevel();
@@ -25,23 +31,23 @@ public abstract class Lepheto {
 	}
 
 	/**
-	 * Beállitja az aktuális tartózkodási mezõt. Inicializáló függvény nem jelezzük a
+	 * Beï¿½llitja az aktuï¿½lis tartï¿½zkodï¿½si mezï¿½t. Inicializï¿½lï¿½ fï¿½ggvï¿½ny nem jelezzï¿½k a
 	 * konzolon, hogy lefutott.
-	 * @param mezo Az új Mezo, amin tartózkodik.
+	 * @param mezo Az ï¿½j Mezo, amin tartï¿½zkodik.
 	 */
 	public void setMezo(Mezo mezo) {
 		aktmezo = mezo;
 	}
 	
 	/**
-	 * Az Mezo-k közti váltást lehet meghívásával megtenni.
-	 * @param cel Az új Mezo, amire át szeretnénk lépni
+	 * Az Mezo-k kï¿½zti vï¿½ltï¿½st lehet meghï¿½vï¿½sï¿½val megtenni.
+	 * @param cel Az ï¿½j Mezo, amire ï¿½t szeretnï¿½nk lï¿½pni
 	 */
 	public abstract void Atlep(Mezo cel);
 	
 	/**
-	 * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
-	 * @return A konkrét leszármazott fogja meghatározni
+	 * Kiiratï¿½shoz hasznï¿½lt fï¿½ggvï¿½ny, amely az osztï¿½ly nevï¿½t adja vissza egy Stringben.
+	 * @return A konkrï¿½t leszï¿½rmazott fogja meghatï¿½rozni
 	 */
 	public abstract String Name();
 }

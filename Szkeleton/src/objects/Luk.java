@@ -2,18 +2,22 @@ package objects;
 
 import indent.Indentor;
 /**
- * 	olyan osztály amely a játékban szereplõ Lukat testesíti meg
- * 	és a játékszabályoknak megfelelõen ha egy szereplõ ide lép 
- * 	akkor mindig vízbe esik, és egy idõ után meghal ha nem sikerül
- * 	átlépnie egy másik mezobõl leszármazott osztályra
+ * 	olyan osztï¿½ly amely a jï¿½tï¿½kban szereplï¿½ Lukat testesï¿½ti meg
+ * 	ï¿½s a jï¿½tï¿½kszabï¿½lyoknak megfelelï¿½en ha egy szereplï¿½ ide lï¿½p 
+ * 	akkor mindig vï¿½zbe esik, ï¿½s egy idï¿½ utï¿½n meghal ha nem sikerï¿½l
+ * 	ï¿½tlï¿½pnie egy mï¿½sik mezobï¿½l leszï¿½rmazott osztï¿½lyra
  */
 public class Luk extends Mezo{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4378829119523386212L;
 	public Luk() {
 		super();
 	}
 	/**
-	 *	megpróbálja befogadni a paraméterként megkapott szereplõt, a régi mezõjérõl,
-	 *	feltéve hogy a szereplõ szomszédos mezõrõl érkezik
+	 *	megprï¿½bï¿½lja befogadni a paramï¿½terkï¿½nt megkapott szereplï¿½t, a rï¿½gi mezï¿½jï¿½rï¿½l,
+	 *	feltï¿½ve hogy a szereplï¿½ szomszï¿½dos mezï¿½rï¿½l ï¿½rkezik
 	 */
 	public boolean Befogad(Szereplo belepo, Mezo regi)
 	{
@@ -35,8 +39,8 @@ public class Luk extends Mezo{
 		
 	}
 	/**
-	 *	Ha a Lukra szereplõ érkezik akkor az biztos elázik, így meghívja
-	 *	az elázik függvényt
+	 *	Ha a Lukra szereplï¿½ ï¿½rkezik akkor az biztos elï¿½zik, ï¿½gy meghï¿½vja
+	 *	az elï¿½zik fï¿½ggvï¿½nyt
 	 */
 	public void Hatas(Szereplo sz)
 	{
@@ -47,7 +51,7 @@ public class Luk extends Mezo{
 		
 	}
 	/**
-	 * ha valaki lukrol probál meg tárgyat felvenni, akkor nem jár sikerrel
+	 * ha valaki lukrol probï¿½l meg tï¿½rgyat felvenni, akkor nem jï¿½r sikerrel
 	 */
 	@Override
 	public Targy Atad() {
@@ -59,7 +63,7 @@ public class Luk extends Mezo{
 		
 	}
 	/**
-	 * ha valaki lukra probál meg epuletet epiteni, akkor nem történik semmi
+	 * ha valaki lukra probï¿½l meg epuletet epiteni, akkor nem tï¿½rtï¿½nik semmi
 	 */
 	@Override
 	public void setEpulet(Epulet e) {
@@ -71,8 +75,8 @@ public class Luk extends Mezo{
 		
 	}
 	/**
-	 * 	tudatja a kiiratásnál hogy egy Lukon végzik az esetlegesen
-	 *	mezobol nem felüldefiniált függvényt 
+	 * 	tudatja a kiiratï¿½snï¿½l hogy egy Lukon vï¿½gzik az esetlegesen
+	 *	mezobol nem felï¿½ldefiniï¿½lt fï¿½ggvï¿½nyt 
 	 */
 	public String Name() {
 		return "Luk";

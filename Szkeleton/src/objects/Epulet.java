@@ -1,30 +1,36 @@
 package objects;
+import java.io.Serializable;
 import java.util.*;
 
 /**
- * Ez egy absztrakt osztály, amely egy építményt szimbolizál.
+ * Ez egy absztrakt osztï¿½ly, amely egy ï¿½pï¿½tmï¿½nyt szimbolizï¿½l.
  * @author Aviato
  */
-public abstract class Epulet {
+public abstract class Epulet implements Serializable{
 	/**
-	 * Absztrakt függvény, amivel az adott építmény speciális képességét lehet megadni.
-	 * @param szereplok Rajta álló Szereplo-ket mutatja, akikre vonatkozik a spec. képesség
+	 * 
+	 */
+	private static final long serialVersionUID = -3497283089797488934L;
+
+	/**
+	 * Absztrakt fï¿½ggvï¿½ny, amivel az adott ï¿½pï¿½tmï¿½ny speciï¿½lis kï¿½pessï¿½gï¿½t lehet megadni.
+	 * @param szereplok Rajta ï¿½llï¿½ Szereplo-ket mutatja, akikre vonatkozik a spec. kï¿½pessï¿½g
 	 */
 	public abstract void Levon(ArrayList<Szereplo> szereplok);
 	
 	/**
-	 * Absztrakt függvény, az adott Epulet megsemmisülését vizsgálja, hogy érvényes-e.
+	 * Absztrakt fï¿½ggvï¿½ny, az adott Epulet megsemmisï¿½lï¿½sï¿½t vizsgï¿½lja, hogy ï¿½rvï¿½nyes-e.
 	 */
 	public abstract boolean Amortizacio();
 	
 	/**
-	 * Absztrakt függvény, a Mezo-t ért támadás hatását fogja leképezni.
+	 * Absztrakt fï¿½ggvï¿½ny, a Mezo-t ï¿½rt tï¿½madï¿½s hatï¿½sï¿½t fogja lekï¿½pezni.
 	 */
 	public abstract void Tamadas();
 	
 	/**
-	 * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
-	 * @return A konkrét leszármazott fogja meghatározni
+	 * Kiiratï¿½shoz hasznï¿½lt fï¿½ggvï¿½ny, amely az osztï¿½ly nevï¿½t adja vissza egy Stringben.
+	 * @return A konkrï¿½t leszï¿½rmazott fogja meghatï¿½rozni
 	 */
 	public abstract String Name();
 }

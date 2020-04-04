@@ -3,9 +3,11 @@ import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import objects.*;
@@ -66,8 +68,8 @@ public class Application {
 				else if(params[0].equals("startjatek")) {
 					if(params[1].equals("konzol"))
 						Palya.JatekotKezd(System.in);
-					else if(params[1].equals("mentett")) {
-						
+					else if(params[1].equals("jatekallas")) {
+						Palya.Load(params[2]);
 					}
 					else {
 						File f= new File(params[1]);
@@ -79,6 +81,9 @@ public class Application {
 					File f= new File(params[1]);
 					if(f.exists())
 						reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+				}
+				else if(params[0].equals("elment")) {
+					Palya.Save(params[1]);
 				}
 				else if(params[0].equals("***")) {
 					reader = new BufferedReader(new InputStreamReader(System.in));

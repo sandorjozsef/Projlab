@@ -6,11 +6,15 @@ import java.io.InputStreamReader;
 
 import indent.Indentor;
 /**
- *	olyan absztrakt osztály amely minden olyan mezõ õse ami nem luk,
- * 	így a legfõbb különbsége, hogy van lehetõség tárgyat tárolni rajta,
- *	amit a szereplõk felvehetnek róla, ha nincs rajta hó
+ *	olyan absztrakt osztï¿½ly amely minden olyan mezï¿½ ï¿½se ami nem luk,
+ * 	ï¿½gy a legfï¿½bb kï¿½lï¿½nbsï¿½ge, hogy van lehetï¿½sï¿½g tï¿½rgyat tï¿½rolni rajta,
+ *	amit a szereplï¿½k felvehetnek rï¿½la, ha nincs rajta hï¿½
  */
 public abstract class Jegtabla extends Mezo{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7327036173303629364L;
 	protected Targy targy;
 	
 	public Jegtabla(Targy t) {
@@ -19,8 +23,8 @@ public abstract class Jegtabla extends Mezo{
 	}
 	
 	/**
-	 *	átadja a jegtablarol a tárgyat, ha nincs rajta már hó,
-	 *	majd kitörli a saját attribútumai közül
+	 *	ï¿½tadja a jegtablarol a tï¿½rgyat, ha nincs rajta mï¿½r hï¿½,
+	 *	majd kitï¿½rli a sajï¿½t attribï¿½tumai kï¿½zï¿½l
 	 */
 	public Targy Atad()
 	{

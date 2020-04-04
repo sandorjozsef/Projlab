@@ -3,17 +3,21 @@ package objects;
 import java.util.ArrayList;
 import indent.Indentor;
 /**
- * Targy-at implementáló, Epulet-bõl leszármazó osztály. Tehát egy Mezo-rõl fel lehet venni,
- * majd használatával felállítani, ami egy kör után megszûnik.
+ * Targy-at implementï¿½lï¿½, Epulet-bï¿½l leszï¿½rmazï¿½ osztï¿½ly. Tehï¿½t egy Mezo-rï¿½l fel lehet venni,
+ * majd hasznï¿½latï¿½val felï¿½llï¿½tani, ami egy kï¿½r utï¿½n megszï¿½nik.
  * @author Aviato
  */
 public class Sator extends Epulet implements Targy {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2877347695156132464L;
 	private int elettartam = Palya.getSzereplokSzama();
 	
 	/**
-	 * A Sator felállítását végzi el.
-	 * @param felhasznalo Neki az aktmezo-jére állítja fel
+	 * A Sator felï¿½llï¿½tï¿½sï¿½t vï¿½gzi el.
+	 * @param felhasznalo Neki az aktmezo-jï¿½re ï¿½llï¿½tja fel
 	 */
 	@Override
 	public void Kepesseg(Szereplo felhasznalo) 
@@ -25,8 +29,8 @@ public class Sator extends Epulet implements Targy {
 	}
 
 	/**
-	 * Nem csinál semmit, mert az idõjárástõl megvédi a benne tartózkodókat.
-	 * @param szereplok A rajta tartózkodó Szereplo-k összessége 
+	 * Nem csinï¿½l semmit, mert az idï¿½jï¿½rï¿½stï¿½l megvï¿½di a benne tartï¿½zkodï¿½kat.
+	 * @param szereplok A rajta tartï¿½zkodï¿½ Szereplo-k ï¿½sszessï¿½ge 
 	 */
 	@Override
 	public void Levon(ArrayList<Szereplo> szereplok) 
@@ -37,8 +41,8 @@ public class Sator extends Epulet implements Targy {
 	}
 
 	/**
-	 * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
-	 * @return Sator Stringgel tér vissza
+	 * Kiiratï¿½shoz hasznï¿½lt fï¿½ggvï¿½ny, amely az osztï¿½ly nevï¿½t adja vissza egy Stringben.
+	 * @return Sator Stringgel tï¿½r vissza
 	 */
 	@Override
 	public String Name() 
@@ -47,8 +51,8 @@ public class Sator extends Epulet implements Targy {
 	}
 
 	/**
-	 * Az elöregedését hivatott megvalósítani
-	 * @return Egy boolean, ami azt mutatja meg, hogy összeomlik (true) vagy még használható (false)
+	 * Az elï¿½regedï¿½sï¿½t hivatott megvalï¿½sï¿½tani
+	 * @return Egy boolean, ami azt mutatja meg, hogy ï¿½sszeomlik (true) vagy mï¿½g hasznï¿½lhatï¿½ (false)
 	 */
 	@Override
 	public boolean Amortizacio() 
@@ -57,8 +61,8 @@ public class Sator extends Epulet implements Targy {
 	}
 	
 	/**
-	 * Egy Medve támadástól nem védi meg a benne lévõ Szereplo-ket,
-	 * tehát a JatekVege(false) függvényhívást végzi.
+	 * Egy Medve tï¿½madï¿½stï¿½l nem vï¿½di meg a benne lï¿½vï¿½ Szereplo-ket,
+	 * tehï¿½t a JatekVege(false) fï¿½ggvï¿½nyhï¿½vï¿½st vï¿½gzi.
 	 */
 	@Override
 	public void Tamadas() 

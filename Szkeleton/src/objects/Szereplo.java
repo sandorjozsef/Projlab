@@ -1,5 +1,6 @@
 package objects;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import indent.Indentor;
@@ -12,8 +13,12 @@ import indent.Indentor;
  * @author Sándor József
  *
  */
-public abstract class Szereplo extends Lepheto {
+public abstract class Szereplo extends Lepheto{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4670530703450888105L;
 	protected Ruha ruha;
 	protected ArrayList<Targy> targyak;
 	protected int testho;

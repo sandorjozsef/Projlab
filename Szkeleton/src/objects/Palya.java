@@ -1,9 +1,15 @@
 package objects;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.*;
 
 import indent.Indentor;
@@ -16,7 +22,11 @@ import indent.Indentor;
  * @author Sándor József
  *
  */
-public final class Palya {
+public final class Palya implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 321461011021938046L;
 	private static Szereplo aktJatekos;
 	private static ArrayList<Szereplo> szereplok= new ArrayList<Szereplo>();
 	private static ArrayList<Mezo> mezok = new ArrayList<Mezo>();
@@ -349,6 +359,53 @@ public final class Palya {
 		}
 		
 		Indentor.degLevel();
+	}
+	public static void Save(String fName) {
+		File s = new File(fName);
+		try {
+			s.createNewFile();
+			FileOutputStream fout = new FileOutputStream(s);
+			ObjectOutputStream oout = new ObjectOutputStream(fout);
+			ArrayList<Object> data = new ArrayList<Object>();
+			data.add(aktJatekos);
+			data.add(szereplok);
+			data.add(mezok);
+			data.add(medve);
+			data.add(maxJatekos);
+			data.add(alkatreszek);
+			oout.writeObject(data);			
+			
+			oout.close();
+			fout.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	@SuppressWarnings("unchecked")
+	public static void Load(String fName) {
+		File l = new File(fName);
+		if(l.exists()) {
+			
+			try {			
+				FileInputStream fin = new FileInputStream(l);
+				ObjectInputStream ois = new ObjectInputStream(fin);				
+				ArrayList<Object> data = (ArrayList<Object>) ois.readObject();
+				aktJatekos = (Szereplo) data.get(0);
+				szereplok = (ArrayList<Szereplo>) data.get(1);
+				mezok = (ArrayList<Mezo>) data.get(2);
+				medve = (Medve) data.get(3);
+				maxJatekos = (int) data.get(4);
+				alkatreszek = (int) data.get(5);					
+				
+				ois.close();
+				fin.close();
+			} catch (IOException | ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
 	}
 	
 }

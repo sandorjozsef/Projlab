@@ -2,18 +2,22 @@ package objects;
 
 import indent.Indentor;
 /**
- *	olyan osztály amely a játékban szereplõ stabiljégtáblát testesíti meg,
- *	így ilyen típusú mezõrõl nem lehet vízbe esni soha, valamint az eszkimóknak
- *	van lehetõségik iglut építeni rá
+ *	olyan osztï¿½ly amely a jï¿½tï¿½kban szereplï¿½ stabiljï¿½gtï¿½blï¿½t testesï¿½ti meg,
+ *	ï¿½gy ilyen tï¿½pusï¿½ mezï¿½rï¿½l nem lehet vï¿½zbe esni soha, valamint az eszkimï¿½knak
+ *	van lehetï¿½sï¿½gik iglut ï¿½pï¿½teni rï¿½
  */
 public class StabilJegtabla extends Jegtabla{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 233506423267307648L;
 	public StabilJegtabla(Targy targy){
 		super(targy);
 		this.targy=targy;
 	}
 	/**
-	 *	függvény ami befogadja a belepo szereplot a regi mezorol
-	 *	ha szomszédos mezorol jon
+	 *	fï¿½ggvï¿½ny ami befogadja a belepo szereplot a regi mezorol
+	 *	ha szomszï¿½dos mezorol jon
 	 */
 	public boolean Befogad(Szereplo belepo, Mezo regi)
 	{
@@ -36,8 +40,8 @@ public class StabilJegtabla extends Jegtabla{
 		
 	}
 	/**
-	 *	Ha a StabilJegtablara szereplõ érkezik akkor az biztos megszárad, így meghívja
-	 *	a megszarit függvényt
+	 *	Ha a StabilJegtablara szereplï¿½ ï¿½rkezik akkor az biztos megszï¿½rad, ï¿½gy meghï¿½vja
+	 *	a megszarit fï¿½ggvï¿½nyt
 	 */
 	public void Hatas(Szereplo sz)
 	{
@@ -47,7 +51,7 @@ public class StabilJegtabla extends Jegtabla{
 		Indentor.degLevel();
 	}
 	/**
-	 *	felüldefiniált függvény ami épületet épít a mezõre
+	 *	felï¿½ldefiniï¿½lt fï¿½ggvï¿½ny ami ï¿½pï¿½letet ï¿½pï¿½t a mezï¿½re
 	 */
 	@Override
 	public void setEpulet(Epulet e)
@@ -58,8 +62,8 @@ public class StabilJegtabla extends Jegtabla{
 		Indentor.degLevel();
 	}
 	/**
-	 *	felüldefiniált függvény ami nem engedi hogy StabilJegtablarol
-	 *	kimenekítsenek bárkit is, ezért nem csinál semmit
+	 *	felï¿½ldefiniï¿½lt fï¿½ggvï¿½ny ami nem engedi hogy StabilJegtablarol
+	 *	kimenekï¿½tsenek bï¿½rkit is, ezï¿½rt nem csinï¿½l semmit
 	 */
 	public void Kimenekit(Mezo cel)
 	{
@@ -68,8 +72,8 @@ public class StabilJegtabla extends Jegtabla{
 		Indentor.degLevel();
 	}
 	/**
-	 * 	tudatja a kiiratásnál hogy egy StabilJegtablan végzik az esetlegesen
-	 *	mezobol nem felüldefiniált függvényt 
+	 * 	tudatja a kiiratï¿½snï¿½l hogy egy StabilJegtablan vï¿½gzik az esetlegesen
+	 *	mezobol nem felï¿½ldefiniï¿½lt fï¿½ggvï¿½nyt 
 	 */
 	public String Name() {
 		return "StabilJegtabla";

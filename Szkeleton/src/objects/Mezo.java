@@ -2,6 +2,7 @@ package objects;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import indent.Indentor;
@@ -11,7 +12,11 @@ import indent.Indentor;
  *	létrejövő hóviharok hatásának kifejtését segítő objektumokat 
  *	példányosítanak meg a leszármazottjai
  */
-public abstract class Mezo {
+public abstract class Mezo implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8199843988858681838L;
 	protected Epulet iglu;
 	protected ArrayList<Szereplo> szereplok;
 	protected Medve medve;

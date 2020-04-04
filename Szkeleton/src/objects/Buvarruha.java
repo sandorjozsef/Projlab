@@ -1,14 +1,21 @@
 package objects;
+import java.io.Serializable;
+
 import indent.Indentor;
 /**
- * Ez az osztály megvalósítja a Targy interfészt és leszármazottja a Ruha-nak.
- * Tehát egy Jegtabla-ról az Atad függvény segítségével fel lehet venni a Szereplo-nek és használata után ez lesz a Ruha-ja.
+ * Ez az osztï¿½ly megvalï¿½sï¿½tja a Targy interfï¿½szt ï¿½s leszï¿½rmazottja a Ruha-nak.
+ * Tehï¿½t egy Jegtabla-rï¿½l az Atad fï¿½ggvï¿½ny segï¿½tsï¿½gï¿½vel fel lehet venni a Szereplo-nek ï¿½s hasznï¿½lata utï¿½n ez lesz a Ruha-ja.
  * @author Aviato
  */
-public class Buvarruha extends Ruha implements Targy {
+public class Buvarruha extends Ruha implements Targy, Serializable {
 	/**
-	 * A paraméterként kapott Szereplo-nek a Ruha-ját átállítja önmagára.
-	 * @param felhasznalo Ennek a Szereplo-nek állítja a hozzá tartozó Ruha-t.
+	 * 
+	 */
+	private static final long serialVersionUID = -1654342135967208709L;
+
+	/**
+	 * A paramï¿½terkï¿½nt kapott Szereplo-nek a Ruha-jï¿½t ï¿½tï¿½llï¿½tja ï¿½nmagï¿½ra.
+	 * @param felhasznalo Ennek a Szereplo-nek ï¿½llï¿½tja a hozzï¿½ tartozï¿½ Ruha-t.
 	 */
 	@Override
 	public void Kepesseg(Szereplo felhasznalo)
@@ -20,8 +27,8 @@ public class Buvarruha extends Ruha implements Targy {
 	}
 
 	/**
-	 * Nem csinál semmit, mert a Buvarruha nem tud elázni és viselete közben megfagyni sem lehet.
-	 * @param szereplo Hozzá tartozik az adott Buvarruha
+	 * Nem csinï¿½l semmit, mert a Buvarruha nem tud elï¿½zni ï¿½s viselete kï¿½zben megfagyni sem lehet.
+	 * @param szereplo Hozzï¿½ tartozik az adott Buvarruha
 	 */
 	@Override
 	public void Elazik(Szereplo szereplo) 
@@ -32,7 +39,7 @@ public class Buvarruha extends Ruha implements Targy {
 	}
 	
 	/**
-	 * Nem csinál semmit, mert a Buvarruha nem tud elázni és ebbõl adódóan nincs miért megszáradjon.
+	 * Nem csinï¿½l semmit, mert a Buvarruha nem tud elï¿½zni ï¿½s ebbï¿½l adï¿½dï¿½an nincs miï¿½rt megszï¿½radjon.
 	 */
 	@Override
 	public void Megszarit() 
@@ -43,8 +50,8 @@ public class Buvarruha extends Ruha implements Targy {
 	}
 	
 	/**
-	 * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
-	 * @return Buvarruha Stringgel tér vissza
+	 * Kiiratï¿½shoz hasznï¿½lt fï¿½ggvï¿½ny, amely az osztï¿½ly nevï¿½t adja vissza egy Stringben.
+	 * @return Buvarruha Stringgel tï¿½r vissza
 	 */
 	@Override
 	public String Name() {

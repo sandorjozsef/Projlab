@@ -12,6 +12,10 @@ import indent.Indentor;
  *	marad, így a szereplők nem csak felette, hanem alatta is lehetnek
  */
 public class InstabilJegtabla extends Jegtabla{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8833147937894197581L;
 	private int teherbiras;
 	private ArrayList<Szereplo> alatta;
 	

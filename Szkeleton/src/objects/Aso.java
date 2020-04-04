@@ -1,18 +1,24 @@
 package objects;
 
+import java.io.Serializable;
+
 import indent.Indentor;
 
 /**
- * Targy interfészt implementál, úgy lehet használni, mint a Lapat-ot, 
- * csak 3 használat után eltörik (használhatatlanná válik).
+ * Targy interfï¿½szt implementï¿½l, ï¿½gy lehet hasznï¿½lni, mint a Lapat-ot, 
+ * csak 3 hasznï¿½lat utï¿½n eltï¿½rik (hasznï¿½lhatatlannï¿½ vï¿½lik).
  * @author Aviato
  */
-public class Aso implements Targy{
+public class Aso implements Targy, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8412355569771891943L;
 	private int elettartam = 3;
 	
 	/**
-	 * Az Aso-nak az ásó képességét megvalósító függvény.
-	 * @param felhasznalo A paraméterként kapott Szereplo-nek a Mezo-jén lévõ hó mennyiségét csökkenti 2-vel
+	 * Az Aso-nak az ï¿½sï¿½ kï¿½pessï¿½gï¿½t megvalï¿½sï¿½tï¿½ fï¿½ggvï¿½ny.
+	 * @param felhasznalo A paramï¿½terkï¿½nt kapott Szereplo-nek a Mezo-jï¿½n lï¿½vï¿½ hï¿½ mennyisï¿½gï¿½t csï¿½kkenti 2-vel
 	 */
 	@Override
 	public void Kepesseg(Szereplo felhasznalo) 
@@ -27,8 +33,8 @@ public class Aso implements Targy{
 	}
 
 	/**
-	 * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
-	 * @return Aso Stringgel tér vissza
+	 * Kiiratï¿½shoz hasznï¿½lt fï¿½ggvï¿½ny, amely az osztï¿½ly nevï¿½t adja vissza egy Stringben.
+	 * @return Aso Stringgel tï¿½r vissza
 	 */
 	@Override
 	public String Name() 

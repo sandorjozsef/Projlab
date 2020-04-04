@@ -1,15 +1,22 @@
 package objects;
+import java.io.Serializable;
+
 import indent.Indentor;
 
 /**
- * A Medve egy olyan osztály, ami tud Mezo-t váltani, tehát a Lepheto-bõl származik.
+ * A Medve egy olyan osztï¿½ly, ami tud Mezo-t vï¿½ltani, tehï¿½t a Lepheto-bï¿½l szï¿½rmazik.
  * @author Aviato
  */
-public class Medve extends Lepheto {
+public class Medve extends Lepheto{
 
 	/**
-	 * Automatikus léptetés a következõ Mezo-re.
-	 * @param cel Az új Mezo, ami biztos, hogy szomszédos az elõzõvel, mert a kontroller fogja kiválasztani
+	 * 
+	 */
+	private static final long serialVersionUID = -8455595600003604288L;
+
+	/**
+	 * Automatikus lï¿½ptetï¿½s a kï¿½vetkezï¿½ Mezo-re.
+	 * @param cel Az ï¿½j Mezo, ami biztos, hogy szomszï¿½dos az elï¿½zï¿½vel, mert a kontroller fogja kivï¿½lasztani
 	 */
 	@Override
 	public void Atlep(Mezo cel) 
@@ -21,8 +28,8 @@ public class Medve extends Lepheto {
 	}
 
 	/**
-	 * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
-	 * @return Medve Stringgel tér vissza
+	 * Kiiratï¿½shoz hasznï¿½lt fï¿½ggvï¿½ny, amely az osztï¿½ly nevï¿½t adja vissza egy Stringben.
+	 * @return Medve Stringgel tï¿½r vissza
 	 */
 	@Override
 	public String Name() 
@@ -31,7 +38,7 @@ public class Medve extends Lepheto {
 	}
 
 	/**
-	 * A medve támadását végzi el, amit az aktmezo-jének továbbítja.
+	 * A medve tï¿½madï¿½sï¿½t vï¿½gzi el, amit az aktmezo-jï¿½nek tovï¿½bbï¿½tja.
 	 */
 	public void Tamadas()
 	{
