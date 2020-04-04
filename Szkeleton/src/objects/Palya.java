@@ -48,6 +48,16 @@ public final class Palya{
 	public static ArrayList<Mezo> getMezok(){
 		return mezok;
 	}
+	public static Mezo getMezo(String id) {
+		for(int i = 0; i< mezok.size(); i ++){
+			if(mezok.get(i).getId().equals(id)) 
+				return mezok.get(i);  
+		}
+		System.out.println("Nincs ilyen nevu mezo!");
+		return null;
+		
+		
+	}
 	/**
 	 * Ez a metódus adja át a lépésjogot a következő játékosnak.
 	 * Hóvihart genrál
@@ -335,7 +345,8 @@ public final class Palya{
 	}
 	public static void Megtekintes() {
 		for(int i = 0; i<mezok.size();i++) {
-			System.out.println(i+":  "+mezok.get(i).gethoVastagsag()+"  "+mezok.get(i).getSzereplokSzama()+"  "+mezok.get(i).getMedve());
+			Mezo m = mezok.get(i);
+			System.out.println(m.getId()+"-"+m.gethoVastagsag()+"-"+m.getSzereplokSzama()+"-"+m.getMedve());
 		}
 		
 	}
