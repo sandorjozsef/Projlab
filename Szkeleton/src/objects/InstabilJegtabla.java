@@ -103,7 +103,10 @@ public class InstabilJegtabla extends Jegtabla{
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Kimenekit()");
-		alatta.forEach(sz->sz.Atlep(cel));	
+		for(int i = 0; i<szereplok.size();i++) {
+			alatta.get(i).setLepesszam(4);
+			alatta.get(i).Atlep(cel);
+		}
 		Indentor.degLevel();
 		
 	}

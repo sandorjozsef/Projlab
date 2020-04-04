@@ -58,10 +58,10 @@ public abstract class Mezo implements Serializable{
 	{ 
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+Name()+".ValasztSzomszed()");
-		System.out.print("Melyik mezore szeretne lepni? ");
+		System.out.print("Melyik szomszedos mezon tortenjen a cselekves? (");
 		for(int i=0;i<this.szomszedok.size();i++)
 			System.out.print(szomszedok.get(i).getId()+" ");
-		System.out.println("");
+		System.out.print(")\n");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		
 		try {
@@ -164,6 +164,7 @@ public abstract class Mezo implements Serializable{
 		Indentor.incLevel();		
 		System.out.println(Indentor.getIndent() + Name() + ".Kimenekit()");
 		for(int i = 0; i<szereplok.size();i++) {
+			szereplok.get(i).setLepesszam(4);
 			szereplok.get(i).Atlep(cel);
 		}
 		Indentor.degLevel();
