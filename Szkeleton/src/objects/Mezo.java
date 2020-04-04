@@ -16,6 +16,7 @@ public abstract class Mezo implements Serializable{
 	/**
 	 * 
 	 */
+	private String id;
 	private static final long serialVersionUID = 8199843988858681838L;
 	protected Epulet iglu;
 	protected ArrayList<Szereplo> szereplok;
@@ -28,12 +29,15 @@ public abstract class Mezo implements Serializable{
  	 *	Mezo konstruktor ami alapból az iglu attribútumot noglura állítja,
  	 *	hiszen alapból egyik mezőn sincs iglu. 
 	 */
-	public Mezo(){
+	public Mezo(String id){
+		this.id = id;
 		iglu = new Noglu();
 		szereplok = new ArrayList<Szereplo>();
 		szomszedok = new ArrayList<Mezo>();
 	}
-	
+	public String getId() {
+		return id;
+	}
 	public abstract boolean Befogad (Szereplo belepo, Mezo regi);
 	/**
 	 *	beállítja azt hogy az átadott kilepo már nem áll az adott mezon

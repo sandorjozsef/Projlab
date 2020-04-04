@@ -18,7 +18,7 @@ public class SzereploTakarit implements UseCase {
 		System.out.println(getName().toUpperCase());
 		// TODO Auto-generated method stub
 		Kutato k = new Kutato();
-		StabilJegtabla mezo = new StabilJegtabla(new Kotel());
+		StabilJegtabla mezo = new StabilJegtabla("mezo" ,new Kotel());
 		
 		Palya.setAktJatekos(k);
 		k.setMezo(mezo);

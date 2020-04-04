@@ -22,8 +22,8 @@ public class InstabilJegtabla extends Jegtabla{
 	/**
 	 *	konstruktor 
 	 */		
-	public InstabilJegtabla(Targy targy, int tb){
-		super(targy);
+	public InstabilJegtabla(String id, Targy targy, int tb){
+		super(id, targy);
 		alatta = new ArrayList<Szereplo>();
 		teherbiras = tb;
 	}

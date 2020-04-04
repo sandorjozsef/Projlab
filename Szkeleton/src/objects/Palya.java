@@ -275,15 +275,15 @@ public final class Palya{
 							throw new Exception("Hibas szintaktika!");
 						}
 						switch(mezokIn[j].charAt(0)) {
-						case 'S': initMezok[i][j] = new StabilJegtabla(initTargyak[i][j]);
+						case 'S': initMezok[i][j] = new StabilJegtabla("mezo"+i*j,initTargyak[i][j]);
 							break;
 						case 'I': 
 									if(mezokIn[j].substring(2,3).equals("R"))
-										initMezok[i][j] = new InstabilJegtabla(initTargyak[i][j], r.nextInt(3)+1);
+										initMezok[i][j] = new InstabilJegtabla("mezo"+i*j,initTargyak[i][j], r.nextInt(3)+1);
 									else 
-										initMezok[i][j] = new InstabilJegtabla(initTargyak[i][j], Integer.parseInt(mezokIn[j].substring(2,3)));
+										initMezok[i][j] = new InstabilJegtabla("mezo"+i*j,initTargyak[i][j], Integer.parseInt(mezokIn[j].substring(2,3)));
 							break;
-						case 'L': initMezok[i][j] = new Luk();
+						case 'L': initMezok[i][j] = new Luk("mezo"+i*j);
 							break;
 						default: throw new Exception("Hibas szintaktika!");							
 						}

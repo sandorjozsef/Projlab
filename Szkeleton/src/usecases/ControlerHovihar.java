@@ -24,7 +24,7 @@ public class ControlerHovihar implements UseCase {
 	public void run() {
 		System.out.println(getName().toUpperCase());
 		Kutato sz = new Kutato();
-		StabilJegtabla mezo = new StabilJegtabla(null);
+		StabilJegtabla mezo = new StabilJegtabla("mezo" ,null);
 		
 		
 		Palya.addMezo(mezo);

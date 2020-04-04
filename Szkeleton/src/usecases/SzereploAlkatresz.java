@@ -18,7 +18,7 @@ public class SzereploAlkatresz implements UseCase {
 	public void run() {
 		System.out.println(getName().toUpperCase());
 		// TODO Auto-generated method stub
-		StabilJegtabla mezo = new StabilJegtabla(null);
+		StabilJegtabla mezo = new StabilJegtabla("mezo" ,null);
 		Kutato akt_jatekos = new Kutato();
 		Alkatresz alk = new Alkatresz();
 		

@@ -18,7 +18,7 @@ public class SzereploKoratadasLuk implements UseCase {
 	@Override
 	public void run() {
 		System.out.println(getName().toUpperCase());
-		Luk mezo = new Luk();
+		Luk mezo = new Luk("mezo");
 		Kutato k = new Kutato();
 		Eszkimo e = new Eszkimo();
 		

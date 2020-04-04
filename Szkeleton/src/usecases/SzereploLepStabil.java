@@ -18,8 +18,8 @@ public class SzereploLepStabil implements UseCase {
 		System.out.println(getName().toUpperCase());
 		// TODO Auto-generated method stub
 		Eszkimo sz = new Eszkimo();
-		InstabilJegtabla mezo1 = new InstabilJegtabla(null,4);
-		StabilJegtabla mezo2 = new StabilJegtabla(null);
+		InstabilJegtabla mezo1 = new InstabilJegtabla("mezo" ,null,4);
+		StabilJegtabla mezo2 = new StabilJegtabla("mezo2" ,null);
 		
 		Palya.setAktJatekos(sz);
 		sz.setMezo(mezo1);

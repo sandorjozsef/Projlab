@@ -17,7 +17,7 @@ public class EszkimoIglutEpit implements UseCase{
 	public void run() {
 		System.out.println(getName().toUpperCase());
 		// TODO Auto-generated method stub
-		StabilJegtabla akt_mezo = new StabilJegtabla(null);
+		StabilJegtabla akt_mezo = new StabilJegtabla("mezo" ,null);
 		Eszkimo sz = new Eszkimo();
 		Palya.setAktJatekos(sz);
 		sz.setMezo(akt_mezo);
