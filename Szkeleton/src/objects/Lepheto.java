@@ -8,7 +8,7 @@ import indent.Indentor;
  * @author Aviato
  *
  */
-public abstract class Lepheto {
+public abstract class Lepheto implements Serializable{
 	/**
 	 * 
 	 */
