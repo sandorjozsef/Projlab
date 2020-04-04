@@ -25,6 +25,7 @@ public class Sator extends Epulet implements Targy {
         Indentor.incLevel();
         System.out.println(Indentor.getIndent() + Name() + ".Kepesseg()");
         felhasznalo.getMezo().setEpulet(this);
+        felhasznalo.Eldob(this);
         Indentor.degLevel();
     } 
 
