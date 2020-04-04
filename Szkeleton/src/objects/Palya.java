@@ -26,10 +26,9 @@ public final class Palya{
 	
 	
 	private static Szereplo aktJatekos;
-	private static ArrayList<Szereplo> szereplok= new ArrayList<Szereplo>();
+	private static ArrayList<Szereplo> szereplok = new ArrayList<Szereplo>();
 	private static ArrayList<Mezo> mezok = new ArrayList<Mezo>();
 	private static Medve medve;
-	private static int maxJatekos;
 	private static int alkatreszek = 0;
 	
 	
@@ -161,7 +160,7 @@ public final class Palya{
 		if(alkatreszek==3) {
 			Mezo mezo = aktJatekos.getMezo();
 			int szerep_szam = mezo.getSzereplokSzama();
-			if(szerep_szam==maxJatekos)
+			if(szerep_szam == szereplok.size())
 				JatekVege(true);
 		}
 		
@@ -391,7 +390,6 @@ public final class Palya{
 			data.add(szereplok);
 			data.add(mezok);
 			data.add(medve);
-			data.add(maxJatekos);
 			data.add(alkatreszek);
 			oout.writeObject(data);			
 			
@@ -417,8 +415,7 @@ public final class Palya{
 				szereplok = (ArrayList<Szereplo>) data.get(1);
 				mezok = (ArrayList<Mezo>) data.get(2);
 				medve = (Medve) data.get(3);
-				maxJatekos = (int) data.get(4);
-				alkatreszek = (int) data.get(5);					
+				alkatreszek = (int) data.get(4);					
 				
 				ois.close();
 				fin.close();
