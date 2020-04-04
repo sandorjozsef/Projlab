@@ -346,7 +346,7 @@ public final class Palya{
 		}				
 		Indentor.degLevel();
 	}
-	public static void Megtekintes(int p) {
+	public static void Megtekintes(int p,String mezoNev) {
 		switch(p) {
 		case 0:
 			for(int i = 0; i<mezok.size();i++) {
@@ -362,6 +362,8 @@ public final class Palya{
 			aktJatekos.targyInfo();
 			break;
 		case 3:
+			getMezo(mezoNev).MezoInfo();
+			System.out.println();
 			break;
 		}
 		

@@ -111,16 +111,16 @@ public class Application {
 			   }
 				else if(params[0].equals("megtekint")) {
 					if(params[1].equals("palya")) {										
-						Palya.Megtekintes(0);				
+						Palya.Megtekintes(0,"");				
 					}
 					else if(params[1].equals("allapot")) {
-						Palya.Megtekintes(1);	
+						Palya.Megtekintes(1,"");	
 					}
 					else if(params[1].equals("inventory")) {
-						Palya.Megtekintes(2);	
+						Palya.Megtekintes(2,"");	
 					}
 					else if(params[1].equals("mezo")) {
-						Palya.Megtekintes(3);	
+						Palya.Megtekintes(3, params[2]);	
 					}
 					
 				}
