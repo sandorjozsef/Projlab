@@ -163,9 +163,10 @@ public abstract class Mezo implements Serializable{
 	{
 		Indentor.incLevel();		
 		System.out.println(Indentor.getIndent() + Name() + ".Kimenekit()");
-		for(int i = 0; i<szereplok.size();i++) {
-			szereplok.get(i).setLepesszam(4);
-			szereplok.get(i).Atlep(cel);
+		int szCount = szereplok.size();
+		for(int i = 0; i<szCount;i++) {
+			szereplok.get(0).setLepesszam(4);
+			szereplok.get(0).Atlep(cel);
 		}
 		Indentor.degLevel();
 		

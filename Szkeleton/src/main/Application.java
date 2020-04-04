@@ -108,6 +108,9 @@ public class Application {
 					else if(params[1].equals("felvesz")) {						
 						Palya.getAktJatekos().Felvesz();
 					}
+					else {
+						System.out.println("Hibas parameter!");
+					}
 			   }
 				else if(params[0].equals("megtekint")) {
 					if(params[1].equals("palya")) {										
@@ -122,7 +125,13 @@ public class Application {
 					else if(params[1].equals("mezo")) {
 						Palya.Megtekintes(3, params[2]);	
 					}
+					else {
+						System.out.println("Hibas parameter!");
+					}
 					
+				}
+				else {
+					System.out.println("Hibas parancs!");
 				}
 			}
 			catch(Exception e) {
