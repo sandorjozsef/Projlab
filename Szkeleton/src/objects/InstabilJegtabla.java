@@ -81,6 +81,8 @@ public class InstabilJegtabla extends Jegtabla{
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Felfordul()");
+		this.setHovastagsag(0);
+		this.setfelderitett(true);
 		alatta=szereplok;
 		szereplok.clear();
 		Indentor.degLevel();
@@ -123,5 +125,22 @@ public class InstabilJegtabla extends Jegtabla{
 	 */
 	public String Name() {
 		return "InstabilJegtabla";
+	}
+	
+	public void MezoInfo()
+	{
+		if(this.getfelderitett()) 
+			System.out.println(Name());	
+		else
+			System.out.println("Ismeretlen");
+		System.out.println("hoVastagsag: "+ this.gethoVastagsag());
+		if(this.getfelderitett()) 
+			System.out.println("szereplokSzama: "+ this.getSzereplokSzama()+ " szereplokAlattaSzama: "+ this.alatta.size());
+		else
+			System.out.println("szereplokSzama: "+ this.getSzereplokSzama());
+		if(this.getMedve())
+			System.out.println("Medve: van");
+		else
+			System.out.println("Medve: nincs");
 	}
 }

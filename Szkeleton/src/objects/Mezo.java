@@ -221,9 +221,24 @@ public abstract class Mezo implements Serializable{
 	{
 		this.medve = null;
 	}
+	public void setfelderitett(boolean b) {
+		this.felderitett=b;
+	}
+	public boolean getfelderitett() {
+		return this.felderitett;
+	}
 	
 	public void MezoInfo()
 	{
-		// TODO: Abelre var
+		if(felderitett) 
+			System.out.println(Name());	
+		else
+			System.out.println("Ismeretlen");
+		System.out.println("hoVastagsag: "+ this.hoVastagsag);
+		System.out.println("szereplokSzama: "+ this.getSzereplokSzama());
+		if(this.getMedve())
+			System.out.println("Medve: van");
+		else
+			System.out.println("Medve: nincs");
 	}
 }
