@@ -15,7 +15,7 @@ public abstract class Jegtabla extends Mezo{
 	 * 
 	 */
 	private static final long serialVersionUID = -7327036173303629364L;
-	protected Targy targy;
+	private Targy targy;
 	
 	public Jegtabla(Targy t) {
 		super();

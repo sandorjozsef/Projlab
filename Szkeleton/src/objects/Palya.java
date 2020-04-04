@@ -158,14 +158,6 @@ public final class Palya implements Serializable{
 		
 		Indentor.degLevel();
 	}
-
-	/**
-	 *  Beállitja a szomszédságot a mezők közöt egy erre speciális algoritmussal
-	 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
-	 */
-	public static void MezokOsszekot() {
-		
-	}
 	
 	/**
 	 *  Hozzáad a mezők listájához egy újat
