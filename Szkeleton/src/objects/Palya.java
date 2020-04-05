@@ -1,6 +1,7 @@
 package objects;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -167,23 +168,7 @@ public final class Palya{
 		Indentor.degLevel();
 	}
 	
-	/**
-	 *  Hozzáad a mezők listájához egy újat
-	 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
-	 * @param mezo
-	 */
-	public static void addMezo(Mezo mezo) {
-		mezok.add(mezo);
-	}
-	
-	/**
-	 *  Hozzáad a szereplők listájához egy újat
-	 * Inicializáló függvény nem jelezzük a konzolon, hogy lefutott
-	 * @param sz
-	 */
-	public static void addSzereplo(Szereplo sz) {
-		szereplok.add(sz);
-	}
+
 	
 	/**
 	 * Beállitja az aktuálisan soron lévő játékost
@@ -347,23 +332,23 @@ public final class Palya{
 		}				
 		Indentor.degLevel();
 	}
-	public static void Megtekintes(int p,String mezoNev) {
+	public static void Megtekintes(int p,String mezoNev, BufferedWriter bw) {
 		switch(p) {
 		case 0:
 			for(int i = 0; i<mezok.size();i++) {
 				Mezo m = mezok.get(i);
-				m.MezoInfo();
+				m.MezoInfo(bw);
 				System.out.println();
 			}
 			break;
 		case 1:
-			aktJatekos.szereploInfo();
+			aktJatekos.szereploInfo(bw);
 			break;
 		case 2:
-			aktJatekos.targyInfo();
+			aktJatekos.targyInfo(bw);
 			break;
 		case 3:
-			getMezo(mezoNev).MezoInfo();
+			getMezo(mezoNev).MezoInfo(bw);
 			System.out.println();
 			break;
 		}
