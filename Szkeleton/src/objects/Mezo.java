@@ -1,7 +1,13 @@
 package objects;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -243,8 +249,29 @@ public abstract class Mezo implements Serializable{
 		return this.felderitett;
 	}
 	
-	public void MezoInfo()
+	public void MezoInfo(String fajlnev)
 	{
+		/*try {
+			if(!fajlnev.equals("")) {
+				File f = new File(fajlnev);
+				f.createNewFile();
+				
+					@SuppressWarnings("resource")
+					FileOutputStream fout = new FileOutputStream(fajlnev);
+					BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fout));
+					writer.write(this.id+" "+(felderitett?Name():"ismertlen")+" "+this.hoVastagsag+" "+(getMedve()?"1":"0")+" ");
+					for(int i = 0; i< szereplok.size();i++) {
+						writer.write(szereplok.get(i).getId()+" ");
+					}					
+					writer.close();
+					fout.close();
+					
+			}
+		}
+		catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
 		System.out.println("Nev: "+ this.id);
 		if(felderitett) 
 			System.out.println("Tipus: "+Name());	
