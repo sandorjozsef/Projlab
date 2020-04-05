@@ -224,7 +224,7 @@ public abstract class Mezo implements Serializable{
 	public void Amortizal()
 	{
 		if (iglu.Amortizacio())
-			iglu = new Noglu(); 
+			setEpulet(new Noglu()); 
 	}
 	
 	public void Tamadas()
