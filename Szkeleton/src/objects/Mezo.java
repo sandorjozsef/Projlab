@@ -249,7 +249,7 @@ public abstract class Mezo implements Serializable{
 		return this.felderitett;
 	}
 	
-	public void MezoInfo(String fajlnev)
+	public void MezoInfo()
 	{
 		/*try {
 			if(!fajlnev.equals("")) {
