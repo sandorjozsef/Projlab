@@ -29,7 +29,6 @@ public final class Palya{
 	private static Szereplo aktJatekos;
 	private static ArrayList<Szereplo> szereplok = new ArrayList<Szereplo>();
 	private static ArrayList<Mezo> mezok = new ArrayList<Mezo>();
-	private static Medve medve;
 	private static int alkatreszek = 0;
 	
 	
@@ -70,23 +69,17 @@ public final class Palya{
 		int akt=szereplok.lastIndexOf(aktJatekos);
 		if(akt==szereplok.size()-1) {
 			kov=szereplok.get(0);
-			//kor vege
-			
-			Mezo medveMezo = medve.getMezo();
-			Random r = new Random();
-			ArrayList<Mezo> szomszed = medveMezo.getSzomszed();			
-			Mezo cel = szomszed.get(r.nextInt(medveMezo.getSzomszed().size()));
-			medve.Atlep(cel);
 		}
 		else {
 			kov=szereplok.get(akt+1);
 		}
-		kov.setLepesszam(4);
-		Mezo mezo=kov.getMezo();
-		mezo.Hatas(kov);
+		aktJatekos=kov;
+		aktJatekos.Autolepes();
+		aktJatekos.setLepesszam(4);
+		Mezo mezo=aktJatekos.getMezo();
+		mezo.Hatas(aktJatekos);
 		Hovihar();
 		Mezofrissit();
-		aktJatekos=kov;
 		System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");
 		
 		

@@ -26,10 +26,9 @@ public class Luk extends Mezo{
 		
 		if(isSzomszed(regi)) {
 			szereplok.add(belepo);
+			szereplok.forEach((sz)->sz.Erintkezik());
 			this.setfelderitett(true);
 			Hatas(belepo);
-			if (medve != null)
-				medve.Tamadas();
 			Indentor.degLevel();
 			return true;
 		}else {

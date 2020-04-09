@@ -25,9 +25,8 @@ public class StabilJegtabla extends Jegtabla{
         if(isSzomszed(regi)) 
         {
             this.szereplok.add(belepo);
+            szereplok.forEach((sz)->sz.Erintkezik());
             Hatas(belepo);
-            if (medve != null)
-                medve.Tamadas();
             Indentor.degLevel();
             return true;
         }

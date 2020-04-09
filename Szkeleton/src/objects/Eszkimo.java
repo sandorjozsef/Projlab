@@ -56,4 +56,16 @@ public class Eszkimo extends Szereplo {
 		return "Eszkimo";
 	}
 
+	@Override
+	public void Autolepes() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void Erintkezik() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

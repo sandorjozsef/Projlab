@@ -58,4 +58,16 @@ public class Kutato extends Szereplo {
 		// TODO Auto-generated method stub
 		return "Kutato";
 	}
+
+	@Override
+	public void Autolepes() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void Erintkezik() {
+		// TODO Auto-generated method stub
+		
+	}
 }

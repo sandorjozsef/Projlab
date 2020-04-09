@@ -39,12 +39,11 @@ public class InstabilJegtabla extends Jegtabla{
 		if(isSzomszed(regi)) 
 		{
 			this.szereplok.add(belepo);
+			szereplok.forEach((sz)->sz.Erintkezik());
 			if(this.teherbiras<szereplok.size()) {
 				Felfordul();
 			}
 			Hatas(belepo);
-			if (medve != null)
-				medve.Tamadas();
 			Indentor.degLevel();
 			return true;
 		}else {

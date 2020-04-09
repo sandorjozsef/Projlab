@@ -26,7 +26,6 @@ public abstract class Mezo implements Serializable{
 	private static final long serialVersionUID = 8199843988858681838L;
 	protected Epulet iglu;
 	protected ArrayList<Szereplo> szereplok;
-	protected Medve medve;
 	private ArrayList<Mezo> szomszedok;
 	private int hoVastagsag;
 	private boolean felderitett = false;
@@ -100,14 +99,6 @@ public abstract class Mezo implements Serializable{
 			this.hoVastagsag=0;
 		
 		Indentor.degLevel();
-	}
-	public boolean getMedve() {
-		//Indentor.incLevel();
-		//System.out.println(Indentor.getIndent()+Name()+".getMedve()");
-		//Indentor.degLevel();
-		if(medve == null)
-			return false;
-		else return true;
 	}
 	public ArrayList<Mezo> getSzomszed() {
 		Indentor.incLevel();
@@ -233,11 +224,6 @@ public abstract class Mezo implements Serializable{
 			iglu.Tamadas();
 	}
 	
-	public void setMedve(Medve medve)
-	{
-		this.medve = medve;
-	}
-	
 	public void MedveKiad() 
 	{
 		this.medve = null;
@@ -281,11 +267,6 @@ public abstract class Mezo implements Serializable{
 		System.out.print("Szereplok: ");
 		szereplok.forEach(sz->System.out.print(" |"+ sz.getId()));
 		System.out.println();
-		
-		if(this.getMedve())
-			System.out.println("Medve: van");
-		else
-			System.out.println("Medve: nincs");
 		System.out.println("Epulet: "+iglu.Name());
 	}
 }
