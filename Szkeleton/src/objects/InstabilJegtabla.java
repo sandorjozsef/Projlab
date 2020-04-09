@@ -149,10 +149,5 @@ public class InstabilJegtabla extends Jegtabla{
 		System.out.print("Szereplok: ");
 		szereplok.forEach(sz->System.out.print(" |"+ sz.getId()));
 		System.out.println();
-					
-		if(this.getMedve())
-			System.out.println("Medve: van");
-		else
-			System.out.println("Medve: nincs");
 	}
 }

@@ -223,11 +223,6 @@ public abstract class Mezo implements Serializable{
 		if (szereplok.size() > 0)
 			iglu.Tamadas();
 	}
-	
-	public void MedveKiad() 
-	{
-		this.medve = null;
-	}
 	public void setfelderitett(boolean b) {
 		this.felderitett=b;
 	}
