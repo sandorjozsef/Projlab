@@ -13,6 +13,7 @@ public class Medve extends Szereplo {
 	private boolean autoLepes;
 	public Medve(boolean b,String id) {
 		super(id);
+		testho = 1;
 		autoLepes=b;
 		this.ruha=new Buvarruha();
 		// TODO Auto-generated constructor stub
@@ -55,7 +56,8 @@ public class Medve extends Szereplo {
 	@Override
 	public void SpecKepesseg(Mezo cel) {
 	}
-
+	@Override 
+	public void TesthoHozzaad(int novekmeny) {testho = 1; }
 
 
 	@Override

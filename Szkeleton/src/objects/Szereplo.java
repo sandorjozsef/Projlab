@@ -36,7 +36,7 @@ public abstract class Szereplo implements Serializable{
     }
     
     public Szereplo(String id) {
-        id=id;
+        this.id=id;
         targyak = new ArrayList<Targy>();
         ruha = new AlapRuha();
         lepesszam = 4;

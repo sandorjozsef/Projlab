@@ -220,7 +220,7 @@ public abstract class Mezo implements Serializable{
 	
 	public void Tamadas()
 	{
-		if (szereplok.size() > 0)
+		if (szereplok.size() > 1)
 			iglu.Tamadas();
 	}
 	public void setfelderitett(boolean b) {

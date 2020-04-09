@@ -30,6 +30,7 @@ public final class Palya{
 	private static ArrayList<Szereplo> szereplok = new ArrayList<Szereplo>();
 	private static ArrayList<Mezo> mezok = new ArrayList<Mezo>();
 	private static int alkatreszek = 0;
+	private static boolean randomHovihar = true;
 	
 	
 	/**
@@ -94,9 +95,15 @@ public final class Palya{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.Hovihar()");
 		Random rand = new Random();
-		for(int i = 0; i<mezok.size();i++) {
-			if (rand.nextInt(2) == 1)
-				mezok.get(i).Hoeses();
+		if(randomHovihar) {
+			for(int i = 0; i<mezok.size();i++) {
+				if (rand.nextInt(2) == 1)
+					mezok.get(i).Hoeses();
+			
+			}
+		}
+		else {
+			mezok.get(mezok.size()-1).Hoeses();
 		}
 		Indentor.degLevel();
 	}
