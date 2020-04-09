@@ -154,7 +154,7 @@ public final class Palya{
 		if(alkatreszek==3) {
 			Mezo mezo = aktJatekos.getMezo();
 			int szerep_szam = mezo.getSzereplokSzama();
-			if(szerep_szam == szereplok.size())
+			if(szerep_szam == szereplok.size()-1)
 				JatekVege(true);
 		}
 		
