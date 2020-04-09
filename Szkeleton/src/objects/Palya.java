@@ -312,9 +312,10 @@ public final class Palya{
 					initMezok[n-1][m-1].setSzereplo(s);
 					
 				}				
-				medve = new Medve("medve");
+				Szereplo medve = new Medve(false, "medve");
+				szereplok.add(medve);
 				medve.setMezo(initMezok[0][0]);
-				initMezok[0][0].setMedve(medve);
+				initMezok[0][0].setSzereplo(medve);
 				System.out.println("Palya sikeresen felepult, a szereplok a helyukon vannak!");
 				
 				
@@ -369,7 +370,6 @@ public final class Palya{
 			data.add(aktJatekos);
 			data.add(szereplok);
 			data.add(mezok);
-			data.add(medve);
 			data.add(alkatreszek);
 			oout.writeObject(data);			
 			
@@ -394,8 +394,7 @@ public final class Palya{
 				aktJatekos = (Szereplo) data.get(0);
 				szereplok = (ArrayList<Szereplo>) data.get(1);
 				mezok = (ArrayList<Mezo>) data.get(2);
-				medve = (Medve) data.get(3);
-				alkatreszek = (int) data.get(4);					
+				alkatreszek = (int) data.get(3);					
 				
 				ois.close();
 				fin.close();
