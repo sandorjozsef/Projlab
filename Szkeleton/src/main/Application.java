@@ -3,6 +3,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,12 +41,29 @@ public class Application {
 		
 		boolean exit = false;
 		
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader reader;
+		InputStream is = null;
+		if(args.length==0) {			
+			is = System.in;
+		}
+		else {
+			try {
+				is = new FileInputStream(args[0]);
+			} catch (FileNotFoundException e) {				
+				e.printStackTrace();
+				System.exit(-1);
+			}
+		}
+		
+		reader = new BufferedReader(new InputStreamReader(is));
 		while(!exit) {
 			try {
 				
 				String sor = reader.readLine();
-				String params[] = sor.split(" ");
+				String params[] = sor.split(" ");		
+			
+					
+				
 				if(params[0].equals("exit")) {
 					exit = true;
 					break;

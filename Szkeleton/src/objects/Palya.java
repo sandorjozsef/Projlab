@@ -220,7 +220,7 @@ public final class Palya{
 		try {			
 				
 				if(is == System.in)				
-					System.out.println("Epitsd fel a palyat, adj hozza szereplőket! ");
+					System.out.println("Epitsd fel a palyat, adj hozza szereploket! ");
 				boolean exit = false;
 				int alkcount = 0;
 				Random r = new Random();

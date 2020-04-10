@@ -1,5 +1,5 @@
 ujmezo mezo1 SARR
-ujmezo mezo2 IB50
+ujmezo mezo2 SB50
 ujmezo mezo3 I*RR
 ujmezo mezo4 L*RR
 ujmezo mezo5 SARR
@@ -9,7 +9,7 @@ ujmezo mezo9 SARR
 ujmezo mezo10 SARR
 ujmezo mezo11 SARR
 ujmezo mezo12 SARR
-ujmezo mezo13 SARR
+ujmezo mezo13 LARR
 
 osszekot mezo1 mezo2
 osszekot mezo2 mezo4
@@ -20,7 +20,7 @@ osszekot mezo7 mezo4
 osszekot mezo10 mezo4
 
 randomvihar 1
-randommedve1
+randommedve 1
 
 ujszereplo szereplo1 eszkimo
 ujszereplo szereplo2 kutato
