@@ -220,110 +220,94 @@ public final class Palya{
 				if(is == System.in)
 					System.out.print("Hany szereplo legyen? ");
 				int sz = Integer.parseInt(reader.readLine());
-				if(is == System.in)
-					System.out.print("Milyen magas legyen a palya? ");
-				int n = Integer.parseInt(reader.readLine());
-				if(is == System.in)
-					System.out.print("Milyen szeles legyen a palya? ");
-				int m = Integer.parseInt(reader.readLine());
-					
-				if (sz < 3)
-				{
-					sz = 3;
-				}
-					
-				if(n*m<sz*7) // minden szereplore 7 mezo jut
-					throw new Exception("Tul kicsi palya!");
+				
 				if(is == System.in)				
-					System.out.println("Add meg a palya felepiteset! ");
-			
-				
-				
-				Targy[][] initTargyak = new Targy[n][m];
-				Mezo initMezok[][] = new Mezo[n][m];
-				Random r= new Random();
+					System.out.println("Epitsd fel a palyat! ");
+				boolean exit = false;
 				int alkcount = 0;
-				int count = 0;
-				for(int i = 0; i<n;i++) {	
+				Random r = new Random();
+				
+				
+				
+				while(!exit) {
 					String sor = reader.readLine();
-					String[] mezokIn = sor.split(" ");
-					for(int j = 0; j< m; j++) {
-						if(i==n-1 && j==n-1 && mezokIn[j].charAt(0)!='S') {
-							throw new Exception("A kezdo mezo nem stabil jegtabla! (jobb also)");
-						}
-						switch(mezokIn[j].charAt(1)) {
-						case 'T': initTargyak[i][j] = new Aso();
+					String params[] = sor.split(" ");
+					
+					
+					if(params[0].equals("create")) {
+						Targy targy;
+						Mezo mezo;
+						switch(params[2].charAt(1)) {
+							case 'T': targy = new Aso();
+								break;
+							case 'L': targy = new Lapat();
+								break;
+							case 'B': targy = new Buvarruha();
+								break;
+							case 'A': targy = new Alkatresz();
+							if(params[2].charAt(0)!='L')alkcount++;
+								break;
+							case 'E': targy = new Elelem();
+								break;
+							case 'S': targy = new Sator();
+								break;
+							case 'K': targy= new Kotel();
+								break;	
+							case '*': targy = null;
+								break;	
+							default:
+								throw new Exception("Hibas szintaktika!");
+							}
+							switch(params[2].charAt(0)) {
+							case 'S': mezo = new StabilJegtabla(params[1],targy);
 							break;
-						case 'L': initTargyak[i][j] = new Lapat();
+							case 'I': 
+								if(params[2].substring(2,3).equals("R"))
+									mezo = new InstabilJegtabla(params[1],targy, r.nextInt(3)+1);
+								else 
+									mezo = new InstabilJegtabla(params[1],targy, Integer.parseInt(params[2].substring(2,3)));
+								break;
+							case 'L': mezo = new Luk(params[1]);
 							break;
-						case 'B': initTargyak[i][j] = new Buvarruha();
-							break;
-						case 'A': initTargyak[i][j] = new Alkatresz();
-									if(mezokIn[j].charAt(0)!='L')alkcount++;
-							break;
-						case 'E': initTargyak[i][j] = new Elelem();
-							break;
-						case 'S': initTargyak[i][j] = new Sator();
-							break;
-						case 'K': initTargyak[i][j] = new Kotel();
-							break;	
-						case '*': initTargyak[i][j] = null;
-							break;	
-						default:
-							throw new Exception("Hibas szintaktika!");
-						}
-						switch(mezokIn[j].charAt(0)) {
-						case 'S': initMezok[i][j] = new StabilJegtabla("mezo"+count,initTargyak[i][j]);
-							break;
-						case 'I': 
-									if(mezokIn[j].substring(2,3).equals("R"))
-										initMezok[i][j] = new InstabilJegtabla("mezo"+count,initTargyak[i][j], r.nextInt(3)+1);
-									else 
-										initMezok[i][j] = new InstabilJegtabla("mezo"+count,initTargyak[i][j], Integer.parseInt(mezokIn[j].substring(2,3)));
-							break;
-						case 'L': initMezok[i][j] = new Luk("mezo"+count);
-							break;
-						default: throw new Exception("Hibas szintaktika!");							
-						}
-						count++;
-						if(mezokIn[j].substring(3,4).equals("R"))
-							initMezok[i][j].setHovastagsag(r.nextInt(8));
-						else
-							initMezok[i][j].setHovastagsag(Integer.parseInt(mezokIn[j].substring(3,4)));
-						
-						
-						if(j>0) {//beéllitjuk a szomszédokat: mindenkinek negy szomszed egyelore
-							initMezok[i][j].setSzomszed(initMezok[i][j-1]);
-							initMezok[i][j-1].setSzomszed(initMezok[i][j]);
-						}
-						if(i>0) {
-							initMezok[i][j].setSzomszed(initMezok[i-1][j]);
-							initMezok[i-1][j].setSzomszed(initMezok[i][j]);
-						}
+							default: throw new Exception("Hibas szintaktika!");							
+							}							
+							if(params[2].substring(3,4).equals("R"))
+								mezo.setHovastagsag(r.nextInt(8));
+							else
+								mezo.setHovastagsag(Integer.parseInt(params[2].substring(3,4)));
+
 					}
-				}
-				if(alkcount<3)
-					throw new Exception("Nincs eleg alkatresz!");
-				for(int i = 0; i<n;i++)					
-					for(int j = 0; j<m; j++) {
-						mezok.add(initMezok[i][j]);	//feltoltju ka mezok listajat 					
+					else if(params[0].equals("tie")) {
+						Mezo mezo1 = getMezo(params[1]);
+						Mezo mezo2 = getMezo(params[2]);
+						if(mezo1!=mezo2&&mezo1!=null&&mezo2!=null) {							
+							mezo1.setSzomszed(mezo2);
+							mezo2.setSzomszed(mezo1);
+						}
 					}				
-				for(int i = 0; i<sz;i++) { // letrehozzuk a szereploket és a medvét, betesszuk oket a kezdo mezore
+						
+			}
+			if(alkcount<3)
+				throw new Exception("Nincs eleg alkatresz!");	
+				
+				
+						
+			for(int i = 0; i<sz;i++) { // letrehozzuk a szereploket és a medvét, betesszuk oket a kezdo mezore
 					Szereplo s;
 					if(i%2==0)
 						s = new Kutato("kutato"+i);
 					else
 						s = new Eszkimo("eszkimo"+i);
 					szereplok.add(s);
-					s.setMezo(initMezok[n-1][m-1]);
-					initMezok[n-1][m-1].setSzereplo(s);
+					s.setMezo(mezok.get(0));
+					mezok.get(0).setSzereplo(s);
 					
-				}				
-				Szereplo medve = new Medve(false, "medve");
-				szereplok.add(medve);
-				medve.setMezo(initMezok[0][0]);
-				initMezok[0][0].setSzereplo(medve);
-				System.out.println("Palya sikeresen felepult, a szereplok a helyukon vannak!");
+			}				
+			Szereplo medve = new Medve(false, "medve");
+			szereplok.add(medve);
+			medve.setMezo(mezok.get(mezok.size()-1));
+			mezok.get(mezok.size()-1).setSzereplo(medve);
+			System.out.println("Palya sikeresen felepult, a szereplok a helyukon vannak!");
 				
 				
 		}
