@@ -39,7 +39,7 @@ public class Application {
 		
 		
 		boolean exit = false;
-	
+		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		while(!exit) {
 			try {
@@ -49,19 +49,7 @@ public class Application {
 				if(params[0].equals("exit")) {
 					exit = true;
 					break;
-				}
-				else if(params[0].equals("test")) {
-					
-				}
-				else if(params[0].equals("palyatepit")) {
-					if(params[1].equals("konzol"))
-						Palya.BuildMap(System.in);
-					else {
-						File f= new File(params[1]);
-						if(f.exists())
-							Palya.BuildMap(new FileInputStream(f));
-					}				
-				}
+				}							
 				else if(params[0].equals("startjatek")) {
 					if(params[1].equals("konzol"))
 						Palya.JatekotKezd(System.in);

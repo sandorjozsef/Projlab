@@ -275,7 +275,7 @@ public final class Palya{
 								mezo.setHovastagsag(r.nextInt(8));
 							else
 								mezo.setHovastagsag(Integer.parseInt(params[2].substring(3,4)));
-
+						mezok.add(mezo);
 					}
 					else if(params[0].equals("tie")) {
 						Mezo mezo1 = getMezo(params[1]);
@@ -284,7 +284,10 @@ public final class Palya{
 							mezo1.setSzomszed(mezo2);
 							mezo2.setSzomszed(mezo1);
 						}
-					}				
+					}
+					else if(params[0].equals("***")) {
+						exit = true;
+					}
 						
 			}
 			if(alkcount<3)
