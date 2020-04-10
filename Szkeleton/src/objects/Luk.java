@@ -19,7 +19,7 @@ public class Luk extends Mezo{
      *    megpróbálja befogadni a paraméterként megkapott szereplőt, a régi mezőjéről,
      *    feltéve hogy a szereplő szomszédos mezőről érkezik, majd logikai változóként visszatér ezzel a ténnyel
      *    (sikeres befogadás esetén true). Ezek után minden mezőn lévő szereplővel érintkezik, a luk felderítődik
-     *    és meghívódik a hatás függvény
+     *    és meghívódik a hatás függvény 
      */
 	public boolean Befogad(Szereplo belepo, Mezo regi)
 	{
