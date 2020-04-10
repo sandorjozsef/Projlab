@@ -17,9 +17,7 @@ import objects.*;
  * main app
  *
  */
-public class Application {
-	private String history = "";
-	private boolean record = false; 
+public class Application {	 
 	/**
 	 * Létrehozunk egy listát a UseCase interfészt implementáló osztályokból, amelynek elemieihez
 	 * később a listában lévő poziciójuk alapján azonositókat rendelünk
