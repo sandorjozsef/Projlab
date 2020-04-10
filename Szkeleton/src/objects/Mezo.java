@@ -19,9 +19,7 @@ import indent.Indentor;
  *	példányosítanak meg a leszármazottjai
  */
 public abstract class Mezo implements Serializable{
-	/**
-	 * 
-	 */
+	
 	private String id;
 	private static final long serialVersionUID = 8199843988858681838L;
 	protected Epulet iglu;
@@ -57,7 +55,9 @@ public abstract class Mezo implements Serializable{
 	
 	public abstract Targy Atad();
 	/**
-	 * 	Felkínálja a játékosnak hogy válasszon egyet a szomszédos mezők közül
+	 * 	Felkínálja a játékosnak hogy válasszon egyet a szomszédos mezők közül, melynek menete a következő:
+	 * 	kilistázza a a szomszéd mezők azonosítóit, majd megnézi hogy a saját mezői közül melyikével egyezik
+	 * 	a kapott String id, és visszatér ezzel a mezővel
 	 */
 	public Mezo ValasztSzomszed()
 	{ 
@@ -118,8 +118,8 @@ public abstract class Mezo implements Serializable{
 		
 	}
 	/**
- 	 *	visszaadja, hogy az adott mezők szomszédosak-e, később a saját attribútumaiból
- 	 *	fogja összehasonlítani, hogy a kapott paraméter benne van-e a saját szomszedok tömbjében
+ 	 *	visszaadja, hogy az adott mezők szomszédosak-e, összehasonlítja hogy a kapott paraméter 
+ 	 *	benne van-e a saját szomszedok tömbjében
  	 */
 	public boolean isSzomszed(Mezo szomszed)
 	{
@@ -180,7 +180,7 @@ public abstract class Mezo implements Serializable{
 	
 	/**
 	 *	ha egy adott mezőt hóesés sújtja akkor ez a függvény szól a saját épületének, 
-	 *	hogy hajtsa végre a játékszabályok szerinti változásokat
+	 *	hogy hajtsa végre a játékszabályok szerinti változásokat (Levon függvénnyel)
 	 */
 	public void Hoeses()
 	{
@@ -212,12 +212,17 @@ public abstract class Mezo implements Serializable{
 	 */
 	public abstract String Name(); 
 	
+	/**
+	 * meghívja az épülete amortizal függvényét, és ha az true-val tér vissza akkor Noglut állít be helyette
+	 */
 	public void Amortizal()
 	{
 		if (iglu.Amortizacio())
 			setEpulet(new Noglu()); 
 	}
-	
+	/**
+	 * Ha a medvén kívül van szereplő  a mezőn akkor jelzi az épületének hogy támadás történt a mezőn
+	 */
 	public void Tamadas()
 	{
 		if (szereplok.size() > 1)
@@ -229,7 +234,11 @@ public abstract class Mezo implements Serializable{
 	public boolean getfelderitett() {
 		return this.felderitett;
 	}
-	
+	/**
+	 * Kiírja a legfontosabb információkat a mezőről, amíg nincs grafikus felület hogy ezeket látni lehessen.
+	 * A formátuma a következő soronként lebontva: id, típus , hóvastagság, szereplők, épület
+	 * ha a mező nincs felderítve, akkor a típus ismeretlen, az épület értéke pedig nem látszik
+	 */
 	public void MezoInfo(BufferedWriter bw)
 	{
 		/*try {
@@ -262,6 +271,7 @@ public abstract class Mezo implements Serializable{
 		System.out.print("Szereplok: ");
 		szereplok.forEach(sz->System.out.print(" |"+ sz.getId()));
 		System.out.println();
-		System.out.println("Epulet: "+iglu.Name());
+		if(felderitett) 
+			System.out.println("Epulet: "+iglu.Name());
 	}
 }

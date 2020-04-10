@@ -17,6 +17,10 @@ public abstract class Jegtabla extends Mezo{
 	private static final long serialVersionUID = -7327036173303629364L;
 	private Targy targy;
 	
+	/**
+	 * konstruktor a Jegtablakhoz
+	 */
+	
 	public Jegtabla(String id, Targy t) {
 		super(id);
 		targy = t;
@@ -24,7 +28,7 @@ public abstract class Jegtabla extends Mezo{
 	
 	/**
      *    átadja a jegtablarol a tárgyat, ha nincs rajta már hó,
-     *    majd kitörli a saját attribútumai közül
+     *    majd kitörli a saját attribútumai közül. Ha van rajta hó akkor null-al tér vissza
      */
 	public Targy Atad()
 	{

@@ -31,7 +31,7 @@ public class Iglu extends Epulet{
     }
    
     /**
-     *
+     * nem csinál semmit hiszen az iglu nem amortizálódik
      */
     @Override
     public boolean Amortizacio()
@@ -40,7 +40,7 @@ public class Iglu extends Epulet{
     }
    
     /**
-     *
+     * nem csinál semmit hiszen ha egy iglus mezőn támadás történik annak nincs következménye
      */
     @Override
     public void Tamadas()

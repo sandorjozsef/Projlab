@@ -16,7 +16,8 @@ public class StabilJegtabla extends Jegtabla{
     }
     /**
      *    függvény ami befogadja a belepo szereplot a regi mezorol
-     *    ha szomszédos mezorol jon
+     *    ha szomszédos mezorol jon, és visszatér true-val ha sikerült a befogadás, valamint false-al ha nem,
+     *    ezek után minden szereplőn meghívódik az érintkezés, és végül a mező hatás függvénye
      */
     public boolean Befogad(Szereplo belepo, Mezo regi)
     {
@@ -49,7 +50,7 @@ public class StabilJegtabla extends Jegtabla{
         Indentor.degLevel();
     }
     /**
-     *    felüldefiniált függvény ami épületet épít a mezőre
+     *    felüldefiniált függvény ami épületet épít a mezőre ha az fel van már derítve
      */
     @Override
     public void setEpulet(Epulet e)

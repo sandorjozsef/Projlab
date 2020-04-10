@@ -19,9 +19,11 @@ public class InstabilJegtabla extends Jegtabla{
 	private int teherbiras;
 	private ArrayList<Szereplo> alatta;
 	
+	
 	/**
-	 *	konstruktor 
-	 */		
+	 * konstruktor 
+	 */
+			
 	public InstabilJegtabla(String id, Targy targy, int tb){
 		super(id, targy);
 		alatta = new ArrayList<Szereplo>();
@@ -29,8 +31,10 @@ public class InstabilJegtabla extends Jegtabla{
 	}
 	/**
 	 *	függvény ami befogadja a belepo szereplot a regi mezorol
-	 *	ha szomszédos mezorol jon, valamint megvizsgalja hogy az adott
-	 *	instabil jegtabla elbirja-e még őt
+	 *	ha szomszédos mezorol jon (és visszatér logaikai változóként ezzel az információval(sikeres befogadás esetén true)),
+	 *	minden mezőn lévő szereplővel érintkezik,
+	 *  valamint megvizsgalja hogy az adott instabil jegtabla elbirja-e még őt. Ha nem bírja el
+	 *  akkor felborul a jégtábla. Ezek után meghívódik a Hatás függvény
 	 */
 	public boolean Befogad(Szereplo belepo, Mezo regi)
 	{
@@ -73,7 +77,8 @@ public class InstabilJegtabla extends Jegtabla{
 		Indentor.degLevel();
 	}
 	/**	
-	 *	a tabla szereplo tömbjének tartalmát pakolja bele az alatta tömbbe
+	 *	a tabla szereplo tömbjének tartalmát pakolja bele az alatta tömbbe, és felderíti a jégtáblát,
+	 *	valamint a hóvastagságát 0-ra állítja
 	 */
 	
 	public void Felfordul()
@@ -87,16 +92,8 @@ public class InstabilJegtabla extends Jegtabla{
 		Indentor.degLevel();
 	}
 	/**
-	 *	setter, ami a tábla alá rakja az sz Szereplot, a 
-	 *	végleges programban nem lesz rá szükség hiszen csak a
-	 * 	Felfordul fuggvünyen keresztül juthat a tábla alá valaki,
-	 * 	viszont a tesztelés inicializálásához hasznos
-	 */
-	public void setAlatta(Szereplo sz)
-	{alatta.add(sz);}
-	/**
 	 *	felüldefiniált függvény ami csak a tábla alatta tömbjéből
-	 *	menekíti ki az embereket.
+	 *	menekíti ki az embereket úgy, hogy átlépteti őket a célmezőre
 	 */
 	public void Kimenekit(Mezo cel)
 	{
@@ -129,7 +126,12 @@ public class InstabilJegtabla extends Jegtabla{
 	public String Name() {
 		return "InstabilJegtabla";
 	}
-	
+	/**
+	 * Kiírja a legfontosabb információkat a mezőről, amíg nincs grafikus felület hogy ezeket látni lehessen.
+	 * A formátuma a következő soronként lebontva: id, típus , teherbírás, hóvastagság, szereplők alatta, szereplők
+	 * (ha a jégtábla nincs még felderítve akkor a típus ismeretlen, a teherbírás és a szereplők alatta pedig nem 
+	 * listázódik ki)
+	 */
 	public void MezoInfo()
 	{
 		System.out.println("Nev: "+ getId());
