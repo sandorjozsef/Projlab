@@ -1,19 +1,29 @@
-3
-create mezo1 SARR
-create mezo2 IB50
-create mezo3 I*RR
-create mezo4 L*RR
-create mezo5 SARR
-create mezo6 SARR
-create mezo7 SARR
-create mezo8 SARR
+ujmezo mezo1 SARR
+ujmezo mezo2 IB50
+ujmezo mezo3 I*RR
+ujmezo mezo4 L*RR
+ujmezo mezo5 SARR
+ujmezo mezo6 SARR
+ujmezo mezo7 SARR
+ujmezo mezo9 SARR
+ujmezo mezo10 SARR
+ujmezo mezo11 SARR
+ujmezo mezo12 SARR
+ujmezo mezo13 SARR
 
-tie mezo1 mezo2
-tie mezo2 mezo4
-tie mezo2 mezo3
-tie mezo5 mezo4
-tie mezo6 mezo4
-tie mezo7 mezo4
-tie mezo8 mezo4
+osszekot mezo1 mezo2
+osszekot mezo2 mezo4
+osszekot mezo2 mezo3
+osszekot mezo5 mezo4
+osszekot mezo6 mezo4
+osszekot mezo7 mezo4
+osszekot mezo10 mezo4
+
+randomvihar 1
+randommedve1
+
+ujszereplo szereplo1 eszkimo
+ujszereplo szereplo2 kutato
+ujszereplo szereplo3 kutato
 
 ***

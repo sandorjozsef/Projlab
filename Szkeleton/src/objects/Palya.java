@@ -53,7 +53,7 @@ public final class Palya{
 			if(mezok.get(i).getId().equals(id)) 
 				return mezok.get(i);  
 		}
-		System.out.println("Nincs ilyen nevu mezo!");
+		System.out.println("Nincs ilyen nevu mezo!: "+id);
 		return null;
 		
 		
@@ -137,9 +137,10 @@ public final class Palya{
 	public static void JatekotKezd(InputStream is) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.JatekotKezd()");
-		BuildMap(is);
-		aktJatekos = szereplok.get(0);
-		System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");
+		if(BuildMap(is)) {
+			aktJatekos = szereplok.get(0);
+			System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");			
+		}
 		Indentor.degLevel();
 	}
 
@@ -211,7 +212,7 @@ public final class Palya{
 	 * A palya jobb also sarka mindig stabil jegtabla kell, hogy legyen mert onnan indulnak a szereplok
 	 * @param is 
 	 */
-	public static void BuildMap(InputStream is) {
+	public static boolean BuildMap(InputStream is) {
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.BuildMap()");
 		clear();
@@ -283,7 +284,7 @@ public final class Palya{
 							szereplok.add(new Kutato(params[1]));
 						}
 					}
-					else if(params[0].equals("tie")) {
+					else if(params[0].equals("osszekot")) {
 						Mezo mezo1 = getMezo(params[1]);
 						Mezo mezo2 = getMezo(params[2]);
 						if(mezo1!=mezo2&&mezo1!=null&&mezo2!=null) {							
@@ -316,7 +317,7 @@ public final class Palya{
 				throw new Exception("Nincs eleg alkatresz!");	
 			if(szereplok.size()<3)
 				throw new Exception("Nincs eleg szereplo!");	
-			if(szereplok.size()*5>mezok.size())
+			if(szereplok.size()*4>mezok.size())
 				throw new Exception("Nincs eleg mezo!");	
 			
 			
@@ -337,8 +338,10 @@ public final class Palya{
 				clear();
 				System.out.println("Probald ujra!");
 				e.printStackTrace();
+				return false;
 		}				
 		Indentor.degLevel();
+		return true;
 	}
 	public static void Megtekintes(int p,String mezoNev, BufferedWriter bw) {
 		switch(p) {
@@ -415,8 +418,10 @@ public final class Palya{
 			} catch (IOException | ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				
 			}
 			System.out.println("Jatek sikeresen betoltve a '"+fName+"' fajlbol!");
+			
 		}	
 	}
 	
