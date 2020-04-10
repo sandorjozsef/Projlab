@@ -20,7 +20,7 @@ import indent.Indentor;
  * játékteret a különböző karakterisztikákkal együtt (hol legyenek elrejtve a tárgyak, hány mező
  * és milyen módon legyen elhelyezve, stb.).
  * Singleton statikus osztály
- * @author Sándor József
+ * @author Aviato
  *
  */
 public final class Palya{
@@ -132,7 +132,6 @@ public final class Palya{
 	/**
 	 * Ezzel a metódussal kezdődik el a játék, vagyis létrejönnek az
 	 * objektumok és az első szereplő megkapja a cselekvési jogot.
-	 * A Skeleton fázisban még nincs megvalósítva.
 	 */
 	public static void JatekotKezd(InputStream is) {
 		Indentor.incLevel();

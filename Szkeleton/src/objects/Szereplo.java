@@ -7,23 +7,41 @@ import java.util.ArrayList;
 import indent.Indentor;
  
 /**
- * A Szereplo egy absztrakt osztály. Egy szereplő vagy kutató vagy eszkimó. A
+ * A Szereplo egy absztrakt osztály. Egy szereplő vagy kutató vagy eszkimó vagy medve. A
  * szereplő tud lépni, eszközöket használni, van testhője. Egy szereplő egy
  * körben maximum négyet léphet.
  * 
- * @author Sándor József Buzigyerek
+ * @author Aviato
  *
  */
 public abstract class Szereplo implements Serializable{
  
-    protected Mezo aktmezo;
-	private String id;
-    private static final long serialVersionUID = 4670530703450888105L;
-    protected Ruha ruha;
-    protected ArrayList<Targy> targyak;
-    protected int testho;
-    protected int lepesszam;
+	 /**referencia az aktuális mezőre*/
+    protected Mezo aktmezo; 
+   
+    /**a szereplő azonosítására szolgáló string azonosító*/
+    private String id; 
     
+    private static final long serialVersionUID = 4670530703450888105L;
+    
+    /**referencia a szereplő ruhájára*/
+    protected Ruha ruha; 
+    
+    /**a szereplő megszerzett tárgyait nyílvántartó tömb*/
+    protected ArrayList<Targy> targyak; 
+    
+    /**a szereplő aktuális testhője*/
+    protected int testho;
+    
+    /**a szereplő aktuális maradék lépéseinek száma*/
+    protected int lepesszam; 
+    
+    /**
+     * megnézi, hogy van-e még lépése
+     * a lépésszáma nem-e nulla
+     * ha nincs visszatérési érték hamis, különben igaz
+     * @return
+     */
     protected boolean Lephet()
     {
         boolean seged = (lepesszam <= 0);
@@ -35,12 +53,24 @@ public abstract class Szereplo implements Serializable{
         return !seged;
     }
     
+    /**
+     * Szereplő konstruktora
+     * beállítja az azonosítóját a kapott paraméterrel
+     * létrehozza a tömböt a tárgyainak
+     * a ruhájának beálít egy frissen létrehozott alapruha objektumot
+     * a lépésszámát 4-re inicializálja
+     * @param id
+     */
     public Szereplo(String id) {
         this.id=id;
         targyak = new ArrayList<Targy>();
         ruha = new AlapRuha();
         lepesszam = 4;
     }
+    /**
+     * visszatér a szereplő azonosítójával
+     * @return id
+     */
     public String getId() {
         return id;
     }  
@@ -89,6 +119,7 @@ public abstract class Szereplo implements Serializable{
     /**
      * Ez a metódus a jégtáblát fedő hóréteg(ek) eltávolítására szolgál, amely 1
      * egységgel csökkenti a mennyiségét.
+     * meghívja az aktuális mező HoHozzaad() függvényét -1 paraméterezéssel
      */
     public void Takarit() {
         if (!Lephet())
@@ -101,9 +132,7 @@ public abstract class Szereplo implements Serializable{
  
     /**
      * Növeli vagy csökkenti a szereplő testhőjét az átadott paraméterrel.
-     * Megkérdezi a felhasználótól, hogy nulla lett-e a testhője és ennek
-     * függvényében megy tovább.
-     * 
+     * Ha nullára csökkent a testhő akkor meghívja a Meghaltam() metódust
      * @param novekmeny
      */
     public void TesthoHozzaad(int novekmeny) {
@@ -134,7 +163,7 @@ public abstract class Szereplo implements Serializable{
     }
  
     /**
-     * Visszaadja a szereplő egy tárgyát az adott indexen
+     * Visszaadja a szereplő egy tárgyát az adott indexen a tárgyak tömbből
      * 
      * @param i
      * @return
@@ -254,6 +283,11 @@ public abstract class Szereplo implements Serializable{
         Palya.JatekVege(false);
         Indentor.degLevel();
     }
+    
+    /**
+     * kilistázza a szereplőnk adatait
+     * @param bw
+     */
     public void szereploInfo(BufferedWriter bw) {
         System.out.println("Nev: "+getId());
         System.out.println("Testho: "+testho);

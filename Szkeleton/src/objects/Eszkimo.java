@@ -8,9 +8,9 @@ import indent.*;
 
 /**
  * Az Eszkimo osztály példányai 5 testhővel kezdik a játékot, és tudnak iglut
- * építeni speciális képességként.
+ * építeni speciális képességként. Az Eszkimó a Szereplő leszármazottja.
  * 
- * @author Sándor József
+ * @author Aviato
  *
  */
 public class Eszkimo extends Szereplo {
@@ -20,15 +20,22 @@ public class Eszkimo extends Szereplo {
 	 */
 	private static final long serialVersionUID = -7931023977094485080L;
 
+	/**
+	 * Szereplő konstruktora, meghívja az ős konstruktorát
+	 * A testhő attribútumát 5-re állítja.
+	 * @param id
+	 */
 	public Eszkimo(String id) {
 		super(id);
 		testho = 5;
 	}
 
 	/**
-	 * Amennyiben a cel megegyezik az Eszkimo aktmezo attribútumával, akkor meghívja
-	 * ennek a Mezőnek a setIglu() függvényét. Az egyezést a Skeleton fázisban a
-	 * felhasználóhoz intézett kérdés alapján dönti el.
+	 * Először ellenőrzi, hogy léphet-e
+	 * Amennyiben a cel megegyezik az Eszkimo aktmezo attribútumával, akkor
+	 * létrehoz egy Iglu objektumot, majd meghívja
+	 * ennek a Mezőnek a setEpulet() függvényét az imént létrehozott igluval.
+	 * @param cel
 	 */
 	public void SpecKepesseg(Mezo cel) {
 		if (!Lephet())

@@ -10,7 +10,7 @@ import indent.Indentor;
  * A Kutato egy fajta Szereplo, mely azzal a képességgel bír, hogy fel tudja
  * deríteni a szomszédos vagy épp az aktuális mező teherbírását.
  * 
- * @author Sándor József
+ * @author Aviato
  *
  */
 public class Kutato extends Szereplo {
@@ -20,27 +20,30 @@ public class Kutato extends Szereplo {
 	 */
 	private static final long serialVersionUID = 3048016287563747115L;
 
+	/**
+	 * Kutato konstruktora, meghívja az ős konstruktorát
+	 * A testhő attribútumát 4-re állítja.
+	 * @param id
+	 */
 	public Kutato(String id) {
 		super(id);
 		testho = 4;
 	}
 
 	/**
-	 *  A metódusban meg lehet jelölni egy szomszédos vagy aktuális mezőt, amelyről
-	 * megmondja a teherbírását. 
+	 * Először ellenőrzi, hogy léphet-e
+	 *  A metódus eldönti a paraméterként kapott mezőről, hogy felderíthető-e,
+	 *  (aktuális vagy szomszédos), ha felderíthető, akkor meghívja a mező
+	 *  Felderít függvényét.
 	 */
 	public void SpecKepesseg(Mezo cel) {
 		if (!Lephet())			
 			return;
 		
-			
-		
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent() + "Kutato.SpecKepesseg()");
 
 		boolean szomszed = aktmezo.isSzomszed(cel);
-		
-		
 		if(cel!=null && (szomszed || cel.equals(aktmezo))) {
 			cel.Felderit();
 		}
