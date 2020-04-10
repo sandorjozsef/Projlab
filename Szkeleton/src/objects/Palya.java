@@ -103,7 +103,7 @@ public final class Palya{
 			}
 		}
 		else {
-			mezok.get(mezok.size()-1).Hoeses();
+			mezok.get(0).Hoeses();
 		}
 		Indentor.degLevel();
 	}
@@ -187,6 +187,7 @@ public final class Palya{
 		
 		mezok.clear();
 		szereplok.clear();
+		randomHovihar = true;
 		
 		
 	}
@@ -216,17 +217,14 @@ public final class Palya{
 		clear();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(is));	
 		 
-		try {
-				if(is == System.in)
-					System.out.print("Hany szereplo legyen? ");
-				int sz = Integer.parseInt(reader.readLine());
+		try {			
 				
 				if(is == System.in)				
-					System.out.println("Epitsd fel a palyat! ");
+					System.out.println("Epitsd fel a palyat, adj hozza szereplőket! ");
 				boolean exit = false;
 				int alkcount = 0;
 				Random r = new Random();
-				
+				boolean randomMedve = true;
 				
 				
 				while(!exit) {
@@ -234,7 +232,7 @@ public final class Palya{
 					String params[] = sor.split(" ");
 					
 					
-					if(params[0].equals("create")) {
+					if(params[0].equals("ujmezo")) {
 						Targy targy;
 						Mezo mezo;
 						switch(params[2].charAt(1)) {
@@ -277,12 +275,36 @@ public final class Palya{
 								mezo.setHovastagsag(Integer.parseInt(params[2].substring(3,4)));
 						mezok.add(mezo);
 					}
+					else if(params[0].equals("ujszereplo")){
+						if(params[2].equals("eszkimo")) {
+							szereplok.add(new Eszkimo(params[1]));
+						}
+						else if(params[2].equals("kutato")) {							
+							szereplok.add(new Kutato(params[1]));
+						}
+					}
 					else if(params[0].equals("tie")) {
 						Mezo mezo1 = getMezo(params[1]);
 						Mezo mezo2 = getMezo(params[2]);
 						if(mezo1!=mezo2&&mezo1!=null&&mezo2!=null) {							
 							mezo1.setSzomszed(mezo2);
 							mezo2.setSzomszed(mezo1);
+						}
+					}
+					else if(params[0].equals("randomhovihar")) {
+						if(params[1].equals("1")) {
+							randomHovihar = true;
+						}
+						else if(params[1].equals("0")) {
+							randomHovihar = false;
+						}
+					}
+					else if(params[0].equals("randommedve")) {
+						if(params[1].equals("1")) {
+							randomMedve = true;
+						}
+						else if(params[1].equals("0")) {
+							randomMedve = false;
 						}
 					}
 					else if(params[0].equals("***")) {
@@ -292,21 +314,17 @@ public final class Palya{
 			}
 			if(alkcount<3)
 				throw new Exception("Nincs eleg alkatresz!");	
-				
-				
-						
-			for(int i = 0; i<sz;i++) { // letrehozzuk a szereploket és a medvét, betesszuk oket a kezdo mezore
-					Szereplo s;
-					if(i%2==0)
-						s = new Kutato("kutato"+i);
-					else
-						s = new Eszkimo("eszkimo"+i);
-					szereplok.add(s);
-					s.setMezo(mezok.get(0));
-					mezok.get(0).setSzereplo(s);
-					
+			if(szereplok.size()<3)
+				throw new Exception("Nincs eleg szereplo!");	
+			if(szereplok.size()*5>mezok.size())
+				throw new Exception("Nincs eleg mezo!");	
+			
+			
+			for(int i = 0; i<szereplok.size();i++) { 				
+					szereplok.get(i).setMezo(mezok.get(0));
+					mezok.get(0).setSzereplo(szereplok.get(i));
 			}				
-			Szereplo medve = new Medve(false, "medve");
+			Szereplo medve = new Medve(randomMedve, "medve");
 			szereplok.add(medve);
 			medve.setMezo(mezok.get(mezok.size()-1));
 			mezok.get(mezok.size()-1).setSzereplo(medve);
@@ -316,6 +334,8 @@ public final class Palya{
 		}
 		catch(Exception e) {
 				// TODO Auto-generated catch block
+				clear();
+				System.out.println("Probald ujra!");
 				e.printStackTrace();
 		}				
 		Indentor.degLevel();
