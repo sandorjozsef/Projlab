@@ -295,6 +295,11 @@ public abstract class Szereplo implements Serializable{
         System.out.println("Viselt ruha: "+ruha.Name());
         System.out.println();
     }
+    
+    /**
+     * kilistázza a targyaink neveit
+     * @param bw
+     */
     public void targyInfo(BufferedWriter bw) {
         System.out.println("Inventory:");
         for(int i = 0; i<targyak.size(); i++)            
