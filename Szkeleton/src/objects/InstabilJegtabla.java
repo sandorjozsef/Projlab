@@ -1,5 +1,6 @@
 package objects;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -131,8 +132,9 @@ public class InstabilJegtabla extends Jegtabla{
 	 * A formátuma a következő soronként lebontva: id, típus , teherbírás, hóvastagság, szereplők alatta, szereplők
 	 * (ha a jégtábla nincs még felderítve akkor a típus ismeretlen, a teherbírás és a szereplők alatta pedig nem 
 	 * listázódik ki)
-	 */
-	public void MezoInfo()
+	 */ 
+	@Override
+	public void MezoInfo(BufferedWriter bw)
 	{
 		System.out.println("Nev: "+ getId());
 		if(this.getfelderitett()) {
