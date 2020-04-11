@@ -19,7 +19,7 @@ public class AlapRuha extends Ruha{
 	/**
      * Ez a függvény gondoskodik arról, hogy a vízben lévő Szereplo "vizesebb" legyen,
      * azaz elázzon, illetve megfagyjon.
-     * @param sz megfagyott akkor ezen a Szereplo-n hívja meg a Meghaltam függvényt.
+     * @param sz Beállítja 0-ra a lepesszam attribútumát és  ha megfagyott (elazasi_szint == 2), akkor ezen a Szereplo-n hívja meg a Meghaltam függvényt.
      */
 	@Override
 	public void Elazik(Szereplo sz)
@@ -38,6 +38,7 @@ public class AlapRuha extends Ruha{
 	/**
      * Ezzel a metódussal vízből kijövet meg tud száradni a ruha, ezzel biztosítva,
      * hogy újabb beleeséskor is meglegyen mindkét fázis (vizes és megfagyott).
+     * elazasi_szint-et 0-ra állítja.
      */
 	@Override
 	public void Megszarit()

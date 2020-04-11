@@ -15,7 +15,7 @@ public class Buvarruha extends Ruha implements Targy, Serializable {
 
 	/**
      * A paraméterként kapott Szereplo-nek a Ruha-ját átállítja önmagára.
-     * @param felhasznalo Ennek a Szereplo-nek állítja a hozzá tartozó Ruha-t.
+     * @param felhasznalo Ennek a Szereplo-nek állítja a hozzá tartozó Ruha-t magára a Buvarruha-ra.
      */
 	@Override
 	public void Kepesseg(Szereplo felhasznalo)

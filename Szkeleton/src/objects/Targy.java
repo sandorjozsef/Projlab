@@ -6,7 +6,7 @@ package objects;
 public interface Targy {
     /**
      * A Targy képességét végrehajtó függvény.
-     * @param felhasznalo Ez a Szereplo a használó
+     * @param felhasznalo Ez a Szereplo használja az adott Targy-at
      */
     public void Kepesseg(Szereplo felhasznalo);
    

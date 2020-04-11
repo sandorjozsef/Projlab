@@ -14,11 +14,16 @@ public class Alkatresz implements Targy ,Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 7878735886482320510L;
+	
+	/**
+	 * Azt jelzi, hogy a Palya tud-e erről az Alkatresz-ről
+	 */
 	private boolean bejelentheto = true;
 	
 	/**
-     * A paraméterként kapott Szereplo hívta meg a függvényt, amely megpróbálja bejelenteni magát a Palya számára.
-     * Ezt úgy teszi, hogy ezt a változót továbbítja a Palya számára az AlkatresztKezel függvényen keresztül.
+     * A paraméterként kapott Szereplo hívta meg a függvényt, amely megpróbálja bejelenteni az alkatrészét a Palya számára.
+     * Ezt úgy teszi, hogy ezt a változót továbbítja a Palya számára az AlkatresztKezel függvényen keresztül
+     * (meghívja a Palya AlkatresztKezel függvényét bejelentheto attribútumával).
      * @param felhasznalo Jelen esetben lényegtelen, de általában az a Szereplo, aki tárolja az adott Alkatresz-t
      */
 	@Override
@@ -26,28 +31,6 @@ public class Alkatresz implements Targy ,Serializable{
 	{
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+ Name() + ".Kepesseg()");
-		/*String answer = "";
-		while(!answer.equals("Y") && !answer.equals("N"))
-		{
-			System.out.print(Indentor.getIndent() + " - Bejelentheto az adott Alkatresz? (Y/N) ");
-			try 
-			{
-				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-				answer = reader.readLine();
-			}
-			catch (Exception e)
-			{
-				System.err.println(e.getMessage());
-			}
-			if (answer.equals("Y")) 
-			{
-				Palya.AlkatresztKezel(true);
-			}
-			else if (answer.equals("N"))
-			{
-				Palya.AlkatresztKezel(false);
-			}
-		}*/
 		Palya.AlkatresztKezel(bejelentheto);
 		Indentor.degLevel();
 	}
