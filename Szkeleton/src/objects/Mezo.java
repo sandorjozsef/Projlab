@@ -96,7 +96,7 @@ public abstract class Mezo implements Serializable{
 		System.out.println(Indentor.getIndent()+Name()+".HoHozzaad()");
 		this.hoVastagsag+=novekmeny;
 		if(this.hoVastagsag<0)
-			this.hoVastagsag=0;
+			this.hoVastagsag=0; 
 		
 		Indentor.degLevel();
 	}
@@ -187,6 +187,7 @@ public abstract class Mezo implements Serializable{
 		Indentor.incLevel();		
 		System.out.println(Indentor.getIndent() + Name() +".Hoeses()");
 		iglu.Levon(szereplok);
+		this.hoVastagsag++;
 		Indentor.degLevel();
 		
 	}
