@@ -31,7 +31,7 @@ public final class Palya{
 	private static ArrayList<Mezo> mezok = new ArrayList<Mezo>();
 	private static int alkatreszek = 0;
 	private static boolean randomHovihar = true;
-	
+	private static int jatekosSzam = 0;
 	
 	/**
 	 * Statikus osztály, nem lehet kívülről hívható konstruktor
@@ -40,7 +40,7 @@ public final class Palya{
 
 	public static int getSzereplokSzama()
 	{
-		return szereplok.size();
+		return jatekosSzam;
 	}
 	public static Szereplo getAktJatekos(){
 		return aktJatekos;
@@ -54,9 +54,15 @@ public final class Palya{
 				return mezok.get(i);  
 		}
 		System.out.println("Nincs ilyen nevu mezo!: "+id);
-		return null;
-		
-		
+		return null;	
+	}
+	public static Szereplo getSzereplo(String id) {
+		for(int i = 0; i< szereplok.size(); i ++){
+			if(szereplok.get(i).getId().equals(id)) 
+				return szereplok.get(i);  
+		}
+		System.out.println("Nincs ilyen nevu szereplo!: "+id);
+		return null;	
 	}
 	/**
 	 * Ez a metódus adja át a lépésjogot a következő játékosnak.
@@ -162,7 +168,7 @@ public final class Palya{
 		if(alkatreszek==3) {
 			Mezo mezo = aktJatekos.getMezo();
 			int szerep_szam = mezo.getSzereplokSzama();
-			if(szerep_szam == szereplok.size()-1)
+			if(szerep_szam == jatekosSzam)
 				JatekVege(true);
 		}
 		
@@ -189,7 +195,7 @@ public final class Palya{
 		mezok.clear();
 		szereplok.clear();
 		randomHovihar = true;
-		
+		jatekosSzam = 0;	
 		
 	}
 	/**
@@ -279,10 +285,18 @@ public final class Palya{
 					else if(params[0].equals("ujszereplo")){
 						if(params[2].equals("eszkimo")) {
 							szereplok.add(new Eszkimo(params[1]));
+							jatekosSzam++;
 						}
 						else if(params[2].equals("kutato")) {							
 							szereplok.add(new Kutato(params[1]));
 						}
+						else if(params[2].equals("medve")) {							
+							szereplok.add(new Medve(randomMedve,params[1]));
+						}
+					}
+					else if(params[0].equals("lehelyez")) {
+						getSzereplo(params[1]).setMezo(getMezo(params[2]));
+						getMezo(params[2]).setSzereplo(getSzereplo(params[1]));
 					}
 					else if(params[0].equals("osszekot")) {
 						Mezo mezo1 = getMezo(params[1]);
@@ -317,18 +331,10 @@ public final class Palya{
 				throw new Exception("Nincs eleg alkatresz!");	
 			if(szereplok.size()<3)
 				throw new Exception("Nincs eleg szereplo!");	
-			if(szereplok.size()*4>mezok.size())
-				throw new Exception("Nincs eleg mezo!");	
+			if(jatekosSzam*4>mezok.size())
+				throw new Exception("Nincs eleg mezo!");				
 			
-			
-			for(int i = 0; i<szereplok.size();i++) { 				
-					szereplok.get(i).setMezo(mezok.get(0));
-					mezok.get(0).setSzereplo(szereplok.get(i));
-			}				
-			Szereplo medve = new Medve(randomMedve, "medve");
-			szereplok.add(medve);
-			medve.setMezo(mezok.get(mezok.size()-1));
-			mezok.get(mezok.size()-1).setSzereplo(medve);
+		
 			System.out.println("Palya sikeresen felepult, a szereplok a helyukon vannak!");
 				
 				
@@ -388,6 +394,7 @@ public final class Palya{
 			data.add(szereplok);
 			data.add(mezok);
 			data.add(alkatreszek);
+			data.add(jatekosSzam);
 			oout.writeObject(data);			
 			
 			oout.close();
@@ -411,7 +418,8 @@ public final class Palya{
 				aktJatekos = (Szereplo) data.get(0);
 				szereplok = (ArrayList<Szereplo>) data.get(1);
 				mezok = (ArrayList<Mezo>) data.get(2);
-				alkatreszek = (int) data.get(3);					
+				alkatreszek = (int) data.get(3);	
+				jatekosSzam = (int) data.get(4);
 				
 				ois.close();
 				fin.close();
