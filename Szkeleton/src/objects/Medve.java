@@ -62,6 +62,11 @@ public class Medve extends Szereplo {
 	@Override
 	public void SpecKepesseg(Mezo cel) {
 	}
+	
+	/**
+	 * Felüldefiniált függvény, ami nem engedi, hogy elfogyjon a Medve testho-je.
+	 * Ez úgy van biztosítva, hogy mindig 1-re állítja az értékét.
+	 */
 	@Override 
 	public void TesthoHozzaad(int novekmeny) {testho = 1; }
 
