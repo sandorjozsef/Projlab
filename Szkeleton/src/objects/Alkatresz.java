@@ -17,6 +17,7 @@ public class Alkatresz implements Targy ,Serializable{
 	
 	/**
 	 * Azt jelzi, hogy a Palya tud-e erről az Alkatresz-ről
+	 * (true: még nem tud, be lehet neki jelenteni; false: tud már róla, nem lehet többet bejelenteni).
 	 */
 	private boolean bejelentheto = true;
 	

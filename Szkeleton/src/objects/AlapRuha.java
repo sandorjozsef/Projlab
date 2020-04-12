@@ -14,6 +14,10 @@ public class AlapRuha extends Ruha{
 	 * 
 	 */
 	private static final long serialVersionUID = -8985600671678347139L;
+	/**
+	 * Az AlapRuha-nak azt a tulajdonságát jelzi, hogy mennyire van elázva.
+	 * Az értéke 0, ha száraz, 1, ha vizes, illetve 2, ha megfagy.
+	 */
 	private int elazasi_szint = 0;
 	
 	/**
@@ -37,7 +41,7 @@ public class AlapRuha extends Ruha{
 	
 	/**
      * Ezzel a metódussal vízből kijövet meg tud száradni a ruha, ezzel biztosítva,
-     * hogy újabb beleeséskor is meglegyen mindkét fázis (vizes és megfagyott).
+     * hogy újabb vízbe eséskor is meglegyen mindkét fázis (vizes és megfagyott).
      * elazasi_szint-et 0-ra állítja.
      */
 	@Override

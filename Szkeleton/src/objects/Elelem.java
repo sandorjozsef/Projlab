@@ -16,7 +16,7 @@ public class Elelem implements Targy, Serializable{
 	/**
      * Az adott Elelem elfogyasztásra került, ezzel megszűnik.
      * @param felhasznalo Ennek a Szereplo-nek növeli a testho attribútumát eggyel
-     * (meghívja a TesthoHozzaad függvényét) és eldobatja a targy listából a referenciáját (meghívja az Eldob függvényét önmagával)
+     * (meghívja a TesthoHozzaad függvényét) és eldobatja a targy listából a referenciáját (meghívja az Eldob függvényét,aminek paraméteréül önmagát adja)
      */
 	public void Kepesseg(Szereplo felhasznalo)
 	{
