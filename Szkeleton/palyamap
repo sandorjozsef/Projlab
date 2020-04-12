@@ -1,16 +1,17 @@
-ujmezo mezo1 SARR
+ujmezo mezo1 SL22
 ujmezo mezo2 SB50
-ujmezo mezo3 I*RR
-ujmezo mezo4 L*RR
-ujmezo mezo5 SARR
-ujmezo mezo6 SARR
-ujmezo mezo7 SARR
-ujmezo mezo9 SARR
-ujmezo mezo10 SARR
-ujmezo mezo11 SARR
-ujmezo mezo12 SARR
-ujmezo mezo13 LARR
+ujmezo mezo3 I*26
+ujmezo mezo4 L*00
+ujmezo mezo5 SA00
+ujmezo mezo6 SA22
+ujmezo mezo7 SA22
+ujmezo mezo9 SA22
+ujmezo mezo10 SA22
+ujmezo mezo11 SA22
+ujmezo mezo12 SA22
+ujmezo mezo13 LA22
 
+osszekot mezo1 mezo6
 osszekot mezo1 mezo2
 osszekot mezo2 mezo4
 osszekot mezo2 mezo3
@@ -18,8 +19,9 @@ osszekot mezo5 mezo4
 osszekot mezo6 mezo4
 osszekot mezo7 mezo4
 osszekot mezo10 mezo4
+osszekot mezo10 mezo13
 
-randomvihar 1
+randomvihar 0
 randommedve 1
 
 ujszereplo szereplo1 eszkimo

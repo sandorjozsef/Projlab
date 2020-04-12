@@ -88,7 +88,7 @@ public class InstabilJegtabla extends Jegtabla{
 		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Felfordul()");
 		this.setHovastagsag(0);
 		this.setfelderitett(true);
-		alatta=szereplok;
+		alatta.addAll(szereplok);
 		szereplok.clear();
 		Indentor.degLevel();
 	}
