@@ -13,6 +13,10 @@ public class Sator extends Epulet implements Targy {
 	 */
 	private static final long serialVersionUID = 2877347695156132464L;
 
+	/**
+	 * A Sator élettartamát mutatja meg, vagyis azt, hogy hányszor lehet rá meghívni
+	 * az Amortizacio függvényét anélkül, hogy összeomlana.
+	 */
     private int elettartam = Palya.getSzereplokSzama();
     
     /**
