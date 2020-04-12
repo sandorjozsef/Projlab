@@ -6,10 +6,13 @@ import java.util.Random;
 import indent.Indentor;
 
 /**
- * A Medve egy olyan osztály, ami tud Mezo-t váltani, tehát a Lepheto-ből származik.
+ * A Medve egy fajta Szereplo (belőle származik le), amely magától lép és ha találkozik másik Szereplo-vel, akkor megtámadja.
  * @author Aviato
  */
 public class Medve extends Szereplo {
+	/**
+	 * Azt mutatja meg, hogy magától lép vagy külső beavatkozás hatására.
+	 */
 	private boolean autoLepes;
 	public Medve(boolean b,String id) {
 		super(id);
@@ -25,8 +28,8 @@ public class Medve extends Szereplo {
  
 
     /**
-     * Automatikus léptetés a következő Mezo-re.
-     * @param cel Az új Mezo, ami biztos, hogy szomszédos az előzővel, mert a kontroller fogja kiválasztani
+     * Átlépés egy másik mezőre.
+     * @param cel Az új Mezo, ami biztos, hogy szomszédos az előzővel, mert az Autolepes függvény biztosan olyat választ.
      */
     @Override
     public void Atlep(Mezo cel) 
@@ -53,13 +56,20 @@ public class Medve extends Szereplo {
         return "Medve";
     }
 
+    /**
+     * Ilyen értelemben nincs speciális képessége, így ez a függvény nem csinál semmit.
+     */
 	@Override
 	public void SpecKepesseg(Mezo cel) {
 	}
 	@Override 
 	public void TesthoHozzaad(int novekmeny) {testho = 1; }
 
-
+	/**
+	 * Ha az autoLepes értéke true, akkor kiválasztja az aktmezo szomszédos Mezo-i közül az egyiket, 
+	 * amelyre lépni szeretne és ezzel paraméterezve meghívja az Atlep metódusát.
+	 * Ha pedig false az értéke, akkor a felhasználót megkéri, hogy válasszon ezek a szomszédos Mezo-k közül.
+	 */
 	@Override
 	public void Autolepes() {
 		
@@ -79,11 +89,11 @@ public class Medve extends Szereplo {
 		this.Vegeztem();
 	}
 
-
-
+	/**
+	 * Amikor érintkezik valamilyen Szereplo-vel, akkor megtámadja őket. Meghívja az aktuális Mezo-jének a Tamadas metódusát.
+	 */
 	@Override
 	public void Erintkezik() {
 		aktmezo.Tamadas();
-		
 	}
 }
