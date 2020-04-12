@@ -14,6 +14,13 @@ public class Medve extends Szereplo {
 	 * Azt mutatja meg, hogy magától lép vagy külső beavatkozás hatására.
 	 */
 	private boolean autoLepes;
+	
+	/**
+	 * A Medve konstruktora, amely meghívja az ősének a konstruktorát id paraméterrel és a testho-jét 1-re állítja,
+	 * valamint beállítja a Ruha-ját Buvarruha-ra (ezzel biztosítva, hogy ne tudjon vízbefagyni és ki is tudjon onnan mászni.
+	 * @param b Annak az értéke, hogy magától lép vagy sem
+	 * @param id Az adott Medve játékbeli neve
+	 */
 	public Medve(boolean b,String id) {
 		super(id);
 		testho = 1;
