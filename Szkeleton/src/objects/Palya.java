@@ -81,7 +81,8 @@ public final class Palya{
 		mezo.Hatas(aktJatekos);
 		Hovihar();
 		Mezofrissit();
-		System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");
+		if(aktJatekos != null)
+			System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");
 		
 		
 		Indentor.degLevel();
@@ -120,10 +121,10 @@ public final class Palya{
 		aktJatekos = null;
 		clear();
 		if(nyert) {
-			System.out.println(Indentor.getIndent()+" - Jatek megnyerve");
+			System.out.println("jatek megnyerve");
 		}
 		else {			
-			System.out.println(Indentor.getIndent()+" - Jatek elveszitve");
+			System.out.println("jatek elveszitve");
 		}
 		
 		Indentor.degLevel();
@@ -291,7 +292,7 @@ public final class Palya{
 							mezo2.setSzomszed(mezo1);
 						}
 					}
-					else if(params[0].equals("randomhovihar")) {
+					else if(params[0].equals("randomvihar")) {
 						if(params[1].equals("1")) {
 							randomHovihar = true;
 						}
