@@ -43,12 +43,14 @@ public class Medve extends Szereplo {
     {
     	Indentor.incLevel();
         System.out.println(Indentor.getIndent() + Name() + ".Atlep()");
- 
-        boolean siker = cel!=null && cel.Befogad(this, aktmezo);
+        Mezo regi= aktmezo;
+        aktmezo=cel;
+        boolean siker = cel!=null && cel.Befogad(this, regi);
         if (siker) {
-            aktmezo.Kiad(this);
-            aktmezo = cel;
-        }
+            regi.Kiad(this);
+            
+        }else
+        	aktmezo=regi;
     }
 
  
