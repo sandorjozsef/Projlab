@@ -289,6 +289,7 @@ public final class Palya{
 						}
 						else if(params[2].equals("kutato")) {							
 							szereplok.add(new Kutato(params[1]));
+							jatekosSzam++;
 						}
 						else if(params[2].equals("medve")) {							
 							szereplok.add(new Medve(randomMedve,params[1]));
