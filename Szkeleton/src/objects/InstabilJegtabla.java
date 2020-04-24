@@ -136,22 +136,41 @@ public class InstabilJegtabla extends Jegtabla{
 	@Override
 	public void MezoInfo(BufferedWriter bw)
 	{
-		System.out.println("Nev: "+ getId());
-		if(this.getfelderitett()) {
-			System.out.println("Tipus: "+Name());	
-			System.out.println("Teherbiras: "+this.teherbiras);	
-		}			
-		else
-			System.out.println("Tipus: Ismeretlen");
-		System.out.println("hoVastagsag: "+ this.gethoVastagsag());
-		if(this.getfelderitett()) {
-			System.out.print("Szereplok alatta: ");
-			alatta.forEach(sz->System.out.print(" |"+ sz.getId()));
+		try {
+			System.out.println("Nev: "+ getId());
+			bw.write(" "+getId());
+			if(this.getfelderitett()) {
+				System.out.println("Tipus: "+Name());	
+				bw.write(" "+Name());					
+			}			
+			else {
+				System.out.println("Tipus: Ismeretlen");
+				bw.write(" ismeretlen");
+				
+			}
+			System.out.println("hoVastagsag: "+ this.gethoVastagsag());
+			bw.write(" "+this.gethoVastagsag());
+			if(this.getfelderitett()) {
+				System.out.println("Teherbiras: "+this.teherbiras);
+				bw.write(" "+this.teherbiras);	
+				System.out.print("Szereplok alatta: ");
+				alatta.forEach(sz->System.out.print(" |"+ sz.getId()));
+				System.out.println();
+				for(int i = 0; i<alatta.size(); i++)  {	        	
+		       		bw.write(" "+alatta.get(i).getId());
+		        }
+			}			
+			
+			System.out.print("Szereplok: ");
+			szereplok.forEach(sz->System.out.print(" |"+ sz.getId()));
 			System.out.println();
-		}			
-		
-		System.out.print("Szereplok: ");
-		szereplok.forEach(sz->System.out.print(" |"+ sz.getId()));
-		System.out.println();
+			for(int i = 0; i<szereplok.size(); i++)  {	        	
+	       		bw.write(" "+szereplok.get(i).getId());
+	        }
+			bw.newLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

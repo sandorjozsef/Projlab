@@ -242,37 +242,34 @@ public abstract class Mezo implements Serializable{
 	 */
 	public void MezoInfo(BufferedWriter bw)
 	{
-		/*try {
-			if(!fajlnev.equals("")) {
-				File f = new File(fajlnev);
-				f.createNewFile();
+		try {
+			System.out.println("Nev: "+ this.id);
+			bw.write(id);
+			if(felderitett) {
+				System.out.println("Tipus: "+Name());	
+				bw.write(" "+Name());
 				
-					@SuppressWarnings("resource")
-					FileOutputStream fout = new FileOutputStream(fajlnev);
-					BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fout));
-					writer.write(this.id+" "+(felderitett?Name():"ismertlen")+" "+this.hoVastagsag+" "+(getMedve()?"1":"0")+" ");
-					for(int i = 0; i< szereplok.size();i++) {
-						writer.write(szereplok.get(i).getId()+" ");
-					}					
-					writer.close();
-					fout.close();
-					
 			}
-		}
-		catch (IOException e) {
+			else {
+				System.out.println("Tipus: Ismeretlen");
+				bw.write(" ismeretlen");
+			}
+			System.out.println("hoVastagsag: "+ this.hoVastagsag);
+			bw.write(" "+hoVastagsag);
+			System.out.print("Szereplok: ");
+			szereplok.forEach(sz->System.out.print(" |"+ sz.getId()));
+			for(int i = 0; i<szereplok.size(); i++)  {	        	
+	       		bw.write(" "+szereplok.get(i).getId());
+	        }
+			System.out.println();			
+			System.out.println("Epulet: "+iglu.Name());
+			bw.write(" "+iglu.Name());
+			bw.newLine();
+			
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
-		System.out.println("Nev: "+ this.id);
-		if(felderitett) 
-			System.out.println("Tipus: "+Name());	
-		else
-			System.out.println("Tipus: Ismeretlen");
-		System.out.println("hoVastagsag: "+ this.hoVastagsag);
-		System.out.print("Szereplok: ");
-		szereplok.forEach(sz->System.out.print(" |"+ sz.getId()));
-		System.out.println();
-		if(felderitett) 
-			System.out.println("Epulet: "+iglu.Name());
+		}
+		
 	}
 }

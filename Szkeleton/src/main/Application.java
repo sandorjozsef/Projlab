@@ -1,6 +1,7 @@
 package main;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 import objects.*;
@@ -36,30 +38,37 @@ public class Application {
 	 * újra bekérjük az azonositót, ameddig végre nem hajtható az indexelés és futtatás
 	 * @throws IOException 
 	  */
-	public static void main(String[] args){	
+	public static void main(String[] args) throws IOException{	
 		
 		
 		boolean exit = false;
 		
-		BufferedReader reader;
+		BufferedReader input;
+		BufferedWriter output;
 		InputStream is = null;
+		FileOutputStream fout = null;
+		
+		
 		if(args.length==0) {			
 			is = System.in;
 		}
-		else {
-			try {
-				is = new FileInputStream(args[0]);
-			} catch (FileNotFoundException e) {				
-				e.printStackTrace();
-				System.exit(-1);
-			}
+		else {			
+			is = new FileInputStream(args[0]);			
 		}
 		
-		reader = new BufferedReader(new InputStreamReader(is));
+		
+		input = new BufferedReader(new InputStreamReader(is));		
+		File outputFile = new File("kimenet.dat");
+		if(!outputFile.exists())				
+			outputFile.createNewFile();
+		fout = new FileOutputStream(outputFile);	
+		output = new BufferedWriter(new OutputStreamWriter(fout));
+		
+		
 		while(!exit) {
 			try {
 				
-				String sor = reader.readLine();
+				String sor = input.readLine();
 				String params[] = sor.split(" ");		
 			
 					
@@ -83,13 +92,13 @@ public class Application {
 				else if(params[0].equals("betolt")) {
 					File f= new File(params[1]);
 					if(f.exists())
-						reader = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+						input = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
 				}
 				else if(params[0].equals("elment")) {
 					Palya.Save(params[1]);
 				}
 				else if(params[0].equals("***")) {
-					reader = new BufferedReader(new InputStreamReader(System.in));
+					input = new BufferedReader(new InputStreamReader(System.in));
 				}
 				else if(params[0].equals("jatekos")) {									
 					if(params[1].equals("lep")) {										
@@ -117,16 +126,16 @@ public class Application {
 			   }
 				else if(params[0].equals("megtekint")) {
 					if(params[1].equals("palya")) {							
-						Palya.Megtekintes(0,"", null);				
+						Palya.Megtekintes(0,"", output);				
 					}
 					else if(params[1].equals("allapot")) {
-						Palya.Megtekintes(1,"", null);	
+						Palya.Megtekintes(1,"", output);	
 					}
 					else if(params[1].equals("inventory")) {
-						Palya.Megtekintes(2,"", null);	
+						Palya.Megtekintes(2,"", output);	
 					}
 					else if(params[1].equals("mezo")) {
-						Palya.Megtekintes(3, params[2], null);	
+						Palya.Megtekintes(3, params[2], output);	
 					}
 					else {
 						System.out.println("Hibas parameter!");
@@ -139,70 +148,14 @@ public class Application {
 			}
 			catch(Exception e) {
 				e.printStackTrace();
-			}
-				
-			
-			
-			
-			
-			/*
-			ArrayList<UseCase> useCases = new ArrayList<UseCase>();	
-			useCases.add(new EszkimoIglutEpit());
-			useCases.add(new KutatoFelderit());
-			useCases.add(new SzereploKoratadasStabil());
-			useCases.add(new SzereploKoratadasLuk());
-			useCases.add(new SzereploEszik());
-			useCases.add(new SzereploBuvarruha());
-			useCases.add(new SzereploAlkatresz());
-			useCases.add(new SzereploTargyfelvetel());
-			useCases.add(new ControlerHovihar());
-			useCases.add(new SzereploLepStabil());
-			useCases.add(new SzereploLepInstabil());
-			useCases.add(new SzereploLepLuk());
-			useCases.add(new SzereploTakarit());
-			useCases.add(new SzereploLapat());
-			useCases.add(new SzereploKotelLukrol());	
-			useCases.add(new SzereploKotelInstabil());
-			
-			System.out.println("LEHETSEGES USE-CASE-ek:\n");
-			System.out.println("[-1] - Kilepes a programbol");
-			for(int i = 0; i< useCases.size();i++) {
-				System.out.println("["+i+"] - "+useCases.get(i).getName());
-			}
-			boolean validID = false;
-			System.out.print("\nAdd meg a tetsztelni kivant use-case azonositojat: ");
-			
-			while(!validID) {
-				try {					
-					int useCaseID = Integer.parseInt(reader.readLine());
-					
-					if(useCaseID == -1) {
-						exit = true;
-						break;
-					}
-					
-					
-					validID = true;					
-					useCases.get(useCaseID).run();
-				}
-				catch(Exception e) {
-				
-					validID = false;	
-					//e.printStackTrace();
-					System.out.print("Nem megfelelo azonosito, probalkozz ujra!: ");
-				}
-			}
-			System.out.print("\n---Nyomj ENTER-t---\n");			
-			try {
-				reader.read();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
-		}
+			}			
+	
+		}		
 		
-		
-		
+		output.close();
+		input.close();
+		is.close();
+		fout.close();
 		
 	}
 	

@@ -1,6 +1,7 @@
 package objects;
  
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
  
@@ -294,6 +295,17 @@ public abstract class Szereplo implements Serializable{
         System.out.println("Lepesszam: "+lepesszam);
         System.out.println("Viselt ruha: "+ruha.Name());
         System.out.println();
+        
+        
+        try {
+			bw.write(getId() + " "+testho+" "+lepesszam+" "+ruha.Name());
+			bw.newLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        
     }
     
     /**
@@ -302,8 +314,16 @@ public abstract class Szereplo implements Serializable{
      */
     public void targyInfo(BufferedWriter bw) {
         System.out.println("Inventory:");
-        for(int i = 0; i<targyak.size(); i++)            
-            System.out.println("["+i+"] "+targyak.get(i).Name());
+        try {
+	        for(int i = 0; i<targyak.size(); i++)      {
+	        	System.out.println("["+i+"] "+targyak.get(i).Name());	       			
+	       		bw.write(targyak.get(i).Name()+" ");
+	        }
+	        bw.newLine();
+        } catch (IOException e) {
+        	// TODO Auto-generated catch block
+        	e.printStackTrace();
+        }
         
     }
     public abstract void Autolepes();
