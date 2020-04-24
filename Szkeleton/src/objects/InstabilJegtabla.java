@@ -160,7 +160,8 @@ public class InstabilJegtabla extends Jegtabla{
 		       		bw.write(" "+alatta.get(i).getId());
 		        }
 			}			
-			
+			System.out.println("Epulet: "+iglu.Name());
+			bw.write(" "+iglu.Name());
 			System.out.print("Szereplok: ");
 			szereplok.forEach(sz->System.out.print(" |"+ sz.getId()));
 			System.out.println();

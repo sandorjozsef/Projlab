@@ -256,14 +256,14 @@ public abstract class Mezo implements Serializable{
 			}
 			System.out.println("hoVastagsag: "+ this.hoVastagsag);
 			bw.write(" "+hoVastagsag);
+			System.out.println("Epulet: "+iglu.Name());
+			bw.write(" "+iglu.Name());
 			System.out.print("Szereplok: ");
 			szereplok.forEach(sz->System.out.print(" |"+ sz.getId()));
 			for(int i = 0; i<szereplok.size(); i++)  {	        	
 	       		bw.write(" "+szereplok.get(i).getId());
 	        }
 			System.out.println();			
-			System.out.println("Epulet: "+iglu.Name());
-			bw.write(" "+iglu.Name());
 			bw.newLine();
 			
 		} catch (IOException e) {

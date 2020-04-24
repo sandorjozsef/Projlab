@@ -58,7 +58,7 @@ public class Application {
 		
 		
 		input = new BufferedReader(new InputStreamReader(is));		
-		File outputFile = new File("kimenet.dat");
+		File outputFile = new File("jatek_kimenet//jatek_kimenet.dat");
 		if(!outputFile.exists())				
 			outputFile.createNewFile();
 		fout = new FileOutputStream(outputFile);	
