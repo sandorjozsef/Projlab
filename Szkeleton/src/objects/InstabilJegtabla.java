@@ -138,7 +138,7 @@ public class InstabilJegtabla extends Jegtabla{
 	{
 		try {
 			System.out.println("Nev: "+ getId());
-			bw.write(" "+getId());
+			bw.write(getId());
 			if(this.getfelderitett()) {
 				System.out.println("Tipus: "+Name());	
 				bw.write(" "+Name());					
