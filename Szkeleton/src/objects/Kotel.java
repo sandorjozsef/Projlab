@@ -1,7 +1,6 @@
 package objects;
 import java.io.Serializable;
 
-import indent.Indentor;
 
 /**
  * Implementálja a Targy interfészt, csak egy Szereplo hívhatja meg a Kepesseg()
@@ -24,16 +23,11 @@ public class Kotel implements Targy, Serializable{
 	 * nincs visszatérési érték
 	 */
 	public void Kepesseg(Szereplo sz) {
-		Indentor.incLevel();		
-		System.out.println(Indentor.getIndent() + "Kotel.Kepesseg()");
-		
 		
 		Mezo akt_mezo = sz.getMezo();
 		Mezo honnan = akt_mezo.ValasztSzomszed();
 		honnan.Kimenekit(akt_mezo);
 		
-		
-		Indentor.degLevel();
 		return;
 	}
 	

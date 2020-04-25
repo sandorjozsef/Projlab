@@ -1,6 +1,5 @@
 package objects;
 
-import indent.Indentor;
 /**
  *     olyan osztály amely a játékban szereplő Lukat testesíti meg
  *     és a játékszabályoknak megfelelően ha egy szereplő ide lép
@@ -23,18 +22,13 @@ public class Luk extends Mezo{
      */
 	public boolean Befogad(Szereplo belepo, Mezo regi)
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Luk.Befogad()");
-		
 		if(isSzomszed(regi)) {
 			szereplok.add(belepo);
 			szereplok.forEach((sz)->sz.Erintkezik());
 			this.setfelderitett(true);
 			Hatas(belepo);
-			Indentor.degLevel();
 			return true;
 		}else {
-			Indentor.degLevel();
 			return false;
 		}
 		
@@ -47,11 +41,9 @@ public class Luk extends Mezo{
      */
     public void Hatas(Szereplo sz)
     {
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent()+"Luk.Hatas()");
+     
         sz.Elazik();
-        Indentor.degLevel();
-       
+    
     }
     /**
      * ha valaki lukrol probál meg tárgyat felvenni, akkor nem jár sikerrel
@@ -59,9 +51,6 @@ public class Luk extends Mezo{
     @Override
     public Targy Atad() {
         // TODO Auto-generated method stub
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent()+"Luk.Atad()");
-        Indentor.degLevel();
         return null;
        
     }
@@ -71,9 +60,7 @@ public class Luk extends Mezo{
     @Override
     public void setEpulet(Epulet e) {
         // TODO Auto-generated method stub
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent()+"Luk.setIglu()");
-        Indentor.degLevel();
+
        
        
     }

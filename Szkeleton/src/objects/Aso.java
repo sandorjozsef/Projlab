@@ -2,7 +2,7 @@ package objects;
 
 import java.io.Serializable;
 
-import indent.Indentor;
+
 
 /**
  * Targy interfészt implementál, úgy lehet használni, mint a Lapat-ot,
@@ -28,13 +28,10 @@ public class Aso implements Targy, Serializable{
 	@Override
 	public void Kepesseg(Szereplo felhasznalo) 
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + Name() + ".Kepesseg()");	
 		felhasznalo.getMezo().HoHozzaad(-2);
 		--elettartam;
 		if (elettartam <= 0)
 			felhasznalo.Eldob(this);
-		Indentor.degLevel();
 	}
 
 	/**

@@ -13,7 +13,6 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.*;
 
-import indent.Indentor;
 import main.Application;
 
 /**
@@ -70,9 +69,6 @@ public final class Palya{
 	 * Hóvihart genrál
 	 */
 	public static void Leptet() {
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Palya.Leptet()");
-		
 		Szereplo kov;
 		int akt=szereplok.lastIndexOf(aktJatekos);
 		if(akt==szereplok.size()-1) {
@@ -91,8 +87,6 @@ public final class Palya{
 		if(aktJatekos != null)
 			System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");
 		
-		
-		Indentor.degLevel();
 	}
 
 	/**
@@ -100,8 +94,6 @@ public final class Palya{
 	 * csak bizonyos valószínűséggel generál ténylegesen hóvihart.
 	 */
 	public static void Hovihar() {
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Palya.Hovihar()");
 		Random rand = new Random();
 		if(randomHovihar) {
 			for(int i = 0; i<mezok.size();i++) {
@@ -113,7 +105,6 @@ public final class Palya{
 		else {
 			mezok.get(0).Hoeses();
 		}
-		Indentor.degLevel();
 	}
 	
 	/**
@@ -123,8 +114,6 @@ public final class Palya{
 	 * @param nyert 
 	 */
 	public static void JatekVege(boolean nyert){
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Palya.JatekVege()");
 		aktJatekos = null;
 		clear();
 		try {
@@ -138,7 +127,6 @@ public final class Palya{
 			}
 		}
 		catch (Exception e) {}
-		Indentor.degLevel();
 	}
 
 	/**
@@ -146,13 +134,10 @@ public final class Palya{
 	 * objektumok és az első szereplő megkapja a cselekvési jogot.
 	 */
 	public static void JatekotKezd(InputStream is) {
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Palya.JatekotKezd()");
 		if(BuildMap(is)) {
 			aktJatekos = szereplok.get(0);
 			System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");			
 		}
-		Indentor.degLevel();
 	}
 
 	/**
@@ -165,9 +150,7 @@ public final class Palya{
 	 * @param bejelentheto
 	 */
 	public static void AlkatresztKezel(boolean bejelentheto) {
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Palya.AlkatreszKezel()");
-		
+	
 		if(bejelentheto)
 			alkatreszek++;
 		if(alkatreszek==3) {
@@ -176,8 +159,7 @@ public final class Palya{
 			if(szerep_szam == jatekosSzam)
 				JatekVege(true);
 		}
-		
-		Indentor.degLevel();
+	
 	}
 	
 
@@ -224,8 +206,7 @@ public final class Palya{
 	 * @param is 
 	 */
 	public static boolean BuildMap(InputStream is) {
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Palya.BuildMap()");
+	
 		clear();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(is));	
 		 
@@ -352,7 +333,6 @@ public final class Palya{
 				e.printStackTrace();
 				return false;
 		}				
-		Indentor.degLevel();
 		return true;
 	}
 	public static void Megtekintes(int p,String mezoNev) {
@@ -382,13 +362,10 @@ public final class Palya{
 	
 	public static void Mezofrissit()
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"Palya.Mezofrissit()");
 		for(int i = 0; i<mezok.size();i++) {
 			mezok.get(i).Amortizal();
 		}
 		
-		Indentor.degLevel();
 	}
 	public static void Save(String fName) {
 		File s = new File(fName);

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import indent.Indentor;
+
 /**
  *	olyan osztály amely a játékban szereplő Instabiljégtáblát
  *	testesíti meg, és a játékszabályok alapján, ha túl sok szereplő
@@ -39,8 +39,6 @@ public class InstabilJegtabla extends Jegtabla{
 	 */
 	public boolean Befogad(Szereplo belepo, Mezo regi)
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Befogad()");
 		if(isSzomszed(regi)) 
 		{
 			this.szereplok.add(belepo);
@@ -49,10 +47,8 @@ public class InstabilJegtabla extends Jegtabla{
 				Felfordul();
 			}
 			Hatas(belepo);
-			Indentor.degLevel();
 			return true;
 		}else {
-			Indentor.degLevel();
 			return false;
 		}
 		
@@ -63,8 +59,6 @@ public class InstabilJegtabla extends Jegtabla{
 	 */
 	public void Hatas(Szereplo sz)
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Hatas()");
 		if (szereplok.contains(sz)) 
 		{
 			sz.Megszarit();
@@ -74,8 +68,6 @@ public class InstabilJegtabla extends Jegtabla{
 			sz.Elazik();	
 		}
 	
-		
-		Indentor.degLevel();
 	}
 	/**	
 	 *	a tabla szereplo tömbjének tartalmát pakolja bele az alatta tömbbe, és felderíti a jégtáblát,
@@ -84,13 +76,10 @@ public class InstabilJegtabla extends Jegtabla{
 	
 	public void Felfordul()
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Felfordul()");
 		this.setHovastagsag(0);
 		this.setfelderitett(true);
 		alatta.addAll(szereplok);
 		szereplok.clear();
-		Indentor.degLevel();
 	}
 	/**
 	 *	felüldefiniált függvény ami csak a tábla alatta tömbjéből
@@ -98,14 +87,11 @@ public class InstabilJegtabla extends Jegtabla{
 	 */
 	public void Kimenekit(Mezo cel)
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"InstabilJegtabla.Kimenekit()");
 		int szCount = szereplok.size();
 		for(int i = 0; i<szCount;i++) {
 			alatta.get(0).setLepesszam(4);
 			alatta.get(0).Atlep(cel);
 		}
-		Indentor.degLevel();
 		
 	}
 	/**
@@ -115,9 +101,6 @@ public class InstabilJegtabla extends Jegtabla{
 	@Override
 	public void setEpulet(Epulet e) {
 		// TODO Auto-generated method stub
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+"InstabilJegtabla.setIglu()");
-		Indentor.degLevel();
 		
 	}
 	/**

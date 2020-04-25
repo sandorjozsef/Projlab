@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
  
-import indent.Indentor;
  
 /**
  * A Szereplo egy absztrakt osztály. Egy szereplő vagy kutató vagy eszkimó vagy medve. A
@@ -81,9 +80,7 @@ public abstract class Szereplo implements Serializable{
      * @return Az aktuális mező
      */
     public Mezo getMezo() {
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent() + Name() + ".getMezo()");
-        Indentor.degLevel();
+      
         return aktmezo;
     }
 
@@ -106,15 +103,14 @@ public abstract class Szereplo implements Serializable{
         if (!Lephet())
             return;
         
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent() + Name() + ".Atlep()");
+    
  
         boolean siker = cel!=null && cel.Befogad(this, aktmezo);
         if (siker) {
             aktmezo.Kiad(this);
             aktmezo = cel;
         }
-        Indentor.degLevel();
+      
     }
  
     /**
@@ -125,10 +121,9 @@ public abstract class Szereplo implements Serializable{
     public void Takarit() {
         if (!Lephet())
             return;
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent() + Name() + ".Takarit()");
+       
         aktmezo.HoHozzaad(-1);
-        Indentor.degLevel();
+     
     }
  
     /**
@@ -137,14 +132,12 @@ public abstract class Szereplo implements Serializable{
      * @param novekmeny
      */
     public void TesthoHozzaad(int novekmeny) {
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent() + Name() + ".TesthoHozzaad()");
-        
+    
         testho += novekmeny;
         if (testho <= 0) {
             this.Meghaltam();
         }
-        Indentor.degLevel();
+       
     }
  
     /**
@@ -154,13 +147,11 @@ public abstract class Szereplo implements Serializable{
     public void Felvesz() {
         if (!Lephet())
             return;
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent() + Name() + ".Felvesz()");
- 
+      
         Targy t = aktmezo.Atad();
         if (t != null)
             targyak.add(t);
-        Indentor.degLevel();
+       
     }
  
     /**
@@ -182,11 +173,10 @@ public abstract class Szereplo implements Serializable{
     public void Hasznal(Targy targy) {
         if (!Lephet())
             return;
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent() + Name() + ".Hasznal()");
+       
         if (targyak.contains(targy))
             targy.Kepesseg(this);
-        Indentor.degLevel();
+       
     }
  
     /**
@@ -195,11 +185,10 @@ public abstract class Szereplo implements Serializable{
      * @param targy
      */
     public void Eldob(Targy targy) {
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent() + Name() + ".Eldob()");
+       
         if (targyak.contains(targy))
             targyak.remove(targy);
-        Indentor.degLevel();
+       
     }
  
     /**
@@ -216,10 +205,9 @@ public abstract class Szereplo implements Serializable{
      * @param a
      */
     public void setLepesszam(int a) {
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent() + Name() + ".setLepesszam()");
+      
         lepesszam = a;
-        Indentor.degLevel();
+      
     }
     
     /**
@@ -236,10 +224,9 @@ public abstract class Szereplo implements Serializable{
      * következő játékosnak.
      */
     public void Vegeztem() {
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent() + Name() + ".Vegeztem()");
+      
         Palya.Leptet();
-        Indentor.degLevel();
+        
     }
  
     /**
@@ -248,10 +235,9 @@ public abstract class Szereplo implements Serializable{
      * @param ruha
      */
     public void setRuha(Ruha ruha) {
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent() + Name() + ".setRuha()");
+      
         this.ruha = ruha;
-        Indentor.degLevel();
+       
     }
  
     /**
@@ -259,30 +245,27 @@ public abstract class Szereplo implements Serializable{
      * adja át.
      */
     public void Elazik() {
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent() + Name() + ".Elazik()");
+       
         ruha.Elazik(this);
-        Indentor.degLevel();
+       
     }
  
     /**
      * Meghívja a ruhája Megszarit() függvényét.
      */
     public void Megszarit() {
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent() + Name() + ".Megszarit()");
+       
         ruha.Megszarit();
-        Indentor.degLevel();
+       
     }
  
     /**
      * Meghívja a Palya JatekVege(false) függvényét.
      */
     public void Meghaltam() {
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent() + Name() + ".Meghaltam()");
+     
         Palya.JatekVege(false);
-        Indentor.degLevel();
+       
     }
     
     /**

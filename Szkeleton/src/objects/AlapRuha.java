@@ -3,7 +3,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 
-import indent.Indentor;
 /**
  * A Szereplo-höz tartozó olyan fajta ruha, amely kezdetben van rajta.
  * Ha ilyen viselete közben esik valaki vízbe, akkor el tud ázni és idővel megfagyni, ami a játék vesztését vonja maga után.
@@ -28,15 +27,15 @@ public class AlapRuha extends Ruha{
 	@Override
 	public void Elazik(Szereplo sz)
 	{ 
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+ Name() + ".Elazik()");
+		
+		
 		sz.setLepesszam(0);
 		if (elazasi_szint == 2)
 		{
 			sz.Meghaltam();
 		}
 		elazasi_szint++;
-		Indentor.degLevel();
+		
 	}
 	
 	/**
@@ -47,10 +46,9 @@ public class AlapRuha extends Ruha{
 	@Override
 	public void Megszarit()
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+ Name() + ".Megszarit()");
+		
+		
 		elazasi_szint = 0;
-		Indentor.degLevel();
 	}
 	
 	/**

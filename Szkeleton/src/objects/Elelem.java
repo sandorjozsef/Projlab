@@ -1,7 +1,7 @@
 package objects;
 import java.io.Serializable;
 
-import indent.Indentor;
+
 /**
  * Ez az osztály megvalósítja a Targy interfészt.
  * Élelmet reprezentál, ami növeli a testho adattagját egy Szereplo-nek.
@@ -20,11 +20,8 @@ public class Elelem implements Targy, Serializable{
      */
 	public void Kepesseg(Szereplo felhasznalo)
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+ Name() + ".Kepesseg()");
 		felhasznalo.TesthoHozzaad(1);
 		felhasznalo.Eldob(this);
-		Indentor.degLevel();
 	}
 	
 	/**

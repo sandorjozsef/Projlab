@@ -3,7 +3,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-import indent.Indentor;
 
 /**
  * A Medve egy fajta Szereplo (belőle származik le), amely magától lép és ha találkozik másik Szereplo-vel, akkor megtámadja.
@@ -41,8 +40,6 @@ public class Medve extends Szereplo {
     @Override
     public void Atlep(Mezo cel) 
     {
-    	Indentor.incLevel();
-        System.out.println(Indentor.getIndent() + Name() + ".Atlep()");
         Mezo regi= aktmezo;
         aktmezo=cel;
         boolean siker = cel!=null && cel.Befogad(this, regi);

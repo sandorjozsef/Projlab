@@ -11,7 +11,7 @@ import java.io.OutputStreamWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import indent.Indentor;
+
 import main.Application;
 /**
  * 	absztrakt osztály amely a játékosok lépéseinek, és egymástól való
@@ -47,10 +47,8 @@ public abstract class Mezo implements Serializable{
 	 *	beállítja azt hogy az átadott kilepo már nem áll az adott mezon
 	 */
 	public void Kiad (Szereplo kilepo){
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + Name()+".Kiad()");
+		
 		szereplok.remove(kilepo);
-		Indentor.degLevel();
 		
 	}
 	
@@ -62,8 +60,7 @@ public abstract class Mezo implements Serializable{
 	 */
 	public Mezo ValasztSzomszed()
 	{ 
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+Name()+".ValasztSzomszed()");
+		
 		System.out.print("Melyik szomszedos mezon tortenjen a cselekves? (");
 		for(int i=0;i<this.szomszedok.size();i++)
 			System.out.print(" "+szomszedok.get(i).getId());
@@ -74,7 +71,7 @@ public abstract class Mezo implements Serializable{
 			String mezonev = reader.readLine();
 			for(int i = 0; i<szomszedok.size(); i++) {
 				if(szomszedok.get(i).getId().equals(mezonev)) {
-					Indentor.degLevel();
+					
 					return szomszedok.get(i);
 				}
 			}
@@ -82,7 +79,7 @@ public abstract class Mezo implements Serializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Indentor.degLevel();
+	
 		return null;
 		
 
@@ -93,18 +90,13 @@ public abstract class Mezo implements Serializable{
 	 */
 	public void HoHozzaad(int novekmeny)
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+Name()+".HoHozzaad()");
+	
 		this.hoVastagsag+=novekmeny;
 		if(this.hoVastagsag<0)
 			this.hoVastagsag=0; 
 		
-		Indentor.degLevel();
 	}
 	public ArrayList<Mezo> getSzomszed() {
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+Name()+".getSzomszed()");
-		Indentor.degLevel();
 		return szomszedok;
 	}
 	/**
@@ -112,10 +104,8 @@ public abstract class Mezo implements Serializable{
 	 */
 	public void Felderit()
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+Name()+".Felderit()");
+	
 		this.felderitett=true;
-		Indentor.degLevel();
 		
 	}
 	/**
@@ -124,9 +114,7 @@ public abstract class Mezo implements Serializable{
  	 */
 	public boolean isSzomszed(Mezo szomszed)
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+Name()+".isSzomszed()");	
-		Indentor.degLevel();
+	
 		return this.szomszedok.contains(szomszed);
 		
 	}
@@ -159,14 +147,11 @@ public abstract class Mezo implements Serializable{
 	 */
 	public void Kimenekit(Mezo cel)
 	{
-		Indentor.incLevel();		
-		System.out.println(Indentor.getIndent() + Name() + ".Kimenekit()");
 		int szCount = szereplok.size();
 		for(int i = 0; i<szCount;i++) {
 			szereplok.get(0).setLepesszam(4);
 			szereplok.get(0).Atlep(cel);
 		}
-		Indentor.degLevel();
 		
 	}
 	/**
@@ -185,11 +170,9 @@ public abstract class Mezo implements Serializable{
 	 */
 	public void Hoeses()
 	{
-		Indentor.incLevel();		
-		System.out.println(Indentor.getIndent() + Name() +".Hoeses()");
+		
 		iglu.Levon(szereplok);
 		this.hoVastagsag++;
-		Indentor.degLevel();
 		
 	}
 	/**

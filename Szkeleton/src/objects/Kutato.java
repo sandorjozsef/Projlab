@@ -4,7 +4,6 @@ package objects;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import indent.Indentor;
 
 /**
  * A Kutato egy fajta Szereplo, mely azzal a képességgel bír, hogy fel tudja
@@ -39,16 +38,12 @@ public class Kutato extends Szereplo {
 	public void SpecKepesseg(Mezo cel) {
 		if (!Lephet())			
 			return;
-		
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Kutato.SpecKepesseg()");
 
 		boolean szomszed = aktmezo.isSzomszed(cel);
 		if(cel!=null && (szomszed || cel.equals(aktmezo))) {
 			cel.Felderit();
 		}
 
-		Indentor.degLevel();
 	}
 
 	/**

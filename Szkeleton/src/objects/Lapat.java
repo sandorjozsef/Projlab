@@ -1,8 +1,6 @@
 package objects;
 import java.io.Serializable;
 
-import indent.Indentor;
-
 
 /**
  * Implementálja a Targy interfészt, csak egy Szereplo hívhatja meg a Kepesseg()
@@ -24,14 +22,7 @@ public class Lapat implements Targy, Serializable{
 	 */
 	@Override	
 	public void Kepesseg(Szereplo felhasznalo) {
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Lapat.Kepesseg()");
-		
-		
 		felhasznalo.getMezo().HoHozzaad(-2);
-		
-		Indentor.degLevel();
-		
 	}
 	/**
 	 *  visszaadja az osztály nevét, implementálja a Targy függvényét

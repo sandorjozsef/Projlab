@@ -1,7 +1,7 @@
 package objects;
 
 import java.util.ArrayList;
-import indent.Indentor;
+
 /**
  * Targy-at implementáló, Epulet-ből leszármazó osztály. Tehát egy Mezo-ről fel lehet venni,
  * majd használatával felállítani, ami egy kör után megszűnik.
@@ -26,11 +26,8 @@ public class Sator extends Epulet implements Targy {
     @Override
     public void Kepesseg(Szereplo felhasznalo) 
     {
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent() + Name() + ".Kepesseg()");
         felhasznalo.getMezo().setEpulet(this);
         felhasznalo.Eldob(this);
-        Indentor.degLevel();
     } 
 
     /**
@@ -40,9 +37,7 @@ public class Sator extends Epulet implements Targy {
     @Override
     public void Levon(ArrayList<Szereplo> szereplok) 
     {
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent() + Name() + ".Levon()");
-        Indentor.degLevel();
+ 
     } 
 
     /**

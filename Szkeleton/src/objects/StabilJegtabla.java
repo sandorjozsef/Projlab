@@ -1,6 +1,6 @@
 package objects;
 
-import indent.Indentor;
+
 /**
  *    olyan osztály amely a játékban szereplő stabiljégtáblát testesíti meg,
  *    így ilyen típusú mezőről nem lehet vízbe esni soha, valamint az eszkimóknak
@@ -21,19 +21,17 @@ public class StabilJegtabla extends Jegtabla{
      */
     public boolean Befogad(Szereplo belepo, Mezo regi)
     {
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent()+"StabilJegtabla.Befogad()");
+        
         if(isSzomszed(regi)) 
         {
             this.szereplok.add(belepo);
             szereplok.forEach((sz)->sz.Erintkezik());
             Hatas(belepo);
-            Indentor.degLevel();
             return true;
         }
         else 
         {
-            Indentor.degLevel();
+          
             return false; 
         }
         
@@ -44,10 +42,9 @@ public class StabilJegtabla extends Jegtabla{
      */
     public void Hatas(Szereplo sz)
     {
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent()+"StabilJegtabla.Hatas()");
+      
         sz.Megszarit();
-        Indentor.degLevel();
+       
     }
     /**
      *    felüldefiniált függvény ami épületet épít a mezőre ha az fel van már derítve
@@ -55,11 +52,10 @@ public class StabilJegtabla extends Jegtabla{
     @Override
     public void setEpulet(Epulet e)
     {
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent()+"StabilJegtabla.setIglu()");
+    
         if (getfelderitett())
         	iglu = e;
-        Indentor.degLevel();
+    
     }
     /**
      *    felüldefiniált függvény ami nem engedi hogy StabilJegtablarol
@@ -67,9 +63,7 @@ public class StabilJegtabla extends Jegtabla{
      */
     public void Kimenekit(Mezo cel)
     {
-        Indentor.incLevel();
-        System.out.println(Indentor.getIndent()+"StabilJegtabla.Kimenekit()");
-        Indentor.degLevel();
+     
     }
     /**
      *     tudatja a kiiratásnál hogy egy StabilJegtablan végzik az esetlegesen

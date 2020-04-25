@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import indent.*;
+
 
 /**
  * Az Eszkimo osztály példányai 5 testhővel kezdik a játékot, és tudnak iglut
@@ -41,15 +41,12 @@ public class Eszkimo extends Szereplo {
 		if (!Lephet())
 			return;
 		
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent() + "Eszkimo.SpecKepesseg()");
-
+		
 		if (cel!=null && cel.equals(aktmezo)) {
 			Iglu iglu = new Iglu();
 			cel.setEpulet(iglu);
 		}
 
-		Indentor.degLevel();
 
 	}
 

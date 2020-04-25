@@ -3,7 +3,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 
-import indent.Indentor;
+
 /**
  * Targy interfészt megvalósító osztály, aminek 3 példányával történő felvevés
  * és Kepesseg használatot követően meg lehet nyerni a játékot.
@@ -30,10 +30,7 @@ public class Alkatresz implements Targy ,Serializable{
 	@Override
 	public void Kepesseg(Szereplo felhasznalo)
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+ Name() + ".Kepesseg()");
 		Palya.AlkatresztKezel(bejelentheto);
-		Indentor.degLevel();
 	}
 	
 	/**

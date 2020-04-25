@@ -1,7 +1,7 @@
 package objects;
 import java.io.Serializable;
 
-import indent.Indentor;
+
 /**
  * Ez az osztály megvalósítja a Targy interfészt és leszármazottja a Ruha-nak.
  * Tehát egy Jegtabla-ról az Atad függvény segítségével fel lehet venni a Szereplo-nek és használata után ez lesz a Ruha-ja.
@@ -20,10 +20,7 @@ public class Buvarruha extends Ruha implements Targy, Serializable {
 	@Override
 	public void Kepesseg(Szereplo felhasznalo)
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+ Name() + ".Kepesseg()");
 		felhasznalo.setRuha(this);
-		Indentor.degLevel();
 	}
 
 	/**
@@ -33,9 +30,6 @@ public class Buvarruha extends Ruha implements Targy, Serializable {
 	@Override
 	public void Elazik(Szereplo szereplo) 
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+ Name() + ".Elazik()");
-		Indentor.degLevel();
 	}
 	
 	/**
@@ -44,9 +38,6 @@ public class Buvarruha extends Ruha implements Targy, Serializable {
 	@Override
 	public void Megszarit() 
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+ Name() + ".Megszarit()");
-		Indentor.degLevel();
 	}
 	
 	/**

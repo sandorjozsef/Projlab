@@ -1,10 +1,7 @@
 package objects;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
-import indent.Indentor;
+
 /**
  *    olyan absztrakt osztály amely minden olyan mező őse ami nem luk,
  *     így a legfőbb különbsége, hogy van lehetőség tárgyat tárolni rajta,
@@ -32,18 +29,17 @@ public abstract class Jegtabla extends Mezo{
      */
 	public Targy Atad()
 	{
-		Indentor.incLevel();
-		System.out.println(Indentor.getIndent()+Name()+".Atad()");
+		
 		if (this.gethoVastagsag()!=0) 
 		{
-			Indentor.degLevel();
+			
 			return null;
 		}
 		else
 		{
 			Targy t = targy;
 			targy = null;
-			Indentor.degLevel();
+			
 			return t;
 		}
 		
