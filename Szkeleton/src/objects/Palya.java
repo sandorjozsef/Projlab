@@ -14,6 +14,7 @@ import java.io.Serializable;
 import java.util.*;
 
 import indent.Indentor;
+import main.Application;
 
 /**
  * Felügyeli a játék menetét. Ő felelős a hóviharok generálásáért, továbbá ő hozza létre a
@@ -119,20 +120,24 @@ public final class Palya{
 	 * Jelzi a játék kimenetének végét az átadott paraméter
 	 * függvényében. Akkor hívódik meg ha elsül a pisztoly (true), vagy ha valakinek
 	 * elfogyott a testhője (false) vagy megfulladt (false).
-	 * @param nyert
+	 * @param nyert 
 	 */
-	public static void JatekVege(boolean nyert) {
+	public static void JatekVege(boolean nyert){
 		Indentor.incLevel();
 		System.out.println(Indentor.getIndent()+"Palya.JatekVege()");
 		aktJatekos = null;
 		clear();
-		if(nyert) {
-			System.out.println("jatek megnyerve");
+		try {
+			if(nyert) {
+				Application.getOutput().write("jatek megnyerve");
+				Application.getOutput().newLine();
+			}
+			else {			
+				Application.getOutput().write("jatek elveszitve");
+				Application.getOutput().newLine();
+			}
 		}
-		else {			
-			System.out.println("jatek elveszitve");
-		}
-		
+		catch (Exception e) {}
 		Indentor.degLevel();
 	}
 
@@ -350,7 +355,8 @@ public final class Palya{
 		Indentor.degLevel();
 		return true;
 	}
-	public static void Megtekintes(int p,String mezoNev, BufferedWriter bw) {
+	public static void Megtekintes(int p,String mezoNev) {
+		BufferedWriter bw = Application.getOutput();
 		switch(p) {
 		case 0:
 			for(int i = 0; i<mezok.size();i++) {

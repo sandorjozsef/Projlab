@@ -22,8 +22,12 @@ import objects.*;
  */
 public class Application {	
 	static private BufferedReader input;
+	static private BufferedWriter output;
 	static public BufferedReader getInput() {
 		return input;
+	}
+	static public BufferedWriter getOutput() {
+		return output;
 	}
 	/**
 	 * Létrehozunk egy listát a UseCase interfészt implementáló osztályokból, amelynek elemieihez
@@ -47,7 +51,6 @@ public class Application {
 		
 		boolean exit = false;		
 		
-		BufferedWriter output;
 		InputStream is = null;
 		FileOutputStream fout = null;
 		
@@ -61,7 +64,7 @@ public class Application {
 		
 		
 		input = new BufferedReader(new InputStreamReader(is));		
-		File outputFile = new File("jatek_kimenet//jatek_kimenet.dat");
+		File outputFile = new File("jatek_kimenet\\jatek_kimenet.dat");
 		if(!outputFile.exists())				
 			outputFile.createNewFile();
 		fout = new FileOutputStream(outputFile);	
@@ -87,7 +90,7 @@ public class Application {
 						Palya.Load(params[2]);
 					}
 					else {
-						File f= new File(params[1]);
+						File f= new File(".\\" + params[1]);
 						if(f.exists())
 							Palya.JatekotKezd(new FileInputStream(f));
 					}				
@@ -129,16 +132,16 @@ public class Application {
 			   }
 				else if(params[0].equals("megtekint")) {
 					if(params[1].equals("palya")) {							
-						Palya.Megtekintes(0,"", output);				
+						Palya.Megtekintes(0,"");				
 					}
 					else if(params[1].equals("allapot")) {
-						Palya.Megtekintes(1,"", output);	
+						Palya.Megtekintes(1,"");	
 					}
 					else if(params[1].equals("inventory")) {
-						Palya.Megtekintes(2,"", output);	
+						Palya.Megtekintes(2, "");	
 					}
 					else if(params[1].equals("mezo")) {
-						Palya.Megtekintes(3, params[2], output);	
+						Palya.Megtekintes(3, params[2]);	
 					}
 					else {
 						System.out.println("Hibas parameter!");
