@@ -20,7 +20,11 @@ import objects.*;
  * main app
  *
  */
-public class Application {	 
+public class Application {	
+	static private BufferedReader input;
+	static public BufferedReader getInput() {
+		return input;
+	}
 	/**
 	 * Létrehozunk egy listát a UseCase interfészt implementáló osztályokból, amelynek elemieihez
 	 * később a listában lévő poziciójuk alapján azonositókat rendelünk
@@ -41,9 +45,8 @@ public class Application {
 	public static void main(String[] args) throws IOException{	
 		
 		
-		boolean exit = false;
+		boolean exit = false;		
 		
-		BufferedReader input;
 		BufferedWriter output;
 		InputStream is = null;
 		FileOutputStream fout = null;
@@ -98,7 +101,7 @@ public class Application {
 					Palya.Save(params[1]);
 				}
 				else if(params[0].equals("***")) {
-					input = new BufferedReader(new InputStreamReader(System.in));
+					input = new BufferedReader(new InputStreamReader(is));
 				}
 				else if(params[0].equals("jatekos")) {									
 					if(params[1].equals("lep")) {										

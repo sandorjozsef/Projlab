@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import indent.Indentor;
+import main.Application;
 /**
  * 	absztrakt osztály amely a játékosok lépéseinek, és egymástól való
  *	távolságuk meghatározásának az alapegysége, továbbá a játék alatt
@@ -67,7 +68,7 @@ public abstract class Mezo implements Serializable{
 		for(int i=0;i<this.szomszedok.size();i++)
 			System.out.print(" "+szomszedok.get(i).getId());
 		System.out.print(" ) ");
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader reader = Application.getInput();
 		
 		try {
 			String mezonev = reader.readLine();
