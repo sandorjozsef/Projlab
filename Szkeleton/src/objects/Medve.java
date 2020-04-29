@@ -79,7 +79,7 @@ public class Medve extends Szereplo {
 	/**
 	 * Ha az autoLepes értéke true, akkor kiválasztja az aktmezo szomszédos Mezo-i közül az egyiket, 
 	 * amelyre lépni szeretne és ezzel paraméterezve meghívja az Atlep metódusát.
-	 * Ha pedig false az értéke, akkor a felhasználót megkéri, hogy válasszon ezek a szomszédos Mezo-k közül.
+	 * Ha pedig false az értéke, akkor a felhasználót megkéri, hogy válasszon ezek  a szomszédos Mezo-k közül.
 	 */
 	@Override
 	public void Autolepes() {
