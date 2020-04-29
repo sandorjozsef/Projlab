@@ -8,7 +8,7 @@ public interface Targy {
      * A Targy képességét végrehajtó függvény.
      * @param felhasznalo Ez a Szereplo használja az adott Targy-at
      */
-    public void Kepesseg(Szereplo felhasznalo);
+    public void Kepesseg(Szereplo felhasznalo); 
    
     /**
      * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
