@@ -12,7 +12,7 @@ public interface Targy {
    
     /**
      * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
-     * @return A leszármazott fogja meghatározni
+     * @return A leszármazott fogja meghatározni 
      */
     public String Name();
 }
