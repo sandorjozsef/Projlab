@@ -9,7 +9,7 @@ public interface Targy {
      * @param felhasznalo Ez a Szereplo használja az adott Targy-at
      */
     public void Kepesseg(Szereplo felhasznalo); 
-   
+    
     /**
      * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.
      * @return A leszármazott fogja meghatározni  
