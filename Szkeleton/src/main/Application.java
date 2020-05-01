@@ -30,20 +30,61 @@ public class Application {
 		return output;
 	}
 	/**
-	 * Létrehozunk egy listát a UseCase interfészt implementáló osztályokból, amelynek elemieihez
-	 * később a listában lévő poziciójuk alapján azonositókat rendelünk
+	 * beolvassuk a konzolrol vagy a megadott input fájlból a parancsokat és végrehajtásra kerülnek
+	 * Ez vezérli a pályát és biztosít kommunikációs felületet a felhasználónak
 	 * 
-	 * Ezen azonositókkal tudjuk majd futtatni a kivánt use-caseket, miután bekértük a felhasználótól
+	 * Parancsok:
+	 * exit
+	 *	Leírás: Kilép a programból
+	 *	Opciók: -
+	 *
+	 *startjatek
+	 *	Leírás: Hasonló, mint a palyatepit parancs, felépíti a pályát fájlból vagy a konzolon megadott modell alapján, de itt ténylegesen elkezdjük a játékot és akár egy teljes, korábban elmentett játékállást is betölthetünk. Kötelező opciót megadni
+	 *	Opciók: 
+	 *		“konzol”: A pályát a konzolról akarjuk beolvasni
+	 *		<fájlnév>: Megadhatunk egy fájl útvonalat, ahonnan be akarjuk olvasni a pályát leíró fájlt
+	 *		“jatekallas” <fájlnév>:  Megadhatunk egy fájl útvonalat, ahonnan be akarjuk olvasni a teljes játékállást, majd onnan folytathatjuk a játékunk
+	 *
+	 *betolt
+	 *	Leírás: Egy fájlból töltünk be parancs sorozatot, amik egymás után végrehajtódnak, így pl. előre megírt futásokat tudunk betölteni. Kötelező opciót megadni.
+	 *	Opciók:
+	 * 		<fájlnév>: Megadhatunk egy fájl útvonalat, ahonnan be akarjuk olvasni a pályát 
+ 	 *
+	 * "***"
+	 *	Leírás: A “betolt” paranccsal hívott fájlok lezáró parancsa, tulajdonképpen visszaadja a vezérlést a konzolnak, kötelező minden ilyen fájl végén vagy legalább egyszeri előfordulás a fájlban kivéve, ha meghívja az “exit” parancsot.
+	 *	Opciók: -
+ 	 *
+	 *jatekos
+	 *	Leírás: Az éppen soron lévő szereplőt lehet vele vezérelni, különböző opciók segítségével. Kötelező opciót megadni
+	 *	Opciók: 
+	 *		“lep” <mező_neve>: A megadott id alapján választ egy mezőt a pályáról, amire megpróbál rálépni a játékos
+	 **		“kepesseg” <mező_neve>: A megadott id alapján választ egy mezőt a pályáról, amin használja a szereplő képességét
+	 *		“takarit”: A szereplő havat takarít el a mezőről, amire lépett
+	 *		“lepesvege”: A játékos átadja a körét a következő játékosnak
+	 **		“hasznal” <szám>: A megadott szám alapján választ egy tárgyat a gyűjteményéből , amit használni fog 
+	 *		“felvesz”: megpróbál felvenni egy tárgyat a pályáról
+	 *
+	 *elment
+	 *	Leírás: Elmentjük a teljes játékállást egy általunk megadott fájlba. Játékon kívülről is menthetünk,  akkor a még inicializálatlan objektumok mentődnek. Kötelező opciót megadni.
+	 *	Opciók: 
+	 * 		<fájlnév>: Megadhatunk egy fájl útvonalat, ahonnan be akarjuk olvasni a pályát 
+	 *
+	 *kimenet
+	 *	Leírás: Beállítja, hogy melyik fájlba történjen a kimeneti állapotok lementése megtekintéskor. Kötelező opciót megadni.
+	 *	Opciók: 
+	 * 		<fájlnév>: Megadhatunk egy fájl útvonalat, ahova ki akarjuk írni a jelenlegi állapotokat
+	 *
+	 *
+	 *megtekint
+	 *	Leírás: A pálya és szereplők állapotát jeleníti meg, hogy a felhasználó láthassa. Kötelező opciót megadni.
+	 *	Opciók:
+	 *		“palya”: Megjelenik az összes mező tulajdonsága, ami a felhasználó számára megtekinthető játékszinten
+	 *		“allapot”: Megjelennek a szereplő fontosabb tulajdonságai 
+	 *		“inventory”: Megjelennek a szereplő tárgyai, a hívásukhoz szükséges azonosítóikkal együtt
+	 *		“mezo” <mező_neve>: Megjelennek a kiválasztott mező tulajdonságai
+	 *
+	 *
 	 * 
-	 * Ezzel a módszerrel könnyen bővithető a usecase lista
-	 *
-	 *
-	 * Kiirjuk az egyes use-caseket és azonositójukat az osztályban tárolt nevüket felhasználva
-	 *
-	 *	
-	 * Elkapju kaz esetleges exception-oket pl.:
-	 * Ha nem egész szám jön az inputon vagy olyan szám jön, amvel túlindexelnénk a listát
-	 * újra bekérjük az azonositót, ameddig végre nem hajtható az indexelés és futtatás
 	 * @throws IOException 
 	  */
 	public static void main(String[] args) throws IOException{	
