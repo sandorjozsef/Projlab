@@ -13,7 +13,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.*;
 
-import main.Application;
+import main.MyApplication;
 
 /**
  * Felügyeli a játék menetét. Ő felelős a hóviharok generálásáért, továbbá ő hozza létre a
@@ -26,7 +26,7 @@ import main.Application;
 public final class Palya{
 	
 	
-	private static Szereplo aktJatekos;
+	private static Szereplo aktJatekos = null;
 	private static ArrayList<Szereplo> szereplok = new ArrayList<Szereplo>();
 	private static ArrayList<Mezo> mezok = new ArrayList<Mezo>();
 	private static int alkatreszek = 0;
@@ -118,15 +118,15 @@ public final class Palya{
 		clear();
 		try {
 			if(nyert) {
-				Application.getOutput().write("jatek megnyerve");
-				Application.getOutput().newLine();
+				MyApplication.getOutput().write("jatek megnyerve");
+				MyApplication.getOutput().newLine();
 			}
 			else {			
-				Application.getOutput().write("jatek elveszitve");
-				Application.getOutput().newLine();
+				MyApplication.getOutput().write("jatek elveszitve");
+				MyApplication.getOutput().newLine();
 			}
 		}
-		catch (Exception e) {}
+		catch (Exception e) {e.printStackTrace();}
 	}
 
 	/**
@@ -336,7 +336,7 @@ public final class Palya{
 		return true;
 	}
 	public static void Megtekintes(int p,String mezoNev) {
-		BufferedWriter bw = Application.getOutput();
+		BufferedWriter bw = MyApplication.getOutput();
 		switch(p) {
 		case 0:
 			for(int i = 0; i<mezok.size();i++) {
@@ -383,10 +383,7 @@ public final class Palya{
 			
 			oout.close();
 			fout.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} catch (IOException e) {e.printStackTrace();}
 		System.out.println("Jatek sikeresen mentve a '"+fName+"' fajlba!");
 		
 	}
@@ -407,12 +404,10 @@ public final class Palya{
 				
 				ois.close();
 				fin.close();
-			} catch (IOException | ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				
-			}
+			} catch (IOException | ClassNotFoundException e) {e.printStackTrace();}
+			
 			System.out.println("Jatek sikeresen betoltve a '"+fName+"' fajlbol!");
+			System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");	
 			
 		}	
 	}

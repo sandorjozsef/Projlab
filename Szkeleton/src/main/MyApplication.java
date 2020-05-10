@@ -13,14 +13,24 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.stage.Stage;
 import objects.*;
+import view.GrafNezet;
 
 /**
  * 
  * main app
  *
  */
-public class Application {	
+public class MyApplication extends Application implements EventHandler<ActionEvent>{	
+	private Stage window;
+	private GrafNezet nezet = new GrafNezet();
+	
+	
 	static private BufferedReader input;
 	static private BufferedWriter output;
 	static public BufferedReader getInput() {
@@ -88,9 +98,9 @@ public class Application {
 	 * @throws IOException 
 	  */
 	public static void main(String[] args) throws IOException{	
+		launch(args);
 		
-		
-		boolean exit = false;		
+		/*boolean exit = false;		
 		
 		InputStream is = null;
 		FileOutputStream fout = null;
@@ -103,7 +113,7 @@ public class Application {
 			is = new FileInputStream(args[0]);			
 		}
 		
-		
+		System.out.println("jatek");
 		input = new BufferedReader(new InputStreamReader(is));		
 		File outputFile = new File("jatek_kimenet\\jatek_kimenet.dat");
 		if(!outputFile.exists())				
@@ -202,9 +212,80 @@ public class Application {
 		output.close();
 		input.close();
 		is.close();
-		fout.close();
+		fout.close();*/
 		
 	}
+	@Override
+	public void start(Stage primaryStage) throws Exception {
 	
+		FileOutputStream fout = null;		
+		File outputFile = new File("jatek_kimenet\\jatek_kimenet.dat");
+		if(!outputFile.exists())				
+			outputFile.createNewFile();
+		fout = new FileOutputStream(outputFile);	
+		output = new BufferedWriter(new OutputStreamWriter(fout));
+		
+		
+		
+		
+		
+		window = primaryStage;
+		window.setTitle("Jegmezok");			
+		window.setResizable(false);		
+		window.setScene(nezet.getMenuNezet());
+		window.show();		
+		window.setOnCloseRequest(e ->{			
+			e.consume(); 
+			closeProgram();			
+		});
+		
+		
+		
+		
+		nezet.getMenuKilepB().setOnAction(this);
+		nezet.getStartB().setOnAction(this);
+		nezet.getBetoltB().setOnAction(this);
+		nezet.getJatekKilepB().setOnAction(this);
+		nezet.getMentesB().setOnAction(this);
+		
+		
+	}
+	@Override
+	public void handle(ActionEvent event) {
+		try {
+			if(event.getSource() == nezet.getMenuKilepB()) {
+				event.consume();
+				closeProgram();		
+			}
+			else if(event.getSource() == nezet.getJatekKilepB()) {				
+				Palya.Save("Mentes.dat");
+				Palya.JatekVege(false);
+				window.setScene(nezet.getMenuNezet());	
+			}
+			else if(event.getSource() == nezet.getStartB()) {				
+				File f= new File(".\\" + (nezet.getPalyaNev().equals("")?"Gold":nezet.getPalyaNev()));
+				if(f.exists()) {					
+					Palya.JatekotKezd(new FileInputStream(f));				
+					window.setScene(nezet.getJatekNezet());				
+				}
+			}
+			else if(event.getSource() == nezet.getBetoltB()) {
+				File f= new File(".\\" + (nezet.getJatekNev().equals("")?"Mentes.dat":nezet.getJatekNev()));
+				if(f.exists()) {						
+					Palya.Load(f.getName());
+					window.setScene(nezet.getJatekNezet());			
+				}
+			}
+			else if(event.getSource() == nezet.getMentesB()) {									
+				Palya.Save(nezet.getMentNev().equals("")?"Mentes.dat":nezet.getMentNev());		
+			}
+		
+		} catch(FileNotFoundException e){e.printStackTrace();}
+	}
+	public void closeProgram() {
+		window.close();
+		 Platform.exit();
+	     System.exit(0);
+	}
 	
 }
