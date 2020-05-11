@@ -2,6 +2,9 @@ package view;
 
 
 
+import java.util.ArrayList;
+
+import javafx.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -19,6 +22,8 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+
+import objects.*;
 import main.MyApplication;
 
 public class GrafNezet {
@@ -112,6 +117,54 @@ public class GrafNezet {
 		
 		mentJatek.setMaxWidth(300);
 	}
+	public void Mezolehelyez(ArrayList<Mezo> mezok) {
+		
+	}
+	public void FrissitKutato(Kutato k){
+		
+	}
+	public void FrissitEszkimo(Eszkimo e) {
+		
+	}
+	public void Frissitmedve(Medve m) {
+		
+	}
+	public void FrissitLuk(Luk l) {
+		
+	}
+	public void FrissitStabilJegtabla(StabilJegtabla s) {
+		
+	}
+	public void FrissitInstabilJegtabla(InstabilJegtabla i) {
+		
+	}
+	public void FrissitAso(Aso a) {
+		
+	}
+	public void FrissitLapat(Lapat l) {
+		
+	}
+	public void FrissitElelem(Elelem e) {
+		
+	}
+	public void FrissitSator(Sator s) {
+		
+	}
+	public void FrissitBuvarruha(Buvarruha b) {
+		
+	}
+	public void FrissitAlkatresz(Alkatresz a) {
+		
+	}
+	public void FrissitKotel(Kotel k) {
+		
+	}
+	public void FrissitIglu(Iglu i) {
+		
+	}
+	
+	
+	
 	public Scene getMenuNezet() {
 		return menuNezet;
 	}
