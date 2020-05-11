@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
- 
+ import view.*;
  
 /**
  * A Szereplo egy absztrakt osztály. Egy szereplő vagy kutató vagy eszkimó vagy medve. A
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author Aviato
  *
  */
-public abstract class Szereplo implements Serializable{
+public abstract class Szereplo implements Serializable, Nezheto{
  
 	 /**referencia az aktuális mezőre*/
     protected Mezo aktmezo; 
@@ -161,7 +161,8 @@ public abstract class Szereplo implements Serializable{
      * @return
      */
     public Targy getTargy(int i) {
-        return targyak.get(i);
+    	
+        return (targyak.size() <= i ? null : targyak.get(i));
     }
  
     /**
@@ -313,7 +314,13 @@ public abstract class Szereplo implements Serializable{
     public abstract void Erintkezik();
     public abstract String Name();
     
- 
+    @Override
+    public abstract void FrissitNezet(GrafNezet n);
+    
+    public Ruha getRuha()
+    {
+    	return ruha;
+    }
 }
  
 

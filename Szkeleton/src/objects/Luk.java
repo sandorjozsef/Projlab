@@ -1,5 +1,7 @@
 package objects;
 
+import view.GrafNezet;
+
 /**
  *     olyan osztály amely a játékban szereplő Lukat testesíti meg
  *     és a játékszabályoknak megfelelően ha egy szereplő ide lép
@@ -72,4 +74,8 @@ public class Luk extends Mezo{
         return "Luk";
        
     }
+	@Override
+	public void FrissitNezet(GrafNezet n) {
+		n.FrissitLuk(this);
+	}
 }

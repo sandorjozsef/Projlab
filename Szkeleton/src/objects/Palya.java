@@ -14,7 +14,7 @@ import java.io.Serializable;
 import java.util.*;
 
 import main.MyApplication;
-
+import view.*;
 /**
  * Felügyeli a játék menetét. Ő felelős a hóviharok generálásáért, továbbá ő hozza létre a
  * játékteret a különböző karakterisztikákkal együtt (hol legyenek elrejtve a tárgyak, hány mező
@@ -23,7 +23,7 @@ import main.MyApplication;
  * @author Aviato
  *
  */
-public final class Palya{
+public final class Palya implements Nezheto{
 	
 	
 	private static Szereplo aktJatekos = null;
@@ -410,6 +410,20 @@ public final class Palya{
 			System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");	
 			
 		}	
+	}
+
+	@Override
+	public void FrissitNezet(GrafNezet n) {
+		n.Torol();
+		if (this.aktJatekos == null)
+		{ // Menu megjelenitese
+			n.getMenuNezet();
+		}
+		else
+		{ // lefrissiti a palyat
+			n.getJatekNezet();
+			this.mezok.forEach(m -> m.FrissitNezet(n));
+		}
 	}
 	
 }

@@ -2,6 +2,8 @@ package objects;
 
 import java.io.Serializable;
 
+import view.GrafNezet;
+
 
 
 /**
@@ -42,6 +44,11 @@ public class Aso implements Targy, Serializable{
 	public String Name() 
 	{
 		return "Aso";
+	}
+
+	@Override
+	public void FrissitNezet(GrafNezet n) {
+		n.FrissitAso(this);
 	}
 	
 }

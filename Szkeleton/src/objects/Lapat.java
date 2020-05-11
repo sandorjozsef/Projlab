@@ -1,6 +1,8 @@
 package objects;
 import java.io.Serializable;
 
+import view.GrafNezet;
+
 
 /**
  * Implementálja a Targy interfészt, csak egy Szereplo hívhatja meg a Kepesseg()
@@ -29,6 +31,10 @@ public class Lapat implements Targy, Serializable{
 	 */
 	public String Name() {
 		return "Lapat";
+	}
+	@Override
+	public void FrissitNezet(GrafNezet n) {
+		n.FrissitLapat(this);
 	}
 
 }

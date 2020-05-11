@@ -11,7 +11,7 @@ import java.io.OutputStreamWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-
+import view.*;
 import main.MyApplication;
 /**
  * 	absztrakt osztály amely a játékosok lépéseinek, és egymástól való
@@ -19,14 +19,14 @@ import main.MyApplication;
  *	létrejövő hóviharok hatásának kifejtését segítő objektumokat 
  *	példányosítanak meg a leszármazottjai
  */
-public abstract class Mezo implements Serializable{
+public abstract class Mezo implements Serializable, Nezheto{
 	
 	private String id;
 	private static final long serialVersionUID = 8199843988858681838L;
 	protected Epulet iglu;
 	protected ArrayList<Szereplo> szereplok;
 	private ArrayList<Mezo> szomszedok;
-	private int hoVastagsag;
+	protected int hoVastagsag;
 	private boolean felderitett = false;
 	
 	/**
@@ -96,6 +96,11 @@ public abstract class Mezo implements Serializable{
 			this.hoVastagsag=0; 
 		
 	}
+	
+	public ArrayList<Szereplo> getSzereplok() {
+		return szereplok;
+	}
+	
 	public ArrayList<Mezo> getSzomszed() {
 		return szomszedok;
 	}
@@ -254,6 +259,12 @@ public abstract class Mezo implements Serializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+	}
+	
+	@Override
+	public abstract void FrissitNezet(GrafNezet n);
+	
+	public Epulet getEpulet(){
+		return iglu;
 	}
 }

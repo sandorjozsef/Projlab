@@ -2,6 +2,8 @@ package objects;
 
 import java.util.ArrayList;
 
+import view.GrafNezet;
+
 
 /**
  *    olyan osztály amely felelős azért hogy egy adott mezot
@@ -43,4 +45,8 @@ public class Iglu extends Epulet{
     @Override
     public void Tamadas()
     {}
+	@Override
+	public void FrissitNezet(GrafNezet n) {
+		n.FrissitIglu(this);
+	}
 }

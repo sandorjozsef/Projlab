@@ -1,6 +1,8 @@
 package objects;
 import java.util.ArrayList;
 
+import view.GrafNezet;
+
 
 /**
  * Az Epulet absztrakt osztály leszármazottja, a Levon() függvényét csak a Palya osztály hívja meg
@@ -54,5 +56,9 @@ public class Noglu extends Epulet{
 	public void Tamadas() 
 	{
 		Palya.JatekVege(false);
+	}
+	@Override
+	public void FrissitNezet(GrafNezet n) {
+		n.FrissitNoglu(this);
 	}
 }

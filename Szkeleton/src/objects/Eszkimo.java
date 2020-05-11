@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import view.GrafNezet;
+
 
 
 /**
@@ -70,6 +72,11 @@ public class Eszkimo extends Szereplo {
 	public void Erintkezik() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void FrissitNezet(GrafNezet n) {
+		n.FrissitEszkimo(this, Palya.getAktJatekos() == this);
 	}
 
 }

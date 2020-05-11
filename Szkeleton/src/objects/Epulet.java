@@ -1,12 +1,12 @@
 package objects;
 import java.io.Serializable;
 import java.util.*;
-
+import view.*;
 /**
  * Ez egy absztrakt osztály, amely egy építményt szimbolizál.
  * @author Aviato
  */
-public abstract class Epulet implements Serializable{
+public abstract class Epulet implements Serializable, Nezheto{
 	/**
 	 * 
 	 */
@@ -33,4 +33,7 @@ public abstract class Epulet implements Serializable{
      * @return A konkrét leszármazott fogja meghatározni
      */
     public abstract String Name();
+    
+    @Override
+    public abstract void FrissitNezet(GrafNezet n);
 }

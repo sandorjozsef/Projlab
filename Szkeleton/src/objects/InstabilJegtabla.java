@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import view.GrafNezet;
+
 
 /**
  *	olyan osztály amely a játékban szereplő Instabiljégtáblát
@@ -156,5 +158,13 @@ public class InstabilJegtabla extends Jegtabla{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	@Override
+	public void FrissitNezet(GrafNezet n) {
+		n.FrissitInstabilJegtabla(this, hoVastagsag == 0 && targy != null);
+	}
+	
+	public ArrayList<Szereplo> getAlatta() {
+		return alatta;
 	}
 }
