@@ -36,7 +36,11 @@ public class Elelem implements Targy, Serializable{
 
 	@Override
 	public void FrissitNezet(GrafNezet n) {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
 		
+=======
+		n.FrissitElelem(this);
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 	}
 }

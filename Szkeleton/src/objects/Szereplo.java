@@ -4,9 +4,13 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+<<<<<<< HEAD
 
 import view.Nezheto;
  
+=======
+ import view.*;
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
  
 /**
  * A Szereplo egy absztrakt osztály. Egy szereplő vagy kutató vagy eszkimó vagy medve. A
@@ -163,7 +167,8 @@ public abstract class Szereplo implements Serializable, Nezheto{
      * @return
      */
     public Targy getTargy(int i) {
-        return targyak.get(i);
+    	
+        return (targyak.size() <= i ? null : targyak.get(i));
     }
  
     /**
@@ -315,7 +320,13 @@ public abstract class Szereplo implements Serializable, Nezheto{
     public abstract void Erintkezik();
     public abstract String Name();
     
- 
+    @Override
+    public abstract void FrissitNezet(GrafNezet n);
+    
+    public Ruha getRuha()
+    {
+    	return ruha;
+    }
 }
  
 

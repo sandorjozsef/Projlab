@@ -73,7 +73,11 @@ public class Kutato extends Szereplo {
 
 	@Override
 	public void FrissitNezet(GrafNezet n) {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
 		
+=======
+		n.FrissitKutato(this, Palya.getAktJatekos() == this);
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 	}
 }

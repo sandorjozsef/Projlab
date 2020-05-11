@@ -34,8 +34,12 @@ public class Lapat implements Targy, Serializable{
 	}
 	@Override
 	public void FrissitNezet(GrafNezet n) {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
 		
+=======
+		n.FrissitLapat(this);
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 	}
 
 }

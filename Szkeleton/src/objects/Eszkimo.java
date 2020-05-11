@@ -76,8 +76,12 @@ public class Eszkimo extends Szereplo {
 
 	@Override
 	public void FrissitNezet(GrafNezet n) {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
 		
+=======
+		n.FrissitEszkimo(this, Palya.getAktJatekos() == this);
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 	}
 
 }

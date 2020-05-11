@@ -75,8 +75,12 @@ public class StabilJegtabla extends Jegtabla{
     }
 	@Override
 	public void FrissitNezet(GrafNezet n) {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
 		
+=======
+		n.FrissitStabilJegtabla(this, hoVastagsag == 0 && targy != null);	
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 	}
 
  

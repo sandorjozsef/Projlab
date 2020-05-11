@@ -76,7 +76,11 @@ public class Luk extends Mezo{
     }
 	@Override
 	public void FrissitNezet(GrafNezet n) {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
 		
+=======
+		n.FrissitLuk(this);
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 	}
 }

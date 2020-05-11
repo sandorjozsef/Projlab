@@ -11,7 +11,7 @@ import java.io.OutputStreamWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-
+import view.*;
 import main.MyApplication;
 import view.Nezheto;
 /**
@@ -27,7 +27,7 @@ public abstract class Mezo implements Serializable, Nezheto{
 	protected Epulet iglu;
 	protected ArrayList<Szereplo> szereplok;
 	private ArrayList<Mezo> szomszedok;
-	private int hoVastagsag;
+	protected int hoVastagsag;
 	private boolean felderitett = false;
 	
 	/**
@@ -97,6 +97,11 @@ public abstract class Mezo implements Serializable, Nezheto{
 			this.hoVastagsag=0; 
 		
 	}
+	
+	public ArrayList<Szereplo> getSzereplok() {
+		return szereplok;
+	}
+	
 	public ArrayList<Mezo> getSzomszed() {
 		return szomszedok;
 	}
@@ -255,6 +260,12 @@ public abstract class Mezo implements Serializable, Nezheto{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+	}
+	
+	@Override
+	public abstract void FrissitNezet(GrafNezet n);
+	
+	public Epulet getEpulet(){
+		return iglu;
 	}
 }

@@ -2,11 +2,18 @@ package view;
 
 
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 
 import javafx.*;
 import javafx.geometry.Insets;
+=======
+
+import java.util.ArrayList;
+
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 import javafx.geometry.Pos;
+import objects.*;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -27,6 +34,7 @@ import objects.*;
 import main.MyApplication;
 
 public class GrafNezet {
+	private ArrayList<Mezoinfo> mezoinf;
 	private Scene menuNezet ;
 	private Scene jatekNezet ;	
 	private VBox menuRoot ;
@@ -40,16 +48,25 @@ public class GrafNezet {
 	private Button jatekKilepB,	mentesB, felveszB, takaritB, kepessegB,	atlepB,	lepesvegeB;
 	private TextField mentJatek;
 	
+<<<<<<< HEAD
 	private Text szereploNev;
 	private Text testHo;
 	private Text lepesSzam;
 	
 	private Text cimke;
 
+=======
+	private int aktX, aktY;
+	private boolean vizben;
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 	public GrafNezet(){
+<<<<<<< HEAD
 		
 		
 		cimke = new Text("MENÜ");
+=======
+		vizben = false;
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 		startB = new Button("START");
 		betoltB = new Button("BETÖLT");
 		menuKilepB = new Button("KILÉP");		
@@ -211,5 +228,175 @@ public class GrafNezet {
 		return mentJatek.getText();
 	}
 	
+<<<<<<< HEAD
+=======
+	private void TargyakRajzol(Szereplo sz)
+	{
+		ArrayList<Targy> targyak = new ArrayList<Targy>();
+		boolean go = true;
+		for(int i = 0; go; i++)
+		{
+			Targy akt = sz.getTargy(i);
+			if (akt == null)
+				go = false;
+			else
+				targyak.add(akt);
+		}
+		for (int i = 0; i < targyak.size(); i++)
+		{	// TODO: repository helye, eltolas a targyszam (i) fuggvenyeben
+			targyak.get(i).FrissitNezet(this);
+		}
+	}
+	
+	public void FrissitKutato (Kutato sz, boolean aktJatekos) {
+		// TODO: Kirajzoltatja magat vizben attributum fuggvenyeben
+		if (aktJatekos)
+		{
+			TargyakRajzol(sz);
+			// TODO: ruha helyet meghatarozni
+			sz.getRuha().FrissitNezet(this);
+		}
+	}
+	
+	public void FrissitEszkimo (Eszkimo sz, boolean aktJatekos) {
+		// TODO: Kirajzoltatja magat vizben attributum fuggvenyeben
+		if (aktJatekos)
+		{
+			TargyakRajzol(sz);
+			// TODO: ruha helyet meghatarozni
+			sz.getRuha().FrissitNezet(this);
+		}
+	}
+	
+	public void FrissitMedve (Medve sz) {
+		// TODO: Kirajzoltatja magat vizben attributum fuggvenyeben
+	}
+	
+	public void FrissitLuk (Luk m) {
+		int i;
+		String luk_id = m.getId();
+		for (i = 0; i < mezoinf.size(); i++)
+		{
+			if (mezoinf.get(i).id.equals(luk_id))
+			{
+				aktX = mezoinf.get(i).X;
+				aktY = mezoinf.get(i).Y;
+			}
+		}
+		// TODO: Mezo kirajzoltatasa, felderitettseg vizsgalata
+		ArrayList<Szereplo> szereplok = m.getSzereplok();
+		vizben = true;
+		for (i = 0; i < szereplok.size(); i++)
+		{ // TODO: szereplok eltolasat javitani kell a pontos mezomeret alapjan (aktX, aktY eltolasa)
+			szereplok.get(i).FrissitNezet(this);
+		}
+		vizben = false;
+	}
+	
+	public void FrissitStabilJegtabla (StabilJegtabla m, boolean targyRajz) {
+		int i;
+		String mezo_id = m.getId();
+		for (i = 0; i < mezoinf.size(); i++)
+		{
+			if (mezoinf.get(i).id.equals(mezo_id))
+			{
+				aktX = mezoinf.get(i).X;
+				aktY = mezoinf.get(i).Y;
+			}
+		}
+		// TODO: Mezo kirajzoltatasa, felderitettseg vizsgalata
+		ArrayList<Szereplo> szereplok = m.getSzereplok();
+		for (i = 0; i < szereplok.size(); i++)
+		{ // TODO: szereplok eltolasat javitani kell a pontos mezomeret alapjan (aktX, aktY eltolasa)
+			szereplok.get(i).FrissitNezet(this);
+		}
+		if (targyRajz)
+		{ // TODO: targy helyenek beallitasa (Mezo helyzetenek fuggvenyeben mezoinf.get(p).X, .Y)
+			// Keretet is kell rajzolni
+			m.getTargy().FrissitNezet(this);
+		}
+		// TODO: elozoek erre is...
+		m.getEpulet().FrissitNezet(this);
+	}
+	
+	public void FrissitInstabilJegtabla (InstabilJegtabla m, boolean targyRajz) {
+		int p;
+		String mezo_id = m.getId();
+		for (p = 0; p < mezoinf.size(); p++)
+		{
+			if (mezoinf.get(p).id.equals(mezo_id))
+			{
+				aktX = mezoinf.get(p).X;
+				aktY = mezoinf.get(p).Y;
+			}
+		}
+		// TODO: Mezo kirajzoltatasa, felderitettseg vizsgalata
+		ArrayList<Szereplo> szereplok = m.getSzereplok();
+		ArrayList<Szereplo> alatta = m.getAlatta();
+		for (int i = 0; i < szereplok.size(); i++)
+		{ // TODO: szereplok eltolasat javitani kell a pontos mezomeret alapjan (aktX, aktY eltolasa)
+			szereplok.get(i).FrissitNezet(this);
+		}
+		vizben = true;
+		for (int i = 0; i < alatta.size(); i++)
+		{ // TODO: szereplok eltolasat javitani kell a pontos mezomeret alapjan (aktX, aktY eltolasa)
+			alatta.get(i).FrissitNezet(this);
+		}
+		vizben = false;
+		if (targyRajz)
+		{ // TODO: targy helyenek beallitasa (Mezo helyzetenek fuggvenyeben mezoinf.get(p).X, .Y)
+			// Keretet is kell rajzolni
+			m.getTargy().FrissitNezet(this);
+		}
+	}
+	
+	public void FrissitAso(Aso t) {
+		// TODO: Kirajzoltatja magat
+	}
+	
+	public void FrissitLapat(Lapat t) {
+		// TODO: Kirajzoltatja magat
+	}
+	
+	public void FrissitElelem(Elelem t) {
+		// TODO: Kirajzoltatja magat
+	}
+	
+	public void FrissitSator(Sator t) {
+		// TODO: Kirajzoltatja magat
+	}
+	
+	public void FrissitBuvarRuha(Buvarruha t) {
+		// TODO: Kirajzoltatja magat
+	}
+	
+	public void FrissitAlapRuha(AlapRuha t) {
+		// TODO: Kirajzoltatja magat
+	}
+	
+	public void FrissitAlkatresz(Alkatresz t) {
+		// TODO: Kirajzoltatja magat
+	}
+	
+	public void FrissitKotel(Kotel t) {
+		// TODO: Kirajzoltatja magat
+	}
+	
+	public void FrissitIglu(Iglu e) {
+		// TODO: Kirajzoltatja magat
+	}
+	
+	public void FrissitNoglu(Noglu e) {
+		// TODO: Kirajzoltatja magat
+	}
+	
+	public void Mezolehelyez(ArrayList<Mezo> mezok) {
+		// TODO: Joconak kene egy grafkirajzolast irnia
+	}
+	
+	public void Torol() {
+		// Letorli a palyat
+	}
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 }
 

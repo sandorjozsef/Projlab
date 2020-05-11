@@ -14,9 +14,13 @@ import java.io.Serializable;
 import java.util.*;
 
 import main.MyApplication;
+<<<<<<< HEAD
 import view.GrafNezet;
 import view.Nezheto;
 
+=======
+import view.*;
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 /**
  * Felügyeli a játék menetét. Ő felelős a hóviharok generálásáért, továbbá ő hozza létre a
  * játékteret a különböző karakterisztikákkal együtt (hol legyenek elrejtve a tárgyak, hány mező
@@ -416,8 +420,21 @@ public final class Palya implements Nezheto{
 
 	@Override
 	public void FrissitNezet(GrafNezet n) {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
 		
+=======
+		n.Torol();
+		if (this.aktJatekos == null)
+		{ // Menu megjelenitese
+			n.getMenuNezet();
+		}
+		else
+		{ // lefrissiti a palyat
+			n.getJatekNezet();
+			this.mezok.forEach(m -> m.FrissitNezet(n));
+		}
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 	}
 	
 }

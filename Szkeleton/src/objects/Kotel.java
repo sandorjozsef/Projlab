@@ -42,7 +42,11 @@ public class Kotel implements Targy, Serializable{
 
 	@Override
 	public void FrissitNezet(GrafNezet n) {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
 		
+=======
+		n.FrissitKotel(this);
+>>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 	}
 }

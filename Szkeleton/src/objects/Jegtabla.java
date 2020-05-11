@@ -12,7 +12,7 @@ public abstract class Jegtabla extends Mezo{
 	 * 
 	 */
 	private static final long serialVersionUID = -7327036173303629364L;
-	private Targy targy;
+	protected Targy targy;
 	
 	/**
 	 * konstruktor a Jegtablakhoz
@@ -43,5 +43,10 @@ public abstract class Jegtabla extends Mezo{
 			return t;
 		}
 		
+	}
+	
+	public Targy getTargy()
+	{
+		return targy;
 	}
 }
