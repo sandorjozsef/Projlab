@@ -1,8 +1,9 @@
 package view;
 
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import objects.*;
-public class MezoInfo extends Pane {
+public class MezoInfo extends Button  {
 	private Mezo mezo;
 	public MezoInfo(Mezo m, double x, double y, double w, double h) {
 		mezo = m;

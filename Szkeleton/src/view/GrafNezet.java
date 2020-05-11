@@ -40,6 +40,7 @@ public class GrafNezet {
 	private VBox menuRoot ;
 	private HBox topMenu;
 	private VBox jobbMenu;
+	private Pane jatekTer;
 	private BorderPane jatekRoot;
 	
 	private Button startB, betoltB, menuKilepB;
@@ -91,9 +92,10 @@ public class GrafNezet {
 		lepesSzam = new Text("Lépésszám:");
 		szereploNev = new Text("Szereplo1");
 		
+		jatekTer = new Pane();
 		topMenu = new HBox(jatekKilepB,mentesB,mentJatek);
 		jobbMenu = new VBox(szereploNev,testHo, lepesSzam,felveszB, takaritB, kepessegB,atlepB,lepesvegeB);
-		jatekRoot = new BorderPane(null,topMenu,jobbMenu,null,null);		
+		jatekRoot = new BorderPane(jatekTer,topMenu,jobbMenu,null,null);		
 		jatekNezet = new Scene(jatekRoot, 1400, 800, Color.BLACK);
 		
 		 Palya();
