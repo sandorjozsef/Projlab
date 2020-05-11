@@ -59,11 +59,8 @@ public class Noglu extends Epulet{
 	}
 	@Override
 	public void FrissitNezet(GrafNezet n) {
-<<<<<<< HEAD
-		// TODO Auto-generated method stub
-		
-=======
+
 		n.FrissitNoglu(this);
->>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
+
 	}
 }

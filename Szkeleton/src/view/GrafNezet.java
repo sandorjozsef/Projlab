@@ -2,16 +2,16 @@ package view;
 
 
 
-<<<<<<< HEAD
+
 import java.util.ArrayList;
 
 import javafx.*;
 import javafx.geometry.Insets;
-=======
+
 
 import java.util.ArrayList;
 
->>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
+
 import javafx.geometry.Pos;
 import objects.*;
 import javafx.scene.Scene;
@@ -48,25 +48,25 @@ public class GrafNezet {
 	private Button jatekKilepB,	mentesB, felveszB, takaritB, kepessegB,	atlepB,	lepesvegeB;
 	private TextField mentJatek;
 	
-<<<<<<< HEAD
+
 	private Text szereploNev;
 	private Text testHo;
 	private Text lepesSzam;
 	
 	private Text cimke;
 
-=======
+
 	private int aktX, aktY;
 	private boolean vizben;
->>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
+
 	public GrafNezet(){
-<<<<<<< HEAD
+
 		
 		
 		cimke = new Text("MENÜ");
-=======
+
 		vizben = false;
->>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
+
 		startB = new Button("START");
 		betoltB = new Button("BETÖLT");
 		menuKilepB = new Button("KILÉP");		
@@ -134,52 +134,6 @@ public class GrafNezet {
 		
 		mentJatek.setMaxWidth(300);
 	}
-	public void Mezolehelyez(ArrayList<Mezo> mezok) {
-		
-	}
-	public void FrissitKutato(Kutato k){
-		
-	}
-	public void FrissitEszkimo(Eszkimo e) {
-		
-	}
-	public void Frissitmedve(Medve m) {
-		
-	}
-	public void FrissitLuk(Luk l) {
-		
-	}
-	public void FrissitStabilJegtabla(StabilJegtabla s) {
-		
-	}
-	public void FrissitInstabilJegtabla(InstabilJegtabla i) {
-		
-	}
-	public void FrissitAso(Aso a) {
-		
-	}
-	public void FrissitLapat(Lapat l) {
-		
-	}
-	public void FrissitElelem(Elelem e) {
-		
-	}
-	public void FrissitSator(Sator s) {
-		
-	}
-	public void FrissitBuvarruha(Buvarruha b) {
-		
-	}
-	public void FrissitAlkatresz(Alkatresz a) {
-		
-	}
-	public void FrissitKotel(Kotel k) {
-		
-	}
-	public void FrissitIglu(Iglu i) {
-		
-	}
-	
 	
 	
 	public Scene getMenuNezet() {
@@ -228,8 +182,7 @@ public class GrafNezet {
 		return mentJatek.getText();
 	}
 	
-<<<<<<< HEAD
-=======
+
 	private void TargyakRajzol(Szereplo sz)
 	{
 		ArrayList<Targy> targyak = new ArrayList<Targy>();
@@ -397,6 +350,6 @@ public class GrafNezet {
 	public void Torol() {
 		// Letorli a palyat
 	}
->>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
+
 }
 

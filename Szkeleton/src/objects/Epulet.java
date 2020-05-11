@@ -1,13 +1,11 @@
 package objects;
 import java.io.Serializable;
 import java.util.*;
-<<<<<<< HEAD
 
 import view.Nezheto;
 
-=======
 import view.*;
->>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
+
 /**
  * Ez egy absztrakt osztály, amely egy építményt szimbolizál.
  * @author Aviato

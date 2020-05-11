@@ -4,13 +4,13 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-<<<<<<< HEAD
+
 
 import view.Nezheto;
  
-=======
+
  import view.*;
->>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
+
  
 /**
  * A Szereplo egy absztrakt osztály. Egy szereplő vagy kutató vagy eszkimó vagy medve. A

@@ -161,15 +161,10 @@ public class InstabilJegtabla extends Jegtabla{
 	}
 	@Override
 	public void FrissitNezet(GrafNezet n) {
-<<<<<<< HEAD
-		// TODO Auto-generated method stub
-		
-=======
 		n.FrissitInstabilJegtabla(this, hoVastagsag == 0 && targy != null);
 	}
 	
 	public ArrayList<Szereplo> getAlatta() {
 		return alatta;
->>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 	}
 }

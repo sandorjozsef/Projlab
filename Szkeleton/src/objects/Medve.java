@@ -114,11 +114,8 @@ public class Medve extends Szereplo {
 
 	@Override
 	public void FrissitNezet(GrafNezet n) {
-<<<<<<< HEAD
-		// TODO Auto-generated method stub
-		
-=======
+
 		n.FrissitMedve(this);
->>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
+
 	}
 }

@@ -45,14 +45,8 @@ public class Alkatresz implements Targy ,Serializable{
 	}
 
 	@Override
-<<<<<<< HEAD
-	public void FrissitNezet(GrafNezet n) {
-		// TODO Auto-generated method stub
-		
-=======
 	public void FrissitNezet(GrafNezet n) 
 	{
 		n.FrissitAlkatresz(this);
->>>>>>> branch 'master' of https://github.com/sandorjozsef/Projlab.git
 	}
 }
