@@ -2,7 +2,11 @@ package view;
 
 
 
+
+import java.util.ArrayList;
+
 import javafx.geometry.Pos;
+import objects.*;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -17,6 +21,7 @@ import javafx.scene.paint.Color;
 import main.MyApplication;
 
 public class GrafNezet {
+	private ArrayList<Mezoinfo> mezoinf;
 	private Scene menuNezet ;
 	private Scene jatekNezet ;
 	private VBox menuRoot ;
@@ -106,6 +111,54 @@ public class GrafNezet {
 	}
 	public String getMentNev() {
 		return mentJatek.getText();
+	}
+	public void FrissitKutato (Szereplo sz) {
+		
+	}
+	public void FrissitEszkimo (Szereplo sz) {
+		
+	}
+	public void FrissitMedve (Szereplo sz) {
+		
+	}
+	public void FrissitLuk (Mezo m) {
+		
+	}
+	public void FrissitStabilJegtabla (Mezo m) {
+		
+	}
+	public void FrissitInstabilJegtabla (Mezo m) {
+		
+	}
+	public void FrissitAso(Targy t) {
+		
+	}
+	public void FrissitLapat(Targy t) {
+		
+	}
+	public void FrissitElelem(Targy t) {
+		
+	}
+	public void FrissitSator(Targy t) {
+		
+	}
+	public void FrissitBuvarRuha(Targy t) {
+		
+	}
+	public void FrissitAlkatresz(Targy t) {
+		
+	}
+	public void FrissitKotel(Targy t) {
+		
+	}
+	public void FrissitIglu(Epulet e) {
+		
+	}
+	public void FrissitNoglu(Epulet e) {
+		
+	}
+	public void Mezolehelyez(ArrayList<Mezo> mezok) {
+		
 	}
 }
 
