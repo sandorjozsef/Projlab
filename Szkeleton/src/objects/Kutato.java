@@ -4,6 +4,8 @@ package objects;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import view.GrafNezet;
+
 
 /**
  * A Kutato egy fajta Szereplo, mely azzal a képességgel bír, hogy fel tudja
@@ -65,6 +67,12 @@ public class Kutato extends Szereplo {
 
 	@Override
 	public void Erintkezik() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void FrissitNezet(GrafNezet n) {
 		// TODO Auto-generated method stub
 		
 	}

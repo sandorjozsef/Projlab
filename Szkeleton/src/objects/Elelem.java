@@ -1,6 +1,8 @@
 package objects;
 import java.io.Serializable;
 
+import view.GrafNezet;
+
 
 /**
  * Ez az osztály megvalósítja a Targy interfészt.
@@ -30,5 +32,11 @@ public class Elelem implements Targy, Serializable{
      */
 	public String Name() {
 		return "Elelem";
+	}
+
+	@Override
+	public void FrissitNezet(GrafNezet n) {
+		// TODO Auto-generated method stub
+		
 	}
 }

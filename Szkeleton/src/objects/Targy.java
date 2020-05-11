@@ -1,9 +1,12 @@
 package objects;
+
+import view.Nezheto;
+
 /**
  * Ez egy olyan interfész, ami a tárgyat szimbolizálja, annak egy képességével.
  * @author Aviato
  */
-public interface Targy {
+public interface Targy extends Nezheto {
     /**
      * A Targy képességét végrehajtó függvény.
      * @param felhasznalo Ez a Szereplo használja az adott Targy-at

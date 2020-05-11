@@ -2,11 +2,13 @@ package objects;
 import java.io.Serializable;
 import java.util.*;
 
+import view.Nezheto;
+
 /**
  * Ez egy absztrakt osztály, amely egy építményt szimbolizál.
  * @author Aviato
  */
-public abstract class Epulet implements Serializable{
+public abstract class Epulet implements Serializable, Nezheto{
 	/**
 	 * 
 	 */

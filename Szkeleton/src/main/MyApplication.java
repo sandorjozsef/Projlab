@@ -227,12 +227,13 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 		
 		
 		
-		
-		
 		window = primaryStage;
 		window.setTitle("Jegmezok");			
 		window.setResizable(false);		
 		window.setScene(nezet.getMenuNezet());
+		
+		window.setX(50);
+		window.setY(100);
 		window.show();		
 		window.setOnCloseRequest(e ->{			
 			e.consume(); 
@@ -247,6 +248,12 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 		nezet.getBetoltB().setOnAction(this);
 		nezet.getJatekKilepB().setOnAction(this);
 		nezet.getMentesB().setOnAction(this);
+		
+		nezet.getFelveszB().setOnAction(this);
+		nezet.getTakaritB().setOnAction(this);
+		nezet.getKepessegB().setOnAction(this);
+		nezet.getAtlepB().setOnAction(this);
+		nezet.getLepesvegeB().setOnAction(this);
 		
 		
 	}

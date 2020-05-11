@@ -3,6 +3,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 
+import view.GrafNezet;
+
 
 /**
  * Targy interfészt megvalósító osztály, aminek 3 példányával történő felvevés
@@ -40,5 +42,11 @@ public class Alkatresz implements Targy ,Serializable{
 	@Override
 	public String Name() {
 		return "Alkatresz";
+	}
+
+	@Override
+	public void FrissitNezet(GrafNezet n) {
+		// TODO Auto-generated method stub
+		
 	}
 }

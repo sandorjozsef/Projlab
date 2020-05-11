@@ -1,5 +1,6 @@
 package objects;
 
+import view.GrafNezet;
 
 /**
  *    olyan osztály amely a játékban szereplő stabiljégtáblát testesíti meg,
@@ -72,6 +73,11 @@ public class StabilJegtabla extends Jegtabla{
     public String Name() {
         return "StabilJegtabla";
     }
+	@Override
+	public void FrissitNezet(GrafNezet n) {
+		// TODO Auto-generated method stub
+		
+	}
 
  
 

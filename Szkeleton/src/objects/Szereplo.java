@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import view.Nezheto;
  
  
 /**
@@ -14,7 +16,7 @@ import java.util.ArrayList;
  * @author Aviato
  *
  */
-public abstract class Szereplo implements Serializable{
+public abstract class Szereplo implements Serializable, Nezheto{
  
 	 /**referencia az aktuális mezőre*/
     protected Mezo aktmezo; 

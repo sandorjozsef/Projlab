@@ -1,6 +1,8 @@
 package objects;
 import java.io.Serializable;
 
+import view.GrafNezet;
+
 
 /**
  * Ez az osztály megvalósítja a Targy interfészt és leszármazottja a Ruha-nak.
@@ -47,5 +49,11 @@ public class Buvarruha extends Ruha implements Targy, Serializable {
 	@Override
 	public String Name() {
 		return "Buvarruha";
+	}
+
+	@Override
+	public void FrissitNezet(GrafNezet n) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -13,13 +13,14 @@ import java.util.ArrayList;
 
 
 import main.MyApplication;
+import view.Nezheto;
 /**
  * 	absztrakt osztály amely a játékosok lépéseinek, és egymástól való
  *	távolságuk meghatározásának az alapegysége, továbbá a játék alatt
  *	létrejövő hóviharok hatásának kifejtését segítő objektumokat 
  *	példányosítanak meg a leszármazottjai
  */
-public abstract class Mezo implements Serializable{
+public abstract class Mezo implements Serializable, Nezheto{
 	
 	private String id;
 	private static final long serialVersionUID = 8199843988858681838L;

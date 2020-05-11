@@ -2,6 +2,8 @@ package objects;
 
 import java.util.ArrayList;
 
+import view.GrafNezet;
+
 /**
  * Targy-at implementáló, Epulet-ből leszármazó osztály. Tehát egy Mezo-ről fel lehet venni,
  * majd használatával felállítani, ami egy kör után megszűnik.
@@ -69,4 +71,10 @@ public class Sator extends Epulet implements Targy {
     {
         Palya.JatekVege(false);
     }
+
+	@Override
+	public void FrissitNezet(GrafNezet n) {
+		// TODO Auto-generated method stub
+		
+	}
 }

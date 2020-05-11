@@ -14,6 +14,8 @@ import java.io.Serializable;
 import java.util.*;
 
 import main.MyApplication;
+import view.GrafNezet;
+import view.Nezheto;
 
 /**
  * Felügyeli a játék menetét. Ő felelős a hóviharok generálásáért, továbbá ő hozza létre a
@@ -23,7 +25,7 @@ import main.MyApplication;
  * @author Aviato
  *
  */
-public final class Palya{
+public final class Palya implements Nezheto{
 	
 	
 	private static Szereplo aktJatekos = null;
@@ -410,6 +412,12 @@ public final class Palya{
 			System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");	
 			
 		}	
+	}
+
+	@Override
+	public void FrissitNezet(GrafNezet n) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

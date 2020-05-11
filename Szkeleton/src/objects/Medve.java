@@ -3,6 +3,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
+import view.GrafNezet;
+
 
 /**
  * A Medve egy fajta Szereplo (belőle származik le), amely magától lép és ha találkozik másik Szereplo-vel, akkor megtámadja.
@@ -106,5 +108,13 @@ public class Medve extends Szereplo {
 	@Override
 	public void Erintkezik() {
 		aktmezo.Tamadas();
+	}
+
+
+
+	@Override
+	public void FrissitNezet(GrafNezet n) {
+		// TODO Auto-generated method stub
+		
 	}
 }
