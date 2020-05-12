@@ -109,16 +109,15 @@ public class GrafNezet {
 		aktMezoAllapot = new Text("Aktuális mező\nHóvastagság:\nTeherbírás:");
 		valasztottMezoAllapot = new Text("Kiválasztott mező\nHóvastagság:\nTeherbírás:");
 		
-		ScrollPane sc = new ScrollPane();
-		
+		ScrollPane sc = new ScrollPane();		
 		sc.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 		sc.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 		sc.setPannable(true);
 
 		valtozoJatekTer = new Pane();
 		fixJatekTer = new Pane(valtozoJatekTer);		
-		
 		sc.setContent(fixJatekTer);
+		
 		
 		topMenu = new HBox(jatekKilepB,mentesB,mentJatek);
 		targyBar = new VBox(new TargyInfo(null,"file:texturak/texturetest.png",0,0,80,80));
