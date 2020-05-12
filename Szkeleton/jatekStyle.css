@@ -38,4 +38,19 @@
  	 -fx-border-color: rgb(70,130,180);
  	 -fx-border-width: 3px;
 	 -fx-background-color: rgb(224,255,255);
+	 -fx-font-weight: normal;
+	 -fx-font-size:22;
+}
+.targyButton{
+	-fx-padding: 0;
+	-fx-background-color: rgb(224,255,255);
+	
+}
+.targyButton:focused,
+.targyButton:selected,
+.targyButton:selected:focused {
+    	-fx-border-width: 6px;
+}
+.targyButton:hover{
+	-fx-background-color: rgb(224,255,255);
 }

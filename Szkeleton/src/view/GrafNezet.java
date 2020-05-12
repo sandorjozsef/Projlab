@@ -42,6 +42,7 @@ public class GrafNezet {
 	private HBox jobbPanel;
 	private VBox jobbMenu;
 	private VBox allapotBar;
+	private VBox targyBar;
 	private VBox aktMezoBar;
 	private VBox valasztottMezoBar;
 	private Pane jatekTer;
@@ -101,11 +102,16 @@ public class GrafNezet {
 		aktMezoAllapot = new Text("Aktuális mező\nHóvastagság:\nTeherbírás:");
 		valasztottMezoAllapot = new Text("Kiválasztott mező\nHóvastagság:\nTeherbírás:");
 		
+		
 		jatekTer = new Pane();
 		topMenu = new HBox(jatekKilepB,mentesB,mentJatek);
+		targyBar = new VBox(new TargyInfo(null, 0,0 , 80,80),new TargyInfo(null, 0,0 , 80,80),new TargyInfo(null, 0,0 , 80,80),new TargyInfo(null, 0,0 , 80,80),new TargyInfo(null, 0,0 , 80,80));
 		aktMezoBar = new VBox(aktMezoAllapot);
 		valasztottMezoBar = new VBox(valasztottMezoAllapot);
-		allapotBar = new VBox(valasztottMezoBar, aktMezoBar);
+		
+		allapotBar = new VBox(targyBar,valasztottMezoBar, aktMezoBar);
+		
+		
 		jobbMenu = new VBox(szereploNev,testHo, lepesSzam,felveszB, takaritB, kepessegB,atlepB,lepesvegeB);		
 		jobbPanel = new HBox(allapotBar,jobbMenu);
 		jatekRoot = new BorderPane(jatekTer,topMenu,jobbPanel,null,null);		
@@ -133,7 +139,12 @@ public class GrafNezet {
 		jobbMenu.getStyleClass().add("jobbMenu");
 		
 		
-		allapotBar.setAlignment(Pos.BOTTOM_CENTER);
+		allapotBar.setAlignment(Pos.BOTTOM_RIGHT);
+		
+		targyBar.setAlignment(Pos.CENTER_RIGHT);
+		targyBar.setSpacing(1);
+		targyBar.setPadding(new Insets(8));
+	
 		
 		aktMezoBar.getStyleClass().add("mezoBar");
 		aktMezoBar.setPadding(new Insets(10));
