@@ -232,7 +232,7 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 		
 		window = primaryStage;
 		window.setTitle("Jegmezok");			
-		window.setResizable(false);		
+		window.setResizable(true);		
 		window.setScene(nezet.getMenuNezet());
 		
 		window.setX(50);

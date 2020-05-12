@@ -70,7 +70,9 @@ public class GrafNezet {
 	private Text valasztottMezoAllapot;
 
 
-	private int aktX, aktY;
+	private double aktX, aktY;
+	private int mezoMeret = 200;
+	private int mezoTav = 60;
 	private boolean vizben;
 
 	public GrafNezet(){
@@ -109,8 +111,8 @@ public class GrafNezet {
 		
 		ScrollPane sc = new ScrollPane();
 		
-		sc.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.ALWAYS);
-		sc.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.ALWAYS);
+		sc.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
+		sc.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 		sc.setPannable(true);
 
 		valtozoJatekTer = new Pane();
@@ -289,8 +291,8 @@ public class GrafNezet {
 		{
 			if (mezoinf.get(i).id.equals(luk_id))
 			{
-				aktX = mezoinf.get(i).X;
-				aktY = mezoinf.get(i).Y;
+				aktX = mezoinf.get(i).getCenterX();
+				aktY = mezoinf.get(i).getCenterY();
 			}
 		}
 		// TODO: Mezo kirajzoltatasa, felderitettseg vizsgalata
@@ -408,8 +410,8 @@ public class GrafNezet {
 	public void Mezolehelyez(ArrayList<Mezo> mezok) {
 		// TODO: Joconak kene egy grafkirajzolast irnia
 		
-		for(int i = 1, j = 0; i<mezok.size()+1;i++) {
-			MezoInfo mezoinfo = new MezoInfo(mezok.get(i-1),"file:...",210*(i%4),(i%4==0?j+=200:j),150,150);
+		for(int i = 0, j = 0; i<mezok.size();i++) {
+			MezoInfo mezoinfo = new MezoInfo(mezok.get(i),"file:...",(mezoMeret+mezoTav)*(i%4),(i%4==0&&i!=0?j+=(mezoMeret+mezoTav):j),mezoMeret,mezoMeret);
 			mezoinf.add(mezoinfo);
 		}	
 		
@@ -428,6 +430,7 @@ public class GrafNezet {
 		});
 		
 		fixJatekTer.getChildren().addAll(mezoinf);
+		fixJatekTer.setPrefHeight((mezok.size() / 4 + 1) * (mezoTav+mezoMeret));
 		
 	}
 	
