@@ -274,6 +274,18 @@ public class GrafNezet {
 			TargyakRajzol(sz);
 			// TODO: ruha helyet meghatarozni
 			sz.getRuha().FrissitNezet(this);
+			
+			Mezo akt = sz.getMezo();
+            ArrayList<Mezo> mezok = akt.getSzomszed();
+            for(int i = 0; i < mezoinf.size(); i++)
+            {
+                if (mezok.contains(mezoinf.get(i).getMezo()))
+                    mezoinf.get(i).setStyle("-fx-border-color:red");
+                else if (akt == mezoinf.get(i).getMezo())
+                    mezoinf.get(i).setStyle("-fx-border-color:yellow");
+                else
+                    mezoinf.get(i).setStyle("-fx-border-color:rgb(70, 130, 180)");
+            }
 		}
 	}
 	
@@ -286,7 +298,7 @@ public class GrafNezet {
 		//hozzaadja a jatekterhez a mezoinfot
 		
 		int i;
-		String luk_id = m.getId();
+		/*String luk_id = m.getId();
 		for (i = 0; i < mezoinf.size(); i++)
 		{
 			if (mezoinf.get(i).id.equals(luk_id))
@@ -294,7 +306,7 @@ public class GrafNezet {
 				aktX = mezoinf.get(i).getCenterX();
 				aktY = mezoinf.get(i).getCenterY();
 			}
-		}
+		}*/
 		// TODO: Mezo kirajzoltatasa, felderitettseg vizsgalata
 		ArrayList<Szereplo> szereplok = m.getSzereplok();
 		vizben = true;
@@ -307,7 +319,7 @@ public class GrafNezet {
 	
 	public void FrissitStabilJegtabla (StabilJegtabla m, boolean targyRajz) {
 		int i;
-		String mezo_id = m.getId();
+		/*String mezo_id = m.getId();
 		for (i = 0; i < mezoinf.size(); i++)
 		{
 			if (mezoinf.get(i).id.equals(mezo_id))
@@ -315,7 +327,7 @@ public class GrafNezet {
 				aktX = mezoinf.get(i).X;
 				aktY = mezoinf.get(i).Y;
 			}
-		}
+		}*/
 		// TODO: Mezo kirajzoltatasa, felderitettseg vizsgalata
 		ArrayList<Szereplo> szereplok = m.getSzereplok();
 		for (i = 0; i < szereplok.size(); i++)
@@ -333,7 +345,7 @@ public class GrafNezet {
 	
 	public void FrissitInstabilJegtabla (InstabilJegtabla m, boolean targyRajz) {
 		int p;
-		String mezo_id = m.getId();
+		/*String mezo_id = m.getId();
 		for (p = 0; p < mezoinf.size(); p++)
 		{
 			if (mezoinf.get(p).id.equals(mezo_id))
@@ -341,7 +353,7 @@ public class GrafNezet {
 				aktX = mezoinf.get(p).X;
 				aktY = mezoinf.get(p).Y;
 			}
-		}
+		}*/
 		// TODO: Mezo kirajzoltatasa, felderitettseg vizsgalata
 		ArrayList<Szereplo> szereplok = m.getSzereplok();
 		ArrayList<Szereplo> alatta = m.getAlatta();

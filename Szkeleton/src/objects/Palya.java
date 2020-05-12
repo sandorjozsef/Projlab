@@ -417,19 +417,30 @@ public final class Palya implements Nezheto{
 			
 		}	
 	}
-
-	@Override
-	public void FrissitNezet(GrafNezet n) {
-
+	public static void frissit(GrafNezet n) {
 		n.Torol();
-		if (this.aktJatekos == null)
+		if (aktJatekos == null)
 		{ // Menu megjelenitese
 			MyApplication.getWindow().setScene(n.getMenuNezet());
 		}
 		else
 		{ // lefrissiti a palyat			
 			MyApplication.getWindow().setScene(n.getJatekNezet());
-			this.mezok.forEach(m -> m.FrissitNezet(n));
+			mezok.forEach(m -> m.FrissitNezet(n));
+		}
+	}
+	@Override
+	public void FrissitNezet(GrafNezet n) {
+
+		n.Torol();
+		if (aktJatekos == null)
+		{ // Menu megjelenitese
+			MyApplication.getWindow().setScene(n.getMenuNezet());
+		}
+		else
+		{ // lefrissiti a palyat			
+			MyApplication.getWindow().setScene(n.getJatekNezet());
+			mezok.forEach(m -> m.FrissitNezet(n));
 		}
 
 	}

@@ -278,6 +278,7 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 					Palya.JatekotKezd(new FileInputStream(f));						
 					window.setScene(nezet.getJatekNezet());
 					nezet.Mezolehelyez(Palya.getMezok());
+					Palya.frissit(nezet);
 				}
 			}
 			else if(event.getSource() == nezet.getBetoltB()) {
