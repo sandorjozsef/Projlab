@@ -271,6 +271,7 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 				Palya.Save("Mentes.dat");
 				Palya.JatekVege(false);
 				window.setScene(nezet.getMenuNezet());	
+				Palya.frissit(nezet);
 			}
 			else if(event.getSource() == nezet.getStartB()) {				
 				File f= new File(".\\" + (nezet.getPalyaNev().equals("")?"Gold":nezet.getPalyaNev()));

@@ -74,6 +74,7 @@ public class GrafNezet {
 	private int mezoMeret = 200;
 	private int mezoTav = 60;
 	private boolean vizben;
+	private ScrollPane sc;
 
 	public GrafNezet(){
 
@@ -109,7 +110,7 @@ public class GrafNezet {
 		aktMezoAllapot = new Text("Aktuális mező\nHóvastagság:\nTeherbírás:");
 		valasztottMezoAllapot = new Text("Kiválasztott mező\nHóvastagság:\nTeherbírás:");
 		
-		ScrollPane sc = new ScrollPane();		
+		sc= new ScrollPane();		
 		sc.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 		sc.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 		sc.setPannable(true);
@@ -182,7 +183,11 @@ public class GrafNezet {
 		mentJatek.setMaxWidth(300);
 	}
 	
-	
+	public void torolMind() {
+		this.fixJatekTer.getChildren().clear();
+		this.Torol();
+		mezoinf.clear();
+	}
 	public Scene getMenuNezet() {
 		return menuNezet;
 	}
@@ -422,7 +427,7 @@ public class GrafNezet {
 		// TODO: Joconak kene egy grafkirajzolast irnia
 		
 		for(int i = 0, j = 0; i<mezok.size();i++) {
-			MezoInfo mezoinfo = new MezoInfo(mezok.get(i),"file:...",(mezoMeret+mezoTav)*(i%4),(i%4==0&&i!=0?j+=(mezoMeret+mezoTav):j),mezoMeret,mezoMeret);
+			MezoInfo mezoinfo = new MezoInfo(mezok.get(i),"file:texturak/Alkatresz.png",(mezoMeret+mezoTav)*(i%4),(i%4==0&&i!=0?j+=(mezoMeret+mezoTav):j),mezoMeret,mezoMeret);
 			mezoinf.add(mezoinfo);
 		}	
 		

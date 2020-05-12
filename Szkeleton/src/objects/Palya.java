@@ -421,6 +421,7 @@ public final class Palya implements Nezheto{
 		n.Torol();
 		if (aktJatekos == null)
 		{ // Menu megjelenitese
+			n.torolMind();
 			MyApplication.getWindow().setScene(n.getMenuNezet());
 		}
 		else
