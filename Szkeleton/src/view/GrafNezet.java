@@ -37,9 +37,13 @@ public class GrafNezet {
 	private ArrayList<Mezoinfo> mezoinf;
 	private Scene menuNezet ;
 	private Scene jatekNezet ;	
-	private VBox menuRoot ;
+	private VBox menuRoot;
 	private HBox topMenu;
+	private HBox jobbPanel;
 	private VBox jobbMenu;
+	private VBox allapotBar;
+	private VBox aktMezoBar;
+	private VBox valasztottMezoBar;
 	private Pane jatekTer;
 	private BorderPane jatekRoot;
 	
@@ -55,6 +59,9 @@ public class GrafNezet {
 	private Text lepesSzam;
 	
 	private Text cimke;
+	
+	private Text aktMezoAllapot;
+	private Text valasztottMezoAllapot;
 
 
 	private int aktX, aktY;
@@ -91,23 +98,28 @@ public class GrafNezet {
 		testHo = new Text("Testhő:");
 		lepesSzam = new Text("Lépésszám:");
 		szereploNev = new Text("Szereplo1");
+		aktMezoAllapot = new Text("Aktuális mező\nHóvastagság:\nTeherbírás:");
+		valasztottMezoAllapot = new Text("Kiválasztott mező\nHóvastagság:\nTeherbírás:");
 		
 		jatekTer = new Pane();
 		topMenu = new HBox(jatekKilepB,mentesB,mentJatek);
-		jobbMenu = new VBox(szereploNev,testHo, lepesSzam,felveszB, takaritB, kepessegB,atlepB,lepesvegeB);
-		jatekRoot = new BorderPane(jatekTer,topMenu,jobbMenu,null,null);		
+		aktMezoBar = new VBox(aktMezoAllapot);
+		valasztottMezoBar = new VBox(valasztottMezoAllapot);
+		allapotBar = new VBox(valasztottMezoBar, aktMezoBar);
+		jobbMenu = new VBox(szereploNev,testHo, lepesSzam,felveszB, takaritB, kepessegB,atlepB,lepesvegeB);		
+		jobbPanel = new HBox(allapotBar,jobbMenu);
+		jatekRoot = new BorderPane(jatekTer,topMenu,jobbPanel,null,null);		
 		jatekNezet = new Scene(jatekRoot, 1400, 800, Color.BLACK);
 		
 		 Palya();
 	}
 	public void Menu() {
 		menuNezet.getStylesheets().add("file:jatekStyle.css");	
-		menuRoot.getStyleClass().add("menuRoot");
-		
-		
-		menuRoot.setSpacing(15);			
-		menuRoot.setFocusTraversable(false);		
+		menuRoot.getStyleClass().add("menuRoot");		
+		menuRoot.setSpacing(15);					
 		menuRoot.setAlignment(Pos.CENTER);
+		
+		
 		
 		VBox.setMargin(cimke, new Insets(0,0,80,0));
 		cimke.getStyleClass().add("cimke");
@@ -121,7 +133,13 @@ public class GrafNezet {
 		jobbMenu.getStyleClass().add("jobbMenu");
 		
 		
-		jatekRoot.setFocusTraversable(false);		
+		allapotBar.setAlignment(Pos.BOTTOM_CENTER);
+		
+		aktMezoBar.getStyleClass().add("mezoBar");
+		aktMezoBar.setPadding(new Insets(10));
+	
+		valasztottMezoBar.getStyleClass().add("mezoBar");
+		valasztottMezoBar.setPadding(new Insets(10));
 		
 		jobbMenu.setSpacing(10);
 		jobbMenu.setAlignment(Pos.CENTER);

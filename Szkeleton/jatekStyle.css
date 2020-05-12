@@ -22,7 +22,7 @@
 	 -fx-background-color:white;
 	 -fx-border-style: solid;
  	 -fx-border-color: rgb(70,130,180);
- 	 -fx-border-width: 1px;
+ 	 -fx-border-width: 2px;
 }
 .jobbMenu{
 	-fx-border-style: solid;
@@ -32,4 +32,10 @@
 .cimke{
 	-fx-font-size:30;
 		
+}
+.mezoBar{
+	 -fx-border-style: dashed;
+ 	 -fx-border-color: rgb(70,130,180);
+ 	 -fx-border-width: 3px;
+	 -fx-background-color: rgb(224,255,255);
 }
