@@ -88,7 +88,7 @@ public class GrafNezet {
 		
 		
 		jatekKilepB = new Button("KILÉP");
-		mentesB = new Button("ELMENT");
+		mentesB = new Button("MENTÉS");
 		felveszB = new Button("FELVESZ");
 		takaritB = new Button("TAKARIT");
 		kepessegB = new Button("KÉPESSÉG");
@@ -103,7 +103,7 @@ public class GrafNezet {
 		valasztottMezoAllapot = new Text("Kiválasztott mező\nHóvastagság:\nTeherbírás:");
 		
 		
-		jatekTer = new Pane();
+		jatekTer = new Pane(new MezoInfo(null,0,0,200,200),new MezoInfo(null,230,0,200,200));
 		topMenu = new HBox(jatekKilepB,mentesB,mentJatek);
 		targyBar = new VBox(new TargyInfo(null, 0,0 , 80,80),new TargyInfo(null, 0,0 , 80,80),new TargyInfo(null, 0,0 , 80,80),new TargyInfo(null, 0,0 , 80,80),new TargyInfo(null, 0,0 , 80,80));
 		aktMezoBar = new VBox(aktMezoAllapot);
@@ -112,8 +112,8 @@ public class GrafNezet {
 		allapotBar = new VBox(targyBar,valasztottMezoBar, aktMezoBar);
 		
 		
-		jobbMenu = new VBox(szereploNev,testHo, lepesSzam,felveszB, takaritB, kepessegB,atlepB,lepesvegeB);		
-		jobbPanel = new HBox(allapotBar,jobbMenu);
+		jobbMenu = new VBox(szereploNev,testHo, lepesSzam,felveszB, takaritB, kepessegB,atlepB,lepesvegeB);	
+		jobbPanel = new HBox(allapotBar,jobbMenu);		
 		jatekRoot = new BorderPane(jatekTer,topMenu,jobbPanel,null,null);		
 		jatekNezet = new Scene(jatekRoot, 1400, 800, Color.BLACK);
 		
