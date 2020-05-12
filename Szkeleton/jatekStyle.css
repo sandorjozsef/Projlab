@@ -53,6 +53,7 @@
 .mezoButton:selected,
 .mezoButton:selected:focused {
     	-fx-border-width: 6px;
+	-fx-border-color: black;
 }
 .mezoButton:hover{
 	-fx-background-color: rgb(82,82,82);
@@ -67,6 +68,7 @@
 .targyButton:selected,
 .targyButton:selected:focused {
     	-fx-border-width: 6px;
+	-fx-border-color: black;
 }
 .targyButton:hover{
 	-fx-background-color: rgb(224,255,255);
