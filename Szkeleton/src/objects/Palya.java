@@ -424,11 +424,11 @@ public final class Palya implements Nezheto{
 		n.Torol();
 		if (this.aktJatekos == null)
 		{ // Menu megjelenitese
-			n.getMenuNezet();
+			MyApplication.getWindow().setScene(n.getMenuNezet());
 		}
 		else
-		{ // lefrissiti a palyat
-			n.getJatekNezet();
+		{ // lefrissiti a palyat			
+			MyApplication.getWindow().setScene(n.getJatekNezet());
 			this.mezok.forEach(m -> m.FrissitNezet(n));
 		}
 

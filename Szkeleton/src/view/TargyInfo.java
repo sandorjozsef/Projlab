@@ -11,11 +11,10 @@ import objects.Targy;
 public class TargyInfo  extends Button  {
 	private Targy targy;
 	private ImageView texture;
-	public TargyInfo(Targy t, double x, double y, double w, double h) {
-		targy = t;
+	public TargyInfo(Targy t, String image, double x, double y, double w, double h) {
+		targy = t;	
 		
-		texture = new ImageView(new Image("file:texturak/texturetest.png",w,h,false,false));		
-		//this.setGraphic(texture);
+		this.setGraphic(texture);
 		
 		this.getStyleClass().add("targyButton");
 		

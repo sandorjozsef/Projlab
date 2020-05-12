@@ -16,11 +16,15 @@ import javafx.geometry.Pos;
 import objects.*;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -34,7 +38,7 @@ import objects.*;
 import main.MyApplication;
 
 public class GrafNezet {
-	private ArrayList<Mezoinfo> mezoinf;
+	private ArrayList<MezoInfo> mezoinf;
 	private Scene menuNezet ;
 	private Scene jatekNezet ;	
 	private VBox menuRoot;
@@ -45,7 +49,8 @@ public class GrafNezet {
 	private VBox targyBar;
 	private VBox aktMezoBar;
 	private VBox valasztottMezoBar;
-	private Pane jatekTer;
+	private Pane fixJatekTer;
+	private Pane valtozoJatekTer;
 	private BorderPane jatekRoot;
 	
 	private Button startB, betoltB, menuKilepB;
@@ -70,7 +75,7 @@ public class GrafNezet {
 
 	public GrafNezet(){
 
-		
+		mezoinf = new ArrayList<MezoInfo>();
 		
 		cimke = new Text("MENÜ");
 
@@ -102,10 +107,19 @@ public class GrafNezet {
 		aktMezoAllapot = new Text("Aktuális mező\nHóvastagság:\nTeherbírás:");
 		valasztottMezoAllapot = new Text("Kiválasztott mező\nHóvastagság:\nTeherbírás:");
 		
+		ScrollPane sc = new ScrollPane();
 		
-		jatekTer = new Pane(new MezoInfo(null,0,0,200,200),new MezoInfo(null,230,0,200,200));
+		sc.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.ALWAYS);
+		sc.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.ALWAYS);
+		sc.setPannable(true);
+
+		valtozoJatekTer = new Pane();
+		fixJatekTer = new Pane(valtozoJatekTer);		
+		
+		sc.setContent(fixJatekTer);
+		
 		topMenu = new HBox(jatekKilepB,mentesB,mentJatek);
-		targyBar = new VBox(new TargyInfo(null, 0,0 , 80,80),new TargyInfo(null, 0,0 , 80,80),new TargyInfo(null, 0,0 , 80,80),new TargyInfo(null, 0,0 , 80,80),new TargyInfo(null, 0,0 , 80,80));
+		targyBar = new VBox(new TargyInfo(null,"file:texturak/texturetest.png",0,0,80,80));
 		aktMezoBar = new VBox(aktMezoAllapot);
 		valasztottMezoBar = new VBox(valasztottMezoAllapot);
 		
@@ -114,7 +128,7 @@ public class GrafNezet {
 		
 		jobbMenu = new VBox(szereploNev,testHo, lepesSzam,felveszB, takaritB, kepessegB,atlepB,lepesvegeB);	
 		jobbPanel = new HBox(allapotBar,jobbMenu);		
-		jatekRoot = new BorderPane(jatekTer,topMenu,jobbPanel,null,null);		
+		jatekRoot = new BorderPane(sc,topMenu,jobbPanel,null,null);		
 		jatekNezet = new Scene(jatekRoot, 1400, 800, Color.BLACK);
 		
 		 Palya();
@@ -131,7 +145,8 @@ public class GrafNezet {
 		cimke.getStyleClass().add("cimke");
 		
 		betoltPalya.setMaxWidth(200);
-		betoltJatek.setMaxWidth(200);				
+		betoltJatek.setMaxWidth(200);	
+		
 	}
 	public void Palya() {
 		jatekNezet.getStylesheets().add("file:jatekStyle.css");		
@@ -216,6 +231,7 @@ public class GrafNezet {
 
 	private void TargyakRajzol(Szereplo sz)
 	{
+		targyBar.getChildren().clear();
 		ArrayList<Targy> targyak = new ArrayList<Targy>();
 		boolean go = true;
 		for(int i = 0; go; i++)
@@ -228,12 +244,18 @@ public class GrafNezet {
 		}
 		for (int i = 0; i < targyak.size(); i++)
 		{	// TODO: repository helye, eltolas a targyszam (i) fuggvenyeben
+			aktX=0;aktY=0;
 			targyak.get(i).FrissitNezet(this);
 		}
 	}
 	
 	public void FrissitKutato (Kutato sz, boolean aktJatekos) {
 		// TODO: Kirajzoltatja magat vizben attributum fuggvenyeben
+		ImageView kutatoKep = new ImageView(new Image("file:texture/kutato.png",50,100,false,false));
+		kutatoKep.setTranslateX(aktX);
+		kutatoKep.setTranslateY(aktY);
+		fixJatekTer.getChildren().add(kutatoKep);
+		
 		if (aktJatekos)
 		{
 			TargyakRajzol(sz);
@@ -246,6 +268,7 @@ public class GrafNezet {
 		// TODO: Kirajzoltatja magat vizben attributum fuggvenyeben
 		if (aktJatekos)
 		{
+			
 			TargyakRajzol(sz);
 			// TODO: ruha helyet meghatarozni
 			sz.getRuha().FrissitNezet(this);
@@ -257,6 +280,9 @@ public class GrafNezet {
 	}
 	
 	public void FrissitLuk (Luk m) {
+		// kikeresei a hozzá tartozo mezoinfot
+		//hozzaadja a jatekterhez a mezoinfot
+		
 		int i;
 		String luk_id = m.getId();
 		for (i = 0; i < mezoinf.size(); i++)
@@ -336,6 +362,11 @@ public class GrafNezet {
 	
 	public void FrissitAso(Aso t) {
 		// TODO: Kirajzoltatja magat
+		TargyInfo t1 = new TargyInfo(t,"texturak/texturetest.png",aktX,aktY,80,80);
+		if(aktX==0&&aktY==0) {targyBar.getChildren().add(t1);}
+		else {valtozoJatekTer.getChildren().add(t1);}
+		
+			
 	}
 	
 	public void FrissitLapat(Lapat t) {
@@ -376,10 +407,33 @@ public class GrafNezet {
 	
 	public void Mezolehelyez(ArrayList<Mezo> mezok) {
 		// TODO: Joconak kene egy grafkirajzolast irnia
+		
+		for(int i = 1, j = 0; i<mezok.size()+1;i++) {
+			MezoInfo mezoinfo = new MezoInfo(mezok.get(i-1),"file:...",210*(i%4),(i%4==0?j+=200:j),150,150);
+			mezoinf.add(mezoinfo);
+		}	
+		
+		
+		mezoinf.forEach(mi->{
+			mezoinf.forEach(mj->{
+				if(mi.getMezo().isSzomszed(mj.getMezo())){
+					Line vonal = new Line(mi.getCenterX(),mi.getCenterY(),mj.getCenterX(),mj.getCenterY());
+					vonal.setStrokeWidth(3);
+				    vonal.setStroke(Color.CORNFLOWERBLUE);
+					fixJatekTer.getChildren().add(vonal);
+				}
+				
+			});
+			
+		});
+		
+		fixJatekTer.getChildren().addAll(mezoinf);
+		
 	}
 	
 	public void Torol() {
 		// Letorli a palyat
+		valtozoJatekTer.getChildren().clear();
 	}
 
 }

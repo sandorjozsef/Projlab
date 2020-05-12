@@ -27,7 +27,7 @@ import view.GrafNezet;
  *
  */
 public class MyApplication extends Application implements EventHandler<ActionEvent>{	
-	private Stage window;
+	private static Stage window;
 	private GrafNezet nezet = new GrafNezet();
 	
 	
@@ -38,6 +38,9 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 	}
 	static public BufferedWriter getOutput() {
 		return output;
+	}
+	public static Stage getWindow() {
+		return window;
 	}
 	/**
 	 * beolvassuk a konzolrol vagy a megadott input fájlból a parancsokat és végrehajtásra kerülnek
@@ -272,8 +275,9 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 			else if(event.getSource() == nezet.getStartB()) {				
 				File f= new File(".\\" + (nezet.getPalyaNev().equals("")?"Gold":nezet.getPalyaNev()));
 				if(f.exists()) {					
-					Palya.JatekotKezd(new FileInputStream(f));				
-					window.setScene(nezet.getJatekNezet());				
+					Palya.JatekotKezd(new FileInputStream(f));						
+					window.setScene(nezet.getJatekNezet());
+					nezet.Mezolehelyez(Palya.getMezok());
 				}
 			}
 			else if(event.getSource() == nezet.getBetoltB()) {
