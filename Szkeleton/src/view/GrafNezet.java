@@ -282,6 +282,7 @@ public class GrafNezet {
 		System.out.println(aktX +"  "+aktY);
 		valtozoJatekTer.add(kutatoKep);		
 		jatekTer.getChildren().add(kutatoKep);
+		System.out.println("kutato "+aktX + " "+ aktY);
 		if (aktJatekos)
 		{
 			testHo.setText("Testhő: "+sz.getTestho());
@@ -425,6 +426,7 @@ public class GrafNezet {
 		
 		ArrayList<Szereplo> szereplok = m.getSzereplok();
 		aktX -=this.mezoMeret/2-this.szereploMeret/2;
+		System.out.println("stabil "+aktX + " "+ aktY);
 		int size=szereplok.size();
 		for (int j = 0; j < size; j++)
 		{ // TODO: szereplok eltolasat javitani kell a pontos mezomeret alapjan (aktX, aktY eltolasa)
