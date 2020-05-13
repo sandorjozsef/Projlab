@@ -13,7 +13,7 @@ public class TargyInfo  extends Button  {
 	private ImageView texture;
 	public TargyInfo(Targy t, String image, double x, double y, double w, double h) {
 		targy = t;	
-		
+		texture = new ImageView(new Image(image,w,h,false,false));		
 		this.setGraphic(texture);
 		
 		this.getStyleClass().add("targyButton");

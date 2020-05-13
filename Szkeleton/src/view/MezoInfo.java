@@ -14,7 +14,7 @@ public class MezoInfo extends Button  {
 		texture = new ImageView(new Image(image,w,h,false,false));		
 		
 	
-		this.setGraphic(texture);
+		//this.setGraphic(texture);
 		
 		this.getStyleClass().add("mezoButton");
 		
