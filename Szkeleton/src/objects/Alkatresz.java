@@ -30,7 +30,7 @@ public class Alkatresz implements Targy ,Serializable{
      * @param felhasznalo Jelen esetben lényegtelen, de általában az a Szereplo, aki tárolja az adott Alkatresz-t
      */
 	@Override
-	public void Kepesseg(Szereplo felhasznalo)
+	public void Kepesseg(Szereplo felhasznalo, Mezo m)
 	{
 		Palya.AlkatresztKezel(bejelentheto);
 	}

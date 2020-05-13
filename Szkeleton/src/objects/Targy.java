@@ -15,7 +15,7 @@ public interface Targy extends Nezheto {
      * A Targy képességét végrehajtó függvény.
      * @param felhasznalo Ez a Szereplo használja az adott Targy-at
      */
-    public void Kepesseg(Szereplo felhasznalo); 
+    public void Kepesseg(Szereplo felhasznalo, Mezo cel); 
     
     /**
      * Kiiratáshoz használt függvény, amely az osztály nevét adja vissza egy Stringben.

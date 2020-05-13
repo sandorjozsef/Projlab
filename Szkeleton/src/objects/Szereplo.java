@@ -151,6 +151,7 @@ public abstract class Szereplo implements Serializable, Nezheto{
             this.Meghaltam();
         }
        
+       
     }
  
     /**
@@ -184,12 +185,12 @@ public abstract class Szereplo implements Serializable, Nezheto{
      * 
      * @param targy
      */
-    public void Hasznal(Targy targy) {
+    public void Hasznal(Targy targy, Mezo mezo) {
         if (!Lephet())
             return;
        
         if (targyak.contains(targy))
-            targy.Kepesseg(this);
+            targy.Kepesseg(this, mezo);
        
     }
  

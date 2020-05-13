@@ -28,7 +28,7 @@ public class Aso implements Targy, Serializable{
      * Ez után ha már nem lehet használni (elattartam <= 0), akkor meghívja az Eldob függvényét, aminek paramétereként magát az Aso-t adja.
      */
 	@Override
-	public void Kepesseg(Szereplo felhasznalo) 
+	public void Kepesseg(Szereplo felhasznalo, Mezo m) 
 	{
 		felhasznalo.getMezo().HoHozzaad(-2);
 		--elettartam;

@@ -24,12 +24,11 @@ public class Kotel implements Targy, Serializable{
 	 * 
 	 * nincs visszatérési érték
 	 */
-	public void Kepesseg(Szereplo sz) {
+	public void Kepesseg(Szereplo sz, Mezo honnan) {
 		
 		Mezo akt_mezo = sz.getMezo();
-		Mezo honnan = akt_mezo.ValasztSzomszed();
-		honnan.Kimenekit(akt_mezo);
-		
+		if(akt_mezo.isSzomszed(honnan))		
+			honnan.Kimenekit(akt_mezo);		
 		return;
 	}
 	

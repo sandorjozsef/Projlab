@@ -20,7 +20,7 @@ public class Buvarruha extends Ruha implements Targy, Serializable {
      * @param felhasznalo Ennek a Szereplo-nek állítja át a hozzá tartozó Ruha-t magára a Buvarruha-ra.
      */
 	@Override
-	public void Kepesseg(Szereplo felhasznalo)
+	public void Kepesseg(Szereplo felhasznalo, Mezo m)
 	{
 		felhasznalo.setRuha(this);
 	}

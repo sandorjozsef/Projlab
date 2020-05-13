@@ -26,7 +26,7 @@ public class Sator extends Epulet implements Targy {
      * @param felhasznalo Neki az aktmezo-jére állítja fel
      */
     @Override
-    public void Kepesseg(Szereplo felhasznalo) 
+    public void Kepesseg(Szereplo felhasznalo, Mezo m) 
     {
         felhasznalo.getMezo().setEpulet(this);
         felhasznalo.Eldob(this);

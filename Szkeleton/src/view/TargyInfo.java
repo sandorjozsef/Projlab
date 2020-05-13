@@ -31,4 +31,7 @@ public class TargyInfo  extends Button  {
 		texture.setTranslateY(getTranslateY());
 		return texture;
 	}
+	public Targy getTargy() {
+		return targy;
+	}
 }

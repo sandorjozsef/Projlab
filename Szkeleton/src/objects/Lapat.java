@@ -23,7 +23,7 @@ public class Lapat implements Targy, Serializable{
 	 * 
 	 */
 	@Override	
-	public void Kepesseg(Szereplo felhasznalo) {
+	public void Kepesseg(Szereplo felhasznalo, Mezo m) {
 		felhasznalo.getMezo().HoHozzaad(-2);
 	}
 	/**

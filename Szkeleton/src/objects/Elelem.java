@@ -20,7 +20,7 @@ public class Elelem implements Targy, Serializable{
      * @param felhasznalo Ennek a Szereplo-nek növeli a testho attribútumát eggyel
      * (meghívja a TesthoHozzaad függvényét) és eldobatja a targy listából a referenciáját (meghívja az Eldob függvényét,aminek paraméteréül önmagát adja)
      */
-	public void Kepesseg(Szereplo felhasznalo)
+	public void Kepesseg(Szereplo felhasznalo, Mezo m)
 	{
 		felhasznalo.TesthoHozzaad(1);
 		felhasznalo.Eldob(this);
