@@ -33,6 +33,7 @@ public class Alkatresz implements Targy ,Serializable{
 	public void Kepesseg(Szereplo felhasznalo, Mezo m)
 	{
 		Palya.AlkatresztKezel(bejelentheto);
+		felhasznalo.Eldob(this);
 	}
 	
 	/**

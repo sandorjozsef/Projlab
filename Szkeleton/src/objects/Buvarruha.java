@@ -23,6 +23,7 @@ public class Buvarruha extends Ruha implements Targy, Serializable {
 	public void Kepesseg(Szereplo felhasznalo, Mezo m)
 	{
 		felhasznalo.setRuha(this);
+		felhasznalo.Eldob(this);
 	}
 
 	/**

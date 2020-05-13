@@ -80,7 +80,8 @@ public class GrafNezet {
 	private int targyMeret = 80;
 	private int epuletMeret= 100;
 	private int mezoTav = 60;
-	private boolean vizben;
+	private boolean vizben = false;
+	private boolean hasznalhato= false;
 	
 	private Mezo kijeloltMezo=null;
 
@@ -91,8 +92,7 @@ public class GrafNezet {
 		
 		cimke = new Text("MENÜ");
 
-		vizben = false;
-
+		
 		startB = new Button("START");
 		betoltB = new Button("BETÖLT");
 		menuKilepB = new Button("KILÉP");		
@@ -251,6 +251,7 @@ public class GrafNezet {
 
 	private void TargyakRajzol(Szereplo sz)
 	{
+		
 		targyBar.getChildren().clear();
 		ArrayList<Targy> targyak = new ArrayList<Targy>();
 		boolean go = true;
@@ -264,9 +265,10 @@ public class GrafNezet {
 		}
 		for (int i = 0; i < targyak.size(); i++)
 		{	
-			aktX=0;aktY=0;
-			targyak.get(i).FrissitNezet(this);
+			hasznalhato = true;
+			targyak.get(i).FrissitNezet(this);			 
 		}
+		hasznalhato = false;
 	}
 	
 	public void FrissitKutato (Kutato sz, boolean aktJatekos) {
@@ -278,8 +280,7 @@ public class GrafNezet {
 		if(vizben) { kutatoKep= new ImageView(new Image("file:texturak/Kutato.png",szereploMeret,szereploMeret,false,false));}
 		else{kutatoKep = new ImageView(new Image("file:texturak/Kutato.png",szereploMeret,szereploMeret,false,false));}
 		kutatoKep.setTranslateX(aktX-szereploMeret/2);
-		kutatoKep.setTranslateY(aktY-szereploMeret/2);
-		System.out.println(aktX +"  "+aktY);
+		kutatoKep.setTranslateY(aktY-szereploMeret/2);		
 		valtozoJatekTer.add(kutatoKep);		
 		jatekTer.getChildren().add(kutatoKep);
 		if (aktJatekos)
@@ -508,7 +509,7 @@ public class GrafNezet {
 	public void FrissitAso(Aso t) {
 		// TODO: Kirajzoltatja magat
 		TargyInfo t1 = new TargyInfo(t,"file:texturak/Aso.png",aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
-		if(aktX==0&&aktY==0){
+		if(hasznalhato){
 			targyBar.getChildren().add(t1);
 			t1.setOnAction(kattintasKezelo);	
 		}
@@ -522,9 +523,10 @@ public class GrafNezet {
 	public void FrissitLapat(Lapat t) {
 		// TODO: Kirajzoltatja magat
 		TargyInfo t1 = new TargyInfo(t,"file:texturak/lapat.png",aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
-		if(aktX==0&&aktY==0) {
+		if(hasznalhato) {
 			targyBar.getChildren().add(t1);
-			t1.setOnAction(kattintasKezelo);	
+			t1.setOnAction(kattintasKezelo);
+			
 		}
 		else {
 			valtozoJatekTer.add(t1.getTexture());
@@ -535,7 +537,7 @@ public class GrafNezet {
 	public void FrissitElelem(Elelem t) {
 		// TODO: Kirajzoltatja magat
 		TargyInfo t1 = new TargyInfo(t,"file:texturak/kaja.png",aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
-		if(aktX==0&&aktY==0) {
+		if(hasznalhato) {
 			targyBar.getChildren().add(t1);
 			t1.setOnAction(kattintasKezelo);	
 		}
@@ -548,7 +550,7 @@ public class GrafNezet {
 	public void FrissitSator(Sator t) {
 		// TODO: Kirajzoltatja magat
 		TargyInfo t1 = new TargyInfo(t,"file:texturak/Sator.png",aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
-		if(aktX==0&&aktY==0) {
+		if(hasznalhato) {
 			targyBar.getChildren().add(t1);
 			t1.setOnAction(kattintasKezelo);	
 		}
@@ -569,7 +571,7 @@ public class GrafNezet {
 	public void FrissitAlkatresz(Alkatresz t) {
 		// TODO: Kirajzoltatja magat
 		TargyInfo t1 = new TargyInfo(t,"file:texturak/Alkatresz.png",aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
-		if(aktX==0&&aktY==0) {
+		if(hasznalhato) {
 			targyBar.getChildren().add(t1);
 			t1.setOnAction(kattintasKezelo);	
 		}
@@ -583,9 +585,10 @@ public class GrafNezet {
 		// TODO: Kirajzoltatja magat
 		TargyInfo t1 = new TargyInfo(t,"file:texturak/Kotel.png",aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
 		
-		if(aktX==0&&aktY==0) {
+		if(hasznalhato) {
 			targyBar.getChildren().add(t1);
-			t1.setOnAction(kattintasKezelo);			
+			t1.setOnAction(kattintasKezelo);	
+			
 		}
 		else {
 			valtozoJatekTer.add(t1.getTexture());
@@ -660,7 +663,7 @@ public class GrafNezet {
 					if(event.getSource() == t) {
 						Palya.getAktJatekos().Hasznal(t.getTargy(),kijeloltMezo);
 						targyBar.getChildren().remove(i);
-						Palya.frissit(nezet);							
+						Palya.frissit(nezet);
 					}
 				}				
 			}	
