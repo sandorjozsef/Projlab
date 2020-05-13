@@ -167,4 +167,11 @@ public class InstabilJegtabla extends Jegtabla{
 	public ArrayList<Szereplo> getAlatta() {
 		return alatta;
 	}
+	/**	
+	 *Visszaadja a jégtabla teherbírását
+	 */
+	@Override
+	public String getTeherBiras() {
+		return Integer.toString(teherbiras);
+	}
 }

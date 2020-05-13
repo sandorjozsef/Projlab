@@ -52,7 +52,7 @@ public class GrafNezet {
 	private Pane fixJatekTer;
 	private Pane valtozoJatekTer;
 	private BorderPane jatekRoot;
-	
+	private ScrollPane sc;
 	private Button startB, betoltB, menuKilepB;
 	private TextField betoltPalya, betoltJatek;
 	
@@ -108,14 +108,12 @@ public class GrafNezet {
 		
 		testHo = new Text("Testhő:");
 		lepesSzam = new Text("Lépésszám:");
-		szereploNev = new Text("Szereplo1");
+		szereploNev = new Text("");
 		aktMezoAllapot = new Text("Aktuális mező\nHóvastagság:\nTeherbírás:");
 		valasztottMezoAllapot = new Text("Kiválasztott mező\nHóvastagság:\nTeherbírás:");
 		
-		ScrollPane sc= new ScrollPane();		
-		sc.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
-		sc.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
-		sc.setPannable(true);
+		sc= new ScrollPane();		
+		
 
 		valtozoJatekTer = new Pane();
 		fixJatekTer = new Pane(valtozoJatekTer);		
@@ -157,6 +155,9 @@ public class GrafNezet {
 		jatekRoot.getStyleClass().add("jatekRoot");
 		jobbMenu.getStyleClass().add("jobbMenu");
 		
+		sc.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
+		sc.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
+		sc.setPannable(true);
 		
 		allapotBar.setAlignment(Pos.BOTTOM_RIGHT);
 		
@@ -259,6 +260,11 @@ public class GrafNezet {
 	
 	public void FrissitKutato (Kutato sz, boolean aktJatekos) {
 		// TODO: Kirajzoltatja magat vizben attributum fuggvenyeben
+		
+		testHo.setText("Testhő: "+sz.getTestho());
+		lepesSzam.setText("Lépésszám: "+sz.getLepesszam());
+		szereploNev.setText(sz.getId());
+		
 		ImageView kutatoKep;
 		if(vizben) { kutatoKep= new ImageView(new Image("file:texturak/Kutato.png",szereploMeret,szereploMeret,false,false));}
 		else{kutatoKep = new ImageView(new Image("file:texturak/Kutato.png",szereploMeret,szereploMeret,false,false));}
@@ -273,6 +279,7 @@ public class GrafNezet {
 			sz.getRuha().FrissitNezet(this);
 			
 			Mezo akt = sz.getMezo();
+			aktMezoAllapot.setText("Aktuális mező\nHóvastagság: "+akt.gethoVastagsag()+"\nTeherbírás: "+(akt.getfelderitett()?akt.getTeherBiras():"ismeretlen"));
             ArrayList<Mezo> mezok = akt.getSzomszed();
             for(int i = 0; i < mezoinf.size(); i++)
             {
@@ -288,6 +295,11 @@ public class GrafNezet {
 	
 	public void FrissitEszkimo (Eszkimo sz, boolean aktJatekos) {
 		// TODO: Kirajzoltatja magat vizben attributum fuggvenyeben
+		
+		testHo.setText("Testhő: "+sz.getTestho());
+		lepesSzam.setText("Lépésszám: "+sz.getLepesszam());
+		szereploNev.setText(sz.getId());
+		
 		ImageView EszkimoKep;
 		if(vizben) { EszkimoKep= new ImageView(new Image("file:texturak/Eszkimo.png",szereploMeret,szereploMeret,false,false));}
 		else{EszkimoKep = new ImageView(new Image("file:texturak/Eszkimo.png",szereploMeret,szereploMeret,false,false));}
@@ -301,6 +313,7 @@ public class GrafNezet {
 			sz.getRuha().FrissitNezet(this);
 			
 			Mezo akt = sz.getMezo();
+			aktMezoAllapot.setText("Aktuális mező\nHóvastagság: "+akt.gethoVastagsag()+"\nTeherbírás: "+(akt.getfelderitett()?akt.getTeherBiras():"ismeretlen"));
             ArrayList<Mezo> mezok = akt.getSzomszed();
             for(int i = 0; i < mezoinf.size(); i++)
             {
@@ -315,6 +328,11 @@ public class GrafNezet {
 	}
 	
 	public void FrissitMedve (Medve sz) {
+		
+		testHo.setText("Testhő: "+sz.getTestho());
+		lepesSzam.setText("Lépésszám: "+sz.getLepesszam());
+		szereploNev.setText(sz.getId());
+		
 		// TODO: Kirajzoltatja magat vizben attributum fuggvenyeben
 		ImageView MedveKep;
 		if(vizben) { MedveKep= new ImageView(new Image("file:texturak/Eszkimo.png",szereploMeret,szereploMeret,false,false));}
@@ -531,6 +549,7 @@ public class GrafNezet {
 		
 		fixJatekTer.getChildren().addAll(mezoinf);
 		fixJatekTer.setPrefHeight((mezok.size() / 4 + 1) * (mezoTav+mezoMeret));
+		fixJatekTer.setPrefWidth((mezok.size() / 4 + 1) * (mezoTav+mezoMeret));
 		
 	}
 	

@@ -79,7 +79,14 @@ public abstract class Szereplo implements Serializable, Nezheto{
      */
     public String getId() {
         return id;
-    }  
+    } 
+    /**
+     * visszatér a szereplő testhőjével
+     * @return id
+     */
+    public int getTestho() {
+    	return testho;
+    }
     /**
      * Visszaadja az aktuális mezőt (aktmezo).
      * 

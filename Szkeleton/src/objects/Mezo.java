@@ -114,6 +114,7 @@ public abstract class Mezo implements Serializable, Nezheto{
 		this.felderitett=true;
 		
 	}
+	
 	/**
  	 *	visszaadja, hogy az adott mezők szomszédosak-e, összehasonlítja hogy a kapott paraméter 
  	 *	benne van-e a saját szomszedok tömbjében
@@ -169,6 +170,10 @@ public abstract class Mezo implements Serializable, Nezheto{
 	 * absztrakt függvény megvalósítása a leszármazottakban
 	 */
 	public abstract void Hatas(Szereplo sz);
+	/**
+	 * absztrakt függvény megvalósítása a leszármazottakban
+	 */
+	public abstract String getTeherBiras();
 	
 	/**
 	 *	ha egy adott mezőt hóesés sújtja akkor ez a függvény szól a saját épületének, 

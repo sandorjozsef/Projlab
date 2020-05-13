@@ -79,6 +79,13 @@ public class StabilJegtabla extends Jegtabla{
 		n.FrissitStabilJegtabla(this, hoVastagsag == 0 && targy != null);	
 
 	}
+	/**	
+	 *Visszaadja a jégtabla teherbírását
+	 */
+	@Override
+	public String getTeherBiras() {
+		return "végtelen";
+	}
 
  
 

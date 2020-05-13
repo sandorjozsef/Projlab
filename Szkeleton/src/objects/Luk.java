@@ -80,4 +80,11 @@ public class Luk extends Mezo{
 		n.FrissitLuk(this);
 
 	}
+	/**	
+	 *Visszaadja a luk teherbírását
+	 */
+	@Override
+	public String getTeherBiras() {
+		return "0";
+	}
 }
