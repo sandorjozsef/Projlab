@@ -45,8 +45,7 @@
 	-fx-padding: 0;
 	-fx-border-radius: 50%;
 	-fx-background-radius: 50%;
-	-fx-background-color: rgb(82,82,82);
-	
+	-fx-background-color: rgb(82,82,82)
 	
 }
 .mezoButton:focused,
@@ -55,9 +54,7 @@
     	-fx-border-width: 8px;
 	-fx-border-color:black;
 }
-.mezoButton:hover{
-	-fx-background-color: rgb(82,82,82);
-	-fx-border-color: black;
+.mezoButton:hover{	
 	-fx-border-width: 8px;
 }
 

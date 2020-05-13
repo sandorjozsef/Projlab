@@ -271,7 +271,7 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 				Palya.Save("Mentes.dat");
 				Palya.JatekVege(false);
 				window.setScene(nezet.getMenuNezet());	
-				Palya.frissit(nezet);
+				
 			}
 			else if(event.getSource() == nezet.getStartB()) {				
 				File f= new File(".\\" + (nezet.getPalyaNev().equals("")?"Gold":nezet.getPalyaNev()));
@@ -279,19 +279,37 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 					Palya.JatekotKezd(new FileInputStream(f));						
 					window.setScene(nezet.getJatekNezet());
 					nezet.Mezolehelyez(Palya.getMezok());
-					Palya.frissit(nezet);
+					
 				}
 			}
 			else if(event.getSource() == nezet.getBetoltB()) {
 				File f= new File(".\\" + (nezet.getJatekNev().equals("")?"Mentes.dat":nezet.getJatekNev()));
 				if(f.exists()) {						
 					Palya.Load(f.getName());
-					window.setScene(nezet.getJatekNezet());			
+					window.setScene(nezet.getJatekNezet());		
+					nezet.Mezolehelyez(Palya.getMezok());
+					
 				}
 			}
 			else if(event.getSource() == nezet.getMentesB()) {									
 				Palya.Save(nezet.getMentNev().equals("")?"Mentes.dat":nezet.getMentNev());		
 			}
+			else if(event.getSource() == nezet.getAtlepB()) {
+				Palya.getAktJatekos().Atlep(nezet.getKijeloltMezo());	
+			}
+			else if(event.getSource() == nezet.getLepesvegeB()) {
+				Palya.getAktJatekos().Vegeztem();
+			}
+			else if(event.getSource() == nezet.getFelveszB()) {
+				Palya.getAktJatekos().Felvesz();
+			}
+			else if(event.getSource() == nezet.getTakaritB()) {
+				Palya.getAktJatekos().Takarit();
+			}
+			else if(event.getSource() == nezet.getKepessegB()) {
+				Palya.getAktJatekos().SpecKepesseg(nezet.getKijeloltMezo());
+			}
+			Palya.frissit(nezet);
 		
 		} catch(FileNotFoundException e){e.printStackTrace();}
 	}
@@ -300,5 +318,6 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 		 Platform.exit();
 	     System.exit(0);
 	}
+	
 	
 }

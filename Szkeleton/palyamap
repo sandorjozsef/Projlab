@@ -10,6 +10,10 @@ ujmezo mezo10 SA22
 ujmezo mezo11 SA22
 ujmezo mezo12 SA22
 ujmezo mezo13 LA22
+ujmezo mezo14 SA22
+ujmezo mezo15 SA22
+ujmezo mezo16 SA22
+ujmezo mezo17 SA22
 
 osszekot mezo1 mezo6
 osszekot mezo1 mezo2
@@ -27,11 +31,13 @@ randommedve 0
 ujszereplo szereplo1 eszkimo
 ujszereplo szereplo2 kutato
 ujszereplo szereplo3 kutato
+ujszereplo szereplo4 eszkimo
 ujszereplo medve0 medve
 
 lehelyez medve0 mezo13
 lehelyez szereplo1 mezo1
 lehelyez szereplo2 mezo1
 lehelyez szereplo3 mezo1
+lehelyez szereplo4 mezo1
 
 ***

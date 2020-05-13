@@ -27,6 +27,8 @@ public class TargyInfo  extends Button  {
 		this.setPrefHeight(h);
 	}
 	public ImageView getTexture() {
+		texture.setTranslateX(getTranslateX());
+		texture.setTranslateY(getTranslateY());
 		return texture;
 	}
 }

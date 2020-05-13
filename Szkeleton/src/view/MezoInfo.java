@@ -9,12 +9,11 @@ import objects.*;
 public class MezoInfo extends Button  {
 	private Mezo mezo;
 	private ImageView texture;
-	public MezoInfo(Mezo m, String image, double x, double y, double w, double h) {
-		mezo = m;
-		texture = new ImageView(new Image(image,w,h,false,false));		
+	public MezoInfo(Mezo m, double x, double y, double w, double h) {
+		mezo = m;		
 		
 	
-		//this.setGraphic(texture);
+	
 		
 		this.getStyleClass().add("mezoButton");
 		
