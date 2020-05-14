@@ -298,6 +298,31 @@ public class GrafNezet {
 		jatekTer.getChildren().add(szereploKep);
 	}
 	
+	private MezoInfo MezoRajzol(String path, Mezo m) {
+		
+		MezoInfo mezoinfo = null;
+		
+		for (int i = 0; i < mezoinf.size(); i++)
+		{
+			if (mezoinf.get(i).getMezo()==m)
+			{
+				mezoinfo = mezoinf.get(i);
+				aktX = mezoinfo.getCenterX();
+				aktY = mezoinfo.getCenterY();
+				break;
+			}
+		}
+		
+		if (m.getfelderitett()) {
+			mezoinfo.setStyle(path);			
+		}
+		else {
+			mezoinfo.setStyle("-fx-background-color: rgb(82,82,82)");			
+		}
+		
+		return mezoinfo;
+	}
+	
 	public void FrissitKutato (Kutato sz, boolean aktJatekos) {
 		SzereploRajzol("file:texturak/Kutato.png");
 		
@@ -360,26 +385,8 @@ public class GrafNezet {
 	}
 	
 	public void FrissitLuk (Luk m) {
-		
-	MezoInfo mezoinfo = null;
-		
-		for (int i = 0; i < mezoinf.size(); i++)
-		{
-			if (mezoinf.get(i).getMezo()==m)
-			{
-				mezoinfo = mezoinf.get(i);
-				aktX = mezoinfo.getCenterX();
-				aktY = mezoinfo.getCenterY();
-				break;
-			}
-		}
-		
-		if (m.getfelderitett()) {
-			mezoinfo.setStyle("-fx-background-color: rgb(218,227,243)");			
-		}
-		else {
-			mezoinfo.setStyle("-fx-background-color: rgb(82,82,82)");			
-		}
+		MezoRajzol("-fx-background-color: rgb(218,227,243)",m);
+	
 		ArrayList<Szereplo> szereplok = m.getSzereplok();
 		vizben = true;
 		aktX -=this.mezoMeret/2-this.szereploMeret/2;
@@ -393,27 +400,7 @@ public class GrafNezet {
 	
 	public void FrissitStabilJegtabla (StabilJegtabla m, boolean targyRajz) {
 		
-		MezoInfo mezoinfo = null;
-		
-		for (int i = 0; i < mezoinf.size(); i++)
-		{
-			if (mezoinf.get(i).getMezo()==m)
-			{
-				mezoinfo = mezoinf.get(i);
-				aktX = mezoinfo.getCenterX();
-				aktY = mezoinfo.getCenterY();
-				break;
-			}
-		}
-		
-		// TODO: Mezo kirajzoltatasa, felderitettseg vizsgalata
-		
-		if (m.getfelderitett()) {
-			mezoinfo.setStyle("-fx-background-color: rgb(31,78,121);");
-		}
-		else {
-			mezoinfo.setStyle("-fx-background-color: rgb(82,82,82)");			
-		}
+		MezoInfo mezoinfo = MezoRajzol("-fx-background-color: rgb(31,78,121)",m);
 		
 		ArrayList<Szereplo> szereplok = m.getSzereplok();
 		aktX -=this.mezoMeret/2-this.szereploMeret/2;
@@ -442,27 +429,8 @@ public class GrafNezet {
 	}
 	
 	public void FrissitInstabilJegtabla (InstabilJegtabla m, boolean targyRajz) {
-		MezoInfo mezoinfo = null;
 		
-		for (int i = 0; i < mezoinf.size(); i++)
-		{
-			if (mezoinf.get(i).getMezo()==m)
-			{
-				mezoinfo = mezoinf.get(i);
-				aktX = mezoinfo.getCenterX();
-				aktY = mezoinfo.getCenterY();
-				break;
-			}
-		}
-		
-		if (m.getfelderitett()) {
-			mezoinfo.setStyle("-fx-background-color: rgb(68,114,196);");
-		}
-		else {
-			mezoinfo.setStyle("-fx-background-color: rgb(82,82,82)");			
-		}
-		
-		
+		MezoInfo mezoinfo = MezoRajzol("-fx-background-color: rgb(68,114,196)",m);
 		
 		ArrayList<Szereplo> szereplok = m.getSzereplok();
 		ArrayList<Szereplo> alatta = m.getAlatta();
