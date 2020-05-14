@@ -96,6 +96,7 @@ public class Medve extends Szereplo {
 		
 		if(autoLepes)
 		{
+			lepesszam = 1;
 			ArrayList<Mezo> seged =new ArrayList<Mezo>();
 			seged = aktmezo.getSzomszed();
 			Random rand=new Random();

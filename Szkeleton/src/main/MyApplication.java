@@ -28,29 +28,40 @@ import view.GrafNezet;
  */
 public class MyApplication extends Application implements EventHandler<ActionEvent>{	
 	private static Stage window;
-	private GrafNezet nezet = new GrafNezet();
-	
-	
-	static private BufferedReader input;
+	private GrafNezet nezet = new GrafNezet();	
 	static private BufferedWriter output;
 	
 	
 	/**
 	 * 
-	 * Visszaadja 
+	 * Visszaadja a kimeneti fájlba író osztályt
 	 *
 	 */
-
 	static public BufferedWriter getOutput() {
 		return output;
 	}
+	/**
+	 * 
+	 * Visszaadja az ablakot
+	 *
+	 */
 	public static Stage getWindow() {
 		return window;
 	}
-	
+	/**
+	 * 
+	 * elindítja az alkalmazás ablakának betöltését
+	 *
+	 */
 	public static void main(String[] args) throws IOException{	
 		launch(args);	
 	}
+	/**
+	 * 
+	 * Felépíti az alkalmazást, beállítja annak paramétereit és betölti a menüablakot, majd megjeleníti.
+	 * Továbbá összerendeli az egyes nézetbeli gombokat az eseménykezelőkkel
+	 *
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 	
@@ -74,8 +85,7 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 		window.setOnCloseRequest(e ->{			
 			e.consume(); 
 			closeProgram();			
-		});
-		
+		});	
 		
 		
 		
@@ -93,6 +103,12 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 		
 		
 	}
+	/**
+	 * 
+	 * Megvalósítja az ActionEvent kezelő interfész metódusát
+	 * A nézet egyes gombjainak lenyomásához rendel különböző végrehajtásokat, ez a metódus vezérli a játékot
+	 *
+	 */
 	@Override
 	public void handle(ActionEvent event) {
 		try {
@@ -146,6 +162,10 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 		
 		} catch(FileNotFoundException e){e.printStackTrace();}
 	}
+	/**
+	 * 
+	 * A program szabályos leállításáért felelős
+	 */
 	public void closeProgram() {
 		window.close();
 		 Platform.exit();
