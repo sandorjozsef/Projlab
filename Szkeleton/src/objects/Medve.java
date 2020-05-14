@@ -24,8 +24,9 @@ public class Medve extends Szereplo {
 	 */
 	public Medve(boolean b,String id) {
 		super(id);
-		testho = 1;
+		testho = 0;
 		autoLepes=b;
+		lepesszam = 1;
 		this.ruha=new Buvarruha();
 		// TODO Auto-generated constructor stub
 	}
@@ -42,6 +43,8 @@ public class Medve extends Szereplo {
     @Override
     public void Atlep(Mezo cel) 
     {
+    	 if (!Lephet())
+             return;
         Mezo regi= aktmezo;
         aktmezo=cel;
         boolean siker = cel!=null && cel.Befogad(this, regi);
@@ -50,6 +53,11 @@ public class Medve extends Szereplo {
             
         }else
         	aktmezo=regi;
+    }
+    public void setLepesszam(int a) {
+        
+        lepesszam = 1;
+      
     }
 
  
@@ -93,13 +101,9 @@ public class Medve extends Szereplo {
 			Random rand=new Random();
 			int s=rand.nextInt(seged.size());
 			Atlep(seged.get(s));
+			this.Vegeztem();
 		}
-		else
-		{
-			Mezo seged=aktmezo.ValasztSzomszed();
-			Atlep(seged);
-		}
-		this.Vegeztem();
+	
 	}
 
 	/**

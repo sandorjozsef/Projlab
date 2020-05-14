@@ -194,7 +194,7 @@ public class GrafNezet {
 		topMenu.setAlignment(Pos.CENTER_LEFT);
 		topMenu.setMinHeight(60);
 	
-		VBox.setMargin(szereploNev, new Insets(0,0,80,0));
+		VBox.setMargin(szereploNev, new Insets(0,0,30,0));
 		VBox.setMargin(lepesSzam, new Insets(0,0,50,0));
 		
 		mentJatek.setMaxWidth(300);
@@ -309,11 +309,11 @@ public class GrafNezet {
 	}
 	
 	
-	private void aktSzereploRajzol(Szereplo sz) {
+	private void aktSzereploRajzol(Szereplo sz, String path) {
 		testHo.setText("Testhő: "+sz.getTestho());
 		lepesSzam.setText("Lépésszám: "+sz.getLepesszam());
 		szereploNev.setText(sz.getId());
-		jatekosKep.setImage(new Image("file:texturak/Kutato.png",szereploMeret*1.5,szereploMeret*1.5,false,false));
+		jatekosKep.setImage(new Image(path,szereploMeret,szereploMeret,false,false));
 		
 		TargyBarRajzol(sz);
 		// TODO: ruha helyet meghatarozni
@@ -367,7 +367,7 @@ public class GrafNezet {
 		
 		if (aktJatekos)
 		{
-			aktSzereploRajzol(sz);
+			aktSzereploRajzol(sz,"file:texturak/Kutato.png");
 		}
 	}
 	
@@ -376,7 +376,7 @@ public class GrafNezet {
 		
 		if (aktJatekos)
 		{
-			aktSzereploRajzol(sz);
+			aktSzereploRajzol(sz,"file:texturak/Eszkimo.png");
 		}
 	}
 	
@@ -385,7 +385,7 @@ public class GrafNezet {
 		
 		if (aktJatekos)
 		{
-			aktSzereploRajzol(sz);
+			aktSzereploRajzol(sz,"file:texturak/Medve.png");
 		}
 	}
 	

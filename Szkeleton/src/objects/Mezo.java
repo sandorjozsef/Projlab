@@ -66,20 +66,17 @@ public abstract class Mezo implements Serializable, Nezheto{
 		for(int i=0;i<this.szomszedok.size();i++)
 			System.out.print(" "+szomszedok.get(i).getId());
 		System.out.print(" ) ");
-		BufferedReader reader = MyApplication.getInput();
+		//BufferedReader reader = MyApplication.getInput();
 		
-		try {
-			String mezonev = reader.readLine();
-			for(int i = 0; i<szomszedok.size(); i++) {
-				if(szomszedok.get(i).getId().equals(mezonev)) {
-					
-					return szomszedok.get(i);
-				}
+		
+		String mezonev = "mezo1";
+		for(int i = 0; i<szomszedok.size(); i++) {
+			if(szomszedok.get(i).getId().equals(mezonev)) {
+				
+				return szomszedok.get(i);
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+		
 	
 		return null;
 		
