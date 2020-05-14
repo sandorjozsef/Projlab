@@ -249,7 +249,7 @@ public class GrafNezet {
 	}
 	
 
-	private void TargyakRajzol(Szereplo sz)
+	private void TargyBarRajzol(Szereplo sz)
 	{
 		
 		targyBar.getChildren().clear();
@@ -271,6 +271,19 @@ public class GrafNezet {
 		hasznalhato = false;
 	}
 	
+	private void TargyRajzol(String path, Targy t) {
+		TargyInfo t1 = new TargyInfo(t,path,aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
+		if(hasznalhato){
+			targyBar.getChildren().add(t1);
+			t1.setOnAction(kattintasKezelo);	
+		}
+		else {
+			valtozoJatekTer.add(t1.getTexture());
+			jatekTer.getChildren().add(t1.getTexture());
+		}
+			
+		
+	}
 	public void FrissitKutato (Kutato sz, boolean aktJatekos) {
 		// TODO: Kirajzoltatja magat vizben attributum fuggvenyeben
 		
@@ -283,7 +296,6 @@ public class GrafNezet {
 		kutatoKep.setTranslateY(aktY-szereploMeret/2);		
 		valtozoJatekTer.add(kutatoKep);		
 		jatekTer.getChildren().add(kutatoKep);
-		System.out.println("kutato "+aktX + " "+ aktY);
 		if (aktJatekos)
 		{
 			testHo.setText("Testhő: "+sz.getTestho());
@@ -291,7 +303,7 @@ public class GrafNezet {
 			szereploNev.setText(sz.getId());
 			
 			
-			TargyakRajzol(sz);
+			TargyBarRajzol(sz);
 			// TODO: ruha helyet meghatarozni
 			sz.getRuha().FrissitNezet(this);
 			
@@ -328,7 +340,7 @@ public class GrafNezet {
 			lepesSzam.setText("Lépésszám: "+sz.getLepesszam());
 			szereploNev.setText(sz.getId());
 			
-			TargyakRajzol(sz);
+			TargyBarRajzol(sz);
 			// TODO: ruha helyet meghatarozni
 			sz.getRuha().FrissitNezet(this);
 			
@@ -427,7 +439,6 @@ public class GrafNezet {
 		
 		ArrayList<Szereplo> szereplok = m.getSzereplok();
 		aktX -=this.mezoMeret/2-this.szereploMeret/2;
-		System.out.println("stabil "+aktX + " "+ aktY);
 		int size=szereplok.size();
 		for (int j = 0; j < size; j++)
 		{ // TODO: szereplok eltolasat javitani kell a pontos mezomeret alapjan (aktX, aktY eltolasa)
@@ -510,56 +521,22 @@ public class GrafNezet {
 	
 	public void FrissitAso(Aso t) {
 		// TODO: Kirajzoltatja magat
-		TargyInfo t1 = new TargyInfo(t,"file:texturak/Aso.png",aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
-		if(hasznalhato){
-			targyBar.getChildren().add(t1);
-			t1.setOnAction(kattintasKezelo);	
-		}
-		else {
-			valtozoJatekTer.add(t1.getTexture());
-			jatekTer.getChildren().add(t1.getTexture());
-		}
-			
+		TargyRajzol("file:texturak/Aso.png",t);
 	}
 	
 	public void FrissitLapat(Lapat t) {
 		// TODO: Kirajzoltatja magat
-		TargyInfo t1 = new TargyInfo(t,"file:texturak/lapat.png",aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
-		if(hasznalhato) {
-			targyBar.getChildren().add(t1);
-			t1.setOnAction(kattintasKezelo);
-			
-		}
-		else {
-			valtozoJatekTer.add(t1.getTexture());
-			jatekTer.getChildren().add(t1.getTexture());
-		}
+		TargyRajzol("file:texturak/lapat.png",t);
 	}
 	
 	public void FrissitElelem(Elelem t) {
 		// TODO: Kirajzoltatja magat
-		TargyInfo t1 = new TargyInfo(t,"file:texturak/kaja.png",aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
-		if(hasznalhato) {
-			targyBar.getChildren().add(t1);
-			t1.setOnAction(kattintasKezelo);	
-		}
-		else {
-			valtozoJatekTer.add(t1.getTexture());
-			jatekTer.getChildren().add(t1.getTexture());
-		}
+		TargyRajzol("file:texturak/kaja.png",t);
 	}
 	
 	public void FrissitSator(Sator t) {
 		// TODO: Kirajzoltatja magat
-		TargyInfo t1 = new TargyInfo(t,"file:texturak/Sator.png",aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
-		if(hasznalhato) {
-			targyBar.getChildren().add(t1);
-			t1.setOnAction(kattintasKezelo);	
-		}
-		else {
-			valtozoJatekTer.add(t1.getTexture());
-			jatekTer.getChildren().add(t1.getTexture());
-		}
+		TargyRajzol("file:texturak/Sator.png",t);
 	}
 	
 	public void FrissitBuvarRuha(Buvarruha t) {
@@ -572,30 +549,12 @@ public class GrafNezet {
 	
 	public void FrissitAlkatresz(Alkatresz t) {
 		// TODO: Kirajzoltatja magat
-		TargyInfo t1 = new TargyInfo(t,"file:texturak/Alkatresz.png",aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
-		if(hasznalhato) {
-			targyBar.getChildren().add(t1);
-			t1.setOnAction(kattintasKezelo);	
-		}
-		else {
-			valtozoJatekTer.add(t1.getTexture());
-			jatekTer.getChildren().add(t1.getTexture());
-		}
+		TargyRajzol("file:texturak/Alkatresz.png",t);
 	}
 	
 	public void FrissitKotel(Kotel t) {
 		// TODO: Kirajzoltatja magat
-		TargyInfo t1 = new TargyInfo(t,"file:texturak/Kotel.png",aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
-		
-		if(hasznalhato) {
-			targyBar.getChildren().add(t1);
-			t1.setOnAction(kattintasKezelo);	
-			 
-		}
-		else {
-			valtozoJatekTer.add(t1.getTexture());
-			jatekTer.getChildren().add(t1.getTexture());
-		}
+		TargyRajzol("file:texturak/Kotel.png",t);
 	}
 	
 	public void FrissitIglu(Iglu e) {
