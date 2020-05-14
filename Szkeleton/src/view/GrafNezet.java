@@ -590,7 +590,7 @@ public class GrafNezet {
 		if(hasznalhato) {
 			targyBar.getChildren().add(t1);
 			t1.setOnAction(kattintasKezelo);	
-			
+			 
 		}
 		else {
 			valtozoJatekTer.add(t1.getTexture());
