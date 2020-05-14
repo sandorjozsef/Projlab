@@ -74,6 +74,7 @@ public class Kutato extends Szereplo {
 	@Override
 	public void FrissitNezet(GrafNezet n) {
 		n.FrissitKutato(this, Palya.getAktJatekos() == this);
+	
 
 	}
 }

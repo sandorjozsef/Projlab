@@ -84,7 +84,7 @@ public class GrafNezet {
 	private int mezoTav = 60;
 	private boolean vizben = false;
 	private boolean hasznalhato= false;
-
+	private boolean hordja = false;
 	
 	private Mezo kijeloltMezo=null;
 
@@ -276,7 +276,7 @@ public class GrafNezet {
 		hasznalhato = false;
 	}
 	
-	private TargyInfo TargyRajzol(String path, Targy t) {
+	private void TargyRajzol(String path, Targy t) {
 		TargyInfo t1 = new TargyInfo(t,path,aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
 		if(hasznalhato){
 			targyBar.getChildren().add(t1);
@@ -285,10 +285,13 @@ public class GrafNezet {
 		else {
 			valtozoJatekTer.add(t1.getTexture());
 			jatekTer.getChildren().add(t1.getTexture());
-		}
-		return t1;
+		}		
 	}
-	
+	private void ruhaRajzol(Szereplo sz) {
+		hordja = true;
+		sz.getRuha().FrissitNezet(this);
+		hordja = false;
+	}
 	private void SzereploRajzol(String path) {
 		ImageView szereploKep;
 		if(vizben) 
@@ -342,7 +345,7 @@ public class GrafNezet {
 			
 			TargyBarRajzol(sz);
 			// TODO: ruha helyet meghatarozni
-			sz.getRuha().FrissitNezet(this);
+			ruhaRajzol(sz);
 			
 			Mezo akt = sz.getMezo();
 			aktMezoAllapot.setText("Aktuális mező\nHóvastagság: "+akt.gethoVastagsag()+"\nTeherbírás: "+(akt.getfelderitett()?akt.getTeherBiras():"ismeretlen"));
@@ -371,7 +374,7 @@ public class GrafNezet {
 			
 			TargyBarRajzol(sz);
 			// TODO: ruha helyet meghatarozni
-			sz.getRuha().FrissitNezet(this);
+			ruhaRajzol(sz);
 			
 			Mezo akt = sz.getMezo();
 			aktMezoAllapot.setText("Aktuális mező\nHóvastagság: "+akt.gethoVastagsag()+"\nTeherbírás: "+(akt.getfelderitett()?akt.getTeherBiras():"ismeretlen"));
@@ -496,16 +499,22 @@ public class GrafNezet {
 	
 	public void FrissitBuvarRuha(Buvarruha t) {
 		// TODO: Kirajzoltatja magat
-		TargyInfo tInfo =  TargyRajzol("file:texturak/Buvarruha.png",t);
-		tInfo.setId("hordva");
-	}
+		if(hordja) {
+			ruhaKep.setImage(new Image("file:texturak/Buvarruha.png",targyMeret,targyMeret,false,false));			
+		}
+		else {			
+			TargyRajzol("file:texturak/Buvarruha.png",t);
+		}
+		
+	}	
 	
 	public void FrissitAlapRuha(AlapRuha t) {
 		// TODO: Kirajzoltatja magat
+		ruhaKep.setImage(null);
 	}
 	
 	public void FrissitAlkatresz(Alkatresz t) {
-		TargyInfo tInfo = TargyRajzol("file:texturak/Alkatresz.png",t);
+		TargyRajzol("file:texturak/Alkatresz.png",t);
 		alkatreszBar.getChildren().clear();
 		for(int i = 0; i< Palya.getAlkatreszek() ;i++) {
 			alkatreszBar.getChildren().add(new ImageView(new Image("file:texturak/Alkatresz.png",targyMeret,targyMeret-5,false,false)));
