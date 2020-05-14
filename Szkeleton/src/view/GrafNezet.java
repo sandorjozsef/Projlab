@@ -280,6 +280,7 @@ public class GrafNezet {
 	
 	private void TargyRajzol(String path, Targy t) {
 		TargyInfo t1 = new TargyInfo(t,path,aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
+		t1.setFocusTraversable(false);
 		if(hasznalhato){
 			targyBar.getChildren().add(t1);
 			t1.setOnAction(kattintasKezelo);	
