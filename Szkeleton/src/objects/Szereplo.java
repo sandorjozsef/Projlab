@@ -69,7 +69,8 @@ public abstract class Szereplo implements Serializable, Nezheto{
      */
     public Szereplo(String id) {
         this.id=id;
-        targyak = new ArrayList<Targy>();
+        targyak = new ArrayList<Targy>();     
+        
         ruha = new AlapRuha();
         lepesszam = 4;
     }

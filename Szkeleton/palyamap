@@ -1,9 +1,9 @@
-ujmezo mezo1 SL22
-ujmezo mezo2 SB50
-ujmezo mezo3 I*26
-ujmezo mezo4 L*00
-ujmezo mezo5 SA00
-ujmezo mezo6 SA22
+ujmezo mezo1 SL00
+ujmezo mezo2 SB00
+ujmezo mezo3 ST00
+ujmezo mezo4 SK00
+ujmezo mezo5 IS20
+ujmezo mezo6 ST22
 ujmezo mezo7 SA22
 ujmezo mezo9 SA22
 ujmezo mezo10 SA22
@@ -15,10 +15,12 @@ ujmezo mezo15 SA22
 ujmezo mezo16 SA22
 ujmezo mezo17 SA22
 
-
+osszekot mezo1 mezo2
+osszekot mezo1 mezo3
+osszekot mezo1 mezo4
 osszekot mezo1 mezo5
 osszekot mezo1 mezo6
-osszekot mezo1 mezo2
+
 osszekot mezo2 mezo4
 osszekot mezo2 mezo3
 osszekot mezo5 mezo4

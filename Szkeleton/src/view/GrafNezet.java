@@ -49,7 +49,7 @@ public class GrafNezet {
 	private HBox jobbPanel;
 	private VBox jobbMenu;
 	private VBox allapotBar;
-	private VBox targyBar;
+	private FlowPane targyBar;
 	private HBox alkatreszBar;
 	private VBox aktMezoBar;
 	private VBox valasztottMezoBar;
@@ -134,7 +134,7 @@ public class GrafNezet {
 		alkatreszBar = new HBox();
 		
 		topMenu = new HBox(jatekKilepB,mentesB,mentJatek,alkatreszBar);
-		targyBar = new VBox(new TargyInfo(null,"file:texturak/texturetest.png",0,0,this.targyMeret,targyMeret));
+		targyBar = new FlowPane(new TargyInfo(null,"file:texturak/texturetest.png",0,0,this.targyMeret,targyMeret));
 		aktMezoBar = new VBox(aktMezoAllapot);
 		valasztottMezoBar = new VBox(valasztottMezoAllapot);
 		
@@ -176,7 +176,9 @@ public class GrafNezet {
 		allapotBar.setAlignment(Pos.BOTTOM_RIGHT);
 		
 		targyBar.setAlignment(Pos.CENTER_RIGHT);
-		targyBar.setSpacing(1);
+		targyBar.setVgap(1);
+		targyBar.setHgap(1);
+		targyBar.setPrefWrapLength(170);
 		targyBar.setPadding(new Insets(8));
 	
 		
@@ -297,11 +299,12 @@ public class GrafNezet {
 		if(vizben) 
 		{ 
 			szereploKep= new ImageView(new Image(path,szereploMeret,szereploMeret,false,false));
-			}
+			szereploKep.setOpacity(0.4);
+		}
 		else
 		{
 			szereploKep = new ImageView(new Image(path,szereploMeret,szereploMeret,false,false));
-			}
+		}
 		szereploKep.setTranslateX(aktX-szereploMeret/2);
 		szereploKep.setTranslateY(aktY-szereploMeret/2);		
 		valtozoJatekTer.add(szereploKep);		
@@ -538,6 +541,7 @@ public class GrafNezet {
 			MezoInfo mezoinfo = new MezoInfo(mezok.get(i),(mezoMeret+mezoTav)*(i%4),(i%4==0&&i!=0?j+=(mezoMeret+mezoTav):j),mezoMeret,mezoMeret);
 			mezoinf.add(mezoinfo);
 			mezoinfo.setOnAction(kattintasKezelo);
+			
 		}	
 		
 		
