@@ -73,6 +73,7 @@ public class GrafNezet {
 	private Text aktMezoAllapot;
 	private Text valasztottMezoAllapot;
 	private ImageView jatekosKep;
+	private ImageView ruhaKep;
 	MyActionListener kattintasKezelo = new MyActionListener(this);
 
 	private double aktX, aktY;
@@ -83,7 +84,7 @@ public class GrafNezet {
 	private int mezoTav = 60;
 	private boolean vizben = false;
 	private boolean hasznalhato= false;
-	private int alkatreszCount = 0;
+
 	
 	private Mezo kijeloltMezo=null;
 
@@ -116,6 +117,7 @@ public class GrafNezet {
 		mentJatek = new TextField();
 		
 		jatekosKep = new ImageView();
+		ruhaKep = new ImageView();
 		testHo = new Text("Testhő:");
 		lepesSzam = new Text("Lépésszám:");
 		szereploNev = new Text("");
@@ -139,7 +141,7 @@ public class GrafNezet {
 		allapotBar = new VBox(targyBar,valasztottMezoBar, aktMezoBar);
 		
 		
-		jobbMenu = new VBox(szereploNev,jatekosKep,testHo, lepesSzam,felveszB, takaritB, kepessegB,atlepB,lepesvegeB);	
+		jobbMenu = new VBox(szereploNev,jatekosKep,ruhaKep,testHo, lepesSzam,felveszB, takaritB, kepessegB,atlepB,lepesvegeB);	
 		jobbPanel = new HBox(allapotBar,jobbMenu);		
 		jatekRoot = new BorderPane(sc,topMenu,jobbPanel,null,null);		
 		jatekNezet = new Scene(jatekRoot, 1400, 800, Color.BLACK);
@@ -192,17 +194,16 @@ public class GrafNezet {
 		topMenu.setAlignment(Pos.CENTER_LEFT);
 		topMenu.setMinHeight(60);
 	
-		VBox.setMargin(szereploNev, new Insets(0,0,100,0));
-		VBox.setMargin(lepesSzam, new Insets(0,0,100,0));
+		VBox.setMargin(szereploNev, new Insets(0,0,80,0));
+		VBox.setMargin(lepesSzam, new Insets(0,0,50,0));
 		
 		mentJatek.setMaxWidth(300);
 	}
 	
 	public void torolMind() {
 		this.jatekTer.getChildren().clear();
+		mezoinf.clear();		
 		this.Torol();
-		mezoinf.clear();
-		alkatreszCount = 0;
 	}
 	public Mezo getKijeloltMezo() {
 		return kijeloltMezo;
@@ -337,7 +338,7 @@ public class GrafNezet {
 			testHo.setText("Testhő: "+sz.getTestho());
 			lepesSzam.setText("Lépésszám: "+sz.getLepesszam());
 			szereploNev.setText(sz.getId());
-			jatekosKep.setImage(new Image("file:texturak/Kutato.png",szereploMeret,szereploMeret,false,false));
+			jatekosKep.setImage(new Image("file:texturak/Kutato.png",szereploMeret*1.5,szereploMeret*1.5,false,false));
 			
 			TargyBarRajzol(sz);
 			// TODO: ruha helyet meghatarozni
@@ -495,6 +496,8 @@ public class GrafNezet {
 	
 	public void FrissitBuvarRuha(Buvarruha t) {
 		// TODO: Kirajzoltatja magat
+		TargyInfo tInfo =  TargyRajzol("file:texturak/Buvarruha.png",t);
+		tInfo.setId("hordva");
 	}
 	
 	public void FrissitAlapRuha(AlapRuha t) {
@@ -503,7 +506,10 @@ public class GrafNezet {
 	
 	public void FrissitAlkatresz(Alkatresz t) {
 		TargyInfo tInfo = TargyRajzol("file:texturak/Alkatresz.png",t);
-		tInfo.setId("alkatresz");
+		alkatreszBar.getChildren().clear();
+		for(int i = 0; i< Palya.getAlkatreszek() ;i++) {
+			alkatreszBar.getChildren().add(new ImageView(new Image("file:texturak/Alkatresz.png",targyMeret,targyMeret-5,false,false)));
+		}
 	}
 	
 	public void FrissitKotel(Kotel t) {
@@ -573,11 +579,8 @@ public class GrafNezet {
 					TargyInfo t = (TargyInfo)targyBar.getChildren().get(i);
 					if(event.getSource() == t) {
 						Palya.getAktJatekos().Hasznal(t.getTargy(),kijeloltMezo);
-						targyBar.getChildren().remove(i);
-						if(t.getId() == "alkatresz"&& alkatreszCount<3) {
-							alkatreszBar.getChildren().add(new ImageView(new Image("file:texturak/Alkatresz.png",targyMeret,targyMeret,false,false)));
-							alkatreszCount ++;
-						}
+						targyBar.getChildren().remove(i);			
+						
 						Palya.frissit(nezet);
 					}
 				}				

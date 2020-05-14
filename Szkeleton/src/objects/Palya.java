@@ -167,6 +167,9 @@ public final class Palya implements Nezheto{
 		}
 	
 	}
+	public static int getAlkatreszek() {
+		return alkatreszek;
+	}
 	
 
 	
@@ -188,7 +191,8 @@ public final class Palya implements Nezheto{
 		mezok.clear();
 		szereplok.clear();
 		randomHovihar = true;
-		jatekosSzam = 0;	
+		jatekosSzam = 0;
+		alkatreszek = 0;
 		
 	}
 	/**
