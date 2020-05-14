@@ -308,6 +308,35 @@ public class GrafNezet {
 		jatekTer.getChildren().add(szereploKep);
 	}
 	
+	
+	private void aktSzereploRajzol(Szereplo sz) {
+		testHo.setText("Testhő: "+sz.getTestho());
+		lepesSzam.setText("Lépésszám: "+sz.getLepesszam());
+		szereploNev.setText(sz.getId());
+		jatekosKep.setImage(new Image("file:texturak/Kutato.png",szereploMeret*1.5,szereploMeret*1.5,false,false));
+		
+		TargyBarRajzol(sz);
+		// TODO: ruha helyet meghatarozni
+		ruhaRajzol(sz);
+		
+		Mezo akt = sz.getMezo();
+		aktMezoAllapot.setText("Aktuális mező\nHóvastagság: "+akt.gethoVastagsag()+"\nTeherbírás: "+(akt.getfelderitett()?akt.getTeherBiras():"ismeretlen"));
+		 ArrayList<Mezo> szomszedmezok = akt.getSzomszed();
+        for(int i = 0; i < mezoinf.size(); i++)
+        {
+        	mezoinf.get(i).getStyleClass().remove("szomszedMezo");
+        	mezoinf.get(i).getStyleClass().remove("aktMezo");
+        	mezoinf.get(i).getStyleClass().remove("tavoliMezo");
+            if (szomszedmezok.contains(mezoinf.get(i).getMezo()))
+            	mezoinf.get(i).getStyleClass().add("szomszedMezo");
+            else if (akt == mezoinf.get(i).getMezo())
+            	mezoinf.get(i).getStyleClass().add("aktMezo");
+            else
+            	mezoinf.get(i).getStyleClass().add("tavoliMezo");  
+        }
+	}
+	
+	
 	private MezoInfo MezoRajzol(String path, Mezo m) {
 		
 		MezoInfo mezoinfo = null;
@@ -338,27 +367,7 @@ public class GrafNezet {
 		
 		if (aktJatekos)
 		{
-			testHo.setText("Testhő: "+sz.getTestho());
-			lepesSzam.setText("Lépésszám: "+sz.getLepesszam());
-			szereploNev.setText(sz.getId());
-			jatekosKep.setImage(new Image("file:texturak/Kutato.png",szereploMeret*1.5,szereploMeret*1.5,false,false));
-			
-			TargyBarRajzol(sz);
-			// TODO: ruha helyet meghatarozni
-			ruhaRajzol(sz);
-			
-			Mezo akt = sz.getMezo();
-			aktMezoAllapot.setText("Aktuális mező\nHóvastagság: "+akt.gethoVastagsag()+"\nTeherbírás: "+(akt.getfelderitett()?akt.getTeherBiras():"ismeretlen"));
-            ArrayList<Mezo> mezok = akt.getSzomszed();
-           /* for(int i = 0; i < mezoinf.size(); i++)
-            {
-                if (mezok.contains(mezoinf.get(i).getMezo()))
-                    mezoinf.get(i).setStyle("-fx-border-color:red");
-                else if (akt == mezoinf.get(i).getMezo())
-                    mezoinf.get(i).setStyle("-fx-border-color:yellow");
-                else
-                    mezoinf.get(i).setStyle("-fx-border-color:rgb(70, 130, 180)");
-            }*/
+			aktSzereploRajzol(sz);
 		}
 	}
 	
@@ -367,38 +376,16 @@ public class GrafNezet {
 		
 		if (aktJatekos)
 		{
-			testHo.setText("Testhő: "+sz.getTestho());
-			lepesSzam.setText("Lépésszám: "+sz.getLepesszam());
-			szereploNev.setText(sz.getId());
-			jatekosKep.setImage(new Image("file:texturak/Eszkimo.png",szereploMeret,szereploMeret,false,false));
-			
-			TargyBarRajzol(sz);
-			// TODO: ruha helyet meghatarozni
-			ruhaRajzol(sz);
-			
-			Mezo akt = sz.getMezo();
-			aktMezoAllapot.setText("Aktuális mező\nHóvastagság: "+akt.gethoVastagsag()+"\nTeherbírás: "+(akt.getfelderitett()?akt.getTeherBiras():"ismeretlen"));
-            ArrayList<Mezo> mezok = akt.getSzomszed();
-           /* for(int i = 0; i < mezoinf.size(); i++)
-            {
-                if (mezok.contains(mezoinf.get(i).getMezo()))
-                    mezoinf.get(i).setStyle("-fx-border-color:red");
-                else if (akt == mezoinf.get(i).getMezo())
-                    mezoinf.get(i).setStyle("-fx-border-color:yellow");
-                else
-                    mezoinf.get(i).setStyle("-fx-border-color:rgb(70, 130, 180)");
-            }*/
+			aktSzereploRajzol(sz);
 		}
 	}
 	
 	public void FrissitMedve (Medve sz, boolean aktJatekos) {
 		SzereploRajzol("file:texturak/Medve.png");
 		
-		if(aktJatekos) {
-			testHo.setText("Testhő: "+sz.getTestho());
-			lepesSzam.setText("Lépésszám: "+sz.getLepesszam());
-			szereploNev.setText(sz.getId());
-			jatekosKep.setImage(new Image("file:texturak/Medve.png",szereploMeret,szereploMeret,false,false));
+		if (aktJatekos)
+		{
+			aktSzereploRajzol(sz);
 		}
 	}
 	

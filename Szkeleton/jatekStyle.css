@@ -34,7 +34,7 @@
 		
 }
 .mezoBar{
-	 -fx-border-style: dashed;
+	 -fx-border-style: solid;
  	 -fx-border-color: rgb(70,130,180);
  	 -fx-border-width: 3px;
 	 -fx-background-color: rgb(224,255,255);
@@ -52,7 +52,7 @@
 .mezoButton:selected,
 .mezoButton:selected:focused {
     	-fx-border-width: 8px;
-	-fx-border-color:black;
+	-fx-border-color:rgb(0,128,0);
 }
 .mezoButton:hover{	
 	-fx-border-width: 8px;
@@ -67,15 +67,24 @@
 .targyButton:selected,
 .targyButton:selected:focused {
     	-fx-border-width: 6px;
-	-fx-border-color: black;
+	-fx-border-color: rgb(0,128,0);
 }
 .targyButton:hover{
 	-fx-background-color: rgb(224,255,255);
-	-fx-border-color: black;
+	
 	-fx-border-width: 6px;
 }
 .scroll-pane > .viewport {
 	-fx-background-color: rgb(224,255,255);
 	-fx-border-color: rgb(70,130,180);
 	-fx-border-width: 3px;
+}
+.szomszedMezo{
+	-fx-border-color:red;
+}
+.aktMezo{
+	-fx-border-color:yellow;
+}
+.tavoliMezo{
+	-fx-border-color:rgb(70, 130, 180);
 }
