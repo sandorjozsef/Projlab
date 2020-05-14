@@ -84,7 +84,7 @@ public final class Palya implements Nezheto{
 			kov=szereplok.get(akt+1);
 		}
 		aktJatekos=kov;
-		aktJatekos.Autolepes();
+		aktJatekos.Autolepes();		
 		aktJatekos.setLepesszam(4);
 		Mezo mezo=aktJatekos.getMezo();
 		mezo.Hatas(aktJatekos);
