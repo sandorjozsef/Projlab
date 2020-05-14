@@ -386,6 +386,14 @@ public class GrafNezet {
 		if (aktJatekos)
 		{
 			aktSzereploRajzol(sz,"file:texturak/Medve.png");
+			felveszB.setDisable(true);
+			takaritB.setDisable(true);
+			kepessegB.setDisable(true);		
+		}
+		else {
+			felveszB.setDisable(false);
+			takaritB.setDisable(false);
+			kepessegB.setDisable(false);		
 		}
 	}
 	
