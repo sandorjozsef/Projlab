@@ -249,8 +249,7 @@ public class GrafNezet {
 	}
 	
 
-	private void TargyBarRajzol(Szereplo sz)
-	{
+	private void TargyBarRajzol(Szereplo sz){
 		
 		targyBar.getChildren().clear();
 		ArrayList<Targy> targyak = new ArrayList<Targy>();
@@ -281,21 +280,27 @@ public class GrafNezet {
 			valtozoJatekTer.add(t1.getTexture());
 			jatekTer.getChildren().add(t1.getTexture());
 		}
-			
-		
 	}
+	
+	private void SzereploRajzol(String path) {
+		ImageView szereploKep;
+		if(vizben) 
+		{ 
+			szereploKep= new ImageView(new Image(path,szereploMeret,szereploMeret,false,false));
+			}
+		else
+		{
+			szereploKep = new ImageView(new Image(path,szereploMeret,szereploMeret,false,false));
+			}
+		szereploKep.setTranslateX(aktX-szereploMeret/2);
+		szereploKep.setTranslateY(aktY-szereploMeret/2);		
+		valtozoJatekTer.add(szereploKep);		
+		jatekTer.getChildren().add(szereploKep);
+	}
+	
 	public void FrissitKutato (Kutato sz, boolean aktJatekos) {
-		// TODO: Kirajzoltatja magat vizben attributum fuggvenyeben
+		SzereploRajzol("file:texturak/Kutato.png");
 		
-		
-		
-		ImageView kutatoKep;
-		if(vizben) { kutatoKep= new ImageView(new Image("file:texturak/Kutato.png",szereploMeret,szereploMeret,false,false));}
-		else{kutatoKep = new ImageView(new Image("file:texturak/Kutato.png",szereploMeret,szereploMeret,false,false));}
-		kutatoKep.setTranslateX(aktX-szereploMeret/2);
-		kutatoKep.setTranslateY(aktY-szereploMeret/2);		
-		valtozoJatekTer.add(kutatoKep);		
-		jatekTer.getChildren().add(kutatoKep);
 		if (aktJatekos)
 		{
 			testHo.setText("Testhő: "+sz.getTestho());
@@ -323,17 +328,8 @@ public class GrafNezet {
 	}
 	
 	public void FrissitEszkimo (Eszkimo sz, boolean aktJatekos) {
-		// TODO: Kirajzoltatja magat vizben attributum fuggvenyeben
+		SzereploRajzol("file:texturak/Eszkimo.png");
 		
-	
-		
-		ImageView EszkimoKep;
-		if(vizben) { EszkimoKep= new ImageView(new Image("file:texturak/Eszkimo.png",szereploMeret,szereploMeret,false,false));}
-		else{EszkimoKep = new ImageView(new Image("file:texturak/Eszkimo.png",szereploMeret,szereploMeret,false,false));}
-		EszkimoKep.setTranslateX(aktX-szereploMeret/2);
-		EszkimoKep.setTranslateY(aktY-szereploMeret/2);
-		valtozoJatekTer.add(EszkimoKep);
-		jatekTer.getChildren().add(EszkimoKep);
 		if (aktJatekos)
 		{
 			testHo.setText("Testhő: "+sz.getTestho());
@@ -360,25 +356,10 @@ public class GrafNezet {
 	}
 	
 	public void FrissitMedve (Medve sz) {
-		if(sz==Palya.getAktJatekos()) {
-			testHo.setText("Testhő: "+sz.getTestho());
-			lepesSzam.setText("Lépésszám: "+sz.getLepesszam());
-			szereploNev.setText(sz.getId());			
-		}
-		
-		// TODO: Kirajzoltatja magat vizben attributum fuggvenyeben
-		ImageView MedveKep;
-		if(vizben) { MedveKep= new ImageView(new Image("file:texturak/Medve.png",szereploMeret,szereploMeret,false,false));}
-		else{MedveKep = new ImageView(new Image("file:texturak/Medve.png",szereploMeret,szereploMeret,false,false));}
-		MedveKep.setTranslateX(aktX-szereploMeret/2);
-		MedveKep.setTranslateY(aktY-szereploMeret/2);
-		valtozoJatekTer.add(MedveKep);
-		jatekTer.getChildren().add(MedveKep);
+		SzereploRajzol("file:texturak/Medve.png");
 	}
 	
 	public void FrissitLuk (Luk m) {
-		// kikeresei a hozzá tartozo mezoinfot
-		//hozzaadja a jatekterhez a mezoinfot
 		
 	MezoInfo mezoinfo = null;
 		
@@ -393,8 +374,6 @@ public class GrafNezet {
 			}
 		}
 		
-		// TODO: Mezo kirajzoltatasa, felderitettseg vizsgalata
-		
 		if (m.getfelderitett()) {
 			mezoinfo.setStyle("-fx-background-color: rgb(218,227,243)");			
 		}
@@ -405,8 +384,7 @@ public class GrafNezet {
 		vizben = true;
 		aktX -=this.mezoMeret/2-this.szereploMeret/2;
 		int size=szereplok.size();
-		for (int j = 0; j < size; j++)
-		{ // TODO: szereplok eltolasat javitani kell a pontos mezomeret alapjan (aktX, aktY eltolasa)
+		for (int j = 0; j < size; j++){
 			szereplok.get(j).FrissitNezet(this);
 			aktX += mezoMeret/size;
 		}
@@ -441,13 +419,13 @@ public class GrafNezet {
 		aktX -=this.mezoMeret/2-this.szereploMeret/2;
 		int size=szereplok.size();
 		for (int j = 0; j < size; j++)
-		{ // TODO: szereplok eltolasat javitani kell a pontos mezomeret alapjan (aktX, aktY eltolasa)
+		{ 
 			szereplok.get(j).FrissitNezet(this);
 			aktX += mezoMeret/size;
 		}
 		
 		if (targyRajz)
-		{ // TODO: targy helyenek beallitasa (Mezo helyzetenek fuggvenyeben mezoinf.get(p).X, .Y)
+		{ 
 			// Keretet is kell rajzolni
 			
 			aktX = mezoinfo.getCenterX();
@@ -456,7 +434,7 @@ public class GrafNezet {
 			m.getTargy().FrissitNezet(this);
 		}
 		
-		// TODO: elozoek erre is...
+		
 		aktX = mezoinfo.getCenterX();
 		aktY = mezoinfo.getCenterY();
 		aktY = aktY - mezoMeret/2 + epuletMeret/2;
@@ -477,8 +455,6 @@ public class GrafNezet {
 			}
 		}
 		
-		// TODO: Mezo kirajzoltatasa, felderitettseg vizsgalata
-		
 		if (m.getfelderitett()) {
 			mezoinfo.setStyle("-fx-background-color: rgb(68,114,196);");
 		}
@@ -494,21 +470,21 @@ public class GrafNezet {
 		int sizes=szereplok.size();
 		int sizea=alatta.size();
 		for (int j = 0; j < sizes; j++)
-		{ // TODO: szereplok eltolasat javitani kell a pontos mezomeret alapjan (aktX, aktY eltolasa)
+		{ 
 			szereplok.get(j).FrissitNezet(this);
 			aktX += mezoMeret/(sizes+sizea);
 		}
 		
 		vizben = true;
 		for (int j = 0; j < sizea; j++)
-		{ // TODO: szereplok eltolasat javitani kell a pontos mezomeret alapjan (aktX, aktY eltolasa)
+		{ 
 			alatta.get(j).FrissitNezet(this);
 			aktX += mezoMeret/(sizes+sizea);
 		}
 		vizben = false;
 	
 		if (targyRajz)
-		{ // TODO: targy helyenek beallitasa (Mezo helyzetenek fuggvenyeben mezoinf.get(p).X, .Y)
+		{ 
 			// Keretet is kell rajzolni
 			
 			aktX = mezoinfo.getCenterX();
@@ -520,22 +496,18 @@ public class GrafNezet {
 	
 	
 	public void FrissitAso(Aso t) {
-		// TODO: Kirajzoltatja magat
 		TargyRajzol("file:texturak/Aso.png",t);
 	}
 	
 	public void FrissitLapat(Lapat t) {
-		// TODO: Kirajzoltatja magat
 		TargyRajzol("file:texturak/lapat.png",t);
 	}
 	
 	public void FrissitElelem(Elelem t) {
-		// TODO: Kirajzoltatja magat
 		TargyRajzol("file:texturak/kaja.png",t);
 	}
 	
 	public void FrissitSator(Sator t) {
-		// TODO: Kirajzoltatja magat
 		TargyRajzol("file:texturak/Sator.png",t);
 	}
 	
@@ -548,17 +520,14 @@ public class GrafNezet {
 	}
 	
 	public void FrissitAlkatresz(Alkatresz t) {
-		// TODO: Kirajzoltatja magat
 		TargyRajzol("file:texturak/Alkatresz.png",t);
 	}
 	
 	public void FrissitKotel(Kotel t) {
-		// TODO: Kirajzoltatja magat
 		TargyRajzol("file:texturak/Kotel.png",t);
 	}
 	
 	public void FrissitIglu(Iglu e) {
-		// TODO: Kirajzoltatja magat
 		ImageView igluKep = new ImageView(new Image("file:texturak/Iglu.png",epuletMeret,epuletMeret,false,false));
 		igluKep.setTranslateX(aktX-epuletMeret/2);
 		igluKep.setTranslateY(aktY-epuletMeret/2);
@@ -567,7 +536,6 @@ public class GrafNezet {
 	}
 	
 	public void FrissitNoglu(Noglu e) {
-		// TODO: nem csinál semmit
 	}
 	
 	public void Mezolehelyez(ArrayList<Mezo> mezok) {
@@ -600,7 +568,6 @@ public class GrafNezet {
 	}
 	
 	public void Torol() {
-		// Letorli a palyat		
 		jatekTer.getChildren().removeAll(valtozoJatekTer);
 		valtozoJatekTer.clear();
 	}	
