@@ -115,7 +115,7 @@ public class Medve extends Szereplo {
 	@Override
 	public void FrissitNezet(GrafNezet n) {
 
-		n.FrissitMedve(this);
+		n.FrissitMedve(this,this==Palya.getAktJatekos());
 
 	}
 }

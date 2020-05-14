@@ -71,7 +71,7 @@ public class GrafNezet {
 	
 	private Text aktMezoAllapot;
 	private Text valasztottMezoAllapot;
-
+	private ImageView jatekosKep;
 	MyActionListener kattintasKezelo = new MyActionListener(this);
 
 	private double aktX, aktY;
@@ -113,6 +113,7 @@ public class GrafNezet {
 		lepesvegeB = new Button("LÉPÉS VÉGE");		
 		mentJatek = new TextField();
 		
+		jatekosKep = new ImageView();
 		testHo = new Text("Testhő:");
 		lepesSzam = new Text("Lépésszám:");
 		szereploNev = new Text("");
@@ -135,7 +136,7 @@ public class GrafNezet {
 		allapotBar = new VBox(targyBar,valasztottMezoBar, aktMezoBar);
 		
 		
-		jobbMenu = new VBox(szereploNev,testHo, lepesSzam,felveszB, takaritB, kepessegB,atlepB,lepesvegeB);	
+		jobbMenu = new VBox(szereploNev,jatekosKep,testHo, lepesSzam,felveszB, takaritB, kepessegB,atlepB,lepesvegeB);	
 		jobbPanel = new HBox(allapotBar,jobbMenu);		
 		jatekRoot = new BorderPane(sc,topMenu,jobbPanel,null,null);		
 		jatekNezet = new Scene(jatekRoot, 1400, 800, Color.BLACK);
@@ -331,7 +332,7 @@ public class GrafNezet {
 			testHo.setText("Testhő: "+sz.getTestho());
 			lepesSzam.setText("Lépésszám: "+sz.getLepesszam());
 			szereploNev.setText(sz.getId());
-			
+			jatekosKep.setImage(new Image("file:texturak/Kutato.png",szereploMeret,szereploMeret,false,false));
 			
 			TargyBarRajzol(sz);
 			// TODO: ruha helyet meghatarozni
@@ -360,6 +361,7 @@ public class GrafNezet {
 			testHo.setText("Testhő: "+sz.getTestho());
 			lepesSzam.setText("Lépésszám: "+sz.getLepesszam());
 			szereploNev.setText(sz.getId());
+			jatekosKep.setImage(new Image("file:texturak/Eszkimo.png",szereploMeret,szereploMeret,false,false));
 			
 			TargyBarRajzol(sz);
 			// TODO: ruha helyet meghatarozni
@@ -380,8 +382,15 @@ public class GrafNezet {
 		}
 	}
 	
-	public void FrissitMedve (Medve sz) {
+	public void FrissitMedve (Medve sz, boolean aktJatekos) {
 		SzereploRajzol("file:texturak/Medve.png");
+		
+		if(aktJatekos) {
+			testHo.setText("Testhő: "+sz.getTestho());
+			lepesSzam.setText("Lépésszám: "+sz.getLepesszam());
+			szereploNev.setText(sz.getId());
+			jatekosKep.setImage(new Image("file:texturak/Medve.png",szereploMeret,szereploMeret,false,false));
+		}
 	}
 	
 	public void FrissitLuk (Luk m) {

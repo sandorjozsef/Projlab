@@ -426,8 +426,8 @@ public final class Palya implements Nezheto{
 		}
 		else
 		{ // lefrissiti a palyat			
-			MyApplication.getWindow().setScene(n.getJatekNezet());
 			mezok.forEach(m -> m.FrissitNezet(n));
+			MyApplication.getWindow().setScene(n.getJatekNezet());
 		}
 	}
 	@Override
@@ -440,8 +440,8 @@ public final class Palya implements Nezheto{
 		}
 		else
 		{ // lefrissiti a palyat			
-			MyApplication.getWindow().setScene(n.getJatekNezet());
 			mezok.forEach(m -> m.FrissitNezet(n));
+			MyApplication.getWindow().setScene(n.getJatekNezet());
 		}
 
 	}
