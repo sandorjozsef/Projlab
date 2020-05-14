@@ -32,8 +32,9 @@ public class Alkatresz implements Targy ,Serializable{
 	@Override
 	public void Kepesseg(Szereplo felhasznalo, Mezo m)
 	{
+		
 		Palya.AlkatresztKezel(bejelentheto);
-		felhasznalo.Eldob(this);
+		bejelentheto = false;
 	}
 	
 	/**

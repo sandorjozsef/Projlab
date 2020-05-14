@@ -50,10 +50,11 @@ public class GrafNezet {
 	private VBox jobbMenu;
 	private VBox allapotBar;
 	private VBox targyBar;
+	private HBox alkatreszBar;
 	private VBox aktMezoBar;
 	private VBox valasztottMezoBar;
 	private Pane jatekTer;
-	private ArrayList<ImageView> valtozoJatekTer;
+	private ArrayList<ImageView> valtozoJatekTer;	
 	private BorderPane jatekRoot;
 	private ScrollPane sc;
 	private Button startB, betoltB, menuKilepB;
@@ -82,6 +83,7 @@ public class GrafNezet {
 	private int mezoTav = 60;
 	private boolean vizben = false;
 	private boolean hasznalhato= false;
+	private int alkatreszCount = 0;
 	
 	private Mezo kijeloltMezo=null;
 
@@ -127,8 +129,9 @@ public class GrafNezet {
 		jatekTer = new Pane();		
 		sc.setContent(jatekTer);
 		
+		alkatreszBar = new HBox();
 		
-		topMenu = new HBox(jatekKilepB,mentesB,mentJatek);
+		topMenu = new HBox(jatekKilepB,mentesB,mentJatek,alkatreszBar);
 		targyBar = new VBox(new TargyInfo(null,"file:texturak/texturetest.png",0,0,this.targyMeret,targyMeret));
 		aktMezoBar = new VBox(aktMezoAllapot);
 		valasztottMezoBar = new VBox(valasztottMezoAllapot);
@@ -199,6 +202,7 @@ public class GrafNezet {
 		this.jatekTer.getChildren().clear();
 		this.Torol();
 		mezoinf.clear();
+		alkatreszCount = 0;
 	}
 	public Mezo getKijeloltMezo() {
 		return kijeloltMezo;
@@ -271,7 +275,7 @@ public class GrafNezet {
 		hasznalhato = false;
 	}
 	
-	private void TargyRajzol(String path, Targy t) {
+	private TargyInfo TargyRajzol(String path, Targy t) {
 		TargyInfo t1 = new TargyInfo(t,path,aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
 		if(hasznalhato){
 			targyBar.getChildren().add(t1);
@@ -281,6 +285,7 @@ public class GrafNezet {
 			valtozoJatekTer.add(t1.getTexture());
 			jatekTer.getChildren().add(t1.getTexture());
 		}
+		return t1;
 	}
 	
 	private void SzereploRajzol(String path) {
@@ -497,7 +502,8 @@ public class GrafNezet {
 	}
 	
 	public void FrissitAlkatresz(Alkatresz t) {
-		TargyRajzol("file:texturak/Alkatresz.png",t);
+		TargyInfo tInfo = TargyRajzol("file:texturak/Alkatresz.png",t);
+		tInfo.setId("alkatresz");
 	}
 	
 	public void FrissitKotel(Kotel t) {
@@ -568,6 +574,10 @@ public class GrafNezet {
 					if(event.getSource() == t) {
 						Palya.getAktJatekos().Hasznal(t.getTargy(),kijeloltMezo);
 						targyBar.getChildren().remove(i);
+						if(t.getId() == "alkatresz"&& alkatreszCount<3) {
+							alkatreszBar.getChildren().add(new ImageView(new Image("file:texturak/Alkatresz.png",targyMeret,targyMeret,false,false)));
+							alkatreszCount ++;
+						}
 						Palya.frissit(nezet);
 					}
 				}				
