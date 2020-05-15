@@ -1,31 +1,17 @@
 package view;
-
-
-
-
-import java.io.IOException;
 import java.util.ArrayList;
-
-import javafx.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-
-
-import java.util.ArrayList;
-
-
 import javafx.geometry.Pos;
 import objects.*;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
@@ -33,12 +19,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-
-import objects.*;
 import main.MyApplication;
+
+
 
 public class GrafNezet {
 	private ArrayList<MezoInfo> mezoinf;
@@ -58,7 +42,9 @@ public class GrafNezet {
 	private BorderPane jatekRoot;
 	private ScrollPane sc;
 	private Button startB, betoltB, menuKilepB;
-	private TextField betoltPalya, betoltJatek;
+	
+	private ComboBox<String> betoltPalya;
+	private TextField betoltJatek;
 	
 	private Button jatekKilepB,	mentesB, felveszB, takaritB, kepessegB,	atlepB,	lepesvegeB;
 	private TextField mentJatek;
@@ -99,7 +85,7 @@ public class GrafNezet {
 		startB = new Button("START");
 		betoltB = new Button("BETÖLT");
 		menuKilepB = new Button("KILÉP");		
-		betoltPalya = new TextField();
+		betoltPalya = new ComboBox<String>();
 		betoltJatek = new TextField();
 		
 		menuRoot = new VBox(cimke, startB, betoltPalya, betoltB, betoltJatek, menuKilepB);
@@ -155,11 +141,16 @@ public class GrafNezet {
 		menuRoot.setAlignment(Pos.CENTER);
 		
 		
-		
 		VBox.setMargin(cimke, new Insets(0,0,80,0));
 		cimke.getStyleClass().add("cimke");
 		
+		betoltPalya.getItems().addAll("Gold", "palyamap", "jatekvege_map");
+		betoltPalya.setValue("");
+		betoltPalya.setEditable(true);
 		betoltPalya.setMaxWidth(200);
+	    betoltPalya.getEditor().textProperty().addListener((obs, oldText, newText) -> {
+	    	betoltPalya.setValue(newText);
+        });
 		betoltJatek.setMaxWidth(200);	
 		
 	}
@@ -246,8 +237,8 @@ public class GrafNezet {
 	public Button getLepesvegeB() {
 		return lepesvegeB;
 	}	
-	public String getPalyaNev() {
-		return betoltPalya.getText();
+	public String getPalyaNev() {		
+		 return betoltPalya.getValue();
 	}
 	public String getJatekNev() {
 		return betoltJatek.getText();
@@ -516,7 +507,7 @@ public class GrafNezet {
 		TargyRajzol("file:texturak/Alkatresz.png",t);
 		alkatreszBar.getChildren().clear();
 		for(int i = 0; i< Palya.getAlkatreszek() ;i++) {
-			alkatreszBar.getChildren().add(new ImageView(new Image("file:texturak/Alkatresz.png",targyMeret,targyMeret-5,false,false)));
+			alkatreszBar.getChildren().add(new ImageView(new Image("file:texturak/Alkatresz.png",targyMeret-10,targyMeret-10,false,false)));
 		}
 	}
 	
@@ -588,9 +579,8 @@ public class GrafNezet {
 					TargyInfo t = (TargyInfo)targyBar.getChildren().get(i);
 					if(event.getSource() == t) {
 						Palya.getAktJatekos().Hasznal(t.getTargy(),kijeloltMezo);
-						targyBar.getChildren().remove(i);			
-						
-						Palya.frissit(nezet);
+						targyBar.getChildren().remove(i);							
+						MyApplication.frissit();
 					}
 				}				
 			}	

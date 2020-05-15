@@ -28,7 +28,7 @@ import view.GrafNezet;
  */
 public class MyApplication extends Application implements EventHandler<ActionEvent>{	
 	private static Stage window;
-	private GrafNezet nezet = new GrafNezet();	
+	private static GrafNezet nezet = new GrafNezet();	
 	static private BufferedWriter output;
 	
 	
@@ -158,7 +158,8 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 			else if(event.getSource() == nezet.getKepessegB()) {
 				Palya.getAktJatekos().SpecKepesseg(nezet.getKijeloltMezo());
 			}
-			Palya.frissit(nezet);
+			frissit();
+			
 		
 		} catch(FileNotFoundException e){e.printStackTrace();}
 	}
@@ -170,6 +171,20 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 		window.close();
 		 Platform.exit();
 	     System.exit(0);
+	}
+	public static void frissit() {
+		
+		nezet.Torol();
+		if (Palya.getAktJatekos() == null)
+		{ // Menu megjelenitese
+			nezet.torolMind();
+			MyApplication.getWindow().setScene(nezet.getMenuNezet());
+		}
+		else
+		{ // lefrissiti a palyat			
+			Palya.getMezok().forEach(m -> m.FrissitNezet(nezet));
+			MyApplication.getWindow().setScene(nezet.getJatekNezet());
+		}
 	}
 	
 	

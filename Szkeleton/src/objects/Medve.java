@@ -54,6 +54,7 @@ public class Medve extends Szereplo {
         }else
         	aktmezo=regi;
     }
+    @Override
     public void setLepesszam(int a) {
         
         lepesszam = 1;

@@ -1,5 +1,5 @@
 package view;
 
 public interface Nezheto {
-	public void FrissitNezet(GrafNezet n);
+	public void  FrissitNezet(GrafNezet n);
 }

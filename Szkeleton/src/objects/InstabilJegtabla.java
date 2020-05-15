@@ -105,6 +105,11 @@ public class InstabilJegtabla extends Jegtabla{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void Kiad(Szereplo kilepo) {
+		alatta.remove(kilepo);
+		szereplok.remove(kilepo);
+	}
 	/**
 	 * 	tudatja a kiiratásnál hogy egy InstabilJegtablan végzik az esetlegesen
 	 *	mezobol nem felüldefiniált függvényt 
@@ -173,5 +178,9 @@ public class InstabilJegtabla extends Jegtabla{
 	@Override
 	public String getTeherBiras() {
 		return Integer.toString(teherbiras);
+	}
+	@Override
+	public int getSzereplokSzama() {
+		return alatta.size() + szereplok.size();
 	}
 }

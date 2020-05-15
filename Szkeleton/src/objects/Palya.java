@@ -29,7 +29,7 @@ import view.*;
  * @author Aviato
  *
  */
-public final class Palya implements Nezheto{
+public final class Palya{
 	
 	
 	private static Szereplo aktJatekos = null;
@@ -159,12 +159,14 @@ public final class Palya implements Nezheto{
 	
 		if(bejelentheto)
 			alkatreszek++;
-		if(alkatreszek==3) {
+		if(alkatreszek>=3) {
 			Mezo mezo = aktJatekos.getMezo();
 			int szerep_szam = mezo.getSzereplokSzama();
-			if(szerep_szam == jatekosSzam)
+			if(szerep_szam == jatekosSzam) {
 				JatekVege(true);
+			}
 		}
+		System.out.println(alkatreszek);
 	
 	}
 	public static int getAlkatreszek() {
@@ -420,34 +422,6 @@ public final class Palya implements Nezheto{
 			System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");	
 			
 		}	
-	}
-	public static void frissit(GrafNezet n) {
-		n.Torol();
-		if (aktJatekos == null)
-		{ // Menu megjelenitese
-			n.torolMind();
-			MyApplication.getWindow().setScene(n.getMenuNezet());
-		}
-		else
-		{ // lefrissiti a palyat			
-			mezok.forEach(m -> m.FrissitNezet(n));
-			MyApplication.getWindow().setScene(n.getJatekNezet());
-		}
-	}
-	@Override
-	public void FrissitNezet(GrafNezet n) {
-
-		n.Torol();
-		if (aktJatekos == null)
-		{ // Menu megjelenitese
-			MyApplication.getWindow().setScene(n.getMenuNezet());
-		}
-		else
-		{ // lefrissiti a palyat			
-			mezok.forEach(m -> m.FrissitNezet(n));
-			MyApplication.getWindow().setScene(n.getJatekNezet());
-		}
-
 	}
 	
 }

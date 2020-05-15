@@ -1,4 +1,4 @@
-ujmezo mezo1 SA22
+ujmezo mezo1 SA00
 ujmezo mezo2 SE22
 ujmezo mezo3 IK26
 ujmezo mezo4 L*00
@@ -42,7 +42,7 @@ osszekot mezo11 mezo12
 osszekot mezo12 mezo13
 
 randomvihar 0
-randommedve 0
+randommedve 1
 
 ujszereplo szereplo1 eszkimo
 ujszereplo szereplo2 kutato
