@@ -526,21 +526,21 @@ public class GrafNezet {
 	public void FrissitNoglu(Noglu e) {
 	}	
 	
-	public void mezoGeneral(double x, double y, Mezo valasztottMezo, ArrayList<Mezo> kirajzolt){
+	public void szomszedGeneral(double x, double y, Mezo mezo, ArrayList<Mezo> kirajzolt){
 		double mezoSzomszedTav = 0;		
 		
-			double szog = 2*Math.PI/valasztottMezo.getSzomszed().size();
+			double szog = 2*Math.PI/mezo.getSzomszed().size();
 			mezoSzomszedTav = (mezoMeret + mezoTav)/(2*Math.sin(szog/2));
 			double ujx = mezoSzomszedTav;
 			double ujy = 0;
-			for(int i = 0; i<valasztottMezo.getSzomszed().size();i++) {
-				if(!kirajzolt.contains(valasztottMezo.getSzomszed().get(i))) {
-					MezoInfo szomszedinfo = new MezoInfo(valasztottMezo.getSzomszed().get(i), 0,0,mezoMeret,mezoMeret);					
+			for(int i = 0; i<mezo.getSzomszed().size();i++) {
+				if(!kirajzolt.contains(mezo.getSzomszed().get(i))) {
+					MezoInfo szomszedinfo = new MezoInfo(mezo.getSzomszed().get(i), 0,0,mezoMeret,mezoMeret);					
 					szomszedinfo.setCenter(ujx*Math.cos(i*szog) - ujy*Math.sin(i*szog) + x,ujx*Math.sin(i*szog) + ujy*Math.cos(i*szog)+ y);
 					mezoinf.add(szomszedinfo);
 					szomszedinfo.setOnAction(kattintasKezelo);
-					kirajzolt.add(valasztottMezo.getSzomszed().get(i));	
-					mezoGeneral(szomszedinfo.getCenterX(),szomszedinfo.getCenterY(),valasztottMezo.getSzomszed().get(i),kirajzolt);
+					kirajzolt.add(mezo.getSzomszed().get(i));	
+					szomszedGeneral(szomszedinfo.getCenterX(),szomszedinfo.getCenterY(),mezo.getSzomszed().get(i),kirajzolt);
 				}					
 		}
 	}
@@ -571,7 +571,7 @@ public class GrafNezet {
 				mezoinfo.setOnAction(kattintasKezelo);
 				kirajzolt.add(mezo);				
 			}
-			mezoGeneral(x,y,mezo,kirajzolt);
+			szomszedGeneral(x,y,mezo,kirajzolt);
 		}
 		
 		
