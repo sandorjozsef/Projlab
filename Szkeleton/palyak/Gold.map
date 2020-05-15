@@ -1,6 +1,6 @@
 ujmezo mezo1 IA22
 ujmezo mezo2 SE22
-ujmezo mezo3 L*00
+ujmezo mezo3 S*00
 ujmezo mezo4 L*00
 ujmezo mezo5 SA21
 ujmezo mezo6 IK22
@@ -11,6 +11,10 @@ ujmezo mezo10 L*00
 ujmezo mezo11 L*00
 ujmezo mezo12 IB21
 ujmezo mezo13 SE22
+ujmezo mezo14 SK00
+ujmezo mezo15 SL00
+ujmezo mezo16 IB21
+
 
 osszekot mezo1 mezo2
 osszekot mezo1 mezo4
@@ -39,6 +43,12 @@ osszekot mezo10 mezo12
 osszekot mezo10 mezo13
 osszekot mezo11 mezo12
 osszekot mezo12 mezo13
+osszekot mezo16 mezo14
+osszekot mezo9 mezo14
+osszekot mezo10 mezo15
+osszekot mezo10 mezo16
+osszekot mezo13 mezo14
+osszekot mezo12 mezo14
 
 randomvihar 0
 randommedve 1

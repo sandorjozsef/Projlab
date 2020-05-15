@@ -123,7 +123,7 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 				
 			}
 			else if(event.getSource() == nezet.getStartB()) {				
-				File f= new File(".\\" + (nezet.getPalyaNev().equals("")?"Gold":nezet.getPalyaNev()));
+				File f= new File(".\\" + (nezet.getPalyaNev().equals("")?"palyak/Gold.map":"palyak/"+nezet.getPalyaNev()+".map"));
 				if(f.exists()) {					
 					Palya.JatekotKezd(new FileInputStream(f));						
 					window.setScene(nezet.getJatekNezet());

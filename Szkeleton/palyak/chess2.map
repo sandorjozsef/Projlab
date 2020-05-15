@@ -1,0 +1,80 @@
+ujmezo mezo1 IB22
+ujmezo mezo2 IE22
+ujmezo mezo3 S*22
+ujmezo mezo4 L*00
+ujmezo mezo5 SL32
+ujmezo mezo6 SE23
+ujmezo mezo7 L*00
+ujmezo mezo8 SL21
+ujmezo mezo9 SS34
+ujmezo mezo10 IE23
+ujmezo mezo11 L*00
+ujmezo mezo12 IA21
+ujmezo mezo13 L*00
+ujmezo mezo14 IS12
+ujmezo mezo15 SS22
+ujmezo mezo16 S*22
+ujmezo mezo17 IK33
+ujmezo mezo18 L*00
+ujmezo mezo19 IE23
+ujmezo mezo20 SS12
+ujmezo mezo21 L*00
+ujmezo mezo22 IA34
+ujmezo mezo23 SE23
+ujmezo mezo24 L*00
+ujmezo mezo25 IA21
+
+osszekot mezo1 mezo2
+osszekot mezo2 mezo3
+osszekot mezo3 mezo4
+osszekot mezo4 mezo5
+osszekot mezo1 mezo6
+osszekot mezo2 mezo7
+osszekot mezo6 mezo7
+osszekot mezo3 mezo8
+osszekot mezo7 mezo8
+osszekot mezo4 mezo9
+osszekot mezo8 mezo9
+
+osszekot mezo6 mezo11
+osszekot mezo11 mezo12
+osszekot mezo7 mezo12
+osszekot mezo12 mezo13
+
+osszekot mezo13 mezo14
+osszekot mezo9 mezo14
+osszekot mezo14 mezo15
+osszekot mezo10 mezo15
+osszekot mezo11 mezo16
+osszekot mezo16 mezo17
+
+osszekot mezo17 mezo18
+osszekot mezo13 mezo18
+osszekot mezo18 mezo19
+osszekot mezo14 mezo19
+osszekot mezo19 mezo20
+osszekot mezo15 mezo20
+
+osszekot mezo21 mezo22
+osszekot mezo17 mezo22
+osszekot mezo22 mezo23
+osszekot mezo18 mezo23
+osszekot mezo23 mezo24
+osszekot mezo19 mezo24
+
+osszekot mezo20 mezo25
+
+randomvihar 0
+randommedve 1
+
+ujszereplo szereplo1 eszkimo
+ujszereplo szereplo2 kutato
+ujszereplo szereplo3 kutato
+ujszereplo medve0 medve
+
+lehelyez medve0 mezo25
+lehelyez szereplo1 mezo6
+lehelyez szereplo2 mezo12
+lehelyez szereplo3 mezo15
+
+***
