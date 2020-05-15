@@ -172,6 +172,9 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 		 Platform.exit();
 	     System.exit(0);
 	}
+	/**
+	 * A nézet teljes frissítéséről, valamint esetleges játék megszakítás esetén menübe való kilépésről gondoskodik
+	 */
 	public static void frissit() {
 		
 		nezet.Torol();

@@ -1,20 +1,22 @@
 package view;
 
 import javafx.scene.control.Button;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import objects.*;
+
+/**
+ * 
+ * Mezők használatához és megjelenítéséhez szükséges gombok osztálya
+ */
 public class MezoInfo extends Button  {
 	private Mezo mezo;
-	private ImageView texture;
+	/**
+	 * 
+	 * konstruktor, beállítja a gomb által tárolt mezőt, valamint méretét pozícióját és kinézetét
+	 */
 	public MezoInfo(Mezo m, double x, double y, double w, double h) {
-		mezo = m;		
-		
-	
-	
-		
+		mezo = m;			
 		this.getStyleClass().add("mezoButton");
 		
 		
@@ -26,21 +28,26 @@ public class MezoInfo extends Button  {
 		this.setPrefHeight(h);
 		
 	}
+	/**
+	 * 
+	 * Visszaadja a gomb által tárolt mezőt
+	 */
 	public Mezo getMezo() {
 		return mezo;
 	}
-	public void setTexture(String image) {
-		texture.setImage(new Image(image,getPrefWidth(),getPrefHeight(),false,false)); 
-	}
+	/**
+	 * 
+	 * Visszaadja a gomb középpontjának x koordinátáját
+	 */	
 	public double getCenterX() {
 		return getTranslateX()+getPrefWidth()/2;
 	}
+	/**
+	 * 
+	 * Visszaadja a gomb középpontjának y koordinátáját
+	 */	
 	public double getCenterY() {
 		return getTranslateY()+getPrefHeight()/2;
-	}
-	public void setCenter(double x, double y) {
-		setTranslateX(x-getPrefWidth()/2);
-		setTranslateY(y-getPrefHeight()/2);
-	}
+	}	
 
 }

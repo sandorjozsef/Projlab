@@ -89,7 +89,7 @@ public class InstabilJegtabla extends Jegtabla{
 	 */
 	public void Kimenekit(Mezo cel)
 	{
-		int szCount = szereplok.size();
+		int szCount = alatta.size();
 		for(int i = 0; i<szCount;i++) {
 			alatta.get(0).setLepesszam(4);
 			alatta.get(0).Atlep(cel);

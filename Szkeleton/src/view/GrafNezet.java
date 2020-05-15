@@ -24,7 +24,9 @@ import javafx.scene.text.Text;
 import main.MyApplication;
 
 
-
+/**
+ * A játék grafikus megjelenését megvalósító osztály
+ */
 public class GrafNezet {
 	private ArrayList<MezoInfo> mezoinf;
 	private Scene menuNezet ;
@@ -74,7 +76,10 @@ public class GrafNezet {
 	private boolean hordja = false;
 	
 	private Mezo kijeloltMezo=null;
-
+	/**
+	 * Konstruktor, létrehozze és beállítja a pálya statikus elemeit és a köztük lévő tartalmazási viszonyokat
+	 * elemek: gombok, textfieldek, függőleges és vízszintes tárolók, panelek
+	 */
 	public GrafNezet(){
 
 		
@@ -138,8 +143,11 @@ public class GrafNezet {
 		jatekRoot = new BorderPane(sc,topMenu,jobbPanel,null,null);		
 		jatekNezet = new Scene(jatekRoot, 1400, 800, Color.BLACK);
 		
-		 Palya();
+		 Palya();		
 	}
+	/**
+	 *  Beállítja a menü statikus elemei stílusát, kinézetét
+	 */
 	public void Menu() {
 		menuNezet.getStylesheets().add("file:stilusok/jatekStyle.css");	
 		menuRoot.getStyleClass().add("menuRoot");		
@@ -160,6 +168,9 @@ public class GrafNezet {
 		betoltJatek.setMaxWidth(200);	
 		
 	}
+	/**
+	 *  Beállítja a pálya statikus elemei stílusát, kinézetét
+	 */
 	public void Palya() {
 		jatekNezet.getStylesheets().add("file:stilusok/jatekStyle.css");		
 		jatekRoot.getStyleClass().add("jatekRoot");
@@ -199,83 +210,138 @@ public class GrafNezet {
 		
 		mentJatek.setMaxWidth(300);
 	}
-	
+	/**
+	 * Letörli az egész játékteret, ami két játék között megváltozhat
+	 */
 	public void torolMind() {
 		this.jatekTer.getChildren().clear();
 		mezoinf.clear();		
 		this.Torol();
 	}
+	/**
+	 * Letörli az egész dinamikus játékteret, egy játék közben megváltozhat 
+	 */
+	public void Torol() {
+		jatekTer.getChildren().removeAll(valtozoJatekTer);
+		valtozoJatekTer.clear();
+	}
+	/**
+	 * Visszaadja azt a mezőt, amihez tartozó gomb ki van jelöltve
+	 */
 	public Mezo getKijeloltMezo() {
 		return kijeloltMezo;
 	}
+	/**
+	 * Visszaadja a menü ablakát
+	 */
 	public Scene getMenuNezet() {
 		return menuNezet;
 	}
+	/**
+	 * Visszaadja a jaték ablakát
+	 */
 	public Scene getJatekNezet() {
 		return jatekNezet;
 	}
+	/**
+	 * Visszaadja a jatékot elindító gombot
+	 */
 	public Button getStartB() {
 		return startB;
 	}
+	/**
+	 * Visszaadja a jatékot betöltő gombot
+	 */
 	public Button getBetoltB() {
 		return betoltB;
 	}
+	/**
+	 * Visszaadja a programból kilépő gombot
+	 */
 	public Button getMenuKilepB() {
 		return menuKilepB;
 	}
+	/**
+	 * Visszaadja a játékmenetből a menübe kilépő gombot
+	 */
 	public Button getJatekKilepB() {
 		return jatekKilepB;
 	}
+	/**
+	 * Visszaadja a játék elmentéséért felelős gombot
+	 */
 	public Button getMentesB() {
 		return mentesB;
 	}
+	/**
+	 * Visszaadja egy tárgy felvételéért felelős gombot
+	 */
 	public Button getFelveszB() {
 		return felveszB;
 	}
+	/**
+	 * Visszaadja egy mező tisztításáért felelős gombot
+	 */
 	public Button getTakaritB() {
 		return takaritB;
 	}
+	/**
+	 * Visszaadja a képesség használatáért felelős gombot
+	 */
 	public Button getKepessegB() {
 		return kepessegB;
 	}
+	/**
+	 * Visszaadja a mezőre való átlépésért felelős gombot
+	 */
 	public Button getAtlepB() {
 		return atlepB;
 	}
+	/**
+	 * Visszaadja a lépésről való lemondásért felelős gombot
+	 */
 	public Button getLepesvegeB() {
 		return lepesvegeB;
-	}	
+	}
+	/**
+	 * Visszaadja a kiválasztott pálya nevét
+	 */
 	public String getPalyaNev() {		
 		 return betoltPalya.getValue();
 	}
+	/**
+	 * Visszaadja a betölteni kívánt játék útvonalát
+	 */
 	public String getJatekNev() {
 		return betoltJatek.getText();
 	}
+	/**
+	 * 
+	 * Visszaadja az elmenteni kívánt játék fájl útvonalát
+	 */
 	public String getMentNev() {
 		return mentJatek.getText();
 	}
 	
-
-	private void TargyBarRajzol(Szereplo sz){
-		
-		targyBar.getChildren().clear();
-		ArrayList<Targy> targyak = new ArrayList<Targy>();
-		boolean go = true;
-		for(int i = 0; go; i++)
-		{
-			Targy akt = sz.getTargy(i);
-			if (akt == null)
-				go = false;
-			else
-				targyak.add(akt);
-		}
-		for (int i = 0; i < targyak.size(); i++)
-		{	
-			hasznalhato = true;
-			targyak.get(i).FrissitNezet(this);			 
-		}
+	/**
+	 * 
+	 * @param targyak
+	 * Azokat a tárgyakat frissíti amelyeket a használható tárgyak panelján szeretnénk megjeleníteni
+	 */
+	private void TargyBarRajzol(ArrayList<Targy> targyak){		
+		targyBar.getChildren().clear();	
+		hasznalhato = true;
+		targyak.forEach(t->t.FrissitNezet(this));
 		hasznalhato = false;
 	}
-	
+	/**
+	 * 
+	 * @param path
+	 * @param t
+	 * @return
+	 * Kirajzolja a tárgyakat annak függvényében, hogy egy mezőre szeretnénk e őket rakni vagy
+	 * a használható tárgyak paneljére
+	 */
 	private TargyInfo TargyRajzol(String path, Targy t) {
 		TargyInfo t1 = new TargyInfo(t,path,aktX-targyMeret/2,aktY-targyMeret/2,targyMeret,targyMeret);
 		t1.setFocusTraversable(false);
@@ -289,11 +355,20 @@ public class GrafNezet {
 		}	
 		return t1;
 	}
+	/**
+	 * Kirajzolja azt a ruhát amit a szereplő hord az állapot panelre
+	 * @param sz
+	 */
 	private void ruhaRajzol(Szereplo sz) {
 		hordja = true;
 		sz.getRuha().FrissitNezet(this);
 		hordja = false;
 	}
+	/**
+	 * kirajzolja a szereplőt a kapott textúrával arra a koordinátára, amit
+	 * az őt tartalmazó mező állított be neki
+	 * @param path
+	 */	
 	private void SzereploRajzol(String path) {
 		ImageView szereploKep;
 		if(vizben) 
@@ -311,15 +386,19 @@ public class GrafNezet {
 		jatekTer.getChildren().add(szereploKep);
 	}
 	
-	
+	/**
+	 * Kirajzolja az aktuális szereplőhöz tartozó elemeket, frissíti az állapotmegjelenítőket
+	 * beállítja a mezők keretét az átláthatóság kedvéért
+	 * @param sz
+	 * @param path
+	 */
 	private void aktSzereploRajzol(Szereplo sz, String path) {
 		testHo.setText("Testhő: "+sz.getTestho());
 		lepesSzam.setText("Lépésszám: "+sz.getLepesszam());
 		szereploNev.setText(sz.getId());
 		jatekosKep.setImage(new Image(path,szereploMeret,szereploMeret,false,false));
 		
-		TargyBarRajzol(sz);
-		// TODO: ruha helyet meghatarozni
+		TargyBarRajzol(sz.getTargyak());	
 		ruhaRajzol(sz);
 		
 		Mezo akt = sz.getMezo();		
@@ -333,17 +412,27 @@ public class GrafNezet {
         	mezoinf.get(i).getStyleClass().remove("tavoliMezo");
             if (szomszedmezok.contains(mezoinf.get(i).getMezo()))
             	mezoinf.get(i).getStyleClass().add("szomszedMezo");
-            else if (akt == mezoinf.get(i).getMezo())
+            else if (akt == mezoinf.get(i).getMezo()) {
             	mezoinf.get(i).getStyleClass().add("aktMezo");
+            	mezoinf.get(i).requestFocus();
+            	mezoinf.get(i).arm();
+            	sc.setVvalue(mezoinf.get(i).getCenterY()/jatekTer.getPrefHeight());
+            	sc.setHvalue(mezoinf.get(i).getCenterX()/jatekTer.getPrefWidth());            	        	
+            }
             else
             	mezoinf.get(i).getStyleClass().add("tavoliMezo");  
         }
 	}
 	
-	
+	/**
+	 * Beállítja a mezők színét annak függvényében, hogy fel vannak e derítve vagy nem valamint
+	 * frissita az aktX, aktY -t, hogy a mezőn lévő elemek már a mezőre rajzolódjanak ki
+	 * @param path
+	 * @param m
+	 * @return
+	 */
 	private MezoInfo MezoRajzol(String path, Mezo m) {
-		MezoInfo mezoinfo = null;
-		
+		MezoInfo mezoinfo = null;		
 		for (int i = 0; i < mezoinf.size(); i++)
 		{
 			if (mezoinf.get(i).getMezo()==m)
@@ -364,7 +453,11 @@ public class GrafNezet {
 		
 		return mezoinfo;
 	}
-	
+	/**
+	 * Beállítja a kutató textúráját és kirajzolja azt
+	 * @param sz
+	 * @param aktJatekos
+	 */
 	public void FrissitKutato (Kutato sz, boolean aktJatekos) {
 		SzereploRajzol("file:texturak/Kutato.png");
 		
@@ -373,7 +466,11 @@ public class GrafNezet {
 			aktSzereploRajzol(sz,"file:texturak/Kutato.png");
 		}
 	}
-	
+	/**
+	 * Beállítja az eszkimó textúráját és kirajzolja azt
+	 * @param sz
+	 * @param aktJatekos
+	 */
 	public void FrissitEszkimo (Eszkimo sz, boolean aktJatekos) {
 		SzereploRajzol("file:texturak/Eszkimo.png");
 		
@@ -382,7 +479,12 @@ public class GrafNezet {
 			aktSzereploRajzol(sz,"file:texturak/Eszkimo.png");
 		}
 	}
-	
+	/**
+	 * Beállítja a medve textúráját és kirajzolja azt, valamint letilt néhány gombot,
+	 * amiket a medve nem használhat
+	 * @param sz
+	 * @param aktJatekos
+	 */
 	public void FrissitMedve (Medve sz, boolean aktJatekos) {
 		SzereploRajzol("file:texturak/Medve.png");
 		
@@ -399,7 +501,11 @@ public class GrafNezet {
 			kepessegB.setDisable(false);		
 		}
 	}
-	
+	/**
+	 * megadja a luk színét és kirajzoltatja azt majd frissiti a lukban
+	 * tartózkodó szereplőket
+	 * @param m
+	 */
 	public void FrissitLuk (Luk m) {
 		MezoRajzol("-fx-background-color: rgb(218,227,243)",m);
 	
@@ -413,7 +519,11 @@ public class GrafNezet {
 		}
 		vizben = false;
 	}
-	
+	/**
+	 * megadja a jégtábla színét és kirajzoltatja azt majd frissiti a táblán
+	 * tartózkodó szereplőket, tárgyakat és épületeket
+	 * @param m
+	 */
 	public void FrissitStabilJegtabla (StabilJegtabla m, boolean targyRajz) {
 		
 		MezoInfo mezoinfo = MezoRajzol("-fx-background-color: rgb(31,78,121)",m);
@@ -443,7 +553,11 @@ public class GrafNezet {
 		aktY = aktY - mezoMeret/2 + epuletMeret/2;
 		m.getEpulet().FrissitNezet(this);
 	}
-	
+	/**
+	 * megadja a jégtábla színét és kirajzoltatja azt majd frissiti a táblán és az alatt
+	 * tartózkodó szereplőket majd a jégtábla tárgyakait is
+	 * @param m
+	 */
 	public void FrissitInstabilJegtabla (InstabilJegtabla m, boolean targyRajz) {
 		
 		MezoInfo mezoinfo = MezoRajzol("-fx-background-color: rgb(68,114,196)",m);
@@ -478,27 +592,42 @@ public class GrafNezet {
 		}
 	}
 	
-	
+	/**
+	 * Frissíti az ásó helyzetét és megjelenését valamit tooltippel látja el a hozzá tartozó gombot
+	 * @param t
+	 */
 	public void FrissitAso(Aso t) {
 		TargyInfo tInfo= TargyRajzol("file:texturak/Aso.png",t);
 		tInfo.setTooltip(new Tooltip("2 egység hó eltakarítása\naz aktuális mezőről"));
 	}
-	
+	/**
+	 * Frissíti a lapát helyzetét és megjelenését valamit tooltippel látja el a hozzá tartozó gombot
+	 * @param t
+	 */
 	public void FrissitLapat(Lapat t) {
 		TargyInfo tInfo= TargyRajzol("file:texturak/lapat.png",t);
 		tInfo.setTooltip(new Tooltip("2 egység hó eltakarítása\naz aktuális mezőről"));
 	}
-	
+	/**
+	 * Frissíti az élelem helyzetét és megjelenését valamit tooltippel látja el a hozzá tartozó gombot
+	 * @param t
+	 */
 	public void FrissitElelem(Elelem t) {
 		TargyInfo tInfo= TargyRajzol("file:texturak/kaja.png",t);
 		tInfo.setTooltip(new Tooltip("Élelem elfogyasztása"));
 	}
-	
+	/**
+	 * Frissíti a sátor helyzetét és megjelenését valamit tooltippel látja el a hozzá tartozó gombot
+	 * @param t
+	 */
 	public void FrissitSator(Sator t) {
 		TargyInfo tInfo= TargyRajzol("file:texturak/Sator.png",t);
 		tInfo.setTooltip(new Tooltip("Sátor lehelyezése\naz aktuális mezőre"));
 	}
-	
+	/**
+	 * Frissíti a búvárruha helyzetét és megjelenését valamit tooltippel látja el a hozzá tartozó gombot
+	 * @param t
+	 */
 	public void FrissitBuvarRuha(Buvarruha t) {
 		// TODO: Kirajzoltatja magat
 		if(hordja) {
@@ -510,12 +639,18 @@ public class GrafNezet {
 		}
 		
 	}	
-	
+	/**
+	 * Frissíti az alapruha helyzetét és megjelenését valamit tooltippel látja el a hozzá tartozó gombot
+	 * @param t
+	 */
 	public void FrissitAlapRuha(AlapRuha t) {
 		// TODO: Kirajzoltatja magat
 		ruhaKep.setImage(null);
 	}
-	
+	/**
+	 * Frissíti az alkatrész helyzetét és megjelenését valamit tooltippel látja el a hozzá tartozó gombot
+	 * @param t
+	 */
 	public void FrissitAlkatresz(Alkatresz t) {
 		TargyInfo tInfo= TargyRajzol("file:texturak/Alkatresz.png",t);
 		alkatreszBar.getChildren().clear();
@@ -524,12 +659,18 @@ public class GrafNezet {
 		}
 		tInfo.setTooltip(new Tooltip("Alkatrész bejelentése"));
 	}
-	
+	/**
+	 * Frissíti a kötél helyzetét és megjelenését valamit tooltippel látja el a hozzá tartozó gombot
+	 * @param t
+	 */
 	public void FrissitKotel(Kotel t) {
 		TargyInfo tInfo= TargyRajzol("file:texturak/Kotel.png",t);
 		tInfo.setTooltip(new Tooltip("Játékos kimenekítése egy\nelőre kiválasztott mezőről"));
 	}
-	
+	/**
+	 * Frissíti az iglu helyzetét és megjelenését
+	 * @param t
+	 */
 	public void FrissitIglu(Iglu e) {
 		ImageView igluKep = new ImageView(new Image("file:texturak/Iglu.png",epuletMeret,epuletMeret,false,false));
 		igluKep.setTranslateX(aktX-epuletMeret/2);
@@ -537,10 +678,18 @@ public class GrafNezet {
 		valtozoJatekTer.add(igluKep);
 		jatekTer.getChildren().add(igluKep);	
 	}
-	
+	/**
+	 * Frissíti az noglu helyzetét és megjelenését
+	 * @param t
+	 */
 	public void FrissitNoglu(Noglu e) {
 	}	
-
+	/**
+	 * lekéri a megelenítendő mezőket és elhelyezi őket a pályát egy négyzetrács szerű alakban
+	 * aztán összeköti azokat
+	 * majd a mezők számának függvényében beállítja a pályaméretet
+	 * @param mezok
+	 */
 	public void Mezolehelyez(ArrayList<Mezo> mezok) {
 		// TODO: Joconak kene egy grafkirajzolast irnia	
 		
@@ -574,16 +723,24 @@ public class GrafNezet {
 		jatekTer.setPrefWidth(mezoTav+(mezok.size() / oldal)*(mezoMeret+mezoTav));
 		
 	}
-	
-	public void Torol() {
-		jatekTer.getChildren().removeAll(valtozoJatekTer);
-		valtozoJatekTer.clear();
-	}	
+	/**
+	 * belső osztály, ami a mezőktől valamint tárgyaktól eredő eseményeket kezeli
+	 * @author HP_OMEN
+	 *
+	 */
 	public class MyActionListener implements EventHandler<ActionEvent>{
 	    	GrafNezet nezet;
+	    	/**
+	    	 * konstruktor, beállítja a nézetet
+	    	 * @param n
+	    	 */
 	    	public  MyActionListener(GrafNezet n) {
 	    		nezet = n;
 	    	}
+	    	/**
+	    	 * Az eseménykezelést megvalósító függvény, végigmegy az összes mezőn és tárgyon és megnézi,
+	    	 * hogy érkezett-e esemény a részükről, ha igen kezeli őket
+	    	 */
 			@Override
 			public void handle(ActionEvent event) {					
 				mezoinf.forEach(m->{					

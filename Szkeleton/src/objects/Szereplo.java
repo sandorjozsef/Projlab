@@ -70,8 +70,7 @@ public abstract class Szereplo implements Serializable, Nezheto{
     public Szereplo(String id) {
         this.id=id;
         targyak = new ArrayList<Targy>();      
-        targyak.add(new Elelem());
-        targyak.add(new Buvarruha());
+        targyak.add(new Elelem());       
   
         
         ruha = new AlapRuha();
@@ -90,6 +89,12 @@ public abstract class Szereplo implements Serializable, Nezheto{
      */
     public int getTestho() {
     	return testho;
+    }
+    /**
+     * Visszaadja aszereplő tárgyait
+     * */    
+    public ArrayList<Targy> getTargyak(){
+    	return targyak;
     }
     /**
      * Visszaadja az aktuális mezőt (aktmezo).
