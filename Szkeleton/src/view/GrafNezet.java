@@ -67,7 +67,7 @@ public class GrafNezet {
 	private int szereploMeret =80;
 	private int targyMeret = 80;
 	private int epuletMeret= 100;
-	private int mezoTav = 60;
+	private int mezoTav = 150;
 	private boolean vizben = false;
 	private boolean hasznalhato= false;
 	private boolean hordja = false;
@@ -524,17 +524,66 @@ public class GrafNezet {
 	}
 	
 	public void FrissitNoglu(Noglu e) {
-	}
+	}	
 	
+	public void mezoGeneral(double x, double y, Mezo valasztottMezo, ArrayList<Mezo> kirajzolt){
+		double mezoSzomszedTav = 0;		
+		
+			double szog = 2*Math.PI/valasztottMezo.getSzomszed().size();
+			mezoSzomszedTav = (mezoMeret + mezoTav)/(2*Math.sin(szog/2));
+			double ujx = mezoSzomszedTav;
+			double ujy = 0;
+			for(int i = 0; i<valasztottMezo.getSzomszed().size();i++) {
+				if(!kirajzolt.contains(valasztottMezo.getSzomszed().get(i))) {
+					MezoInfo szomszedinfo = new MezoInfo(valasztottMezo.getSzomszed().get(i), 0,0,mezoMeret,mezoMeret);					
+					szomszedinfo.setCenter(ujx*Math.cos(i*szog) - ujy*Math.sin(i*szog) + x,ujx*Math.sin(i*szog) + ujy*Math.cos(i*szog)+ y);
+					mezoinf.add(szomszedinfo);
+					szomszedinfo.setOnAction(kattintasKezelo);
+					kirajzolt.add(valasztottMezo.getSzomszed().get(i));	
+					mezoGeneral(szomszedinfo.getCenterX(),szomszedinfo.getCenterY(),valasztottMezo.getSzomszed().get(i),kirajzolt);
+				}					
+		}
+	}
 	public void Mezolehelyez(ArrayList<Mezo> mezok) {
 		// TODO: Joconak kene egy grafkirajzolast irnia
+		jatekTer.setPrefHeight(1000);
+		jatekTer.setPrefWidth(3000);	
+		double x = 500;
+		double y = 500;		
 		
-		for(int i = 0, j = 0; i<mezok.size();i++) {
+		ArrayList<Mezo> kirajzolt = new ArrayList<Mezo>();		
+		
+		for(int j = 0; j<mezok.size();j++) {			
+			for(int i = 0; i<mezok.size();i++){
+				if(mezok.get(i).getSzomszed().size()<mezok.get(j).getSzomszed().size()) {
+					Mezo temp = mezok.get(i);
+					mezok.set(i, mezok.get(j));
+					mezok.set(j, temp);
+				}
+			}	
+		}	
+		for(int j = 0; j<mezok.size();j++) {
+			Mezo mezo = mezok.get(j);
+			if(!kirajzolt.contains(mezo)){
+				MezoInfo mezoinfo = new MezoInfo(mezo, 0,0,mezoMeret,mezoMeret);
+				mezoinfo.setCenter(x, y);
+				mezoinf.add(mezoinfo);
+				mezoinfo.setOnAction(kattintasKezelo);
+				kirajzolt.add(mezo);				
+			}
+			mezoGeneral(x,y,mezo,kirajzolt);
+		}
+		
+		
+	
+		
+		
+		/*for(int i = 0, j = 0; i<mezok.size();i++) {
 			MezoInfo mezoinfo = new MezoInfo(mezok.get(i),(mezoMeret+mezoTav)*(i%4),(i%4==0&&i!=0?j+=(mezoMeret+mezoTav):j),mezoMeret,mezoMeret);
 			mezoinf.add(mezoinfo);
 			mezoinfo.setOnAction(kattintasKezelo);
 			
-		}	
+		}*/
 		
 		
 		mezoinf.forEach(mi->{
@@ -551,8 +600,6 @@ public class GrafNezet {
 		});
 		
 		jatekTer.getChildren().addAll(mezoinf);
-		jatekTer.setPrefHeight((mezok.size() / 4 + 1) * (mezoTav+mezoMeret));
-		jatekTer.setPrefWidth((mezok.size() / 4 + 1) * (mezoTav+mezoMeret));		
 		
 	}
 	
