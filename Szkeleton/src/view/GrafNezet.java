@@ -57,7 +57,7 @@ public class GrafNezet {
 	private Text testHo;
 	private Text lepesSzam;
 	
-	private Text cimke;
+	private Text menuCimke;
 	
 	private Text aktMezoAllapot;
 	private Text valasztottMezoAllapot;
@@ -85,7 +85,7 @@ public class GrafNezet {
 		
 		mezoinf = new ArrayList<MezoInfo>();
 		
-		cimke = new Text("MENÜ");
+		menuCimke = new Text("MENU");
 
 		
 		startB = new Button("START");
@@ -94,7 +94,7 @@ public class GrafNezet {
 		betoltPalya = new ComboBox<String>();
 		betoltJatek = new TextField();
 		
-		menuRoot = new VBox(cimke, startB, betoltPalya, betoltB, betoltJatek, menuKilepB);
+		menuRoot = new VBox(menuCimke, startB, betoltPalya, betoltB, betoltJatek, menuKilepB);
 		menuNezet = new Scene(menuRoot, 500, 800, Color.BLACK);		
 		Menu();
 		
@@ -155,8 +155,8 @@ public class GrafNezet {
 		menuRoot.setAlignment(Pos.CENTER);
 		
 		
-		VBox.setMargin(cimke, new Insets(0,0,80,0));
-		cimke.getStyleClass().add("cimke");
+		VBox.setMargin(menuCimke, new Insets(0,0,80,0));
+		menuCimke.getStyleClass().add("cimke");
 		
 		betoltPalya.getItems().addAll("Gold", "alap", "jatekvege", "chess1", "chess2", "diamond", "4x4");
 		betoltPalya.setValue("");
@@ -184,10 +184,10 @@ public class GrafNezet {
 		allapotBar.setAlignment(Pos.BOTTOM_RIGHT);
 		
 		targyBar.setAlignment(Pos.CENTER_RIGHT);
-		targyBar.setVgap(1);
-		targyBar.setHgap(1);
+		targyBar.setVgap(4);
+		targyBar.setHgap(4);
 		targyBar.setPrefWrapLength(170);
-		targyBar.setPadding(new Insets(8));
+		targyBar.setPadding(new Insets(10));
 	
 		
 		aktMezoBar.getStyleClass().add("mezoBar");
@@ -416,8 +416,8 @@ public class GrafNezet {
             	mezoinf.get(i).getStyleClass().add("aktMezo");
             	mezoinf.get(i).requestFocus();
             	mezoinf.get(i).arm();
-            	sc.setVvalue(mezoinf.get(i).getCenterY()/jatekTer.getPrefHeight());
-            	sc.setHvalue(mezoinf.get(i).getCenterX()/jatekTer.getPrefWidth());            	        	
+            	mezoinf.get(i).fire();
+            	          	        	
             }
             else
             	mezoinf.get(i).getStyleClass().add("tavoliMezo");  
@@ -710,7 +710,7 @@ public class GrafNezet {
 				if(mi.getMezo().isSzomszed(mj.getMezo())){
 					Line vonal = new Line(mi.getCenterX(),mi.getCenterY(),mj.getCenterX(),mj.getCenterY());
 					vonal.setStrokeWidth(3);
-				    vonal.setStroke(Color.CORNFLOWERBLUE);
+				    vonal.setStroke(Color.WHITE);
 					jatekTer.getChildren().add(vonal);
 				}
 				
@@ -745,7 +745,9 @@ public class GrafNezet {
 			public void handle(ActionEvent event) {					
 				mezoinf.forEach(m->{					
 					if(event.getSource() == m) {
-						kijeloltMezo = m.getMezo();						
+						kijeloltMezo = m.getMezo();	
+						sc.setVvalue(m.getCenterY()/jatekTer.getPrefHeight());
+		            	sc.setHvalue(m.getCenterX()/jatekTer.getPrefWidth());  
 						valasztottMezoAllapot.setText("Kiválasztott mező\nHóvastagság: "+kijeloltMezo.gethoVastagsag()
 						+"\nTeherbírás: "+(kijeloltMezo.getfelderitett()?kijeloltMezo.getTeherBiras():"ismeretlen"));						
 					}					
