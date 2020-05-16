@@ -126,8 +126,8 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 				File f= new File(".\\" + (nezet.getPalyaNev().equals("")?"palyak/Gold.map":"palyak/"+nezet.getPalyaNev()+".map"));
 				if(f.exists()) {					
 					Palya.JatekotKezd(new FileInputStream(f));						
-					window.setScene(nezet.getJatekNezet());
 					nezet.Mezolehelyez(Palya.getMezok());
+					window.setScene(nezet.getJatekNezet());
 					
 				}
 			}
@@ -135,8 +135,8 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 				File f= new File(".\\" + (nezet.getJatekNev().equals("")?"Mentes.dat":nezet.getJatekNev()));
 				if(f.exists()) {						
 					Palya.Load(f.getName());
-					window.setScene(nezet.getJatekNezet());		
 					nezet.Mezolehelyez(Palya.getMezok());
+					window.setScene(nezet.getJatekNezet());		
 					
 				}
 			}

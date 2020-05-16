@@ -417,7 +417,12 @@ public class GrafNezet {
             	mezoinf.get(i).requestFocus();
             	mezoinf.get(i).arm();
             	mezoinf.get(i).fire();
-            	          	        	
+            	double tav = mezoinf.get(i).getCenterX()-sc.getWidth()/2;
+				double tav2 = jatekTer.getPrefWidth()-sc.getWidth();
+				sc.setHvalue(tav/tav2);
+				tav = mezoinf.get(i).getCenterY()-sc.getHeight()/2;
+				tav2 = jatekTer.getPrefHeight()-sc.getHeight();
+            	sc.setVvalue(tav/tav2);             	          	        	
             }
             else
             	mezoinf.get(i).getStyleClass().add("tavoliMezo");  
@@ -745,9 +750,7 @@ public class GrafNezet {
 			public void handle(ActionEvent event) {					
 				mezoinf.forEach(m->{					
 					if(event.getSource() == m) {
-						kijeloltMezo = m.getMezo();	
-						sc.setVvalue(m.getCenterY()/jatekTer.getPrefHeight());
-		            	sc.setHvalue(m.getCenterX()/jatekTer.getPrefWidth());  
+						kijeloltMezo = m.getMezo();						 
 						valasztottMezoAllapot.setText("Kiválasztott mező\nHóvastagság: "+kijeloltMezo.gethoVastagsag()
 						+"\nTeherbírás: "+(kijeloltMezo.getfelderitett()?kijeloltMezo.getTeherBiras():"ismeretlen"));						
 					}					
