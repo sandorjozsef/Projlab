@@ -75,24 +75,26 @@ public final class Palya{
 	 * Hóvihart genrál
 	 */
 	public static void Leptet() {
-		Szereplo kov;
-		int akt=szereplok.lastIndexOf(aktJatekos);
-		if(akt==szereplok.size()-1) {
-			kov=szereplok.get(0);
+		if(aktJatekos != null) {
+			Szereplo kov;
+			int akt=szereplok.lastIndexOf(aktJatekos);
+			if(akt==szereplok.size()-1) {
+				kov=szereplok.get(0);
+			}
+			else {
+				kov=szereplok.get(akt+1);
+			}
+			aktJatekos=kov;
+			aktJatekos.setLepesszam(4);
+			Mezo mezo=aktJatekos.getMezo();
+			mezo.Hatas(aktJatekos);
+			Hovihar();
+			Mezofrissit();
+			if(aktJatekos!=null) {
+				System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");
+				aktJatekos.Autolepes();					
+			}
 		}
-		else {
-			kov=szereplok.get(akt+1);
-		}
-		aktJatekos=kov;
-		aktJatekos.Autolepes();		
-		aktJatekos.setLepesszam(4);
-		Mezo mezo=aktJatekos.getMezo();
-		mezo.Hatas(aktJatekos);
-		Hovihar();
-		Mezofrissit();
-		if(aktJatekos != null)
-			System.out.println("-'"+aktJatekos.getId()+"' kovetkezik-");
-		
 	}
 
 	/**
