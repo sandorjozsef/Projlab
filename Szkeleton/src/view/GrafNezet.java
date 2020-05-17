@@ -21,6 +21,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import main.MyApplication;
 
@@ -59,7 +60,7 @@ public class GrafNezet {
 	private Text lepesSzam;
 	
 	private Text menuCimke;
-	
+	private Text nyertekCimke;
 	private Text aktMezoAllapot;
 	private Text valasztottMezoAllapot;
 	private ImageView jatekosKep;
@@ -87,7 +88,7 @@ public class GrafNezet {
 		mezoinf = new ArrayList<MezoInfo>();
 		
 		menuCimke = new Text("MENU");
-
+		nyertekCimke = new Text();
 		
 		startB = new Button("START");
 		betoltB = new Button("BETÖLT");
@@ -95,7 +96,7 @@ public class GrafNezet {
 		betoltPalya = new ComboBox<String>();
 		betoltJatek = new TextField();
 		
-		menuRoot = new VBox(menuCimke, startB, betoltPalya, betoltB, betoltJatek, menuKilepB);
+		menuRoot = new VBox(nyertekCimke,menuCimke, startB, betoltPalya, betoltB, betoltJatek, menuKilepB);
 		menuNezet = new Scene(menuRoot, 500, 800, Color.BLACK);		
 		Menu();
 		
@@ -155,8 +156,9 @@ public class GrafNezet {
 		menuRoot.setSpacing(15);					
 		menuRoot.setAlignment(Pos.CENTER);
 		
-		
-		VBox.setMargin(menuCimke, new Insets(0,0,80,0));
+		VBox.setMargin(nyertekCimke, new Insets(0,0,50,0));
+		nyertekCimke.setFont(new Font(30));
+		VBox.setMargin(menuCimke, new Insets(0,0,50,0));
 		menuCimke.getStyleClass().add("cimke");
 		
 		betoltPalya.getItems().addAll("Gold", "alap", "jatekvege", "chess1", "chess2", "diamond", "4x4");
@@ -218,6 +220,14 @@ public class GrafNezet {
 		this.jatekTer.getChildren().clear();
 		mezoinf.clear();		
 		this.Torol();
+		if(Palya.getNyertek()) {
+			nyertekCimke.setText("Gratulálunk nyertetek!");
+			nyertekCimke.setFill(Color.GREEN);
+		}
+		else {			
+			nyertekCimke.setText("Vesztettetek.");
+			nyertekCimke.setFill(Color.DARKRED);
+		}
 	}
 	/**
 	 * Letörli az egész dinamikus játékteret, egy játék közben megváltozhat 

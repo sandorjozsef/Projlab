@@ -38,6 +38,7 @@ public final class Palya{
 	private static int alkatreszek = 0;
 	private static boolean randomHovihar = true;
 	private static int jatekosSzam = 0;
+	private static boolean nyertek = false;
 	
 	/**
 	 * Statikus osztály, nem lehet kívülről hívható konstruktor
@@ -69,6 +70,9 @@ public final class Palya{
 		}
 		System.out.println("Nincs ilyen nevu szereplo!: "+id);
 		return null;	
+	}
+	public static boolean getNyertek() {
+		return nyertek;
 	}
 	/**
 	 * Ez a metódus adja át a lépésjogot a következő játékosnak.
@@ -122,6 +126,7 @@ public final class Palya{
 	 * @param nyert 
 	 */
 	public static void JatekVege(boolean nyert){
+		nyertek = nyert;
 		aktJatekos = null;
 		clear();
 		try {
