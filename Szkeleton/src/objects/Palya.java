@@ -109,7 +109,7 @@ public final class Palya{
 		Random rand = new Random();
 		if(randomHovihar) {
 			for(int i = 0; i<mezok.size();i++) {
-				if (rand.nextInt(2) == 1)
+				if (rand.nextInt(5) == 1)
 					mezok.get(i).Hoeses();
 			
 			}
